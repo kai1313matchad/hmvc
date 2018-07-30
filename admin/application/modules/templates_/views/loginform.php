@@ -40,5 +40,15 @@
 
   <body class="login">
     <?php $this->load->view($module.'/'.$content); ?>
+    <!-- Base JS -->
+    <?php
+    if(isset($addon_js))
+      {
+        foreach ($addon_js as $addon)
+        {
+          $this->load->view($module.'/'.$addon);  
+        }     
+      }
+    ?>
   </body>
 </html>

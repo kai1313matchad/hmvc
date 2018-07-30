@@ -4,7 +4,7 @@
 			<div class="slick1">
 				<div class="item-slick1 item1-slick1" style="background-image: url(<?php echo base_url()?>assets/frontend/images/banners/banner1.jpg);">
 					<div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
-						<span class="caption1-slide1 m-text1 t-center animated visible-false m-b-15" data-appear="fadeInDown">
+						<!-- <span class="caption1-slide1 m-text1 t-center animated visible-false m-b-15" data-appear="fadeInDown">
 							Caption
 						</span>
 
@@ -13,17 +13,16 @@
 						</h2>
 
 						<div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="zoomIn">
-							<!-- Button -->
 							<a href="product.html" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
 								Buy Now
 							</a>
-						</div>
+						</div> -->
 					</div>
 				</div>
 
 				<div class="item-slick1 item2-slick1" style="background-image: url(<?php echo base_url()?>assets/frontend/images/banners/banner2.jpg);">
 					<div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
-						<span class="caption1-slide1 m-text1 t-center animated visible-false m-b-15" data-appear="rollIn">
+						<!-- <span class="caption1-slide1 m-text1 t-center animated visible-false m-b-15" data-appear="rollIn">
 							Caption
 						</span>
 
@@ -32,17 +31,16 @@
 						</h2>
 
 						<div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="slideInUp">
-							<!-- Button -->
 							<a href="product.html" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
 								Buy Now
 							</a>
-						</div>
+						</div> -->
 					</div>
 				</div>
 
 				<div class="item-slick1 item3-slick1" style="background-image: url(<?php echo base_url()?>assets/frontend/images/banners/banner3.jpg);">
 					<div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
-						<span class="caption1-slide1 m-text1 t-center animated visible-false m-b-15" data-appear="rotateInDownLeft">
+						<!-- <span class="caption1-slide1 m-text1 t-center animated visible-false m-b-15" data-appear="rotateInDownLeft">
 							Caption
 						</span>
 
@@ -51,11 +49,10 @@
 						</h2>
 
 						<div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="rotateIn">
-							<!-- Button -->
 							<a href="product.html" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
 								Buy Now
 							</a>
-						</div>
+						</div> -->
 					</div>
 				</div>
 
