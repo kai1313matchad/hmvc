@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `login_attempts` (
   `login` varchar(100) NOT NULL,
   `time` int(11) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table iontest.login_attempts: ~9 rows (approximately)
 /*!40000 ALTER TABLE `login_attempts` DISABLE KEYS */;
@@ -125,10 +125,13 @@ CREATE TABLE IF NOT EXISTS `mona_mainbanners` (
   `MBANN_LINK` varchar(1024) DEFAULT NULL,
   `MBANN_IMGPATH` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`MBANN_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table iontest.mona_mainbanners: ~0 rows (approximately)
 /*!40000 ALTER TABLE `mona_mainbanners` DISABLE KEYS */;
+INSERT INTO `mona_mainbanners` (`MBANN_ID`, `MBANN_NAME`, `MBANN_LINK`, `MBANN_IMGPATH`) VALUES
+	(1, 'Banner Name', 'Banner Link', '/assets/img/banner/default.jpg'),
+	(2, 'Banner Name', 'Banner Link', '/assets/img/banner/default.jpg');
 /*!40000 ALTER TABLE `mona_mainbanners` ENABLE KEYS */;
 
 -- Dumping structure for table iontest.mona_product
@@ -200,7 +203,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table iontest.users: ~2 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-	(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1532940118, 1, 'Admin', 'istrator', 'ADMIN', '0'),
+	(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1533000039, 1, 'Admin', 'istrator', 'ADMIN', '0'),
 	(2, '127.0.0.1', 'tes1', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', NULL, 'tes@mail.com', NULL, NULL, NULL, NULL, 1532591726, 1532940104, 1, 'tes', 'tes', 'tes', '123415'),
 	(3, '127.0.0.1', 'tes2@mail.com', '$2y$08$N/k5kV1vMgglz/olhGc0OuOYMdqHfyXFiN2LFPwnyRM1Tt5WwsqKu', NULL, 'tes2@mail.com', NULL, NULL, NULL, NULL, 1532591825, NULL, 1, 'tes2', 'tes2', 'tes2', '987654');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;

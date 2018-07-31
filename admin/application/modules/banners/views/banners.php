@@ -22,6 +22,10 @@
                   </div>
                   <div class="x_content">
                   	<div id="alert-del"></div>
+                    <div class="">
+                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button>
+                    </div>
+                    <div class="clearfix"></div>
                     <table id="dtb-mainbannerall" class="table table-striped table-bordered" width="100%">
                     	<thead>
                       	<tr>
@@ -35,6 +39,12 @@
                       </thead>
                       <tbody>
                       </tbody>
+                      <tfoot>
+                        <tr>
+                          <th colspan="5"></th>
+                          <th><button type="button" class="btn btn-primary" onclick="add_banner()"><i class="fa fa-plus"></i></button></th>
+                        </tr>
+                      </tfoot>
                     </table>
                   </div>
                 </div>
@@ -42,7 +52,34 @@
             </div>
 
             <div class="clearfix"></div>
-
           </div>
         </div>
         <!-- /page content -->
+        <!-- Modal -->
+        <div class="modal fade bs-example-modal-sm" id="img_modal" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel2">Modal title</h4>
+              </div>
+              <div class="modal-body">
+                <form id="form-img" class="form-horizontal form-label-left" enctype="multipart/form-data">
+                  <div class="form-group">
+                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Image</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input type="file" id="productpic" name="productpic" required="required">
+                      <span class="help-block"></span>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /Modal -->

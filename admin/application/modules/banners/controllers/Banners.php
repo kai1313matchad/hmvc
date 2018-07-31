@@ -5,7 +5,7 @@ class Banners extends MX_Controller
   {
   	parent::__construct();
     $this->load->model('crud/M_gen','gen');
-    // $this->load->model('Dtb_productall','prodall');
+    $this->load->model('Dtb_mainbannerall','bannall');
   }
   public function index()
   {
@@ -14,39 +14,49 @@ class Banners extends MX_Controller
   	$data['view_content'] = 'banners';
     $data['view_addoncss'] = array('banners_css');
     $data['view_addonjs'] = array('banners_js');
-    // $data['view_addoncustjs'] = array('banners_custjs');
+    $data['view_addoncustjs'] = array('banners_custjs');
   	$this->templates_->admin($data);
   }
-  // public function get_productall()
-  // {
-  //   $list = $this->prodall->get_datatables();
-  //   $data = array();
-  //   $no = $_POST['start'];
-  //   foreach ($list as $dat)
-  //   {
-  //     $no++;
-  //     $row = array();
-  //     $row[] = $no;
-  //     $row[] = $dat->PROD_ID;
-  //     $row[] = $dat->PROD_NAME;
-  //     $row[] = number_format($dat->PROD_PRICE);     
-  //     $row[] = '<a href="'.base_url().$dat->PROD_PIC.'" target="blank__"><img class="img-responsive img-adm-product" src="'.base_url().$dat->PROD_PIC.'"></a>';
-  //     $row[] = '<a href="javascript:void(0)" title="Edit Data" class="btn btn-sm btn-primary btn-responsive" onclick="edit_prod('."'".$dat->PROD_ID."'".')"><span class="glyphicon glyphicon-pencil"></span> </a>';
-  //     $row[] = '<a href="javascript:void(0)" title="Hapus Data" class="btn btn-sm btn-danger btn-responsive" onclick="delete_prod('."'".$dat->PROD_ID."'".')"><span class="glyphicon glyphicon-trash"></span> </a>';
-  //     $data[] = $row;
-  //   }
-  //   $output = array(
-  //           "draw" => $_POST['draw'],
-  //           "recordsTotal" => $this->prodall->count_all(),
-  //           "recordsFiltered" => $this->prodall->count_filtered(),
-  //           "data" => $data,
-  //   );      
-  //   echo json_encode($output);
-  // }
+  public function get_mainbannerall()
+  {
+    $list = $this->bannall->get_datatables();
+    $data = array();
+    $no = $_POST['start'];
+    foreach ($list as $dat)
+    {
+      $no++;
+      $row = array();
+      $row[] = $no;
+      $row[] = '<input type="text" class="form-control" value="'.$dat->MBANN_NAME.'">';
+      $row[] = '<input type="text" class="form-control" value="'.$dat->MBANN_LINK.'">';
+      $row[] = '<div class="hov-img-zoom pos-relative" onclick="img_modal()" title="click to change"><img class="img-responsive img-adm-product" src="'.base_url().$dat->MBANN_IMGPATH.'"></div>';
+      $row[] = '<a href="javascript:void(0)" title="Edit Data" class="btn btn-sm btn-primary btn-responsive" onclick="save_banner('."'".$dat->MBANN_ID."'".')"><i class="fa fa-save"></i></a>';
+      $row[] = '<a href="javascript:void(0)" title="Hapus Data" class="btn btn-sm btn-danger btn-responsive" onclick="delete_banner('."'".$dat->MBANN_ID."'".')"><i class="fa fa-trash"></i></a>';
+      $data[] = $row;
+    }
+    $output = array(
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $this->bannall->count_all(),
+            "recordsFiltered" => $this->bannall->count_filtered(),
+            "data" => $data,
+    );      
+    echo json_encode($output);
+  }
   public function get_bannerrow($id)
   {
     $que = $this->db->get_where('mona_product',array('prod_id'=>$id));
     $data = $que->row();
+    echo json_encode($data);
+  }
+  public function add_banner()
+  {
+    $add = array(
+      'mbann_name'=>'Banner Name',
+      'mbann_link'=>'Banner Link',
+      'mbann_imgpath'=>'/assets/img/banner/default.jpg'
+    );
+    $insert = $this->db->insert('mona_mainbanners',$add);
+    $data['status'] = ($this->db->affected_rows())?TRUE:FALSE;
     echo json_encode($data);
   }
   public function save_banner()
