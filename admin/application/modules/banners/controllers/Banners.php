@@ -27,10 +27,10 @@ class Banners extends MX_Controller
       $no++;
       $row = array();
       $row[] = $no;
-      $row[] = '<input type="text" class="form-control" value="'.$dat->MBANN_NAME.'">';
-      $row[] = '<input type="text" class="form-control" value="'.$dat->MBANN_LINK.'">';
-      $row[] = '<div class="hov-img-zoom pos-relative" onclick="img_modal()" title="click to change"><img class="img-responsive img-adm-product" src="'.base_url().$dat->MBANN_IMGPATH.'"></div>';
-      $row[] = '<a href="javascript:void(0)" title="Edit Data" class="btn btn-sm btn-primary btn-responsive" onclick="save_banner('."'".$dat->MBANN_ID."'".')"><i class="fa fa-save"></i></a>';
+      $row[] = '<div class="col-sm-12"><input class="form-control" name="bannername['.$dat->MBANN_ID.']" value="'.$dat->MBANN_NAME.'"></div>';
+      $row[] = $dat->MBANN_LINK;
+      $row[] = '<div class="hov-img-zoom pos-relative" onclick="img_modal('.$dat->MBANN_ID.')" title="click to change"><img class="img-responsive img-adm-product" src="'.base_url().$dat->MBANN_IMGPATH.'"></div>';
+      $row[] = '<a href="javascript:void(0)" title="Hapus Data" class="btn btn-sm btn-primary btn-responsive" onclick="edit_banner('."'".$dat->MBANN_ID."'".')"><i class="fa fa-save"></i></a>';
       $row[] = '<a href="javascript:void(0)" title="Hapus Data" class="btn btn-sm btn-danger btn-responsive" onclick="delete_banner('."'".$dat->MBANN_ID."'".')"><i class="fa fa-trash"></i></a>';
       $data[] = $row;
     }
@@ -57,6 +57,38 @@ class Banners extends MX_Controller
     );
     $insert = $this->db->insert('mona_mainbanners',$add);
     $data['status'] = ($this->db->affected_rows())?TRUE:FALSE;
+    echo json_encode($data);
+  }
+  public function save_img()
+  {
+    $id = $this->input->post('bannerid');
+    $getimg = $this->db->get_where('mona_mainbanners',array('mbann_id'=>$id))->row()->MBANN_IMGPATH;
+    $this->img_config_();
+    if(!$this->upload->do_upload('file'))
+    {
+      $data['error_str'] = $this->upload->display_errors();
+      $data['error_str_sts'] = TRUE;
+      $data['status'] = FALSE;
+      echo json_encode($data);
+      exit();
+    }
+    else
+    {
+      $fileinfo_ = $this->upload->data();
+      $path = '/assets/img/banner/'.$fileinfo_['file_name'];
+      $upd = array(
+        'mbann_imgpath'=>$path
+      );
+      $update = $this->db->update('mona_mainbanners',$upd,array('mbann_id'=>$this->input->post('bannerid')));
+      $unlink = ($getimg != '/assets/img/banner/default.jpg')?@unlink('.'.$getimg):'DEFAULT';
+      $data['status']=($this->db->affected_rows())?TRUE:FALSE;
+    }
+    echo json_encode($data);
+  }
+  public function update_banner()
+  {
+    $inp = $this->input->post('bann_name');
+    $data['message'] = 'input '.$inp;
     echo json_encode($data);
   }
   public function save_banner()
@@ -195,7 +227,7 @@ class Banners extends MX_Controller
   public function img_config_()
   {
     $nmfile='img_'.time();
-    $config['upload_path']='./assets/img/product/';
+    $config['upload_path']='./assets/img/banner/';
     $config['allowed_types']='jpg|jpeg|png';
     $config['max_size']='2048';
     $config['file_name']=$nmfile;

@@ -37,18 +37,40 @@
           }
         });
       }
-      function img_modal()
+      function img_modal(id)
       {
         $('#img_modal').modal('show');
+        $('[name="bannerid"]').val(id);
       }
-      function save()
+      function edit_banner(id)
+      {
+        alert($('[name="bannername['+id+']"]').val());
+        $.ajax({
+          url : "<?php echo site_url('Banners/update_banner')?>",
+          type: "POST",
+          data: function(data)
+          {
+            data.bann_name = $('[name="bannername['+id+']"]').val();
+          },
+          dataType: "JSON",
+          success: function(data)
+          {
+            alert(data.message);
+          },
+          error: function (jqXHR, textStatus, errorThrown)
+          {
+            alert('Error Adding / Update User Data');
+          }
+        });
+      }
+      function save_img()
       {
         var fd = new FormData();
-        var file_data = $('#productpic').prop('files')[0];
+        var file_data = $('#bannerpic').prop('files')[0];
         fd.append("file", file_data);
-        var other_data = $('#form-product').serializeArray();
+        var other_data = $('#form-img').serializeArray();
         $.each(other_data,function(key,input){fd.append(input.name,input.value);});
-      	url = "<?php echo site_url('admin/product/Product_/save_product')?>";
+      	url = "<?php echo site_url('Banners/save_img')?>";
       	$.ajax({
 					url : url,
           type: "POST",
@@ -63,7 +85,7 @@
             {
             	$('#alert-div').append('<div class="alert alert-success alert dismissible fade in" role="alert"><button class="close" type="button" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">x</span></button>Success Adding / Update Product</div>');
               reload_table();
-              resetbtn();
+              $('#img_modal').modal('hide');
             }
             else
             {
@@ -72,11 +94,6 @@
               {
                 $('#alert-div').append('<div class="alert alert-danger alert dismissible fade in" role="alert"><button class="close" type="button" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">x</span></button>'+data.error_str+'</div>');
               }
-              for (var i = 0; i < data.inputerror.length; i++) 
-              {
-                $('[name="'+data.inputerror[i]+'"]').parent().parent().addClass('has-error');
-                $('[name="'+data.inputerror[i]+'"]').next().text(data.error_string[i]);
-              }              
             }
           },
           error: function (jqXHR, textStatus, errorThrown)

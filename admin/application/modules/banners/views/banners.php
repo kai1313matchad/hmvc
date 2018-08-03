@@ -22,9 +22,6 @@
                   </div>
                   <div class="x_content">
                   	<div id="alert-del"></div>
-                    <div class="">
-                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button>
-                    </div>
                     <div class="clearfix"></div>
                     <table id="dtb-mainbannerall" class="table table-striped table-bordered" width="100%">
                     	<thead>
@@ -33,7 +30,7 @@
                           <th class="col-sm-3">Title</th>
                       		<th class="col-sm-3">Link</th>
                       		<th class="col-sm-3">Image</th>
-                      		<th class="col-sm-1">Save</th>
+                          <th class="col-sm-1">Update</th>
                       		<th class="col-sm-1">Delete</th>
                       	</tr>
                       </thead>
@@ -65,19 +62,21 @@
                 <h4 class="modal-title" id="myModalLabel2">Modal title</h4>
               </div>
               <div class="modal-body">
+                <div id="alert-div"></div>
                 <form id="form-img" class="form-horizontal form-label-left" enctype="multipart/form-data">
                   <div class="form-group">
                     <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Image</label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                      <input type="file" id="productpic" name="productpic" required="required">
+                      <input type="file" id="bannerpic" name="bannerpic" required="required">
                       <span class="help-block"></span>
                     </div>
+                    <input type="hidden" name="bannerid" value="">
                   </div>
                 </form>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-primary" onclick="save_img()">Save</button>
               </div>
             </div>
           </div>
