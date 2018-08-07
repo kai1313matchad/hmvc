@@ -8,7 +8,7 @@
 
 				<div>
 					<p class="s-text7 w-size27">
-						Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879
+						Any questions? Let us know at Lesti 42th, Darmo, Wonokromo, Surabaya 60241 or call us on (+62)81-331-003778
 					</p>
 
 					<div class="flex-m p-t-30">
@@ -140,7 +140,7 @@
 		</div>
 
 		<div class="t-center p-l-15 p-r-15">
-			<a href="#">
+			<!-- <a href="#">
 				<img class="h-size2" src="<?php echo base_url()?>assets/frontend/images/icons/paypal.png" alt="IMG-PAYPAL">
 			</a>
 
@@ -158,7 +158,7 @@
 
 			<a href="#">
 				<img class="h-size2" src="<?php echo base_url()?>assets/frontend/images/icons/discover.png" alt="IMG-DISCOVER">
-			</a>
+			</a> -->
 
 			<div class="t-center s-text8 p-t-20">
 				Copyright © 2018 All rights reserved. | This template is powered by <a href="https://colorlib.com" target="_blank">Colorlib</a>

@@ -44,22 +44,19 @@
       }
       function edit_banner(id)
       {
-        alert($('[name="bannername['+id+']"]').val());
         $.ajax({
           url : "<?php echo site_url('Banners/update_banner')?>",
+          data : {bann_id : id, bann_name : $('[name="bannername['+id+']"]').val(), bann_link : $('[name="bannerlink['+id+']"]').val()},
           type: "POST",
-          data: function(data)
-          {
-            data.bann_name = $('[name="bannername['+id+']"]').val();
-          },
           dataType: "JSON",
           success: function(data)
           {
-            alert(data.message);
+            $('#alert-del').append('<div class="alert alert-success alert dismissible fade in" role="alert"><button class="close" type="button" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">x</span></button>Success Edit Data</div>');
+            reload_table();
           },
           error: function (jqXHR, textStatus, errorThrown)
           {
-            alert('Error Adding / Update User Data');
+            alert('Error Update Data');
           }
         });
       }
@@ -102,48 +99,19 @@
           }
         });
       }
-      function resetbtn()
-      {
-      	$('[name="form_status"]').val('1');
-      	$('#form-product')[0].reset();
-      	$('.form-group').removeClass('has-error');
-        $('.help-block').empty();
-      }
-      function edit_prod(id)
-      {
-        $('#form-product')[0].reset();
-      	$('[name="form_status"]').val('2');
-      	$('.form-group').removeClass('has-error');
-        $('.help-block').empty();
-        $.ajax({
-        	url : "<?php echo site_url('admin/product/Product_/get_prodrow/')?>"+id,
-          type: "GET",
-          dataType: "JSON",
-          success: function(data)
-          {
-          	$('[name="productid"]').val(data.PROD_ID);
-          	$('[name="productname"]').val(data.PROD_NAME);
-          	$('[name="productprice"]').val(data.PROD_PRICE);
-          },
-          error: function (jqXHR, textStatus, errorThrown)
-          {
-          	alert('Error Get Product Data');
-          }
-        });
-      }
-      function delete_prod(id)
+      function delete_banner(id)
       {
       	if(confirm('Are you sure delete this data?'))
       	{
       		$.ajax({
-	        	url : "<?php echo site_url('admin/product/Product_/del_product/')?>"+id,
+	        	url : "<?php echo site_url('Banners/del_banner/')?>"+id,
 	          type: "GET",
 	          dataType: "JSON",
 	          success: function(data)
 	          {
 	          	if(data.status)
 	          	{
-	          		$('#alert-del').append('<div class="alert alert-success alert dismissible fade in" role="alert"><button class="close" type="button" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">x</span></button>Success Delete Product Data</div>');
+	          		$('#alert-del').append('<div class="alert alert-success alert dismissible fade in" role="alert"><button class="close" type="button" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">x</span></button>Success Delete Data</div>');
               	reload_table();
 	          	}
 	          },

@@ -28,9 +28,9 @@ class Banners extends MX_Controller
       $row = array();
       $row[] = $no;
       $row[] = '<div class="col-sm-12"><input class="form-control" name="bannername['.$dat->MBANN_ID.']" value="'.$dat->MBANN_NAME.'"></div>';
-      $row[] = $dat->MBANN_LINK;
+      $row[] = '<div class="col-sm-12"><input class="form-control" name="bannerlink['.$dat->MBANN_ID.']" value="'.$dat->MBANN_LINK.'"></div>';
       $row[] = '<div class="hov-img-zoom pos-relative" onclick="img_modal('.$dat->MBANN_ID.')" title="click to change"><img class="img-responsive img-adm-product" src="'.base_url().$dat->MBANN_IMGPATH.'"></div>';
-      $row[] = '<a href="javascript:void(0)" title="Hapus Data" class="btn btn-sm btn-primary btn-responsive" onclick="edit_banner('."'".$dat->MBANN_ID."'".')"><i class="fa fa-save"></i></a>';
+      $row[] = '<a href="javascript:void(0)" title="Update Data" class="btn btn-sm btn-primary btn-responsive" onclick="edit_banner('."'".$dat->MBANN_ID."'".')"><i class="fa fa-save"></i></a>';
       $row[] = '<a href="javascript:void(0)" title="Hapus Data" class="btn btn-sm btn-danger btn-responsive" onclick="delete_banner('."'".$dat->MBANN_ID."'".')"><i class="fa fa-trash"></i></a>';
       $data[] = $row;
     }
@@ -87,8 +87,15 @@ class Banners extends MX_Controller
   }
   public function update_banner()
   {
-    $inp = $this->input->post('bann_name');
-    $data['message'] = 'input '.$inp;
+    $id = $this->input->post('bann_id');
+    $bann_nm = $this->input->post('bann_name');
+    $bann_ln = $this->input->post('bann_link');
+    $upd = array(
+      'mbann_name'=>$bann_nm,
+      'mbann_link'=>$bann_ln,
+    );
+    $update = $this->db->update('mona_mainbanners',$upd,array('mbann_id'=>$id));
+    $data['status']=($this->db->affected_rows())?TRUE:FALSE;
     echo json_encode($data);
   }
   public function save_banner()
@@ -162,10 +169,7 @@ class Banners extends MX_Controller
   }
   public function del_banner($id)
   {
-    $del = array(
-      'prod_dtsts' => '0'
-    );
-    $update = $this->db->update('mona_product',$del,array('prod_id'=>$id));
+    $del = $this->db->delete('mona_mainbanners',array('mbann_id'=>$id));
     $data['status']=($this->db->affected_rows())?TRUE:FALSE;
     echo json_encode($data);
   }

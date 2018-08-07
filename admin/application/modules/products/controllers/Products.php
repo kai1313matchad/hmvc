@@ -17,6 +17,16 @@ class Products extends MX_Controller
     $data['view_addoncustjs'] = array('product_custjs');
   	$this->templates_->admin($data);
   }
+  public function crud()
+  {
+    $this->load->module('templates_');
+    $data['view_module'] = 'products';
+    $data['view_content'] = 'product_crud';
+    $data['view_addoncss'] = array('product_css');
+    $data['view_addonjs'] = array('product_js');
+    $data['view_addoncustjs'] = array('product_custjs');
+    $this->templates_->admin($data);
+  }
   public function get_productall()
   {
     $list = $this->prodall->get_datatables();
@@ -31,7 +41,8 @@ class Products extends MX_Controller
       $row[] = $dat->PROD_NAME;
       $row[] = number_format($dat->PROD_PRICE);     
       $row[] = '<a href="'.base_url().$dat->PROD_PIC.'" target="blank__"><img class="img-responsive img-adm-product" src="'.base_url().$dat->PROD_PIC.'"></a>';
-      $row[] = '<a href="javascript:void(0)" title="Edit Data" class="btn btn-sm btn-primary btn-responsive" onclick="edit_prod('."'".$dat->PROD_ID."'".')"><span class="glyphicon glyphicon-pencil"></span> </a>';
+      // $row[] = '<a href="javascript:void(0)" title="Edit Data" class="btn btn-sm btn-primary btn-responsive" onclick="edit_prod('."'".$dat->PROD_ID."'".')"><span class="glyphicon glyphicon-pencil"></span> </a>';
+      $row[] = '<a href="Products/crud/'.$dat->PROD_ID.'" target="blank__" title="Edit Data" class="btn btn-sm btn-primary btn-responsive"><span class="glyphicon glyphicon-pencil"></span> </a>';
       $row[] = '<a href="javascript:void(0)" title="Hapus Data" class="btn btn-sm btn-danger btn-responsive" onclick="delete_prod('."'".$dat->PROD_ID."'".')"><span class="glyphicon glyphicon-trash"></span> </a>';
       $data[] = $row;
     }
