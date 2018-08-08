@@ -60,6 +60,21 @@ class Products extends MX_Controller
     $data = $que->row();
     echo json_encode($data);
   }
+  public function get_drop($tb)
+  {
+    $data = $this->db->order_by('prov_name')->get($tb)->result();
+    echo json_encode($data);
+  }
+  public function get_dropdistrict($id)
+  {
+    $data = $this->db->order_by('dis_name')->get_where('mona_district',array('prov_id'=>$id))->result();
+    echo json_encode($data);
+  }
+  public function get_dropsubdistrict($id)
+  {
+    $data = $this->db->order_by('subdis_name')->get_where('mona_subdistrict',array('dis_id'=>$id))->result();
+    echo json_encode($data);
+  }
   public function save_product()
   {
     $this->_validate_product();

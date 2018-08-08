@@ -1,6 +1,19 @@
 		<script>
     	$(document).ready(function(){
     		tables();
+        $('#city').selectpicker({});
+        $('#district').selectpicker({});
+        $('#subdistrict').selectpicker({});
+        drop_('mona_province','city','PROV_ID','PROV_NAME');
+        $('#city').change(function()
+        {
+          dropdistrict_($('#city option:selected').val(),'district','DIS_ID','DIS_NAME');
+        });
+        $('#district').change(function()
+        {
+          dropsubdistrict_($('#district option:selected').val(),'subdistrict','SUBDIS_ID','SUBDIS_NAME');
+        });
+        // drop_('mona_subdistrict','subdistrict','SUBDIS_ID','SUBDIS_NAME')
     	});
     	function tables()
     	{
@@ -116,5 +129,85 @@
 	          }
 	        });
       	}
+      }
+      function drop_(tb,id,idx,v)
+      {
+        $.ajax({
+          url : "<?php echo site_url('Products/get_drop/')?>"+tb,
+          type: "GET",
+          dataType: "JSON",
+          success: function(data)
+          {   
+            var select = document.getElementById(id);
+            var option;
+            for (var i = 0; i < data.length; i++)
+            {
+              option = document.createElement('option');
+              option.value = data[i][idx]
+              option.text = data[i][v];
+              select.add(option);
+            }
+            $('#'+id).selectpicker({});
+            $('#'+id).selectpicker('refresh');
+          },
+          error: function (jqXHR, textStatus, errorThrown)
+          {
+            alert('Error get product data');
+          }
+        });
+      }
+      function dropdistrict_(pk,id,idx,v)
+      {
+        $('#'+id).empty();
+        $.ajax({
+          url : "<?php echo site_url('Products/get_dropdistrict/')?>"+pk,
+          type: "GET",
+          dataType: "JSON",
+          success: function(data)
+          {   
+            var select = document.getElementById(id);
+            var option;
+            for (var i = 0; i < data.length; i++)
+            {
+              option = document.createElement('option');
+              option.value = data[i][idx]
+              option.text = data[i][v];
+              select.add(option);
+            }
+            $('#'+id).selectpicker({});
+            $('#'+id).selectpicker('refresh');
+          },
+          error: function (jqXHR, textStatus, errorThrown)
+          {
+            alert('Error get product data');
+          }
+        });
+      }
+      function dropsubdistrict_(pk,id,idx,v)
+      {
+        $('#'+id).empty();
+        $.ajax({
+          url : "<?php echo site_url('Products/get_dropsubdistrict/')?>"+pk,
+          type: "GET",
+          dataType: "JSON",
+          success: function(data)
+          {   
+            var select = document.getElementById(id);
+            var option;
+            for (var i = 0; i < data.length; i++)
+            {
+              option = document.createElement('option');
+              option.value = data[i][idx]
+              option.text = data[i][v];
+              select.add(option);
+            }
+            $('#'+id).selectpicker({});
+            $('#'+id).selectpicker('refresh');
+          },
+          error: function (jqXHR, textStatus, errorThrown)
+          {
+            alert('Error get product data');
+          }
+        });
       }
     </script>
