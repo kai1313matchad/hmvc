@@ -1,13 +1,13 @@
 		<script>
     	$(document).ready(function(){
     		tables();
-        $('#city').selectpicker({});
+        $('#province').selectpicker({});
         $('#district').selectpicker({});
         $('#subdistrict').selectpicker({});
-        drop_('mona_province','city','PROV_ID','PROV_NAME');
-        $('#city').change(function()
+        drop_('mona_province','province','PROV_ID','PROV_NAME');
+        $('#province').change(function()
         {
-          dropdistrict_($('#city option:selected').val(),'district','DIS_ID','DIS_NAME');
+          dropdistrict_($('#province option:selected').val(),'district','DIS_ID','DIS_NAME');
         });
         $('#district').change(function()
         {

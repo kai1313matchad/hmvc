@@ -8,7 +8,7 @@
               <div class="title_right">
                 <div class="col-md-2 col-sm-2 col-xs-12 form-group pull-right top_search">
                   <div class="input-group">
-                    <button type="button" class="btn btn-block btn-primary" onclick="save()">Save</button>
+                    <button type="button" class="btn btn-block btn-primary" onclick="save_()">Save</button>
                   </div>
                 </div>
               </div>
@@ -63,7 +63,7 @@
                               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">City
                               </label>
                               <div class="col-md-6 col-sm-6 col-xs-12">
-                                <select id="city" name="city" data-live-search="true" class="form-control text-center" required>
+                                <select id="province" name="province" data-live-search="true" class="form-control text-center" required>
                                 </select>
                                 <span class="help-block"></span>
                               </div>
@@ -83,6 +83,13 @@
                               <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select id="subdistrict" name="subdistrict" data-live-search="true" class="form-control text-center" required>
                                 </select>
+                                <span class="help-block"></span>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Street Address</label>
+                              <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input class="form-control col-md-7 col-xs-12" type="text" name="streetadd" required="required" placeholder="Street Address">
                                 <span class="help-block"></span>
                               </div>
                             </div>
