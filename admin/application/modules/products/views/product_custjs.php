@@ -5,6 +5,7 @@
         $('#district').selectpicker({});
         $('#subdistrict').selectpicker({});
         drop_('mona_province','province','PROV_ID','PROV_NAME');
+        dropprodtype('mona_prodtype','prodtype','PRT_ID','PRT_NAME');
         $('#province').change(function()
         {
           dropdistrict_($('#province option:selected').val(),'district','DIS_ID','DIS_NAME');
@@ -13,7 +14,6 @@
         {
           dropsubdistrict_($('#district option:selected').val(),'subdistrict','SUBDIS_ID','SUBDIS_NAME');
         });
-        // drop_('mona_subdistrict','subdistrict','SUBDIS_ID','SUBDIS_NAME')
     	});
     	function tables()
     	{
@@ -33,6 +33,30 @@
     	function reload_table()
       {
       	table.ajax.reload(null,false);
+      }
+      function save_()
+      {
+        $.ajax({
+          url : "<?php echo site_url('Products/test')?>",
+          data : $('#form-product').serialize(),
+          type: "POST",
+          dataType: "JSON",
+          success: function(data)
+          {
+            if(data.status)
+            {
+              $('#alert-div').append('<div class="alert alert-success alert dismissible fade in" role="alert"><button class="close" type="button" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">x</span></button>Success Update Data</div>');
+            }
+            else
+            {
+              $('#alert-div').append('<div class="alert alert-danger alert dismissible fade in" role="alert"><button class="close" type="button" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">x</span></button>Failed Update Data</div>');
+            }
+          },
+          error: function (jqXHR, textStatus, errorThrown)
+          {
+            alert('Error Update Data');
+          }
+        });
       }
       function save()
       {
@@ -133,7 +157,7 @@
       function drop_(tb,id,idx,v)
       {
         $.ajax({
-          url : "<?php echo site_url('Products/get_drop/')?>"+tb,
+          url : "<?php echo site_url('Products/get_dropprov/')?>"+tb,
           type: "GET",
           dataType: "JSON",
           success: function(data)
@@ -188,6 +212,32 @@
         $('#'+id).empty();
         $.ajax({
           url : "<?php echo site_url('Products/get_dropsubdistrict/')?>"+pk,
+          type: "GET",
+          dataType: "JSON",
+          success: function(data)
+          {   
+            var select = document.getElementById(id);
+            var option;
+            for (var i = 0; i < data.length; i++)
+            {
+              option = document.createElement('option');
+              option.value = data[i][idx]
+              option.text = data[i][v];
+              select.add(option);
+            }
+            $('#'+id).selectpicker({});
+            $('#'+id).selectpicker('refresh');
+          },
+          error: function (jqXHR, textStatus, errorThrown)
+          {
+            alert('Error get product data');
+          }
+        });
+      }
+      function dropprodtype(tb,id,idx,v)
+      {
+        $.ajax({
+          url : "<?php echo site_url('Products/get_dropprodtype/')?>"+tb,
           type: "GET",
           dataType: "JSON",
           success: function(data)

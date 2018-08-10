@@ -46,16 +46,14 @@ CREATE TABLE IF NOT EXISTS `login_attempts` (
 DROP TABLE IF EXISTS `mona_aucgame`;
 CREATE TABLE IF NOT EXISTS `mona_aucgame` (
   `AUCG_ID` char(20) NOT NULL,
-  `PROD_ID` char(20) DEFAULT NULL,
+  `PROD_ID` char(30) DEFAULT NULL,
   `AUCG_DATE` date DEFAULT NULL,
   `AUCG_OPENPRICE` bigint(20) DEFAULT NULL,
   `AUCG_BUYOUT` bigint(20) DEFAULT NULL,
   `AUCG_BID` bigint(20) DEFAULT NULL,
   `AUCG_LASTBID` bigint(20) DEFAULT NULL,
   `AUCG_DTSTS` char(1) DEFAULT '0',
-  PRIMARY KEY (`AUCG_ID`),
-  KEY `FK_AUCG1` (`PROD_ID`),
-  CONSTRAINT `FK_AUC_1` FOREIGN KEY (`PROD_ID`) REFERENCES `mona_product` (`PROD_ID`)
+  PRIMARY KEY (`AUCG_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Dumping data for table iontest.mona_aucgame: ~0 rows (approximately)
@@ -646,13 +644,32 @@ INSERT INTO `mona_mainbanners` (`MBANN_ID`, `MBANN_NAME`, `MBANN_LINK`, `MBANN_I
 	(5, 'Banner Name', 'Banner Link', '/assets/img/banner/default.jpg');
 /*!40000 ALTER TABLE `mona_mainbanners` ENABLE KEYS */;
 
+-- Dumping structure for table iontest.mona_prodtype
+DROP TABLE IF EXISTS `mona_prodtype`;
+CREATE TABLE IF NOT EXISTS `mona_prodtype` (
+  `PRT_ID` char(5) NOT NULL,
+  `PRT_NAME` varchar(1024) DEFAULT NULL,
+  `PRT_INFO` text,
+  `PRT_DTSTS` char(1) DEFAULT NULL,
+  PRIMARY KEY (`PRT_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table iontest.mona_prodtype: ~3 rows (approximately)
+/*!40000 ALTER TABLE `mona_prodtype` DISABLE KEYS */;
+INSERT INTO `mona_prodtype` (`PRT_ID`, `PRT_NAME`, `PRT_INFO`, `PRT_DTSTS`) VALUES
+	('BAL', 'Baliho', 'Info', '1'),
+	('BIB', 'Billboard', 'Info', '1'),
+	('VDT', 'Videotron', 'Info', '1');
+/*!40000 ALTER TABLE `mona_prodtype` ENABLE KEYS */;
+
 -- Dumping structure for table iontest.mona_product
 DROP TABLE IF EXISTS `mona_product`;
 CREATE TABLE IF NOT EXISTS `mona_product` (
-  `PROD_ID` char(20) NOT NULL,
+  `PROD_ID` char(30) NOT NULL,
   `PROV_ID` char(10) NOT NULL,
   `DIS_ID` char(10) NOT NULL,
   `SUBDIS_ID` char(10) NOT NULL,
+  `PRT_ID` char(5) NOT NULL,
   `PROD_NAME` varchar(1024) NOT NULL,
   `PROD_SLUG` varchar(1024) DEFAULT '0',
   `PROD_PRICE` bigint(20) NOT NULL,
@@ -664,13 +681,17 @@ CREATE TABLE IF NOT EXISTS `mona_product` (
   KEY `FK_mona_product_mona_province` (`PROV_ID`),
   KEY `FK_mona_product_mona_district` (`DIS_ID`),
   KEY `FK_mona_product_mona_subdistrict` (`SUBDIS_ID`),
+  KEY `FK_mona_product_mona_prodtype` (`PRT_ID`),
   CONSTRAINT `FK_mona_product_mona_district` FOREIGN KEY (`DIS_ID`) REFERENCES `mona_district` (`DIS_ID`),
+  CONSTRAINT `FK_mona_product_mona_prodtype` FOREIGN KEY (`PRT_ID`) REFERENCES `mona_prodtype` (`PRT_ID`),
   CONSTRAINT `FK_mona_product_mona_province` FOREIGN KEY (`PROV_ID`) REFERENCES `mona_province` (`PROV_ID`),
   CONSTRAINT `FK_mona_product_mona_subdistrict` FOREIGN KEY (`SUBDIS_ID`) REFERENCES `mona_subdistrict` (`SUBDIS_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Dumping data for table iontest.mona_product: ~0 rows (approximately)
 /*!40000 ALTER TABLE `mona_product` DISABLE KEYS */;
+INSERT INTO `mona_product` (`PROD_ID`, `PROV_ID`, `DIS_ID`, `SUBDIS_ID`, `PRT_ID`, `PROD_NAME`, `PROD_SLUG`, `PROD_PRICE`, `PROD_OPENPRICE`, `PROD_BUYOUT`, `PROD_PIC`, `PROD_DTSTS`) VALUES
+	('BIB357804000001', '35', '3578', '357804', 'BIB', 'JL ADITYAWARMAN NO.41', 'jl-adityawarman-no41', 0, '', '', NULL, '0');
 /*!40000 ALTER TABLE `mona_product` ENABLE KEYS */;
 
 -- Dumping structure for table iontest.mona_province
@@ -7879,7 +7900,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table iontest.users: ~2 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-	(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1533779918, 1, 'Admin', 'istrator', 'ADMIN', '0'),
+	(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1533863722, 1, 'Admin', 'istrator', 'ADMIN', '0'),
 	(2, '127.0.0.1', 'tes1', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', NULL, 'tes@mail.com', NULL, NULL, NULL, NULL, 1532591726, 1532940104, 1, 'tes', 'tes', 'tes', '123415'),
 	(3, '127.0.0.1', 'tes2@mail.com', '$2y$08$N/k5kV1vMgglz/olhGc0OuOYMdqHfyXFiN2LFPwnyRM1Tt5WwsqKu', NULL, 'tes2@mail.com', NULL, NULL, NULL, NULL, 1532591825, NULL, 1, 'tes2', 'tes2', 'tes2', '987654');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;

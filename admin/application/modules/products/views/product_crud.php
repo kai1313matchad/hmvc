@@ -14,7 +14,9 @@
               </div>
             </div>
 
-            <div class="clearfix"></div>
+            <div class="clearfix">
+              <div class="col-xs-12" id="alert-div"></div>
+            </div>
 
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
@@ -41,18 +43,22 @@
                         <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
                           <form id="form-product" class="form-horizontal form-label-left" enctype="multipart/form-data">
                             <input type="hidden" name="form_status" value="1">
-                            <div class="col-xs-12" id="alert-div">
-                            </div>
+                            <?php
+                              if(isset($prod_id))
+                              {
+                                echo 
+                                '<div class="form-group">
+                                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Product ID
+                                  </label>
+                                  <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" name="productid" required="required" class="form-control col-md-7 col-xs-12" placeholder="Product ID">
+                                    <span class="help-block"></span>
+                                  </div>
+                                </div>';
+                              }
+                            ?>                            
                             <div class="form-group">
-                              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Product ID
-                              </label>
-                              <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" name="productid" required="required" class="form-control col-md-7 col-xs-12" placeholder="Product ID">
-                                <span class="help-block"></span>
-                              </div>
-                            </div>
-                            <div class="form-group">
-                              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Product Name
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">Product Name
                               </label>
                               <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input type="text" name="productname" required="required" class="form-control col-md-7 col-xs-12" placeholder="Product Name">
@@ -60,7 +66,16 @@
                               </div>
                             </div>
                             <div class="form-group">
-                              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">City
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">Type
+                              </label>
+                              <div class="col-md-6 col-sm-6 col-xs-12">
+                                <select id="prodtype" name="prodtype" data-live-search="true" class="form-control text-center" required>
+                                </select>
+                                <span class="help-block"></span>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">Province
                               </label>
                               <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select id="province" name="province" data-live-search="true" class="form-control text-center" required>
@@ -69,7 +84,7 @@
                               </div>
                             </div>
                             <div class="form-group">
-                              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">District
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">District
                               </label>
                               <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select id="district" name="district" data-live-search="true" class="form-control text-center" required>
@@ -78,7 +93,7 @@
                               </div>
                             </div>
                             <div class="form-group">
-                              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Sub-District
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">Sub-District
                               </label>
                               <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select id="subdistrict" name="subdistrict" data-live-search="true" class="form-control text-center" required>

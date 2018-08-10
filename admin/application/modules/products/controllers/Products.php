@@ -17,15 +17,61 @@ class Products extends MX_Controller
     $data['view_addoncustjs'] = array('product_custjs');
   	$this->templates_->admin($data);
   }
-  public function crud()
+  public function crud($id)
   {
-    $this->load->module('templates_');
-    $data['view_module'] = 'products';
-    $data['view_content'] = 'product_crud';
-    $data['view_addoncss'] = array('product_css');
-    $data['view_addonjs'] = array('product_js');
-    $data['view_addoncustjs'] = array('product_custjs');
-    $this->templates_->admin($data);
+    if($id != 'add')
+    {
+      echo 'edit';
+    }
+    else
+    {      
+      $this->load->module('templates_');
+      $data['view_module'] = 'products';      
+      $data['view_content'] = 'product_crud';
+      $data['view_addoncss'] = array('product_css');
+      $data['view_addonjs'] = array('product_js');
+      $data['view_addoncustjs'] = array('product_custjs');
+      $data['prod_id'] = NULL;
+      $this->templates_->admin($data);
+    }
+  }
+  public function test()
+  {
+    $affix = $this->input->post('prodtype');
+    $subdis = $this->input->post('subdistrict');
+    $id = $this->gen_num_('mona_product','prod_id',$affix,$subdis);
+    $ins = array(
+      'prod_id'=>$id,
+      'prov_id'=>$this->input->post('province'),
+      'dis_id'=>$this->input->post('district'),
+      'subdis_id'=>$subdis,
+      'prt_id'=>$affix,
+      'prod_name'=>$this->input->post('productname'),
+      'prod_slug'=>url_title($this->input->post('productname'), 'dash', true)
+    );
+    $insert = $this->db->insert('mona_product',$ins);
+    $data['status'] = ($this->db->affected_rows())?TRUE:FALSE;
+    // $kode = $this->input->post('productname');
+    // $data['msg'] = url_title($kode, 'dash', true);
+    echo json_encode($data);
+  }
+  public function gen_num_($tb,$col,$affix,$subdis)
+  {
+    $this->db->select_max($col,'code');
+    $que = $this->db->get_where($tb,array('prt_id'=>$affix));
+    $ext = $que->row();
+    $max = $ext->code;
+    $len = strlen($affix);
+    $sub = substr($max,$len,-6);
+    if($max == null || $sub != $subdis)
+    {
+      $max = $affix.$subdis.'000000';
+    }    
+    $num = (int) substr($max,-6);
+    $num++;
+    $kode = $affix.$subdis;
+    $res = $kode . sprintf('%06s',$num);
+    return $res;
   }
   public function get_productall()
   {
@@ -60,7 +106,7 @@ class Products extends MX_Controller
     $data = $que->row();
     echo json_encode($data);
   }
-  public function get_drop($tb)
+  public function get_dropprov($tb)
   {
     $data = $this->db->order_by('prov_name')->get($tb)->result();
     echo json_encode($data);
@@ -73,6 +119,11 @@ class Products extends MX_Controller
   public function get_dropsubdistrict($id)
   {
     $data = $this->db->order_by('subdis_name')->get_where('mona_subdistrict',array('dis_id'=>$id))->result();
+    echo json_encode($data);
+  }
+  public function get_dropprodtype($tb)
+  {
+    $data = $this->db->order_by('prt_id')->get($tb)->result();
     echo json_encode($data);
   }
   public function save_product()
