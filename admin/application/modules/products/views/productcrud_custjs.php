@@ -1,26 +1,21 @@
 		<script>
     	$(document).ready(function(){
-    		tables();
+        $('#province').selectpicker({});
+        $('#district').selectpicker({});
+        $('#subdistrict').selectpicker({});
+        dropsize_('prodsize','PRSZ_ID','PRSZ_NAME');
+        dropcons_('prodcons','CONS_ID','CONS_NAME');
+        dropprov_('mona_province','province','PROV_ID','PROV_NAME');
+        dropprodtype('mona_prodtype','prodtype','PRT_ID','PRT_NAME');
+        $('#province').change(function()
+        {
+          dropdistrict_($('#province option:selected').val(),'district','DIS_ID','DIS_NAME');
+        });
+        $('#district').change(function()
+        {
+          dropsubdistrict_($('#district option:selected').val(),'subdistrict','SUBDIS_ID','SUBDIS_NAME');
+        });
     	});
-    	function tables()
-    	{
-    		table = $('#dtb-prodall').DataTable({
-    		"info": false,
-				"responsive": true,
-        "processing": true,
-        "serverSide": true,
-        "order": [],
-        "ajax": {
-        	"url": "<?php echo site_url('Products/get_productall')?>",
-          "type": "POST",
-          },
-      	"columnDefs": [{"className": "text-center", "targets": ['_all']}],
-    		});
-    	}
-    	function reload_table()
-      {
-      	table.ajax.reload(null,false);
-      }
       function save_()
       {
         $.ajax({
@@ -141,7 +136,59 @@
 	        });
       	}
       }
-      function drop_(tb,id,idx,v)
+      function dropsize_(id,idx,v)
+      {
+        $.ajax({
+          url : "<?php echo site_url('Products/get_dropsize')?>",
+          type: "GET",
+          dataType: "JSON",
+          success: function(data)
+          {   
+            var select = document.getElementById(id);
+            var option;
+            for (var i = 0; i < data.length; i++)
+            {
+              option = document.createElement('option');
+              option.value = data[i][idx]
+              option.text = data[i][v];
+              select.add(option);
+            }
+            $('#'+id).selectpicker({});
+            $('#'+id).selectpicker('refresh');
+          },
+          error: function (jqXHR, textStatus, errorThrown)
+          {
+            alert('Error get product data');
+          }
+        });
+      }
+      function dropcons_(id,idx,v)
+      {
+        $.ajax({
+          url : "<?php echo site_url('Products/get_dropcons')?>",
+          type: "GET",
+          dataType: "JSON",
+          success: function(data)
+          {   
+            var select = document.getElementById(id);
+            var option;
+            for (var i = 0; i < data.length; i++)
+            {
+              option = document.createElement('option');
+              option.value = data[i][idx]
+              option.text = data[i][v];
+              select.add(option);
+            }
+            $('#'+id).selectpicker({});
+            $('#'+id).selectpicker('refresh');
+          },
+          error: function (jqXHR, textStatus, errorThrown)
+          {
+            alert('Error get product data');
+          }
+        });
+      }
+      function dropprov_(tb,id,idx,v)
       {
         $.ajax({
           url : "<?php echo site_url('Products/get_dropprov/')?>"+tb,

@@ -30,7 +30,7 @@ class Products extends MX_Controller
       $data['view_content'] = 'product_crud';
       $data['view_addoncss'] = array('product_css');
       $data['view_addonjs'] = array('product_js');
-      $data['view_addoncustjs'] = array('product_custjs');
+      $data['view_addoncustjs'] = array('productcrud_custjs');
       $data['prod_id'] = NULL;
       $this->templates_->admin($data);
     }
@@ -104,6 +104,16 @@ class Products extends MX_Controller
   {
     $que = $this->db->get_where('mona_product',array('prod_id'=>$id));
     $data = $que->row();
+    echo json_encode($data);
+  }
+  public function get_dropsize()
+  {
+    $data = $this->db->get_where('mona_prodsize',array('prsz_dtsts'=>'1'))->result();
+    echo json_encode($data);
+  }
+  public function get_dropcons()
+  {
+    $data = $this->db->get_where('mona_construct_sts',array('cons_dtsts'=>'1'))->result();
     echo json_encode($data);
   }
   public function get_dropprov($tb)

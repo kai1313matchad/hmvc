@@ -109,6 +109,24 @@
                               </div>
                             </div>
                             <div class="form-group">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">Size
+                              </label>
+                              <div class="col-md-6 col-sm-6 col-xs-12">
+                                <select id="prodsize" name="prodsize" data-live-search="true" class="form-control text-center" required>
+                                </select>
+                                <span class="help-block"></span>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">Construct
+                              </label>
+                              <div class="col-md-6 col-sm-6 col-xs-12">
+                                <select id="prodcons" name="prodcons" data-live-search="true" class="form-control text-center" required>
+                                </select>
+                                <span class="help-block"></span>
+                              </div>
+                            </div>
+                            <div class="form-group">
                               <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Product Price</label>
                               <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input class="form-control col-md-7 col-xs-12 curr-num" type="text" name="productprice" required="required" placeholder="Price">
