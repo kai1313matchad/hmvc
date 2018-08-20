@@ -31,9 +31,16 @@ class Products extends MX_Controller
       $data['view_addoncss'] = array('product_css');
       $data['view_addonjs'] = array('product_js');
       $data['view_addoncustjs'] = array('productcrud_custjs');
-      $data['prod_id'] = NULL;
+      $data['prod_code'] = NULL;
+      $data['prod_id'] = $this->add_product();
       $this->templates_->admin($data);
     }
+  }
+  public function add_product()
+  {
+    $this->db->insert('mona_product',array('prod_dtsts'=>'0'));
+    $insID = $this->db->insert_id();
+    return $insID;
   }
   public function test()
   {

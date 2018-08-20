@@ -43,15 +43,16 @@
                         <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
                           <form id="form-product" class="form-horizontal form-label-left" enctype="multipart/form-data">
                             <input type="hidden" name="form_status" value="1">
+                            <input type="hidden" name="productid" value="<?= $prod_id;?>">
                             <?php
-                              if(isset($prod_id))
+                              if(isset($prod_crud))
                               {
                                 echo 
                                 '<div class="form-group">
-                                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Product ID
+                                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Product Code
                                   </label>
                                   <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" name="productid" required="required" class="form-control col-md-7 col-xs-12" placeholder="Product ID">
+                                    <input type="text" name="productcode" required="required" class="form-control col-md-7 col-xs-12" placeholder="Product Code">
                                     <span class="help-block"></span>
                                   </div>
                                 </div>';
@@ -130,6 +131,13 @@
                               <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Product Price</label>
                               <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input class="form-control col-md-7 col-xs-12 curr-num" type="text" name="productprice" required="required" placeholder="Price">
+                                <span class="help-block"></span>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Special Price</label>
+                              <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input class="form-control col-md-7 col-xs-12 curr-num" type="text" name="specialprice" required="required" placeholder="Price">
                                 <span class="help-block"></span>
                               </div>
                             </div>
