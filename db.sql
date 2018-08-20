@@ -2,7 +2,7 @@
 -- Host:                         127.0.0.1
 -- Server version:               10.1.19-MariaDB - mariadb.org binary distribution
 -- Server OS:                    Win32
--- HeidiSQL Version:             9.5.0.5196
+-- HeidiSQL Version:             9.4.0.5125
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -663,6 +663,23 @@ INSERT INTO `mona_mainbanners` (`MBANN_ID`, `MBANN_NAME`, `MBANN_LINK`, `MBANN_I
 	(5, 'Banner Name', 'Banner Link', '/assets/img/banner/default.jpg');
 /*!40000 ALTER TABLE `mona_mainbanners` ENABLE KEYS */;
 
+-- Dumping structure for table iontest.mona_prodpict
+DROP TABLE IF EXISTS `mona_prodpict`;
+CREATE TABLE IF NOT EXISTS `mona_prodpict` (
+  `PRODPIC_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `PROD_ID` int(11) DEFAULT NULL,
+  `PRODPIC_PATH` varchar(1024) DEFAULT NULL,
+  `PRODPIC_TOKEN` varchar(1024) DEFAULT NULL,
+  `PRODPIC_STS` char(1) DEFAULT '0',
+  PRIMARY KEY (`PRODPIC_ID`),
+  KEY `FK__mona_product` (`PROD_ID`),
+  CONSTRAINT `FK__mona_product` FOREIGN KEY (`PROD_ID`) REFERENCES `mona_product` (`PROD_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+
+-- Dumping data for table iontest.mona_prodpict: ~0 rows (approximately)
+/*!40000 ALTER TABLE `mona_prodpict` DISABLE KEYS */;
+/*!40000 ALTER TABLE `mona_prodpict` ENABLE KEYS */;
+
 -- Dumping structure for table iontest.mona_prodsize
 DROP TABLE IF EXISTS `mona_prodsize`;
 CREATE TABLE IF NOT EXISTS `mona_prodsize` (
@@ -729,13 +746,12 @@ CREATE TABLE IF NOT EXISTS `mona_product` (
   CONSTRAINT `FK_mona_product_mona_prodtype` FOREIGN KEY (`PRT_ID`) REFERENCES `mona_prodtype` (`PRT_ID`),
   CONSTRAINT `FK_mona_product_mona_province` FOREIGN KEY (`PROV_ID`) REFERENCES `mona_province` (`PROV_ID`),
   CONSTRAINT `FK_mona_product_mona_subdistrict` FOREIGN KEY (`SUBDIS_ID`) REFERENCES `mona_subdistrict` (`SUBDIS_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
--- Dumping data for table iontest.mona_product: ~0 rows (approximately)
+-- Dumping data for table iontest.mona_product: ~1 rows (approximately)
 /*!40000 ALTER TABLE `mona_product` DISABLE KEYS */;
 INSERT INTO `mona_product` (`PROD_ID`, `PROV_ID`, `DIS_ID`, `SUBDIS_ID`, `PRT_ID`, `PRSZ_ID`, `CONS_ID`, `PROD_CODE`, `PROD_NAME`, `PROD_SLUG`, `PROD_PRICE`, `PROD_SPCPRICE`, `PROD_PIC`, `PROD_STS`, `PROD_DTSTS`) VALUES
-	(3, NULL, NULL, NULL, NULL, NULL, NULL, '', '', NULL, 0, 0, NULL, NULL, '0'),
-	(5, NULL, NULL, NULL, NULL, NULL, NULL, '', '', NULL, 0, 0, NULL, NULL, '0');
+	(6, NULL, NULL, NULL, NULL, NULL, NULL, '', '', NULL, 0, 0, NULL, NULL, '1');
 /*!40000 ALTER TABLE `mona_product` ENABLE KEYS */;
 
 -- Dumping structure for table iontest.mona_province
@@ -7944,7 +7960,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table iontest.users: ~3 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-	(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1534694144, 1, 'Admin', 'istrator', 'ADMIN', '0'),
+	(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1534756914, 1, 'Admin', 'istrator', 'ADMIN', '0'),
 	(2, '127.0.0.1', 'tes1', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', NULL, 'tes@mail.com', NULL, NULL, NULL, NULL, 1532591726, 1532940104, 1, 'tes', 'tes', 'tes', '123415'),
 	(3, '127.0.0.1', 'tes2@mail.com', '$2y$08$N/k5kV1vMgglz/olhGc0OuOYMdqHfyXFiN2LFPwnyRM1Tt5WwsqKu', NULL, 'tes2@mail.com', NULL, NULL, NULL, NULL, 1532591825, NULL, 1, 'tes2', 'tes2', 'tes2', '987654');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;

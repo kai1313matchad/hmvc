@@ -28,11 +28,11 @@ class Products extends MX_Controller
       $this->load->module('templates_');
       $data['view_module'] = 'products';      
       $data['view_content'] = 'product_crud';
-      $data['view_addoncss'] = array('product_css');
-      $data['view_addonjs'] = array('product_js');
+      $data['view_addoncss'] = array('productcrud_css');
+      $data['view_addonjs'] = array('productcrud_js');
       $data['view_addoncustjs'] = array('productcrud_custjs');
       $data['prod_code'] = NULL;
-      $data['prod_id'] = $this->add_product();
+      $data['prod_id'] = '6';
       $this->templates_->admin($data);
     }
   }
@@ -41,6 +41,50 @@ class Products extends MX_Controller
     $this->db->insert('mona_product',array('prod_dtsts'=>'0'));
     $insID = $this->db->insert_id();
     return $insID;
+  }
+  public function upload_pic()
+  {
+    if (!empty($_FILES)) 
+    {
+      $token = $this->input->post('token_code');
+      $id = $this->input->post('id');      
+      $this->img_config_();
+      if ($this->upload->do_upload('file'))
+      {
+        $fileData = $this->upload->data();
+        $imgname = $fileData['file_name'];
+        $imgpath = './assets/img/product/'.$imgname;
+        $data = array(
+          'prod_id' => $id,
+          'prodpic_path' => $imgpath,
+          'prodpic_token' => $token,
+        );
+        $insert = $this->db->insert('mona_prodpict',$data);
+      }
+    }
+  }
+  public function remove_pic()
+  {
+    $token = $this->input->post('token');
+    $pict = $this->db->get_where('mona_prodpict',array('prodpic_token'=>$token));
+    if($pict->num_rows() > 0)
+    {
+      $pictdt = $pict->row();
+      $path = $pictdt->PRODPIC_PATH;
+      if(file_exists($file = $path))
+      {
+        unlink($file);
+      }
+      $del = $this->db->delete('mona_prodpict',array('prodpic_token'=>$token));
+    }
+  }
+  public function get_pic()
+  {
+    $data = $this->db->from('mona_prodpict a')
+                      ->join('mona_product b','b.prod_id = a.prod_id')
+                      ->where('b.prod_dtsts','1')
+                      ->get()->result();
+    echo json_encode($data);
   }
   public function test()
   {

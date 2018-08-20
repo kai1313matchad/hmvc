@@ -1,5 +1,6 @@
 		<script>
     	$(document).ready(function(){
+        wysiwig();
         $('#province').selectpicker({});
         $('#district').selectpicker({});
         $('#subdistrict').selectpicker({});
@@ -16,6 +17,14 @@
           dropsubdistrict_($('#district option:selected').val(),'subdistrict','SUBDIS_ID','SUBDIS_NAME');
         });
     	});
+      function wysiwig()
+      {
+        $('#summernote').summernote({
+          placeholder: 'Product Description Here',
+          height: 200
+        });
+        $('#summernote').summernote('fontName', 'Times New Roman');
+      }
       function save_()
       {
         $.ajax({
@@ -294,4 +303,50 @@
           }
         });
       }
+    </script>
+    <script type="text/javascript">
+      Dropzone.autoDiscover = false;
+
+      var foto_upload= new Dropzone(".dropzone",{
+      url: "<?php echo base_url('Products/upload_pic') ?>",
+      maxFilesize: 2,
+      method:"post",
+      acceptedFiles:"image/*",
+      paramName:"file",
+      dictInvalidFileType:"File Type Not Allowed",
+      addRemoveLinks:true,
+      });
+
+      //Event ketika Memulai mengupload
+      foto_upload.on("sending",function(a,b,c){
+        a.token=Math.random();        
+        c.append("token_code",a.token); //Menmpersiapkan token untuk masing masing foto
+      });
+      foto_upload.on("sending",function(a,b,c){
+        a.picid=$('[name="productid"]').val();        
+        c.append("id",a.picid); //Menmpersiapkan token untuk masing masing foto
+      });
+
+      //Event ketika selesai upload
+      foto_upload.on('queuecomplete', function(progress){
+        alert('selesai');
+      })
+
+      //Event ketika foto dihapus
+      foto_upload.on("removedfile",function(a){
+        var token=a.token;
+        $.ajax({
+          type:"post",
+          data:{token:token},
+          url:"<?php echo base_url('Products/remove_pic') ?>",
+          cache:false,
+          dataType: 'json',
+          success: function(){
+            console.log("Foto terhapus");
+          },
+          error: function(){
+            console.log("Error");
+          }
+        });
+      });
     </script>
