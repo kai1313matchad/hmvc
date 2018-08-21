@@ -1,6 +1,6 @@
 		<script>
     	$(document).ready(function(){
-        wysiwig();
+        wysiwig();        
         $('#province').selectpicker({});
         $('#district').selectpicker({});
         $('#subdistrict').selectpicker({});
@@ -16,6 +16,13 @@
         {
           dropsubdistrict_($('#district option:selected').val(),'subdistrict','SUBDIS_ID','SUBDIS_NAME');
         });
+        if($('[name="productcode"]').length)
+        {
+          dropdistrict_('N','district','DIS_ID','DIS_NAME');
+          dropsubdistrict_('N','subdistrict','SUBDIS_ID','SUBDIS_NAME');
+          get_prod($('[name="productid"]').val());
+        }        
+        populate_pic($('[name="productid"]').val());
     	});
       function wysiwig()
       {
@@ -28,15 +35,17 @@
       function save_()
       {
         $.ajax({
-          url : "<?php echo site_url('Products/test')?>",
-          data : $('#form-product').serialize(),
+          url : "<?php echo site_url('Products/save_products')?>",
+          data : $('form').serialize(),
           type: "POST",
           dataType: "JSON",
           success: function(data)
           {
             if(data.status)
             {
-              $('#alert-div').append('<div class="alert alert-success alert dismissible fade in" role="alert"><button class="close" type="button" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">x</span></button>Success Update Data</div>');
+              // $('#alert-div').append('<div class="alert alert-success alert dismissible fade in" role="alert"><button class="close" type="button" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">x</span></button>Success Update Data</div>');
+              // var url = "<?php echo site_url('Products')?>";
+              // window.location = url;
             }
             else
             {
@@ -56,7 +65,7 @@
         fd.append("file", file_data);
         var other_data = $('#form-product').serializeArray();
         $.each(other_data,function(key,input){fd.append(input.name,input.value);});
-      	url = "<?php echo site_url('admin/product/Product_/save_product')?>";
+      	url = "<?php echo site_url('Products/save_product')?>";
       	$.ajax({
 					url : url,
           type: "POST",
@@ -93,27 +102,28 @@
           }
         });
       }
-      function resetbtn()
+      function get_prod(id)
       {
-      	$('[name="form_status"]').val('1');
-      	$('#form-product')[0].reset();
-      	$('.form-group').removeClass('has-error');
-        $('.help-block').empty();
-      }
-      function edit_prod(id)
-      {
-        $('#form-product')[0].reset();
-      	$('[name="form_status"]').val('2');
-      	$('.form-group').removeClass('has-error');
-        $('.help-block').empty();
         $.ajax({
-        	url : "<?php echo site_url('admin/product/Product_/get_prodrow/')?>"+id,
+        	url : "<?php echo site_url('Products/get_prodrow/')?>"+id,
           type: "GET",
           dataType: "JSON",
           success: function(data)
           {
           	$('[name="productid"]').val(data.PROD_ID);
           	$('[name="productname"]').val(data.PROD_NAME);
+            $('select#prodtype').val(data.PRT_ID);
+            $('#prodtype').prop('disabled', true);
+            $('#prodtype').selectpicker('refresh');
+            $('select#province').val(data.PROV_ID);
+            $('#province').prop('disabled', true);
+            $('#province').selectpicker('refresh');
+            $('select#district').val(data.DIS_ID);
+            $('#district').prop('disabled', true);
+            $('#district').selectpicker('refresh');
+            $('select#subdistrict').val(data.SUBDIS_ID);
+            $('#subdistrict').prop('disabled', true);
+            $('#subdistrict').selectpicker('refresh');
           	$('[name="productprice"]').val(data.PROD_PRICE);
           },
           error: function (jqXHR, textStatus, errorThrown)
@@ -121,29 +131,6 @@
           	alert('Error Get Product Data');
           }
         });
-      }
-      function delete_prod(id)
-      {
-      	if(confirm('Are you sure delete this data?'))
-      	{
-      		$.ajax({
-	        	url : "<?php echo site_url('admin/product/Product_/del_product/')?>"+id,
-	          type: "GET",
-	          dataType: "JSON",
-	          success: function(data)
-	          {
-	          	if(data.status)
-	          	{
-	          		$('#alert-del').append('<div class="alert alert-success alert dismissible fade in" role="alert"><button class="close" type="button" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">x</span></button>Success Delete Product Data</div>');
-              	reload_table();
-	          	}
-	          },
-	          error: function (jqXHR, textStatus, errorThrown)
-	          {
-	          	alert('Error Delete Product Data');
-	          }
-	        });
-      	}
       }
       function dropsize_(id,idx,v)
       {
@@ -303,6 +290,43 @@
           }
         });
       }
+      function populate_pic(id)
+      {
+        $('#uploaded_img').empty();
+        $.ajax({
+          url : "<?php echo site_url('Products/get_pic/')?>"+id,
+          type: "GET",
+          dataType: "JSON",
+          success: function(data)
+          {   
+            for (var i = 0; i < data.length; i++)
+            {
+              var div = $('<div class="col-md-55"><div class="thumbnail"><div class="image view view-first"><img style="width: 100%; display: block;" src="<?php echo base_url()?>'+data[i]["PRODPIC_PATH"]+'" alt="image" /></div><div class="caption"><a class="btn btn-danger" onclick="remove('+data[i]["PRODPIC_TOKEN"]+')">X</a></div></div></div>').appendTo('#uploaded_img');
+            }
+          },
+          error: function (jqXHR, textStatus, errorThrown)
+          {
+            alert('Error get product data');
+          }
+        });
+      }
+      function remove(id)
+      {
+        $.ajax({
+          type:"post",
+          data:{token:id},
+          url:"<?php echo base_url('Products/remove_pic') ?>",
+          cache:false,
+          dataType: 'json',
+          success: function(){
+            console.log("Foto terhapus");            
+          },
+          error: function(){
+            console.log("Error");
+          }
+        });
+        populate_pic($('[name="productid"]').val());
+      }
     </script>
     <script type="text/javascript">
       Dropzone.autoDiscover = false;
@@ -329,7 +353,7 @@
 
       //Event ketika selesai upload
       foto_upload.on('queuecomplete', function(progress){
-        alert('selesai');
+        populate_pic($('[name="productid"]').val());
       })
 
       //Event ketika foto dihapus
@@ -348,5 +372,6 @@
             console.log("Error");
           }
         });
+        populate_pic($('[name="productid"]').val());
       });
     </script>

@@ -45,14 +45,14 @@
                             <input type="hidden" name="form_status" value="1">
                             <input type="hidden" name="productid" value="<?= $prod_id;?>">
                             <?php
-                              if(isset($prod_crud))
+                              if(isset($prod_code))
                               {
                                 echo 
                                 '<div class="form-group">
                                   <label class="control-label col-md-3 col-sm-3 col-xs-12">Product Code
                                   </label>
                                   <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" name="productcode" required="required" class="form-control col-md-7 col-xs-12" placeholder="Product Code">
+                                    <input type="text" name="productcode" required="required" class="form-control col-md-7 col-xs-12" value="'.$prod_code.'" readonly>
                                     <span class="help-block"></span>
                                   </div>
                                 </div>';
@@ -105,7 +105,7 @@
                             <div class="form-group">
                               <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Street Address</label>
                               <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input class="form-control col-md-7 col-xs-12" type="text" name="streetadd" required="required" placeholder="Street Address">
+                                <input class="form-control col-md-7 col-xs-12" type="text" name="streetaddr" required="required" placeholder="Street Address">
                                 <span class="help-block"></span>
                               </div>
                             </div>
@@ -164,31 +164,13 @@
                             </div>
                           </div>
                           <div class="clearfix"><br></div>
-                          <div class="col-md-12 col-sm-12 col-xs-12">
-                            <div class="col-md-55">
-                              <div class="thumbnail">
-                                <div class="image view view-first">
-                                  <img style="width: 100%; display: block;" src="images/media.jpg" alt="image" />
-                                  <div class="mask">
-                                    <p>Main</p>
-                                    <div class="tools tools-bottom">
-                                      <a href="#"><i class="fa fa-link"></i></a>
-                                      <!-- <a href="#"><i class="fa fa-pencil"></i></a>
-                                      <a href="#"><i class="fa fa-times"></i></a> -->
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="caption">
-                                  <p>Snow and Ice Incoming for the South</p>
-                                </div>
-                              </div>
-                            </div>
+                          <div class="col-md-12 col-sm-12 col-xs-12" id="uploaded_img">
                           </div>
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
                           <form class="form-horizontal form-label-left">
                             <div class="form-group">
-                              <textarea id="summernote"></textarea>
+                              <textarea id="summernote" name="proddesc"></textarea>
                             </div>
                           </form>
                         </div>

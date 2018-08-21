@@ -21,24 +21,41 @@ class Products extends MX_Controller
   {
     if($id != 'add')
     {
-      echo 'edit';
+      $get = $this->db->get_where('mona_product',array('prod_code'=>$id));
+      $check = $get->num_rows();
+      if($check > 0)
+      {
+        $this->load->module('templates_');
+        $data['view_module'] = 'products';
+        $data['view_content'] = 'product_crud';
+        $data['view_addoncss'] = array('productcrud_css');
+        $data['view_addonjs'] = array('productcrud_js');
+        $data['view_addoncustjs'] = array('productcrud_custjs');
+        $data['prod_code'] = $get->row()->PROD_CODE;
+        $data['prod_id'] = $get->row()->PROD_ID;
+        $this->templates_->admin($data);
+      }
+      else
+      {
+        redirect('Products');
+      }
     }
     else
     {      
       $this->load->module('templates_');
-      $data['view_module'] = 'products';      
+      $data['view_module'] = 'products';
       $data['view_content'] = 'product_crud';
       $data['view_addoncss'] = array('productcrud_css');
       $data['view_addonjs'] = array('productcrud_js');
       $data['view_addoncustjs'] = array('productcrud_custjs');
       $data['prod_code'] = NULL;
-      $data['prod_id'] = '6';
+      $data['prod_id'] = $this->add_product();
       $this->templates_->admin($data);
     }
   }
   public function add_product()
   {
-    $this->db->insert('mona_product',array('prod_dtsts'=>'0'));
+    $this->db->insert('mona_product',array('prod_dtsts'=>'0','prod_code'=>'void'.rand()));
     $insID = $this->db->insert_id();
     return $insID;
   }
@@ -78,11 +95,11 @@ class Products extends MX_Controller
       $del = $this->db->delete('mona_prodpict',array('prodpic_token'=>$token));
     }
   }
-  public function get_pic()
+  public function get_pic($id)
   {
     $data = $this->db->from('mona_prodpict a')
                       ->join('mona_product b','b.prod_id = a.prod_id')
-                      ->where('b.prod_dtsts','1')
+                      ->where('b.prod_id',$id)
                       ->get()->result();
     echo json_encode($data);
   }
@@ -134,12 +151,11 @@ class Products extends MX_Controller
       $no++;
       $row = array();
       $row[] = $no;
-      $row[] = $dat->PROD_ID;
+      $row[] = $dat->PROD_CODE;
       $row[] = $dat->PROD_NAME;
       $row[] = number_format($dat->PROD_PRICE);     
       $row[] = '<a href="'.base_url().$dat->PROD_PIC.'" target="blank__"><img class="img-responsive img-adm-product" src="'.base_url().$dat->PROD_PIC.'"></a>';
-      // $row[] = '<a href="javascript:void(0)" title="Edit Data" class="btn btn-sm btn-primary btn-responsive" onclick="edit_prod('."'".$dat->PROD_ID."'".')"><span class="glyphicon glyphicon-pencil"></span> </a>';
-      $row[] = '<a href="Products/crud/'.$dat->PROD_ID.'" target="blank__" title="Edit Data" class="btn btn-sm btn-primary btn-responsive"><span class="glyphicon glyphicon-pencil"></span> </a>';
+      $row[] = '<a href="Products/crud/'.$dat->PROD_CODE.'" target="blank__" title="Edit Data" class="btn btn-sm btn-primary btn-responsive"><span class="glyphicon glyphicon-pencil"></span> </a>';
       $row[] = '<a href="javascript:void(0)" title="Hapus Data" class="btn btn-sm btn-danger btn-responsive" onclick="delete_prod('."'".$dat->PROD_ID."'".')"><span class="glyphicon glyphicon-trash"></span> </a>';
       $data[] = $row;
     }
@@ -174,17 +190,87 @@ class Products extends MX_Controller
   }
   public function get_dropdistrict($id)
   {
-    $data = $this->db->order_by('dis_name')->get_where('mona_district',array('prov_id'=>$id))->result();
+    if($id != 'N')
+    {
+      $data = $this->db->order_by('dis_name')->get_where('mona_district',array('prov_id'=>$id))->result();
+    }
+    else
+    {
+      $data = $this->db->order_by('dis_name')->get('mona_district')->result();
+    }
     echo json_encode($data);
   }
   public function get_dropsubdistrict($id)
   {
-    $data = $this->db->order_by('subdis_name')->get_where('mona_subdistrict',array('dis_id'=>$id))->result();
+    if($id != 'N')
+    {
+      $data = $this->db->order_by('subdis_name')->get_where('mona_subdistrict',array('dis_id'=>$id))->result();
+    }
+    else
+    {
+      $data = $this->db->order_by('subdis_name')->get('mona_subdistrict')->result();
+    }    
     echo json_encode($data);
   }
   public function get_dropprodtype($tb)
   {
     $data = $this->db->order_by('prt_id')->get($tb)->result();
+    echo json_encode($data);
+  }
+  public function save_products()
+  {
+    $id=$this->input->post('productid');
+    $get = $this->db->get_where('mona_product',array('prod_id'=>$id))->row()->PROD_CODE;
+    $affix = $this->input->post('prodtype');
+    $subdis = $this->input->post('subdistrict');
+    $code = $this->gen_num_('mona_product','prod_code',$affix,$subdis);
+    if(substr($get,0,4)!='void')
+    {    
+      $newid = $this->add_product();
+      $upd = array(
+        'prov_id'=>$this->input->post('province'),
+        'dis_id'=>$this->input->post('district'),
+        'subdis_id'=>$this->input->post('subdistrict'),
+        'prt_id'=>$this->input->post('prodtype'),
+        'prsz_id'=>$this->input->post('prodsize'),
+        'cons_id'=>$this->input->post('prodcons'),
+        'prod_code'=>$code,
+        'prod_name'=>$this->input->post('productname'),
+        'prod_slug'=>url_title($this->input->post('productname'), 'dash', true),
+        'prod_streetaddr'=>$this->input->post('streetaddr'),
+        'prod_price'=>($this->input->post('productprice') != '')?$this->input->post('productprice'):0,
+        'prod_spcprice'=>($this->input->post('specialprice') != '')?$this->input->post('specialprice'):0,
+        'prod_description'=>$this->input->post('proddesc'),
+        'prod_sts'=>'1',
+        'prod_dtsts'=>'1'
+      ); 
+      $update = $this->db->update('mona_product',$upd,array('prod_id'=>$newid));
+      $data['msg'] = $this->db->error();
+      $data['status'] = ($this->db->affected_rows())?TRUE:FALSE;
+    }
+    else
+    {
+      $upd = array(
+        'prov_id'=>$this->input->post('province'),
+        'dis_id'=>$this->input->post('district'),
+        'subdis_id'=>$this->input->post('subdistrict'),
+        'prt_id'=>$this->input->post('prodtype'),
+        'prsz_id'=>$this->input->post('prodsize'),
+        'cons_id'=>$this->input->post('prodcons'),
+        'prod_code'=>$code,
+        'prod_name'=>$this->input->post('productname'),
+        'prod_slug'=>url_title($this->input->post('productname'), 'dash', true),
+        'prod_streetaddr'=>$this->input->post('streetaddr'),
+        'prod_price'=>($this->input->post('productprice') != '')?$this->input->post('productprice'):0,
+        'prod_spcprice'=>($this->input->post('specialprice') != '')?$this->input->post('specialprice'):0,
+        'prod_description'=>$this->input->post('proddesc'),
+        'prod_sts'=>'1',
+        'prod_dtsts'=>'1'
+      ); 
+      $update = $this->db->update('mona_product',$upd,array('prod_id'=>$id));
+      $data['msg'] = $this->db->error();
+      $data['status'] = ($this->db->affected_rows())?TRUE:FALSE;
+    }
     echo json_encode($data);
   }
   public function save_product()
