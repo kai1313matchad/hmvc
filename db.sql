@@ -674,7 +674,7 @@ CREATE TABLE IF NOT EXISTS `mona_prodpict` (
   PRIMARY KEY (`PRODPIC_ID`),
   KEY `FK__mona_product` (`PROD_ID`),
   CONSTRAINT `FK__mona_product` FOREIGN KEY (`PROD_ID`) REFERENCES `mona_product` (`PROD_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Dumping data for table iontest.mona_prodpict: ~1 rows (approximately)
 /*!40000 ALTER TABLE `mona_prodpict` DISABLE KEYS */;
@@ -749,15 +749,16 @@ CREATE TABLE IF NOT EXISTS `mona_product` (
   CONSTRAINT `FK_mona_product_mona_prodtype` FOREIGN KEY (`PRT_ID`) REFERENCES `mona_prodtype` (`PRT_ID`),
   CONSTRAINT `FK_mona_product_mona_province` FOREIGN KEY (`PROV_ID`) REFERENCES `mona_province` (`PROV_ID`),
   CONSTRAINT `FK_mona_product_mona_subdistrict` FOREIGN KEY (`SUBDIS_ID`) REFERENCES `mona_subdistrict` (`SUBDIS_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
--- Dumping data for table iontest.mona_product: ~1 rows (approximately)
+-- Dumping data for table iontest.mona_product: ~5 rows (approximately)
 /*!40000 ALTER TABLE `mona_product` DISABLE KEYS */;
 INSERT INTO `mona_product` (`PROD_ID`, `PROV_ID`, `DIS_ID`, `SUBDIS_ID`, `PRT_ID`, `PRSZ_ID`, `CONS_ID`, `PROD_CODE`, `PROD_NAME`, `PROD_SLUG`, `PROD_STREETADDR`, `PROD_PRICE`, `PROD_SPCPRICE`, `PROD_PIC`, `PROD_DESCRIPTION`, `PROD_STS`, `PROD_DTSTS`) VALUES
 	(11, '35', '3578', '357804', 'BIB', 2, 1, 'BIB357804000001', 'Sby Pusat', 'sby-pusat', 'JL Indragiri 61 A', 100000000, 0, NULL, '<p>tes<br></p>', '1', '1'),
 	(12, '35', '3578', '357802', 'BIB', 2, 1, 'BIB357802000001', 'Sby Pusat', 'sby-pusat', 'JL Indragiri 61 A', 100000000, 0, NULL, '<p>tes<br></p>', '1', '1'),
 	(14, NULL, NULL, NULL, NULL, NULL, NULL, 'void32353', '', NULL, NULL, 0, 0, NULL, NULL, NULL, '0'),
-	(15, NULL, NULL, NULL, NULL, NULL, NULL, 'void27150', '', NULL, NULL, 0, 0, NULL, NULL, NULL, '0');
+	(15, NULL, NULL, NULL, NULL, NULL, NULL, 'void27150', '', NULL, NULL, 0, 0, NULL, NULL, NULL, '0'),
+	(16, NULL, NULL, NULL, NULL, NULL, NULL, 'void293', '', NULL, NULL, 0, 0, NULL, NULL, NULL, '0');
 /*!40000 ALTER TABLE `mona_product` ENABLE KEYS */;
 
 -- Dumping structure for table iontest.mona_province
@@ -7966,7 +7967,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table iontest.users: ~3 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-	(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1534819580, 1, 'Admin', 'istrator', 'ADMIN', '0'),
+	(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1535506446, 1, 'Admin', 'istrator', 'ADMIN', '0'),
 	(2, '127.0.0.1', 'tes1', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', NULL, 'tes@mail.com', NULL, NULL, NULL, NULL, 1532591726, 1532940104, 1, 'tes', 'tes', 'tes', '123415'),
 	(3, '127.0.0.1', 'tes2@mail.com', '$2y$08$N/k5kV1vMgglz/olhGc0OuOYMdqHfyXFiN2LFPwnyRM1Tt5WwsqKu', NULL, 'tes2@mail.com', NULL, NULL, NULL, NULL, 1532591825, NULL, 1, 'tes2', 'tes2', 'tes2', '987654');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;

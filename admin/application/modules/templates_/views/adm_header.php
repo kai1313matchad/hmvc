@@ -36,6 +36,16 @@
                       <li><a href="<?php echo base_url('Banners');?>">Main Banner</a></li>
                     </ul>
                   </li>
+                  <li><a><i class="fa fa-book"></i> Categories <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="<?php echo base_url('Categories/billboard');?>">Billboard</a></li>
+                      <li><a href="<?php echo base_url('Categories/province');?>">Province</a></li>
+                      <li><a href="<?php echo base_url('Categories/district');?>">District</a></li>
+                      <li><a href="<?php echo base_url('Categories/subdistrict');?>">Sub-district</a></li>
+                      <li><a href="<?php echo base_url('Categories/size');?>">Size</a></li>
+                      <li><a href="<?php echo base_url('Categories/construct');?>">Construction</a></li>
+                    </ul>
+                  </li>
                   <li><a><i class="fa fa-users"></i> Users <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?php echo base_url('Users');?>">Manage</a></li>
