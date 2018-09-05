@@ -6,6 +6,7 @@ class Products extends MX_Controller
   	parent::__construct();
     $this->load->model('crud/M_gen','gen');
     $this->load->model('Dtb_productall','prodall');
+    date_default_timezone_set('Asia/Jakarta');
   }
   public function index()
   {
@@ -33,11 +34,12 @@ class Products extends MX_Controller
         $data['view_addoncustjs'] = array('productcrud_custjs');
         $data['prod_code'] = $get->row()->PROD_CODE;
         $data['prod_id'] = $get->row()->PROD_ID;
+        $data['form_sts'] = '2';
         $this->templates_->admin($data);
       }
       else
       {
-        redirect('Products');
+        redirect('Error_404');
       }
     }
     else
@@ -50,6 +52,7 @@ class Products extends MX_Controller
       $data['view_addoncustjs'] = array('productcrud_custjs');
       $data['prod_code'] = NULL;
       $data['prod_id'] = $this->add_product();
+      $data['form_sts'] = '1';
       $this->templates_->admin($data);
     }
   }
@@ -70,7 +73,7 @@ class Products extends MX_Controller
       {
         $fileData = $this->upload->data();
         $imgname = $fileData['file_name'];
-        $imgpath = './assets/img/product/'.$imgname;
+        $imgpath = '/assets/img/product/'.$imgname;
         $data = array(
           'prod_id' => $id,
           'prodpic_path' => $imgpath,
@@ -154,7 +157,7 @@ class Products extends MX_Controller
       $row[] = $dat->PROD_CODE;
       $row[] = $dat->PROD_NAME;
       $row[] = number_format($dat->PROD_PRICE);     
-      $row[] = '<a href="'.base_url().$dat->PROD_PIC.'" target="blank__"><img class="img-responsive img-adm-product" src="'.base_url().$dat->PROD_PIC.'"></a>';
+      // $row[] = '<a href="'.base_url().$dat->PROD_PIC.'" target="blank__"><img class="img-responsive img-adm-product" src="'.base_url().$dat->PROD_PIC.'"></a>';
       $row[] = '<a href="Products/crud/'.$dat->PROD_CODE.'" target="blank__" title="Edit Data" class="btn btn-sm btn-primary btn-responsive"><span class="glyphicon glyphicon-pencil"></span> </a>';
       $row[] = '<a href="javascript:void(0)" title="Hapus Data" class="btn btn-sm btn-danger btn-responsive" onclick="delete_prod('."'".$dat->PROD_ID."'".')"><span class="glyphicon glyphicon-trash"></span> </a>';
       $data[] = $row;
@@ -224,8 +227,9 @@ class Products extends MX_Controller
     $affix = $this->input->post('prodtype');
     $subdis = $this->input->post('subdistrict');
     $code = $this->gen_num_('mona_product','prod_code',$affix,$subdis);
-    if(substr($get,0,4)!='void')
-    {    
+    $sts = $this->input->post('form_status');
+    if(substr($get,0,4)!='void' && $sts == '1')
+    {
       $newid = $this->add_product();
       $upd = array(
         'prov_id'=>$this->input->post('province'),
@@ -242,22 +246,23 @@ class Products extends MX_Controller
         'prod_spcprice'=>($this->input->post('specialprice') != '')?$this->input->post('specialprice'):0,
         'prod_description'=>$this->input->post('proddesc'),
         'prod_sts'=>'1',
+        'prod_update'=>now(),
         'prod_dtsts'=>'1'
       ); 
       $update = $this->db->update('mona_product',$upd,array('prod_id'=>$newid));
       $data['msg'] = $this->db->error();
       $data['status'] = ($this->db->affected_rows())?TRUE:FALSE;
     }
-    else
+    else if(substr($get,0,4)!='void' && $sts == '2')
     {
       $upd = array(
-        'prov_id'=>$this->input->post('province'),
-        'dis_id'=>$this->input->post('district'),
-        'subdis_id'=>$this->input->post('subdistrict'),
-        'prt_id'=>$this->input->post('prodtype'),
+        // 'prov_id'=>$this->input->post('province'),
+        // 'dis_id'=>$this->input->post('district'),
+        // 'subdis_id'=>$this->input->post('subdistrict'),
+        // 'prt_id'=>$this->input->post('prodtype'),
         'prsz_id'=>$this->input->post('prodsize'),
         'cons_id'=>$this->input->post('prodcons'),
-        'prod_code'=>$code,
+        // 'prod_code'=>$code,
         'prod_name'=>$this->input->post('productname'),
         'prod_slug'=>url_title($this->input->post('productname'), 'dash', true),
         'prod_streetaddr'=>$this->input->post('streetaddr'),
@@ -265,11 +270,16 @@ class Products extends MX_Controller
         'prod_spcprice'=>($this->input->post('specialprice') != '')?$this->input->post('specialprice'):0,
         'prod_description'=>$this->input->post('proddesc'),
         'prod_sts'=>'1',
+        'prod_update'=>date('Y-m-d H:i:s'),
         'prod_dtsts'=>'1'
       ); 
       $update = $this->db->update('mona_product',$upd,array('prod_id'=>$id));
       $data['msg'] = $this->db->error();
       $data['status'] = ($this->db->affected_rows())?TRUE:FALSE;
+    }
+    else
+    {
+      redirect('Error_404');
     }
     echo json_encode($data);
   }

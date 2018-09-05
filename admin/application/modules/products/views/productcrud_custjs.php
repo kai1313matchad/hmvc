@@ -44,8 +44,8 @@
             if(data.status)
             {
               // $('#alert-div').append('<div class="alert alert-success alert dismissible fade in" role="alert"><button class="close" type="button" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">x</span></button>Success Update Data</div>');
-              // var url = "<?php echo site_url('Products')?>";
-              // window.location = url;
+              var url = "<?php echo site_url('Products')?>";
+              window.location = url;
             }
             else
             {

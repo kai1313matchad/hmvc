@@ -36,9 +36,8 @@
                           <th class="col-sm-2">Kode Produk</th>
                       		<th class="col-sm-3">Nama</th>
                       		<th class="col-sm-2">Price</th>
-                      		<th class="col-sm-3">Picture</th>
-                      		<th class="col-sm-1">Edit</th>
-                      		<th class="col-sm-1">Hapus</th>
+                      		<th class="col-sm-2">Edit</th>
+                      		<th class="col-sm-2">Hapus</th>
                       	</tr>
                       </thead>
                       <tbody>
@@ -51,7 +50,7 @@
 
             <div class="clearfix"></div>
 
-            <div class="row">
+            <!-- <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
@@ -109,7 +108,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
         <!-- /page content -->

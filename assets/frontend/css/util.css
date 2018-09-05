@@ -3693,6 +3693,14 @@ SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE
 	max-width: 570px;
 }
 
+.w-size29 {
+	width: 63%;
+}
+
+.w-size30 {
+	width: calc(37% - 55px);
+}
+
 /*[ Height Size ]
 ///////////////////////////////////////////////////////////
 */

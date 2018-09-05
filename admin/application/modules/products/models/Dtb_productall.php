@@ -5,7 +5,7 @@
 		var $table = 'mona_product';
 		var $column_order = array(null,'prod_code','prod_name','prod_price');
 		var $column_search = array('prod_code','prod_name','prod_price');
-		var $order = array('prod_id' => 'asc');
+		var $order = array('prod_code' => 'asc');
 		public function __construct()
 		{
 			parent::__construct();		

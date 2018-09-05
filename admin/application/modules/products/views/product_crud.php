@@ -42,7 +42,7 @@
                       <div id="myTabContent" class="tab-content">
                         <form role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
                           <div id="form-product" class="form-horizontal form-label-left" enctype="multipart/form-data">
-                            <input type="hidden" name="form_status" value="1">
+                            <input type="hidden" name="form_status" value="<?= $form_sts;?>">
                             <input type="hidden" name="productid" value="<?= $prod_id;?>">
                             <?php
                               if(isset($prod_code))
