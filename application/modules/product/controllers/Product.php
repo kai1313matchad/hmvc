@@ -12,7 +12,7 @@ class Product extends MX_Controller
   	$data['view_content'] = 'product';
     $data['view_addoncss'] = array('product_css');
     $data['view_addonjs'] = array('product_js');
-    // $data['view_addoncustjs'] = array('product_custjs');
+    $data['view_addoncustjs'] = array('product_custjs');
   	$this->templates_->shop($data);
   }
   public function details()
@@ -40,11 +40,6 @@ class Product extends MX_Controller
     }
   }
 
-  public function tester()
-  {
-    $this->get_img('12');
-  }
-
   public function get_img($id)
   {
     $get = $this->db->from('mona_prodpict a')
@@ -61,5 +56,5 @@ class Product extends MX_Controller
             </div>';
     }
     return $data;
-  }
+  }  
 }
