@@ -7,6 +7,7 @@ class Products extends MX_Controller
     $this->load->model('crud/M_gen','gen');
     $this->load->model('Dtb_productall','prodall');
   }
+  
   public function index()
   {
   	$this->load->module('templates_');
@@ -17,6 +18,7 @@ class Products extends MX_Controller
     $data['view_addoncustjs'] = array('product_custjs');
   	$this->templates_->admin($data);
   }
+
   public function crud($id)
   {
     if($id != 'add')
@@ -53,12 +55,14 @@ class Products extends MX_Controller
       $this->templates_->admin($data);
     }
   }
+
   public function add_product()
   {
     $this->db->insert('mona_product',array('prod_dtsts'=>'0','prod_code'=>'void'.rand()));
     $insID = $this->db->insert_id();
     return $insID;
   }
+
   public function upload_pic()
   {
     if (!empty($_FILES)) 
@@ -80,6 +84,7 @@ class Products extends MX_Controller
       }
     }
   }
+
   public function remove_pic()
   {
     $token = $this->input->post('token');
@@ -95,6 +100,7 @@ class Products extends MX_Controller
       $del = $this->db->delete('mona_prodpict',array('prodpic_token'=>$token));
     }
   }
+
   public function get_pic($id)
   {
     $data = $this->db->from('mona_prodpict a')
@@ -103,6 +109,7 @@ class Products extends MX_Controller
                       ->get()->result();
     echo json_encode($data);
   }
+
   public function test()
   {
     $affix = $this->input->post('prodtype');
@@ -123,6 +130,7 @@ class Products extends MX_Controller
     // $data['msg'] = url_title($kode, 'dash', true);
     echo json_encode($data);
   }
+
   public function gen_num_($tb,$col,$affix,$subdis)
   {
     $this->db->select_max($col,'code');
@@ -141,6 +149,7 @@ class Products extends MX_Controller
     $res = $kode . sprintf('%06s',$num);
     return $res;
   }
+
   public function get_productall()
   {
     $list = $this->prodall->get_datatables();
@@ -167,17 +176,20 @@ class Products extends MX_Controller
     );      
     echo json_encode($output);
   }
+
   public function get_prodrow($id)
   {
     $que = $this->db->get_where('mona_product',array('prod_id'=>$id));
     $data = $que->row();
     echo json_encode($data);
   }
+
   public function get_dropsize()
   {
     $data = $this->db->get_where('mona_prodsize',array('prsz_dtsts'=>'1'))->result();
     echo json_encode($data);
   }
+
   public function get_dropcons()
   {
     $data = $this->db->get_where('mona_construct_sts',array('cons_dtsts'=>'1'))->result();
@@ -188,6 +200,7 @@ class Products extends MX_Controller
     $data = $this->db->order_by('prov_name')->get($tb)->result();
     echo json_encode($data);
   }
+
   public function get_dropdistrict($id)
   {
     if($id != 'N')
@@ -273,6 +286,7 @@ class Products extends MX_Controller
     }
     echo json_encode($data);
   }
+
   public function save_product()
   {
     $this->_validate_product();
@@ -342,6 +356,7 @@ class Products extends MX_Controller
     }
     echo json_encode($data);
   }
+
   public function del_product($id)
   {
     $del = array(
@@ -351,6 +366,7 @@ class Products extends MX_Controller
     $data['status']=($this->db->affected_rows())?TRUE:FALSE;
     echo json_encode($data);
   }
+
   public function _validate_product()
   {
     $data = array();
@@ -406,6 +422,7 @@ class Products extends MX_Controller
       exit();
     }
   }
+
   public function img_config_()
   {
     $nmfile='img_'.time();
