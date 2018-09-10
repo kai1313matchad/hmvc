@@ -125,6 +125,8 @@
             $('#subdistrict').prop('disabled', true);
             $('#subdistrict').selectpicker('refresh');
           	$('[name="productprice"]').val(data.PROD_PRICE);
+            $('[name="specialprice"]').val(data.PROD_SPCPRICE);
+            $('[name="videolink"]').val(data.PROD_VIDLINK);
           },
           error: function (jqXHR, textStatus, errorThrown)
           {

@@ -654,13 +654,14 @@ CREATE TABLE IF NOT EXISTS `mona_mainbanners` (
   `MBANN_LINK` varchar(1024) DEFAULT NULL,
   `MBANN_IMGPATH` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`MBANN_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table iontest.mona_mainbanners: ~3 rows (approximately)
 /*!40000 ALTER TABLE `mona_mainbanners` DISABLE KEYS */;
 INSERT INTO `mona_mainbanners` (`MBANN_ID`, `MBANN_NAME`, `MBANN_LINK`, `MBANN_IMGPATH`) VALUES
 	(1, 'aaaaaaa', 'Link Banner', '/assets/img/banner/img_1533525291.jpeg'),
-	(5, 'Banner Name', 'Banner Link', '/assets/img/banner/default.jpg');
+	(5, 'Banner Name', 'Banner Link', '/assets/img/banner/default.jpg'),
+	(6, 'Banner Name', 'Banner Link', '/assets/img/banner/img_1536560122.JPG');
 /*!40000 ALTER TABLE `mona_mainbanners` ENABLE KEYS */;
 
 -- Dumping structure for table iontest.mona_prodpict
@@ -674,16 +675,16 @@ CREATE TABLE IF NOT EXISTS `mona_prodpict` (
   PRIMARY KEY (`PRODPIC_ID`),
   KEY `FK__mona_product` (`PROD_ID`),
   CONSTRAINT `FK__mona_product` FOREIGN KEY (`PROD_ID`) REFERENCES `mona_product` (`PROD_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
--- Dumping data for table iontest.mona_prodpict: ~2 rows (approximately)
+-- Dumping data for table iontest.mona_prodpict: ~4 rows (approximately)
 /*!40000 ALTER TABLE `mona_prodpict` DISABLE KEYS */;
 INSERT INTO `mona_prodpict` (`PRODPIC_ID`, `PROD_ID`, `PRODPIC_PATH`, `PRODPIC_TOKEN`, `PRODPIC_STS`) VALUES
 	(3, 12, '/assets/img/product/img_1536135838.jpg', '0.49449667368695094', '0'),
 	(4, 12, '/assets/img/product/img_1536135839.jpg', '0.15822889900545478', '0'),
 	(5, 13, '/assets/img/product/img_1536219001.jpg', '0.19879843409379205', '0'),
 	(6, 14, '/assets/img/product/img_1536219664.jpg', '0.57749587654983', '0'),
-	(7, 15, '/assets/img/product/img_1536219784.jpg', '0.752676063646587', '0');
+	(8, 16, '/assets/img/product/img_1536568546.jpg', '0.6981631031845615', '0');
 /*!40000 ALTER TABLE `mona_prodpict` ENABLE KEYS */;
 
 -- Dumping structure for table iontest.mona_prodsize
@@ -699,8 +700,8 @@ CREATE TABLE IF NOT EXISTS `mona_prodsize` (
 -- Dumping data for table iontest.mona_prodsize: ~2 rows (approximately)
 /*!40000 ALTER TABLE `mona_prodsize` DISABLE KEYS */;
 INSERT INTO `mona_prodsize` (`PRSZ_ID`, `PRSZ_NAME`, `PRSZ_INFO`, `PRSZ_DTSTS`) VALUES
-	(1, 'H 5X4', 'Info', '1'),
-	(2, 'V 4X5', 'Info', '1');
+	(1, '5x4 Horizontal', 'Ukuran 5m banding 4m Horizontal', '1'),
+	(2, '4x5 Vertical', 'Ukuran 4m banding 5m Vertical', '1');
 /*!40000 ALTER TABLE `mona_prodsize` ENABLE KEYS */;
 
 -- Dumping structure for table iontest.mona_prodtype
@@ -716,9 +717,9 @@ CREATE TABLE IF NOT EXISTS `mona_prodtype` (
 -- Dumping data for table iontest.mona_prodtype: ~3 rows (approximately)
 /*!40000 ALTER TABLE `mona_prodtype` DISABLE KEYS */;
 INSERT INTO `mona_prodtype` (`PRT_ID`, `PRT_NAME`, `PRT_INFO`, `PRT_DTSTS`) VALUES
-	('BAL', 'Baliho', 'Info', '1'),
-	('BIB', 'Billboard', 'Info', '1'),
-	('VDT', 'Videotron', 'Info', '1');
+	('BAL', 'Baliho', 'Reklame ukuran kecil', '1'),
+	('BIB', 'Billboard', 'Reklame ukuran besar', '1'),
+	('VDT', 'Videotron', 'Reklame dengan materi berbentuk video', '1');
 /*!40000 ALTER TABLE `mona_prodtype` ENABLE KEYS */;
 
 -- Dumping structure for table iontest.mona_product
@@ -739,6 +740,7 @@ CREATE TABLE IF NOT EXISTS `mona_product` (
   `PROD_SPCPRICE` bigint(20) NOT NULL DEFAULT '0',
   `PROD_PIC` varchar(1024) DEFAULT NULL,
   `PROD_DESCRIPTION` longtext,
+  `PROD_VIDLINK` longtext,
   `PROD_STS` char(1) DEFAULT NULL,
   `PROD_UPDATE` datetime DEFAULT NULL,
   `PROD_DTSTS` char(1) DEFAULT NULL,
@@ -756,15 +758,15 @@ CREATE TABLE IF NOT EXISTS `mona_product` (
   CONSTRAINT `FK_mona_product_mona_prodtype` FOREIGN KEY (`PRT_ID`) REFERENCES `mona_prodtype` (`PRT_ID`),
   CONSTRAINT `FK_mona_product_mona_province` FOREIGN KEY (`PROV_ID`) REFERENCES `mona_province` (`PROV_ID`),
   CONSTRAINT `FK_mona_product_mona_subdistrict` FOREIGN KEY (`SUBDIS_ID`) REFERENCES `mona_subdistrict` (`SUBDIS_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
--- Dumping data for table iontest.mona_product: ~1 rows (approximately)
+-- Dumping data for table iontest.mona_product: ~4 rows (approximately)
 /*!40000 ALTER TABLE `mona_product` DISABLE KEYS */;
-INSERT INTO `mona_product` (`PROD_ID`, `PROV_ID`, `DIS_ID`, `SUBDIS_ID`, `PRT_ID`, `PRSZ_ID`, `CONS_ID`, `PROD_CODE`, `PROD_NAME`, `PROD_SLUG`, `PROD_STREETADDR`, `PROD_PRICE`, `PROD_SPCPRICE`, `PROD_PIC`, `PROD_DESCRIPTION`, `PROD_STS`, `PROD_UPDATE`, `PROD_DTSTS`) VALUES
-	(12, '35', '3578', '357802', 'BIB', 1, 1, 'BIB357802000001', 'Sby Pusat No 24', 'sby-pusat-no-24', '', 130000000, 0, NULL, '<p><br></p>', '1', '2018-09-06 16:40:58', '1'),
-	(13, '35', '3578', '357803', 'BIB', 1, 1, 'BIB357803000001', 'Sby Pusat Pinggir2', 'sby-pusat-pinggir2', '', 100000000, 0, NULL, '<p><br></p>', '1', '2018-09-06 14:40:02', '1'),
-	(14, '35', '3578', '357803', 'BAL', 1, 1, 'BAL357803000001', 'Sby Pusat Pinggir', 'sby-pusat-pinggir', '', 120000000, 0, NULL, '<p><br></p>', '1', '2018-09-06 16:40:47', '1'),
-	(15, '35', '3578', '357804', 'BIB', 1, 1, 'BIB357804000001', 'Sby Pusat Lagi', 'sby-pusat-lagi', 'Indragiri 61', 25000000, 0, NULL, '<p><br></p>', '1', '2018-09-06 14:43:06', '1');
+INSERT INTO `mona_product` (`PROD_ID`, `PROV_ID`, `DIS_ID`, `SUBDIS_ID`, `PRT_ID`, `PRSZ_ID`, `CONS_ID`, `PROD_CODE`, `PROD_NAME`, `PROD_SLUG`, `PROD_STREETADDR`, `PROD_PRICE`, `PROD_SPCPRICE`, `PROD_PIC`, `PROD_DESCRIPTION`, `PROD_VIDLINK`, `PROD_STS`, `PROD_UPDATE`, `PROD_DTSTS`) VALUES
+	(12, '35', '3578', '357802', 'BIB', 1, 1, 'BIB357802000001', 'Sby Pusat No 24', 'sby-pusat-no-24', '', 130000000, 100000000, NULL, '<p><br></p>', 'https://www.youtube.com/embed/IdWMfjl8dLE', '1', '2018-09-10 11:35:50', '1'),
+	(13, '35', '3578', '357803', 'BIB', 1, 1, 'BIB357803000001', 'Sby Pusat Pinggir2', 'sby-pusat-pinggir2', '', 100000000, 0, NULL, '<p><br></p>', NULL, '1', '2018-09-06 14:40:02', '1'),
+	(14, '35', '3578', '357803', 'BAL', 1, 1, 'BAL357803000001', 'Sby Pusat Pinggir', 'sby-pusat-pinggir', '', 120000000, 0, NULL, '<p><br></p>', 'https://www.youtube.com/watch?v=IdWMfjl8dLE', '1', '2018-09-10 11:47:51', '1'),
+	(16, '35', '3578', '357807', 'BIB', 2, 1, 'BIB357807000001', 'Surabaya JL Embong Malang 76A', 'surabaya-jl-embong-malang-76a', 'JL Embong Malang No.76A', 700000000, 0, NULL, '<p>Penerangan 8 Unit LED @100 Watt</p><p>View dari Embong Malang<br></p>', 'https://www.youtube.com/embed/IdWMfjl8dLE', '1', '2018-09-10 15:38:27', '1');
 /*!40000 ALTER TABLE `mona_product` ENABLE KEYS */;
 
 -- Dumping structure for table iontest.mona_province
@@ -7973,7 +7975,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table iontest.users: ~3 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-	(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1536226830, 1, 'Admin', 'istrator', 'ADMIN', '0'),
+	(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1536571033, 1, 'Admin', 'istrator', 'ADMIN', '0'),
 	(2, '127.0.0.1', 'tes1', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', NULL, 'tes@mail.com', NULL, NULL, NULL, NULL, 1532591726, 1532940104, 1, 'tes', 'tes', 'tes', '123415'),
 	(3, '127.0.0.1', 'tes2@mail.com', '$2y$08$N/k5kV1vMgglz/olhGc0OuOYMdqHfyXFiN2LFPwnyRM1Tt5WwsqKu', NULL, 'tes2@mail.com', NULL, NULL, NULL, NULL, 1532591825, NULL, 1, 'tes2', 'tes2', 'tes2', '987654');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;

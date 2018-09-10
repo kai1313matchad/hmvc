@@ -129,7 +129,7 @@
 		<div class="flex-w flex-sb">
 			<div class="w-size31 p-t-35 respon5">
 				<div class="pos-relative embed-responsive embed-responsive-16by9">
-					<iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe> 
+					<?= $prod_vidurl ;?>
 				</div>
 			</div>
 			<div class="w-size32 p-t-35 respon5">
@@ -141,9 +141,9 @@
 					</h5>
 
 					<div class="dropdown-content dis-none p-t-15 p-b-23">
-						<p class="s-text8">
-							Fusce ornare mi vel risus porttitor dignissim. Nunc eget risus at ipsum blandit ornare vel sed velit. Proin gravida arcu nisl, a dignissim mauris placerat
-						</p>
+						<div class="s-text8">
+							<?= $prod_desc?>							
+						</div>
 					</div>
 				</div>
 		</div>
