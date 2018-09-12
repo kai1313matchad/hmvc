@@ -33,7 +33,12 @@
                   dataType: "JSON",
                   success: function(data)
                   {
-                    alert('Data Berhasil Disimpan !');
+                    if(data.status)
+                    {
+                       alert('Data Berhasil Disimpan !');
+                    } else {
+                      alert(data['error_string']);
+                    }
                     reload_table();
                     resetbtn();
                   },

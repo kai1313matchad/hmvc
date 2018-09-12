@@ -371,7 +371,7 @@ class Categories extends MX_Controller
   {
     if($this->input->post('form_status') == '1')
     {   
-        // $this->_validate_size();
+        $this->_validate_construct();
         $ins = array(
           'cons_id' => $this->input->post('construct_id'),
           'cons_name' => $this->input->post('construct_name'),
@@ -468,6 +468,20 @@ class Categories extends MX_Controller
       $data['status'] = FALSE;
     }
 
+    if($this->input->post('bbtype_name') == '')
+    {
+      $data['inputerror'][] = 'bbtype_name';
+      $data['error_string'][] = 'Categories Name Tidak Boleh Kosong';
+      $data['status'] = FALSE;
+    }
+
+    if($this->input->post('bbtype_info') == '')
+    {
+      $data['inputerror'][] = 'bbtype_info';
+      $data['error_string'][] = 'Information Tidak Boleh Kosong';
+      $data['status'] = FALSE;
+    }
+
     if($this->input->post('form_status') == '1')
     {
       $this->form_validation->set_rules('bbtype_id', 'bbtype_id', 'is_unique[mona_prodtype.PRT_ID]');
@@ -496,7 +510,35 @@ class Categories extends MX_Controller
     if($this->input->post('province_id') == '')
     {
       $data['inputerror'][] = 'province_id';
-      $data['error_string'][] = 'Type ID Tidak Boleh Kosong';
+      $data['error_string'][] = 'Province ID Tidak Boleh Kosong';
+      $data['status'] = FALSE;
+    }
+
+    if($this->input->post('province_name') == '')
+    {
+      $data['inputerror'][] = 'province_name';
+      $data['error_string'][] = 'Province Name Tidak Boleh Kosong';
+      $data['status'] = FALSE;
+    }
+
+    if($this->input->post('province_name') == '')
+    {
+      $data['inputerror'][] = 'province_name';
+      $data['error_string'][] = 'Province Name Tidak Boleh Kosong';
+      $data['status'] = FALSE;
+    }
+
+    if($this->input->post('province_url') == '')
+    {
+      $data['inputerror'][] = 'province_url';
+      $data['error_string'][] = 'URL Tidak Boleh Kosong';
+      $data['status'] = FALSE;
+    }
+
+    if($this->input->post('province_pic') == '')
+    {
+      $data['inputerror'][] = 'province_pic';
+      $data['error_string'][] = 'PIC Tidak Boleh Kosong';
       $data['status'] = FALSE;
     }
 
@@ -532,6 +574,20 @@ class Categories extends MX_Controller
       $data['status'] = FALSE;
     }
 
+    if($this->input->post('district_name') == '')
+    {
+      $data['inputerror'][] = 'district_name';
+      $data['error_string'][] = 'District Name Tidak Boleh Kosong';
+      $data['status'] = FALSE;
+    }
+
+    if($this->input->post('district_type') == '')
+    {
+      $data['inputerror'][] = 'district_type';
+      $data['error_string'][] = 'District Type Tidak Boleh Kosong';
+      $data['status'] = FALSE;
+    }
+
     if($this->input->post('form_status') == '1')
     {
       $this->form_validation->set_rules('district_id', 'dis_id', 'is_unique[mona_district.DIS_ID]');
@@ -564,6 +620,13 @@ class Categories extends MX_Controller
       $data['status'] = FALSE;
     }
 
+    if($this->input->post('subdistrict_name') == '')
+    {
+      $data['inputerror'][] = 'subdistrict_id';
+      $data['error_string'][] = 'Subdistrict Name Tidak Boleh Kosong';
+      $data['status'] = FALSE;
+    }
+
     if($this->input->post('form_status') == '1')
     {
       $this->form_validation->set_rules('subdistrict_id', 'subdis_id', 'is_unique[mona_subdistrict.SUBDIS_ID]');
@@ -589,16 +652,30 @@ class Categories extends MX_Controller
     $data['inputerror'] = array();
     $data['status'] = TRUE;
 
-    if($this->input->post('form_status') == '1')
+     if($this->input->post('bbsize_name') == '')
     {
-      $this->form_validation->set_rules('bbsize_id', 'prsz_id', 'is_unique[mona_prodtype.PRSZ_ID]');
-      if($this->form_validation->run() == FALSE)
-      {
-        $data['inputerror'][] = 'bbsize_id';
-        $data['error_string'][] = 'Size ID Sudah Terpakai';
-        $data['status'] = FALSE;
-      }
+      $data['inputerror'][] = 'bbsize_name';
+      $data['error_string'][] = 'Size Name Tidak Boleh Kosong';
+      $data['status'] = FALSE;
     }
+
+    if($this->input->post('bbsize_info') == '')
+    {
+      $data['inputerror'][] = 'bbsize_info';
+      $data['error_string'][] = 'Info Tidak Boleh Kosong';
+      $data['status'] = FALSE;
+    }
+
+    // if($this->input->post('form_status') == '1')
+    // {
+    //   $this->form_validation->set_rules('bbsize_id', 'prsz_id', 'is_unique[mona_prodtype.PRSZ_ID]');
+    //   if($this->form_validation->run() == FALSE)
+    //   {
+    //     $data['inputerror'][] = 'bbsize_id';
+    //     $data['error_string'][] = 'Size ID Sudah Terpakai';
+    //     $data['status'] = FALSE;
+    //   }
+    // }
     
     if($data['status'] === FALSE)
     {
@@ -614,16 +691,30 @@ class Categories extends MX_Controller
     $data['inputerror'] = array();
     $data['status'] = TRUE;
 
-    if($this->input->post('form_status') == '1')
+     if($this->input->post('construct_name') == '')
     {
-      $this->form_validation->set_rules('construct_id', 'cons_id', 'is_unique[mona_prodtype.CONS_ID]');
-      if($this->form_validation->run() == FALSE)
-      {
-        $data['inputerror'][] = 'construct_id';
-        $data['error_string'][] = 'Construct STS ID Sudah Terpakai';
-        $data['status'] = FALSE;
-      }
+      $data['inputerror'][] = 'construct_name';
+      $data['error_string'][] = 'Construct Name Tidak Boleh Kosong';
+      $data['status'] = FALSE;
     }
+
+    if($this->input->post('construct_status') == '')
+    {
+      $data['inputerror'][] = 'construct_status';
+      $data['error_string'][] = 'Status Tidak Boleh Kosong';
+      $data['status'] = FALSE;
+    }
+
+    // if($this->input->post('form_status') == '1')
+    // {
+    //   $this->form_validation->set_rules('construct_id', 'cons_id', 'is_unique[mona_prodtype.CONS_ID]');
+    //   if($this->form_validation->run() == FALSE)
+    //   {
+    //     $data['inputerror'][] = 'construct_id';
+    //     $data['error_string'][] = 'Construct STS ID Sudah Terpakai';
+    //     $data['status'] = FALSE;
+    //   }
+    // }
     
     if($data['status'] === FALSE)
     {
