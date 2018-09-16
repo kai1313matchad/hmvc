@@ -49,11 +49,15 @@
 				<?php
 					if($prod_spcprice != NULL)
 					{
-						echo '<span class="m-text17b">'.$prod_price.'</span><br><span class="m-text17">'.$prod_spcprice.'</span>';
+						echo '<span class="m-text17b">'.$prod_price.'</span><span class="m-text17c">/Year</span><br><span class="m-text17">'.$prod_spcprice.'</span><span class="m-text17c">/Year</span><br>';
 					}
 					else
 					{
-						echo '<span class="m-text17">'.$prod_price.'</span>';
+						echo '<span class="m-text17">'.$prod_price.'</span><span class="m-text17c">/Year</span><br>';
+					}
+					foreach ($prod_retail as $retail)
+					{
+						echo $retail;
 					}
 				?>
 

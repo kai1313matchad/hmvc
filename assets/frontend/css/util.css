@@ -3308,6 +3308,13 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 	text-decoration: line-through;
 }
 
+.m-text17c {
+	font-family: Montserrat-Regular;
+	font-size: 20px;
+	color: #555555;
+	line-height: 1.2;
+}
+
 .m-text18 {
 	font-family: Montserrat-Regular;
 	font-size: 16px;

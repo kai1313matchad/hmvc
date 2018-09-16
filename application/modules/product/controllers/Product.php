@@ -21,6 +21,15 @@ class Product extends MX_Controller
     $get = $this->db->get_where('mona_product',array('prod_slug'=>$slug));
     if($get->num_rows()>0)
     {
+      $price = $get->row()->PROD_PRICE;
+      $contract = array(6,3,1);
+      $retail_price = array();
+      foreach ($contract as $con)
+      {
+        $ret = abs($price)/10*$con;
+        $retail_price[] = '<span class="m-text17">Rp '.number_format($ret).'</span><span class="m-text17c">/'.$con.' Months</span><br>';
+      }
+      $data['prod_retail'] = $retail_price;
       $data['prod_name'] = $get->row()->PROD_NAME;
       $data['prod_price'] = 'Rp '.number_format($get->row()->PROD_PRICE);
       $data['prod_spcprice'] = ($get->row()->PROD_SPCPRICE > 0)?'Rp '.number_format($get->row()->PROD_SPCPRICE):NULL;
