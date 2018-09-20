@@ -58,8 +58,9 @@ class Products extends MX_Controller
   }
   public function add_product()
   {
-    $this->db->insert('mona_product',array('prod_dtsts'=>'0','prod_code'=>'void'.rand()));
-    $insID = $this->db->insert_id();
+    // $this->db->insert('mona_product',array('prod_dtsts'=>'0','prod_code'=>'void'.rand()));
+    // $insID = $this->db->insert_id();
+    $insID = '17';
     return $insID;
   }
   public function upload_pic()
@@ -225,8 +226,9 @@ class Products extends MX_Controller
     $id=$this->input->post('productid');
     $get = $this->db->get_where('mona_product',array('prod_id'=>$id))->row()->PROD_CODE;
     $affix = $this->input->post('prodtype');
+    $dis = $this->input->post('district');
     $subdis = $this->input->post('subdistrict');
-    $code = $this->gen_num_('mona_product','prod_code',$affix,$subdis);
+    $code = $this->gen_num_('mona_product','prod_code',$affix,$dis);
     $sts = $this->input->post('form_status');
     if(substr($get,0,4)!='void' && $sts == '1')
     {
