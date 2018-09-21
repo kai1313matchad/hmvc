@@ -55,22 +55,41 @@
                                     <input type="text" name="productcode" required="required" class="form-control col-md-7 col-xs-12" value="'.$prod_code.'" readonly>
                                     <span class="help-block"></span>
                                   </div>
-                                </div>';
+                                </div>
+                                <div class="form-group">
+                                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Product Name
+                                  </label>
+                                  <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" name="productname" required="required" class="form-control col-md-7 col-xs-12" value="'.$prod_name.'" readonly>
+                                    <span class="help-block"></span>
+                                  </div>
+                                </div>'
+                                ;
                               }
                             ?>                            
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                               <label class="control-label col-md-3 col-sm-3 col-xs-12">Product Name
                               </label>
                               <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input type="text" name="productname" required="required" class="form-control col-md-7 col-xs-12" placeholder="Product Name">
                                 <span class="help-block"></span>
                               </div>
-                            </div>
+                            </div> -->
                             <div class="form-group">
-                              <label class="control-label col-md-3 col-sm-3 col-xs-12">Type
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">Type-Size-Construct
                               </label>
-                              <div class="col-md-6 col-sm-6 col-xs-12">
+                              <div class="col-md-2 col-sm-2 col-xs-4">
                                 <select id="prodtype" name="prodtype" data-live-search="true" class="form-control text-center" required>
+                                </select>
+                                <span class="help-block"></span>
+                              </div>
+                              <div class="col-md-2 col-sm-2 col-xs-4">
+                                <select id="prodsize" name="prodsize" data-live-search="true" class="form-control text-center" required>
+                                </select>
+                                <span class="help-block"></span>
+                              </div>
+                              <div class="col-md-2 col-sm-2 col-xs-4">
+                                <select id="prodcons" name="prodcons" data-live-search="true" class="form-control text-center" required>
                                 </select>
                                 <span class="help-block"></span>
                               </div>
@@ -109,7 +128,7 @@
                                 <span class="help-block"></span>
                               </div>
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                               <label class="control-label col-md-3 col-sm-3 col-xs-12">Size
                               </label>
                               <div class="col-md-6 col-sm-6 col-xs-12">
@@ -117,8 +136,8 @@
                                 </select>
                                 <span class="help-block"></span>
                               </div>
-                            </div>
-                            <div class="form-group">
+                            </div> -->
+                           <!--  <div class="form-group">
                               <label class="control-label col-md-3 col-sm-3 col-xs-12">Construct
                               </label>
                               <div class="col-md-6 col-sm-6 col-xs-12">
@@ -126,7 +145,7 @@
                                 </select>
                                 <span class="help-block"></span>
                               </div>
-                            </div>
+                            </div> -->
                             <div class="form-group">
                               <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Product Price</label>
                               <div class="col-md-6 col-sm-6 col-xs-12">
@@ -137,7 +156,7 @@
                             <div class="form-group">
                               <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Special Price</label>
                               <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input class="form-control col-md-7 col-xs-12 curr-num" type="text" name="specialprice" required="required" placeholder="Price">
+                                <input class="form-control col-md-7 col-xs-12 curr-num" type="text" name="specialprice" required="required" placeholder="Special Price">
                                 <span class="help-block"></span>
                               </div>
                             </div>
@@ -148,13 +167,13 @@
                                 <span class="help-block"></span>
                               </div>
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                               <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Product Picture</label>
                               <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input class="form-control col-md-7 col-xs-12" type="file" id="productpic" name="productpic" required="required">
                                 <span class="help-block"></span>
                               </div>
-                            </div>
+                            </div> -->
                             <!-- <div class="ln_solid"></div>
                             <div class="form-group">
                               <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
