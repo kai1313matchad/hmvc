@@ -1,6 +1,9 @@
 		<script>
     	$(document).ready(function(){
-        wysiwig();        
+        wysiwig();
+        $('.dtp').datetimepicker({
+          format: 'YYYY-MM-DD'
+        });
         $('#province').selectpicker({});
         $('#district').selectpicker({});
         $('#subdistrict').selectpicker({});
@@ -32,6 +35,23 @@
         });
         $('#summernote').summernote('fontName', 'Times New Roman');
       }
+      function test_()
+      {
+        $.ajax({
+          url : "<?php echo site_url('Products/test')?>",
+          data : $('form').serialize(),
+          type: "POST",
+          dataType: "JSON",
+          success: function(data)
+          {
+            alert(data.tes);
+          },
+          error: function (jqXHR, textStatus, errorThrown)
+          {
+            alert('Error Update Data');
+          }
+        });
+      }
       function save_()
       {
         $.ajax({
@@ -44,8 +64,8 @@
             if(data.status)
             {
               // $('#alert-div').append('<div class="alert alert-success alert dismissible fade in" role="alert"><button class="close" type="button" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">x</span></button>Success Update Data</div>');
-              // var url = "<?php echo site_url('Products')?>";
-              // window.location = url;
+              var url = "<?php echo site_url('Products')?>";
+              window.location = url;
             }
             else
             {
@@ -54,7 +74,7 @@
           },
           error: function (jqXHR, textStatus, errorThrown)
           {
-            alert('Error Update Data');
+            alert('Error Update DataA'+errorThrown);
           }
         });
       }
@@ -112,6 +132,7 @@
           {
           	$('[name="productid"]').val(data.PROD_ID);
           	$('[name="productname"]').val(data.PROD_NAME);
+            $('[name="streetaddr"]').val(data.PROD_STREETADDR);
             $('select#prodtype').val(data.PRT_ID);
             $('#prodtype').prop('disabled', true);
             $('#prodtype').selectpicker('refresh');
@@ -125,6 +146,12 @@
             $('#subdistrict').prop('disabled', true);
             $('#subdistrict').selectpicker('refresh');
           	$('[name="productprice"]').val(data.PROD_PRICE);
+            $('[name="specialprice"]').val(data.PROD_SPCPRICE);
+            $('[name="videolink"]').val(data.PROD_VIDLINK);
+            $('[name="taxdue"]').val(data.PROD_TAXDUE);
+            $('[name="rentdue"]').val(data.PROD_RENTDUE);
+            $('[name="insurancedue"]').val(data.PROD_INSURANCEDUE);
+            $('#summernote').summernote('code',data.PROD_DESCRIPTION);
           },
           error: function (jqXHR, textStatus, errorThrown)
           {
@@ -194,6 +221,10 @@
           {   
             var select = document.getElementById(id);
             var option;
+            option = document.createElement('option');
+            option.value = '';
+            option.text = 'Choose Province';
+            select.add(option);
             for (var i = 0; i < data.length; i++)
             {
               option = document.createElement('option');
@@ -206,7 +237,7 @@
           },
           error: function (jqXHR, textStatus, errorThrown)
           {
-            alert('Error get product data');
+            alert('Choose The Province');
           }
         });
       }
@@ -233,7 +264,7 @@
           },
           error: function (jqXHR, textStatus, errorThrown)
           {
-            alert('Error get product data');
+            alert('Unknown Province');
           }
         });
       }

@@ -1,11 +1,12 @@
 
 	<!-- Slide1 -->
-	<section class="slide1">
+	<section>
 		<div class="wrap-slick1">
 			<div class="slickCust" id="mainbanners">
 			</div>
 		</div>
 	</section>
+
 
 	<!-- Banner -->
 	<!-- <section class="banner bgwhite p-t-40 p-b-40">

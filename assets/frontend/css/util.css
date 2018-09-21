@@ -3296,6 +3296,21 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 .m-text17 {
 	font-family: Montserrat-Regular;
 	font-size: 30px;
+	color: #e65540;
+	line-height: 1.2;
+}
+
+.m-text17b {
+	font-family: Montserrat-Regular;
+	font-size: 30px;
+	color: #555555;
+	line-height: 1.2;
+	text-decoration: line-through;
+}
+
+.m-text17c {
+	font-family: Montserrat-Regular;
+	font-size: 20px;
 	color: #555555;
 	line-height: 1.2;
 }
@@ -3691,6 +3706,22 @@ SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE
 
 .w-size28 {
 	max-width: 570px;
+}
+
+.w-size29 {
+	width: 63%;
+}
+
+.w-size30 {
+	width: calc(37% - 55px);
+}
+
+.w-size31 {
+	width: 51%;
+}
+
+.w-size32 {
+	width: calc(49% - 55px);
 }
 
 /*[ Height Size ]

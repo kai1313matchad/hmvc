@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `login_attempts` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table iontest.login_attempts: ~0 rows (approximately)
+-- Dumping data for table iontest.login_attempts: ~1 rows (approximately)
 /*!40000 ALTER TABLE `login_attempts` DISABLE KEYS */;
 /*!40000 ALTER TABLE `login_attempts` ENABLE KEYS */;
 
@@ -111,7 +111,7 @@ INSERT INTO `mona_construct_sts` (`CONS_ID`, `CONS_NAME`, `CONS_INFO`, `CONS_DTS
 	(1, 'RFS', 'Ready For Sale', '1'),
 	(2, 'RFC', 'Ready For Construct', '1'),
 	(3, 'RFA', 'Ready For Acquisition', '1'),
-	(4, 'DESTROY', 'Bongkar', '1');
+	(4, 'PD', 'Pull Down', '1');
 /*!40000 ALTER TABLE `mona_construct_sts` ENABLE KEYS */;
 
 -- Dumping structure for table iontest.mona_district
@@ -423,7 +423,7 @@ INSERT INTO `mona_district` (`DIS_ID`, `PROV_ID`, `DIS_NAME`, `DIS_TYPEID`, `DIS
 	('5271', '52', 'Kota Mataram', 2, 0),
 	('5272', '52', 'Kota Bima', 2, 0),
 	('5301', '53', 'Kab. Kupang', 1, 0),
-	('5302', '53', 'Kab Timor Tengah Selatan', 1, 0),
+	('5302', '53', 'Kab. Timor Tengah Selatan', 1, 0),
 	('5303', '53', 'Kab. Timor Tengah Utara', 1, 0),
 	('5304', '53', 'Kab. Belu', 1, 0),
 	('5305', '53', 'Kab. Alor', 1, 0),
@@ -583,7 +583,7 @@ INSERT INTO `mona_district` (`DIS_ID`, `PROV_ID`, `DIS_NAME`, `DIS_TYPEID`, `DIS
 	('7606', '76', 'Kab. Mamuju Tengah', 1, 0),
 	('8101', '81', 'Kab. Maluku Tengah', 1, 0),
 	('8102', '81', 'Kab. Maluku Tenggara', 1, 0),
-	('8103', '81', 'Kab Maluku Tenggara Barat', 1, 0),
+	('8103', '81', 'Kab. Maluku Tenggara Barat', 1, 0),
 	('8104', '81', 'Kab. Buru', 1, 0),
 	('8105', '81', 'Kab. Seram Bagian Timur', 1, 0),
 	('8106', '81', 'Kab. Seram Bagian Barat', 1, 0),
@@ -613,7 +613,7 @@ INSERT INTO `mona_district` (`DIS_ID`, `PROV_ID`, `DIS_NAME`, `DIS_TYPEID`, `DIS
 	('9109', '91', 'Kab. Mimika', 1, 0),
 	('9110', '91', 'Kab. Sarmi', 1, 0),
 	('9111', '91', 'Kab. Keerom', 1, 0),
-	('9112', '91', 'Kab Pegunungan Bintang', 1, 0),
+	('9112', '91', 'Kab. Pegunungan Bintang', 1, 0),
 	('9113', '91', 'Kab. Yahukimo', 1, 0),
 	('9114', '91', 'Kab. Tolikara', 1, 0),
 	('9115', '91', 'Kab. Waropen', 1, 0),
@@ -654,13 +654,14 @@ CREATE TABLE IF NOT EXISTS `mona_mainbanners` (
   `MBANN_LINK` varchar(1024) DEFAULT NULL,
   `MBANN_IMGPATH` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`MBANN_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
--- Dumping data for table iontest.mona_mainbanners: ~2 rows (approximately)
+-- Dumping data for table iontest.mona_mainbanners: ~3 rows (approximately)
 /*!40000 ALTER TABLE `mona_mainbanners` DISABLE KEYS */;
 INSERT INTO `mona_mainbanners` (`MBANN_ID`, `MBANN_NAME`, `MBANN_LINK`, `MBANN_IMGPATH`) VALUES
-	(1, 'Banner Lelang', 'Link Banner', '/assets/img/banner/img_1533525291.jpeg'),
-	(5, 'Banner Name', 'Banner Link', '/assets/img/banner/default.jpg');
+	(1, 'aaaaaaa', 'Link Banner', '/assets/img/banner/img_1533525291.jpeg'),
+	(5, 'Banner Name', 'Banner Link', '/assets/img/banner/img_15372550061.JPG'),
+	(8, 'Banner Name', 'Banner Link', '/assets/img/banner/img_1537255038.JPG');
 /*!40000 ALTER TABLE `mona_mainbanners` ENABLE KEYS */;
 
 -- Dumping structure for table iontest.mona_prodpict
@@ -674,10 +675,33 @@ CREATE TABLE IF NOT EXISTS `mona_prodpict` (
   PRIMARY KEY (`PRODPIC_ID`),
   KEY `FK__mona_product` (`PROD_ID`),
   CONSTRAINT `FK__mona_product` FOREIGN KEY (`PROD_ID`) REFERENCES `mona_product` (`PROD_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 
--- Dumping data for table iontest.mona_prodpict: ~1 rows (approximately)
+-- Dumping data for table iontest.mona_prodpict: ~22 rows (approximately)
 /*!40000 ALTER TABLE `mona_prodpict` DISABLE KEYS */;
+INSERT INTO `mona_prodpict` (`PRODPIC_ID`, `PROD_ID`, `PRODPIC_PATH`, `PRODPIC_TOKEN`, `PRODPIC_STS`) VALUES
+	(3, 12, '/assets/img/product/img_1536135838.jpg', '0.49449667368695094', '0'),
+	(4, 12, '/assets/img/product/img_1536135839.jpg', '0.15822889900545478', '0'),
+	(5, 13, '/assets/img/product/img_1536219001.jpg', '0.19879843409379205', '0'),
+	(6, 14, '/assets/img/product/img_1536219664.jpg', '0.57749587654983', '0'),
+	(9, 18, '/assets/img/product/img_1536821676.jpg', '0.8144185132752937', '0'),
+	(10, 20, '/assets/img/product/img_1537430179.jpg', '0.7936943873816651', '0'),
+	(11, 22, '/assets/img/product/img_1537430551.jpg', '0.2744140047621988', '0'),
+	(12, 23, '/assets/img/product/img_1537430669.jpg', '0.5124474610954985', '0'),
+	(13, 24, '/assets/img/product/img_1537430786.JPG', '0.10007213111433377', '0'),
+	(14, 25, '/assets/img/product/img_1537431775.jpeg', '0.044220873366618285', '0'),
+	(15, 25, '/assets/img/product/img_1537431775.JPG', '0.5992423991266689', '0'),
+	(16, 25, '/assets/img/product/img_1537431776.JPG', '0.016536746840075', '0'),
+	(17, 25, '/assets/img/product/img_15374317761.JPG', '0.5633343191985638', '0'),
+	(18, 26, '/assets/img/product/img_1537431941.jpg', '0.9355577010629907', '0'),
+	(19, 27, '/assets/img/product/img_1537432695.jpg', '0.6191698361130891', '0'),
+	(20, 28, '/assets/img/product/img_1537432823.jpg', '0.31459409769571556', '0'),
+	(21, 29, '/assets/img/product/img_1537433440.jpg', '0.22859293900066913', '0'),
+	(22, 29, '/assets/img/product/img_15374334401.jpg', '0.34282839204019533', '0'),
+	(23, 29, '/assets/img/product/img_15374334402.jpg', '0.5449636326754432', '0'),
+	(24, 40, '/assets/img/product/img_1537502904.JPG', '0.955740335585642', '0'),
+	(25, 41, '/assets/img/product/img_1537511364.jpg', '0.5689961642381117', '0'),
+	(26, 41, '/assets/img/product/img_1537511365.jpg', '0.13456466185193783', '0');
 /*!40000 ALTER TABLE `mona_prodpict` ENABLE KEYS */;
 
 -- Dumping structure for table iontest.mona_prodsize
@@ -688,13 +712,21 @@ CREATE TABLE IF NOT EXISTS `mona_prodsize` (
   `PRSZ_INFO` varchar(1024) NOT NULL DEFAULT '0',
   `PRSZ_DTSTS` char(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`PRSZ_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
--- Dumping data for table iontest.mona_prodsize: ~2 rows (approximately)
+-- Dumping data for table iontest.mona_prodsize: ~10 rows (approximately)
 /*!40000 ALTER TABLE `mona_prodsize` DISABLE KEYS */;
 INSERT INTO `mona_prodsize` (`PRSZ_ID`, `PRSZ_NAME`, `PRSZ_INFO`, `PRSZ_DTSTS`) VALUES
-	(1, 'H 5X4', 'Info', '1'),
-	(2, 'V 4X5', 'Info', '1');
+	(1, '6x4 V', 'Vertical', '1'),
+	(2, '4x6 H', 'Horizontal', '1'),
+	(3, '8x4 V', 'Vertical', '1'),
+	(4, '4x8 H', 'Horizontal', '1'),
+	(5, '5x10 H', 'Horizontal', '1'),
+	(6, '10x5 V', 'Vertical', '1'),
+	(7, '6x12 H', 'Horizontal', '1'),
+	(8, '8x16 H', 'Horizontal', '1'),
+	(9, '16x8 V', 'Vertical', '1'),
+	(10, '12x 6 V', 'Vertical', '1');
 /*!40000 ALTER TABLE `mona_prodsize` ENABLE KEYS */;
 
 -- Dumping structure for table iontest.mona_prodtype
@@ -707,12 +739,14 @@ CREATE TABLE IF NOT EXISTS `mona_prodtype` (
   PRIMARY KEY (`PRT_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table iontest.mona_prodtype: ~3 rows (approximately)
+-- Dumping data for table iontest.mona_prodtype: ~5 rows (approximately)
 /*!40000 ALTER TABLE `mona_prodtype` DISABLE KEYS */;
 INSERT INTO `mona_prodtype` (`PRT_ID`, `PRT_NAME`, `PRT_INFO`, `PRT_DTSTS`) VALUES
-	('BAL', 'Baliho', 'Info', '1'),
-	('BIB', 'Billboard', 'Info', '1'),
-	('VDT', 'Videotron', 'Info', '1');
+	('BAL', 'Baliho', 'Reklame ukuran kecil', '1'),
+	('BIB', 'Billboard', 'Reklame ukuran besar', '1'),
+	('BND', 'Bando', 'Bando', '1'),
+	('JPO', 'JPO', 'Jembatan penyebrangan orang', '1'),
+	('VDT', 'Videotron', 'Reklame dengan materi berbentuk video', '1');
 /*!40000 ALTER TABLE `mona_prodtype` ENABLE KEYS */;
 
 -- Dumping structure for table iontest.mona_product
@@ -733,7 +767,12 @@ CREATE TABLE IF NOT EXISTS `mona_product` (
   `PROD_SPCPRICE` bigint(20) NOT NULL DEFAULT '0',
   `PROD_PIC` varchar(1024) DEFAULT NULL,
   `PROD_DESCRIPTION` longtext,
+  `PROD_VIDLINK` longtext,
   `PROD_STS` char(1) DEFAULT NULL,
+  `PROD_TAXDUE` date DEFAULT NULL,
+  `PROD_RENTDUE` date DEFAULT NULL,
+  `PROD_INSURANCEDUE` date DEFAULT NULL,
+  `PROD_UPDATE` datetime DEFAULT NULL,
   `PROD_DTSTS` char(1) DEFAULT NULL,
   PRIMARY KEY (`PROD_ID`),
   UNIQUE KEY `PROD_CODE` (`PROD_CODE`),
@@ -749,16 +788,41 @@ CREATE TABLE IF NOT EXISTS `mona_product` (
   CONSTRAINT `FK_mona_product_mona_prodtype` FOREIGN KEY (`PRT_ID`) REFERENCES `mona_prodtype` (`PRT_ID`),
   CONSTRAINT `FK_mona_product_mona_province` FOREIGN KEY (`PROV_ID`) REFERENCES `mona_province` (`PROV_ID`),
   CONSTRAINT `FK_mona_product_mona_subdistrict` FOREIGN KEY (`SUBDIS_ID`) REFERENCES `mona_subdistrict` (`SUBDIS_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=latin1;
 
--- Dumping data for table iontest.mona_product: ~5 rows (approximately)
+-- Dumping data for table iontest.mona_product: ~33 rows (approximately)
 /*!40000 ALTER TABLE `mona_product` DISABLE KEYS */;
-INSERT INTO `mona_product` (`PROD_ID`, `PROV_ID`, `DIS_ID`, `SUBDIS_ID`, `PRT_ID`, `PRSZ_ID`, `CONS_ID`, `PROD_CODE`, `PROD_NAME`, `PROD_SLUG`, `PROD_STREETADDR`, `PROD_PRICE`, `PROD_SPCPRICE`, `PROD_PIC`, `PROD_DESCRIPTION`, `PROD_STS`, `PROD_DTSTS`) VALUES
-	(11, '35', '3578', '357804', 'BIB', 2, 1, 'BIB357804000001', 'Sby Pusat', 'sby-pusat', 'JL Indragiri 61 A', 100000000, 0, NULL, '<p>tes<br></p>', '1', '1'),
-	(12, '35', '3578', '357802', 'BIB', 2, 1, 'BIB357802000001', 'Sby Pusat', 'sby-pusat', 'JL Indragiri 61 A', 100000000, 0, NULL, '<p>tes<br></p>', '1', '1'),
-	(14, NULL, NULL, NULL, NULL, NULL, NULL, 'void32353', '', NULL, NULL, 0, 0, NULL, NULL, NULL, '0'),
-	(15, NULL, NULL, NULL, NULL, NULL, NULL, 'void27150', '', NULL, NULL, 0, 0, NULL, NULL, NULL, '0'),
-	(16, NULL, NULL, NULL, NULL, NULL, NULL, 'void293', '', NULL, NULL, 0, 0, NULL, NULL, NULL, '0');
+INSERT INTO `mona_product` (`PROD_ID`, `PROV_ID`, `DIS_ID`, `SUBDIS_ID`, `PRT_ID`, `PRSZ_ID`, `CONS_ID`, `PROD_CODE`, `PROD_NAME`, `PROD_SLUG`, `PROD_STREETADDR`, `PROD_PRICE`, `PROD_SPCPRICE`, `PROD_PIC`, `PROD_DESCRIPTION`, `PROD_VIDLINK`, `PROD_STS`, `PROD_TAXDUE`, `PROD_RENTDUE`, `PROD_INSURANCEDUE`, `PROD_UPDATE`, `PROD_DTSTS`) VALUES
+	(12, '35', '3578', '357802', 'BIB', 1, 1, 'BIB3578000001', 'Sby Pusat No 24', 'sby-pusat-no-24', '', 130000000, 100000000, NULL, '<p>Penerangan : 4 Lampu LED @800 watt</p><p>Traffic lokasi : &gt;100.000 kendaraan/hari</p><p>View : Dari Jalan A, Surabaya<br></p>', 'https://www.youtube.com/embed/IdWMfjl8dLE', '1', NULL, NULL, NULL, '2018-09-14 13:19:10', '1'),
+	(13, '35', '3578', '357803', 'BIB', 1, 1, 'BIB3578000002', 'Sby Pusat Pinggir2', 'sby-pusat-pinggir2', '', 100000000, 0, NULL, '<p><br></p>', NULL, '1', NULL, NULL, NULL, '2018-09-06 14:40:02', '1'),
+	(14, '35', '3578', '357803', 'BAL', 1, 1, 'BAL3578000003', 'Sby Pusat Pinggir', 'sby-pusat-pinggir', '', 120000000, 0, NULL, '<p><br></p>', 'https://www.youtube.com/watch?v=IdWMfjl8dLE', '1', NULL, NULL, NULL, '2018-09-10 11:47:51', '1'),
+	(16, '35', '3578', '357807', 'BIB', 10, 1, 'BIB3578000004', 'Surabaya - Jl. Embong Malang no.76A', 'surabaya-jl-embong-malang-no76a', 'Jl. Embong Malang no.76A', 70000000, 0, NULL, '<p>Penerangan 8 Unit LED @100 Watt</p><p>View dari Embong Malang<br></p>', 'https://www.youtube.com/embed/IdWMfjl8dLE', '1', NULL, NULL, NULL, '2018-09-21 14:12:01', '1'),
+	(18, '35', '3578', '357804', 'BIB', 1, 1, 'BIB3578000005', 'Surabaya - Jl. Indragiri no. 61', 'surabaya-jl-indragiri-no-61', '', 110000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/l6zv901Tz20', '1', NULL, NULL, NULL, '2018-09-20 15:18:51', '1'),
+	(20, '35', '3578', '357828', 'BIB', 1, 1, 'BIB3578000006', 'Surabaya - Jl. Pahlawan no. 94', 'surabaya-jl-pahlawan-no-94', 'Jl. Pahlawan no. 94', 60000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', NULL, NULL, NULL, '2018-09-20 14:56:28', '1'),
+	(21, '35', '3578', '357828', 'BIB', 1, 1, 'BIB3578000007', 'Surabaya - Jl. Mulyorejo (view Jl. IR. Soekarno)', 'surabaya-jl-mulyorejo-view-jl-ir-soekarno', 'Jl. Mulyorejo (view Jl. IR. Soekarno)', 35000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', NULL, NULL, NULL, '2018-09-20 15:00:27', '1'),
+	(22, '35', '3578', '357828', 'BIB', 1, 1, 'BIB3578000008', 'Surabaya - Jl. Mayjen Sungkono no. 176-178', 'surabaya-jl-mayjen-sungkono-no-176-178', 'Jl. Mayjen Sungkono no. 176-178', 70000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', NULL, NULL, NULL, '2018-09-20 15:02:32', '1'),
+	(23, '35', '3578', '357828', 'BIB', 1, 1, 'BIB3578000009', 'Surabaya - Jl. Kertajaya Indah Timur no. 100 (Front Side)', 'surabaya-jl-kertajaya-indah-timur-no-100-front-side', '', 80000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', NULL, NULL, NULL, '2018-09-20 15:19:08', '1'),
+	(24, '35', '3578', '357828', 'BIB', 1, 1, 'BIB3578000010', 'Surabaya - Jl. Kertajaya Indah Timur no. 100 (Back Side)', 'surabaya-jl-kertajaya-indah-timur-no-100-back-side', '', 80000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', NULL, NULL, NULL, '2018-09-20 15:19:04', '1'),
+	(25, '35', '3578', '357828', 'BIB', 1, 1, 'BIB3578000011', 'Surabaya - Jl. HR. Muhammad no. 25A', 'surabaya-jl-hr-muhammad-no-25a', 'Jl. HR. Muhammad no. 25A', 65000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', NULL, NULL, NULL, '2018-09-20 15:23:00', '1'),
+	(26, '35', '3578', '357828', 'BIB', 1, 1, 'BIB3578000012', 'Surabaya - Jl. Hayam Wuruk no. 04', 'surabaya-jl-hayam-wuruk-no-04', 'Jl. Hayam Wuruk no. 04', 0, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', NULL, NULL, NULL, '2018-09-20 15:25:46', '1'),
+	(27, '35', '3578', '357828', 'BIB', 1, 1, 'BIB3578000013', 'Surabaya - Jl. Hayam Wuruk no. 04', 'surabaya-jl-hayam-wuruk-no-04', 'Jl. Hayam Wuruk no. 04', 70000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', NULL, NULL, NULL, '2018-09-20 15:38:17', '1'),
+	(28, '35', '3578', '357828', 'BIB', 1, 1, 'BIB3578000014', 'Surabaya - Jl. Gubeng Pojok no. 17C', 'surabaya-jl-gubeng-pojok-no-17c', 'Jl. Gubeng Pojok no. 17C', 120000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', NULL, NULL, NULL, '2018-09-20 15:40:29', '1'),
+	(29, '35', '3578', '357828', 'BIB', 1, 1, 'BIB3578000015', 'Surabaya - Jl. Embong Malang no. 76A', 'surabaya-jl-embong-malang-no-76a', 'Jl. Embong Malang no. 76A', 70000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', NULL, NULL, NULL, '2018-09-20 15:50:42', '1'),
+	(30, '35', '3578', '357828', 'BIB', 5, 1, 'BIB3578000016', 'Surabaya - Jl. Adityawarman no. 47', 'surabaya-jl-adityawarman-no-47', 'Jl. Adityawarman no. 47', 55000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/Pwn64yhXAXQ', '1', NULL, NULL, NULL, '2018-09-21 14:22:35', '1'),
+	(31, '35', '3515', '351512', 'BIB', 1, 1, 'BIB3515000001', 'Sidoarjo - Jl. Raya Kletek', 'sidoarjo-jl-raya-kletek', 'Jl. Raya Kletek', 35000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', NULL, NULL, NULL, '2018-09-20 16:17:51', '1'),
+	(32, '35', '3514', '351414', 'BAL', 1, 1, 'BAL3514000001', 'Pasuruan - Jl. Soekarno Hatta', 'pasuruan-jl-soekarno-hatta', 'Jl. Soekarno Hatta', 6000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', NULL, NULL, NULL, '2018-09-20 16:19:04', '1'),
+	(33, '35', '3573', '357301', 'BAL', 1, 1, 'BAL3573000001', 'Malang - Jl. Tlogomas', 'malang-jl-tlogomas', 'Jl. Tlogomas', 15000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', NULL, NULL, NULL, '2018-09-20 16:21:04', '1'),
+	(39, '35', '3510', NULL, 'BIB', 1, 1, 'BIB3510000001', 'Banyuwangi - JL KH Wahid Hasyim No.104', 'banyuwangi-jl-kh-wahid-hasyim-no104', 'JL KH Wahid Hasyim No.104', 120000000, 80000000, NULL, '<p><br></p>', '', '1', '2018-09-19', '2018-09-24', '2018-09-17', '2018-09-21 15:42:54', '1'),
+	(40, '51', '5171', NULL, 'BIB', 1, 1, 'BIB5171000001', 'Denpasar - Jl. Cokroaminoto', 'denpasar-jl-cokroaminoto', 'Jl. Cokroaminoto', 35000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', NULL, NULL, NULL, '2018-09-21 11:06:40', '1'),
+	(41, '35', '3508', NULL, 'BIB', 1, 1, 'BIB3508000001', 'Lumajang - JL Leces No.43', 'lumajang-jl-leces-no43', 'JL Leces No.43', 120000000, 110000000, NULL, '<p><br></p>', '', '1', NULL, NULL, NULL, '2018-09-21 13:28:41', '1'),
+	(42, '35', '3578', NULL, 'BIB', 9, 1, 'BIB3578000017', 'Surabaya - Jl. Gubeng Pojok no. 17B', 'surabaya-jl-gubeng-pojok-no-17b', 'Jl. Gubeng Pojok no. 17B', 120000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/m6Fu7feM6Fg', '1', NULL, NULL, NULL, '2018-09-21 14:14:42', '1'),
+	(43, '35', '3578', NULL, 'VDT', 4, 1, 'VDT3578000001', 'Surabaya - Jl. Pemuda no. 120', 'surabaya-jl-pemuda-no-120', 'Jl. Pemuda no. 120', 250000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/6vbA2dql3ZA', '1', NULL, NULL, NULL, '2018-09-21 14:17:57', '1'),
+	(47, '35', '3525', NULL, 'BAL', 1, 1, 'BAL3525000001', 'Gresik - Jl. Dr. Wahidin Sudiro Husodo (Terminal Bunder)', 'gresik-jl-dr-wahidin-sudiro-husodo-terminal-bunder', 'Jl. Dr. Wahidin Sudiro Husodo (Terminal Bunder)', 15000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/Um7lKvUERZE', '1', NULL, NULL, NULL, '2018-09-21 14:33:01', '1'),
+	(49, '35', '3507', NULL, 'JPO', 8, 1, 'JPO3507000001', 'Malang - Malang - Jl. Raya Lawang (menuju Malang)', 'malang-malang-jl-raya-lawang-menuju-malang', 'Malang - Jl. Raya Lawang (menuju Malang)', 40000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/XMfeE3vEf6Y', '1', NULL, NULL, NULL, '2018-09-21 14:37:13', '1'),
+	(50, '35', '3507', NULL, 'JPO', 8, 1, 'JPO3507000002', 'Malang - Malang - Jl. Raya Lawang (menuju Surabaya)', 'malang-malang-jl-raya-lawang-menuju-surabaya', 'Malang - Jl. Raya Lawang (menuju Surabaya)', 40000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/lzHsu4nudPo', '1', NULL, NULL, NULL, '2018-09-21 14:38:07', '1'),
+	(51, '35', '3572', NULL, 'BIB', 5, 1, 'BIB3572000001', 'Blitar - Jl. Merdeka', 'blitar-jl-merdeka', 'Jl. Merdeka', 20000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', NULL, NULL, NULL, '2018-09-21 14:39:54', '1'),
+	(52, '31', '3172', NULL, 'BAL', 1, 1, 'BAL3172000001', 'Jakarta Utara - Jl. Bangun Cipta Sarana', 'jakarta-utara-jl-bangun-cipta-sarana', 'Jl. Bangun Cipta Sarana', 30000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', NULL, NULL, NULL, '2018-09-21 15:16:11', '1'),
+	(59, '35', '3526', NULL, 'BIB', 1, 1, 'BIB3526000001', 'Bangkalan - Jalan Madura', 'bangkalan-jalan-madura', 'Jalan Madura', 10000000, 0, NULL, '<p><br></p>', '', '1', '2018-09-21', '2018-09-29', '2018-09-21', '2018-09-21 15:25:47', '1');
 /*!40000 ALTER TABLE `mona_product` ENABLE KEYS */;
 
 -- Dumping structure for table iontest.mona_province
@@ -7967,7 +8031,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table iontest.users: ~3 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-	(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1535506446, 1, 'Admin', 'istrator', 'ADMIN', '0'),
+	(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1537511669, 1, 'Admin', 'istrator', 'ADMIN', '0'),
 	(2, '127.0.0.1', 'tes1', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', NULL, 'tes@mail.com', NULL, NULL, NULL, NULL, 1532591726, 1532940104, 1, 'tes', 'tes', 'tes', '123415'),
 	(3, '127.0.0.1', 'tes2@mail.com', '$2y$08$N/k5kV1vMgglz/olhGc0OuOYMdqHfyXFiN2LFPwnyRM1Tt5WwsqKu', NULL, 'tes2@mail.com', NULL, NULL, NULL, NULL, 1532591825, NULL, 1, 'tes2', 'tes2', 'tes2', '987654');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;

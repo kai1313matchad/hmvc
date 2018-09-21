@@ -19,7 +19,7 @@
 	<script type="text/javascript" src="<?php echo base_url()?>assets/frontend/js/slick-custom.js"></script>
 	<!--===============================================================================================-->
 	<script type="text/javascript" src="<?php echo base_url()?>assets/frontend/vendor/sweetalert/sweetalert.min.js"></script>
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
 		$('.block2-btn-addcart').each(function(){
 			var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
 			$(this).on('click', function(){
@@ -33,7 +33,7 @@
 				swal(nameProduct, "is added to wishlist !", "success");
 			});
 		});
-	</script>
+	</script> -->
 	<!--===============================================================================================-->
 	<script type="text/javascript" src="<?php echo base_url()?>assets/frontend/vendor/noui/nouislider.min.js"></script>
 	<script type="text/javascript">
@@ -59,3 +59,5 @@
 	        skipValues[handle].innerHTML = Math.round(values[handle]) ;
 	    });
 	</script>
+	<!--===============================================================================================-->
+	<script type="text/javascript" src="<?php echo base_url()?>assets/frontend/vendor/numeral/min/numeral.min.js"></script>
