@@ -1,3 +1,5 @@
+		<!-- Datetimepicker -->
+    <link href="<?php echo base_url()?>assets/frontend/vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
 		<!-- Dropzone -->
     <link href="<?php echo base_url()?>assets/frontend/vendors/dropzone/dist/dropzone.css" rel="stylesheet">
     <!-- wysiwyg -->

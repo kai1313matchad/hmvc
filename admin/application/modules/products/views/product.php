@@ -32,12 +32,15 @@
                     <table id="dtb-prodall" class="table table-striped table-bordered" width="100%">
                     	<thead>
                       	<tr>
-                      		<th class="col-sm-1">No</th>
-                          <th class="col-sm-2">Kode Produk</th>
-                      		<th class="col-sm-3">Nama</th>
-                      		<th class="col-sm-2">Price</th>
-                      		<th class="col-sm-2">Edit</th>
-                      		<th class="col-sm-2">Hapus</th>
+                      		<th >No</th>
+                          <th >Kode Produk</th>
+                      		<th >Nama</th>
+                      		<th >Price</th>
+                          <th >Tax</th>
+                          <th >Rent</th>
+                          <th >Insurance</th>
+                      		<th >Edit</th>
+                      		<th >Hapus</th>
                       	</tr>
                       </thead>
                       <tbody>

@@ -1,6 +1,9 @@
 		<script>
     	$(document).ready(function(){
-        wysiwig();        
+        wysiwig();
+        $('.dtp').datetimepicker({
+          format: 'YYYY-MM-DD'
+        });
         $('#province').selectpicker({});
         $('#district').selectpicker({});
         $('#subdistrict').selectpicker({});
@@ -41,7 +44,7 @@
           dataType: "JSON",
           success: function(data)
           {
-            alert(data.name);
+            alert(data.tes);
           },
           error: function (jqXHR, textStatus, errorThrown)
           {
@@ -71,7 +74,7 @@
           },
           error: function (jqXHR, textStatus, errorThrown)
           {
-            alert('Error Update Data');
+            alert('Error Update DataA'+errorThrown);
           }
         });
       }
@@ -145,6 +148,9 @@
           	$('[name="productprice"]').val(data.PROD_PRICE);
             $('[name="specialprice"]').val(data.PROD_SPCPRICE);
             $('[name="videolink"]').val(data.PROD_VIDLINK);
+            $('[name="taxdue"]').val(data.PROD_TAXDUE);
+            $('[name="rentdue"]').val(data.PROD_RENTDUE);
+            $('[name="insurancedue"]').val(data.PROD_INSURANCEDUE);
             $('#summernote').summernote('code',data.PROD_DESCRIPTION);
           },
           error: function (jqXHR, textStatus, errorThrown)

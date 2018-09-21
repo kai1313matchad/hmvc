@@ -118,7 +118,7 @@ class Products extends MX_Controller
   public function gen_num_($tb,$col,$affix,$subdis)
   {
     $this->db->select_max($col,'code');
-    $que = $this->db->get_where($tb,array('prt_id'=>$affix));
+    $que = $this->db->get_where($tb,array('prt_id'=>$affix,'dis_id'=>$subdis));
     $ext = $que->row();
     $max = $ext->code;
     $len = strlen($affix);
@@ -130,7 +130,7 @@ class Products extends MX_Controller
     $num = (int) substr($max,-6);
     $num++;
     $kode = $affix.$subdis;
-    $res = $kode . sprintf('%06s',$num);
+    $res = $kode . sprintf('%06s',$num);    
     return $res;
   }
 
@@ -146,7 +146,10 @@ class Products extends MX_Controller
       $row[] = $no;
       $row[] = $dat->PROD_CODE;
       $row[] = $dat->PROD_NAME;
-      $row[] = number_format($dat->PROD_PRICE);     
+      $row[] = number_format($dat->PROD_PRICE);
+      $row[] = $dat->PROD_TAXDUE;
+      $row[] = $dat->PROD_RENTDUE;
+      $row[] = $dat->PROD_INSURANCEDUE;
       // $row[] = '<a href="'.base_url().$dat->PROD_PIC.'" target="blank__"><img class="img-responsive img-adm-product" src="'.base_url().$dat->PROD_PIC.'"></a>';
       $row[] = '<a href="Products/crud/'.$dat->PROD_CODE.'" target="blank__" title="Edit Data" class="btn btn-sm btn-primary btn-responsive"><span class="glyphicon glyphicon-pencil"></span> </a>';
       $row[] = '<a href="javascript:void(0)" title="Hapus Data" class="btn btn-sm btn-danger btn-responsive" onclick="delete_prod('."'".$dat->PROD_ID."'".')"><span class="glyphicon glyphicon-trash"></span> </a>';
@@ -223,123 +226,218 @@ class Products extends MX_Controller
     $id=$this->input->post('productid');
     $get = $this->db->get_where('mona_product',array('prod_id'=>$id))->row()->PROD_CODE;
     $getcode = (substr($get,0,4)!='void')?'T':'F';
-    $affix = $this->input->post('prodtype');
-    $dis = $this->input->post('district');
     $stadd = $this->input->post('streetaddr');
-    $getdis = $this->db->get_where('mona_district',array('dis_id'=>$dis))->row();
-    $get_type = $getdis->DIS_TYPEID;
-    switch ($get_type)
+    $sts = $this->input->post('form_status');
+    switch ($sts)
     {
       case '1':
-        $disname = str_replace('Kab. ','',$getdis->DIS_NAME);
-        $prod_name = $disname.' - '.$stadd;
+        $affix = $this->input->post('prodtype');
+        $dis = $this->input->post('district');
+        $code = $this->gen_num_('mona_product','prod_code',$affix,$dis);
+        $getdis = $this->db->get_where('mona_district',array('dis_id'=>$dis))->row();
+        $get_type = $getdis->DIS_TYPEID;
+        switch ($get_type)
+        {
+          case '1':
+            $disname = str_replace('Kab. ','',$getdis->DIS_NAME);
+            $prod_name = $disname.' - '.$stadd;
+            break;
+          case '2':
+            $disname = str_replace('Kota ','',$getdis->DIS_NAME);
+            $disname = (substr($disname,0,3)!='Adm')?$disname:str_replace('Adm. ','',$disname);
+            $prod_name = $disname.' - '.$stadd;
+            break;
+          default:
+            redirect('Error_404');
+            break;
+        }
+        switch ($getcode)
+        {
+          case 'T':
+            $newid = $this->add_product();
+            $upd = array(
+              'prov_id'=>$this->input->post('province'),
+              'dis_id'=>$this->input->post('district'),
+              // 'subdis_id'=>$this->input->post('subdistrict'),
+              'prt_id'=>$this->input->post('prodtype'),
+              'prsz_id'=>$this->input->post('prodsize'),
+              'cons_id'=>$this->input->post('prodcons'),
+              'prod_code'=>$code,
+              'prod_name'=>$prod_name,
+              'prod_slug'=>url_title($prod_name, 'dash', true),
+              'prod_streetaddr'=>$this->input->post('streetaddr'),
+              'prod_price'=>($this->input->post('productprice') != '')?$this->input->post('productprice'):0,
+              'prod_spcprice'=>($this->input->post('specialprice') != '')?$this->input->post('specialprice'):0,
+              'prod_vidlink'=>$this->input->post('videolink'),
+              'prod_taxdue'=>$this->input->post('taxdue'),
+              'prod_rentdue'=>$this->input->post('rentdue'),
+              'prod_insurancedue'=>$this->input->post('insurancedue'),
+              'prod_description'=>$this->input->post('proddesc'),
+              'prod_sts'=>'1',
+              'prod_update'=>now(),
+              'prod_dtsts'=>'1'
+            ); 
+            $update = $this->db->update('mona_product',$upd,array('prod_id'=>$newid));
+            $data['msg'] = $this->db->error();
+            $data['status'] = ($this->db->affected_rows())?TRUE:FALSE;
+            break;
+          case 'F':
+            $upd = array(
+              'prov_id'=>$this->input->post('province'),
+              'dis_id'=>$this->input->post('district'),
+              // 'subdis_id'=>$this->input->post('subdistrict'),
+              'prt_id'=>$this->input->post('prodtype'),
+              'prsz_id'=>$this->input->post('prodsize'),
+              'cons_id'=>$this->input->post('prodcons'),
+              'prod_code'=>$code,
+              'prod_name'=>$prod_name,
+              'prod_slug'=>url_title($prod_name, 'dash', true),
+              'prod_streetaddr'=>$this->input->post('streetaddr'),
+              'prod_price'=>($this->input->post('productprice') != '')?$this->input->post('productprice'):0,
+              'prod_spcprice'=>($this->input->post('specialprice') != '')?$this->input->post('specialprice'):0,
+              'prod_vidlink'=>$this->input->post('videolink'),
+              'prod_taxdue'=>$this->input->post('taxdue'),
+              'prod_rentdue'=>$this->input->post('rentdue'),
+              'prod_insurancedue'=>$this->input->post('insurancedue'),
+              'prod_description'=>$this->input->post('proddesc'),
+              'prod_sts'=>'1',
+              'prod_update'=>date('Y-m-d H:i:s'),
+              'prod_dtsts'=>'1'
+            );
+            $update = $this->db->update('mona_product',$upd,array('prod_id'=>$id));
+            $data['msg'] = $this->db->error();
+            $data['status'] = ($this->db->affected_rows())?TRUE:FALSE;
+            break;
+          default:
+            redirect('Error_404');
+            break;
+        }
         break;
       case '2':
-        $disname = str_replace('Kota ','',$getdis->DIS_NAME);
-        $prod_name = $disname.' - '.$stadd;
+        $dis = $this->db->get_where('mona_product',array('prod_id'=>$id))->row()->DIS_ID;
+        $getdis = $this->db->get_where('mona_district',array('dis_id'=>$dis))->row();
+        $get_type = $getdis->DIS_TYPEID;
+        switch ($get_type)
+        {
+          case '1':
+            $disname = str_replace('Kab. ','',$getdis->DIS_NAME);
+            $prod_name = $disname.' - '.$stadd;
+            break;
+          case '2':
+            $disname = str_replace('Kota ','',$getdis->DIS_NAME);
+            $disname = (substr($disname,0,3)!='Adm')?$disname:str_replace('Adm. ','',$disname);
+            $prod_name = $disname.' - '.$stadd;
+            break;
+          default:
+            redirect('Error_404');
+            break;
+        }
+        $upd = array(
+          'prsz_id'=>$this->input->post('prodsize'),
+          'cons_id'=>$this->input->post('prodcons'),
+          'prod_name'=>$prod_name,
+          'prod_slug'=>url_title($prod_name, 'dash', true),
+          'prod_streetaddr'=>$this->input->post('streetaddr'),
+          'prod_price'=>($this->input->post('productprice') != '')?$this->input->post('productprice'):0,
+          'prod_spcprice'=>($this->input->post('specialprice') != '')?$this->input->post('specialprice'):0,
+          'prod_vidlink'=>$this->input->post('videolink'),
+          'prod_taxdue'=>$this->input->post('taxdue'),
+          'prod_rentdue'=>$this->input->post('rentdue'),
+          'prod_insurancedue'=>$this->input->post('insurancedue'),
+          'prod_description'=>$this->input->post('proddesc'),
+          'prod_sts'=>'1',
+          'prod_update'=>date('Y-m-d H:i:s'),
+          'prod_dtsts'=>'1'
+        ); 
+        $update = $this->db->update('mona_product',$upd,array('prod_id'=>$id));
+        $data['msg'] = $this->db->error();
+        $data['status'] = ($this->db->affected_rows())?TRUE:FALSE;
         break;
       default:
         redirect('Error_404');
         break;
     }
     // $subdis = $this->input->post('subdistrict');
-    $code = $this->gen_num_('mona_product','prod_code',$affix,$dis);
-    $sts = $this->input->post('form_status');
-    switch (true)
-    {
-      case ($getcode == 'T' and $sts == '1'):
-        $newid = $this->add_product();
-        $upd = array(
-          'prov_id'=>$this->input->post('province'),
-          'dis_id'=>$this->input->post('district'),
-          // 'subdis_id'=>$this->input->post('subdistrict'),
-          'prt_id'=>$this->input->post('prodtype'),
-          'prsz_id'=>$this->input->post('prodsize'),
-          'cons_id'=>$this->input->post('prodcons'),
-          'prod_code'=>$code,
-          'prod_name'=>$prod_name,
-          'prod_slug'=>url_title($prod_name, 'dash', true),
-          'prod_streetaddr'=>$this->input->post('streetaddr'),
-          'prod_price'=>($this->input->post('productprice') != '')?$this->input->post('productprice'):0,
-          'prod_spcprice'=>($this->input->post('specialprice') != '')?$this->input->post('specialprice'):0,
-          'prod_vidlink'=>$this->input->post('videolink'),
-          'prod_description'=>$this->input->post('proddesc'),
-          'prod_sts'=>'1',
-          'prod_update'=>now(),
-          'prod_dtsts'=>'1'
-        ); 
-        $update = $this->db->update('mona_product',$upd,array('prod_id'=>$newid));
-        $data['msg'] = $this->db->error();
-        $data['status'] = ($this->db->affected_rows())?TRUE:FALSE;
-        break;
-      case ($getcode == 'F' and $sts == '1'):
-        $upd = array(
-          'prov_id'=>$this->input->post('province'),
-          'dis_id'=>$this->input->post('district'),
-          // 'subdis_id'=>$this->input->post('subdistrict'),
-          'prt_id'=>$this->input->post('prodtype'),
-          'prsz_id'=>$this->input->post('prodsize'),
-          'cons_id'=>$this->input->post('prodcons'),
-          'prod_code'=>$code,
-          'prod_name'=>$prod_name,
-          'prod_slug'=>url_title($prod_name, 'dash', true),
-          'prod_streetaddr'=>$this->input->post('streetaddr'),
-          'prod_price'=>($this->input->post('productprice') != '')?$this->input->post('productprice'):0,
-          'prod_spcprice'=>($this->input->post('specialprice') != '')?$this->input->post('specialprice'):0,
-          'prod_vidlink'=>$this->input->post('videolink'),
-          'prod_description'=>$this->input->post('proddesc'),
-          'prod_sts'=>'1',
-          'prod_update'=>date('Y-m-d H:i:s'),
-          'prod_dtsts'=>'1'
-        ); 
-        $update = $this->db->update('mona_product',$upd,array('prod_id'=>$id));
-        $data['msg'] = $this->db->error();
-        $data['status'] = ($this->db->affected_rows())?TRUE:FALSE;
-        break;
-      case ($getcode == 'T' and $sts == '2'):
-        $upd = array(
-          'prsz_id'=>$this->input->post('prodsize'),
-          'cons_id'=>$this->input->post('prodcons'),
-          'prod_name'=>$prod_name,
-          'prod_slug'=>url_title($prod_name, 'dash', true),
-          'prod_streetaddr'=>$this->input->post('streetaddr'),
-          'prod_price'=>($this->input->post('productprice') != '')?$this->input->post('productprice'):0,
-          'prod_spcprice'=>($this->input->post('specialprice') != '')?$this->input->post('specialprice'):0,
-          'prod_vidlink'=>$this->input->post('videolink'),
-          'prod_description'=>$this->input->post('proddesc'),
-          'prod_sts'=>'1',
-          'prod_update'=>date('Y-m-d H:i:s'),
-          'prod_dtsts'=>'1'
-        ); 
-        $update = $this->db->update('mona_product',$upd,array('prod_id'=>$id));
-        $data['msg'] = $this->db->error();
-        $data['status'] = ($this->db->affected_rows())?TRUE:FALSE;
-        break;
-      default:
-        redirect('Error_404');
-        break;
-    }
+    // switch (true)
+    // {
+    //   case ($getcode == 'T' and $sts == '1'):
+    //     $newid = $this->add_product();
+    //     $upd = array(
+    //       'prov_id'=>$this->input->post('province'),
+    //       'dis_id'=>$this->input->post('district'),
+    //       // 'subdis_id'=>$this->input->post('subdistrict'),
+    //       'prt_id'=>$this->input->post('prodtype'),
+    //       'prsz_id'=>$this->input->post('prodsize'),
+    //       'cons_id'=>$this->input->post('prodcons'),
+    //       'prod_code'=>$code,
+    //       'prod_name'=>$prod_name,
+    //       'prod_slug'=>url_title($prod_name, 'dash', true),
+    //       'prod_streetaddr'=>$this->input->post('streetaddr'),
+    //       'prod_price'=>($this->input->post('productprice') != '')?$this->input->post('productprice'):0,
+    //       'prod_spcprice'=>($this->input->post('specialprice') != '')?$this->input->post('specialprice'):0,
+    //       'prod_vidlink'=>$this->input->post('videolink'),
+    //       'prod_description'=>$this->input->post('proddesc'),
+    //       'prod_sts'=>'1',
+    //       'prod_update'=>now(),
+    //       'prod_dtsts'=>'1'
+    //     ); 
+    //     $update = $this->db->update('mona_product',$upd,array('prod_id'=>$newid));
+    //     $data['msg'] = $this->db->error();
+    //     $data['status'] = ($this->db->affected_rows())?TRUE:FALSE;
+    //     break;
+    //   case ($getcode == 'F' and $sts == '1'):
+    //     $upd = array(
+    //       'prov_id'=>$this->input->post('province'),
+    //       'dis_id'=>$this->input->post('district'),
+    //       // 'subdis_id'=>$this->input->post('subdistrict'),
+    //       'prt_id'=>$this->input->post('prodtype'),
+    //       'prsz_id'=>$this->input->post('prodsize'),
+    //       'cons_id'=>$this->input->post('prodcons'),
+    //       'prod_code'=>$code,
+    //       'prod_name'=>$prod_name,
+    //       'prod_slug'=>url_title($prod_name, 'dash', true),
+    //       'prod_streetaddr'=>$this->input->post('streetaddr'),
+    //       'prod_price'=>($this->input->post('productprice') != '')?$this->input->post('productprice'):0,
+    //       'prod_spcprice'=>($this->input->post('specialprice') != '')?$this->input->post('specialprice'):0,
+    //       'prod_vidlink'=>$this->input->post('videolink'),
+    //       'prod_description'=>$this->input->post('proddesc'),
+    //       'prod_sts'=>'1',
+    //       'prod_update'=>date('Y-m-d H:i:s'),
+    //       'prod_dtsts'=>'1'
+    //     ); 
+    //     $update = $this->db->update('mona_product',$upd,array('prod_id'=>$id));
+    //     $data['msg'] = $this->db->error();
+    //     $data['status'] = ($this->db->affected_rows())?TRUE:FALSE;
+    //     break;
+    //   case ($getcode == 'T' and $sts == '2'):
+    //     $upd = array(
+    //       'prsz_id'=>$this->input->post('prodsize'),
+    //       'cons_id'=>$this->input->post('prodcons'),
+    //       'prod_name'=>$prod_name,
+    //       'prod_slug'=>url_title($prod_name, 'dash', true),
+    //       'prod_streetaddr'=>$this->input->post('streetaddr'),
+    //       'prod_price'=>($this->input->post('productprice') != '')?$this->input->post('productprice'):0,
+    //       'prod_spcprice'=>($this->input->post('specialprice') != '')?$this->input->post('specialprice'):0,
+    //       'prod_vidlink'=>$this->input->post('videolink'),
+    //       'prod_description'=>$this->input->post('proddesc'),
+    //       'prod_sts'=>'1',
+    //       'prod_update'=>date('Y-m-d H:i:s'),
+    //       'prod_dtsts'=>'1'
+    //     ); 
+    //     $update = $this->db->update('mona_product',$upd,array('prod_id'=>$id));
+    //     $data['msg'] = $this->db->error();
+    //     $data['status'] = ($this->db->affected_rows())?TRUE:FALSE;
+    //     break;
+    //   default:
+    //     redirect('Error_404');
+    //     break;
+    // }
     echo json_encode($data);
   }
 
   public function test()
   {
-    $dis = $this->input->post('district');
-    $stadd = $this->input->post('streetaddr');
-    $get = $this->db->get_where('mona_district',array('dis_id'=>$dis))->row();
-    $get_type = $get->DIS_TYPEID;
-    if($get_type == '1')
-    {
-      $disname = str_replace('Kab. ','',$get->DIS_NAME);
-      $res = $disname.' - '.$stadd;
-      $data['name'] = $res;
-    }
-    if($get_type == '2')
-    {
-      $disname = str_replace('Kota ','',$get->DIS_NAME);
-      $res = $disname.' - '.$stadd;
-      $data['name'] = $res;
-    }
+    $data['tes'] = $this->gen_num_('mona_product','prod_code','BIB','3578');
     echo json_encode($data);
   }
 

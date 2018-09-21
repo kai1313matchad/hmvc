@@ -8,7 +8,7 @@ class Pagination extends MX_Controller
   }
   public function loadProdRecord($rowno=0)
   {
-    $rowperpage = 3;
+    $rowperpage = 12;
   	//Row Position
     if($rowno != 0)
     {

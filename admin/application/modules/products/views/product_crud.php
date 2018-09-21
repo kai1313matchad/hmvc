@@ -167,6 +167,45 @@
                                 <span class="help-block"></span>
                               </div>
                             </div>
+                            <div class="form-group">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">Tax Due Date
+                              </label>
+                              <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div class='input-group date dtp'>
+                                  <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                  </span>
+                                  <input id="taxdue" type='text' class="form-control input-group-addon" name="taxdue" value="" />
+                                </div>
+                                <span class="help-block"></span>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">Rent Due Date
+                              </label>
+                              <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div class='input-group date dtp'>
+                                  <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                  </span>
+                                  <input id="rentdue" type='text' class="form-control input-group-addon" name="rentdue" value="" />
+                                </div>
+                                <span class="help-block"></span>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">Insurance Due Date
+                              </label>
+                              <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div class='input-group date dtp'>
+                                  <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                  </span>
+                                  <input id="insurancedue" type='text' class="form-control input-group-addon" name="insurancedue" value="" />
+                                </div>
+                                <span class="help-block"></span>
+                              </div>
+                            </div>
                             <!-- <div class="form-group">
                               <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Product Picture</label>
                               <div class="col-md-6 col-sm-6 col-xs-12">
