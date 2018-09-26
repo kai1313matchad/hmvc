@@ -69,4 +69,9 @@ class Product extends MX_Controller
     }
     return $data;
   }  
+
+  public function filter()
+  {
+    
+  }
 }

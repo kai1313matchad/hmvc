@@ -1,11 +1,45 @@
 	<script>
 		$(document).ready(function(){
 			$('.pagination').on('click','a',function(e){
-       	e.preventDefault(); 
-       	var pageno = $(this).attr('data-ci-pagination-page');
-				loadPagination(pageno);
+       			e.preventDefault(); 
+       			var pageno = $(this).attr('data-ci-pagination-page');
+				// loadPagination(pageno);
+				if ($('[name="sorting"]').val() < 2) {
+					loadPagination(pageno);
+				} else {
+							if ($('[name="sorting"]').val() == 2) {
+              					loadPagination2(pageno);
+							}
+							if ($('[name="sorting"]').val() == 3) {
+              					loadPagination3(pageno);
+							}
+							if ($('[name="sorting"]').val() == 4) {
+              					loadPagination4(pageno);
+							}
+							if ($('[name="sorting"]').val() == 5) {
+              					loadPagination5(pageno);
+							}
+				}
      	});
-     	loadPagination(0);
+		// alert($('[name="sorting"]').val());
+		// loadPagination(0);
+		if ($('[name="sorting"]').val() < 2) {
+					loadPagination(0);
+		} else {
+					if ($('[name="sorting"]').val() == 2) {
+              			loadPagination2(0);
+					}
+					if ($('[name="sorting"]').val() == 3) {
+              			loadPagination3(0);
+					}
+					if ($('[name="sorting"]').val() == 4) {
+              			loadPagination4(0);
+					}
+					if ($('[name="sorting"]').val() == 5) {
+              			loadPagination5(0);
+					}
+		}
+     	
    //   	$('.block2-btn-addcart').each(function(){
 			// 	var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
 			// 	$(this).on('click', function(){
@@ -14,19 +48,84 @@
 			// });
 		})
 
-		function loadPagination(pagno)
-		{
-			$.ajax({
-        url: '<?=base_url()?>Pagination/loadProdRecord/'+pagno,
-        type: 'get',
-        dataType: 'json',
-        success: function(response)
-        	{
-        		$('.pagination').html(response.pagination);
-        		createList(response.result,response.row);
-      		}
-      });
+		function onchange(e) {
+    		if (e.currentTarget.value > 0) {
+        		window.location.reload();
+    		}
 		}
+
+		document.getElementById('sorting').addEventListener('change', onchange);	
+
+		function loadPagination(pagno)
+		{   
+			$.ajax({
+        			url: '<?=base_url()?>Pagination/loadProdRecord/'+pagno,
+        			type: 'get',
+        			dataType: 'json',
+        			success: function(response)
+        			{
+        				$('.pagination').html(response.pagination);
+        				createList(response.result,response.row);
+      				}
+      		});
+		}
+
+		function loadPagination2(pagno)
+		{   
+			$.ajax({
+        			url: '<?=base_url()?>Pagination/loadProdRecordtoexpensive/'+pagno,
+        			type: 'get',
+        			dataType: 'json',
+        			success: function(response)
+        			{
+        				$('.pagination').html(response.pagination);
+        				createList(response.result,response.row);
+      				}
+      		});
+		}
+
+		function loadPagination3(pagno)
+		{   
+			$.ajax({
+        			url: '<?=base_url()?>Pagination/loadProdRecordtocheap/'+pagno,
+        			type: 'get',
+        			dataType: 'json',
+        			success: function(response)
+        			{
+        				$('.pagination').html(response.pagination);
+        				createList(response.result,response.row);
+      				}
+      		});
+		}
+
+		function loadPagination4(pagno)
+		{   
+			$.ajax({
+        			url: '<?=base_url()?>Pagination/loadProdRecordAtoZ/'+pagno,
+        			type: 'get',
+        			dataType: 'json',
+        			success: function(response)
+        			{
+        				$('.pagination').html(response.pagination);
+        				createList(response.result,response.row);
+      				}
+      		});
+		}
+
+		function loadPagination5(pagno)
+		{   
+			$.ajax({
+        			url: '<?=base_url()?>Pagination/loadProdRecordZtoA/'+pagno,
+        			type: 'get',
+        			dataType: 'json',
+        			success: function(response)
+        			{
+        				$('.pagination').html(response.pagination);
+        				createList(response.result,response.row);
+      				}
+      		});
+		}
+
 		function createList(res,sno)
 		{
 			$('#product_list').empty();
