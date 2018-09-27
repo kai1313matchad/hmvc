@@ -139,7 +139,7 @@
 							<div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
 								<select class="selection-2" name="sorting" id="sorting">
 									<option value=0>Default Sorting</option>
-									<option value=1>Popularity</option>
+									<!-- <option value=1>Popularity</option> -->
 									<option value=2>Price: low to high</option>
 									<option value=3>Price: high to low</option>
 									<option value=4>Product Name: A to Z</option>
