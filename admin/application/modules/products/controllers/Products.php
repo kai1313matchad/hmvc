@@ -456,12 +456,6 @@ class Products extends MX_Controller
     echo json_encode($data);
   }
 
-  public function test()
-  {
-    $data['tes'] = $this->gen_num_('mona_product','prod_code','BIB','3578');
-    echo json_encode($data);
-  }
-
   public function save_product()
   {
     $this->_validate_product();

@@ -13,6 +13,7 @@ class Product extends MX_Controller
     $data['view_addoncss'] = array('product_css');
     $data['view_addonjs'] = array('product_js');
     $data['view_addoncustjs'] = array('product_custjs');
+    $data['ctg'] = $this->get_categories();
   	$this->templates_->shop($data);
   }
   public function details()
@@ -70,8 +71,18 @@ class Product extends MX_Controller
     return $data;
   }  
 
-  public function filter()
+  public function get_categories()
   {
-    
+    $get = $this->db->get('mona_prodtype')->result();
+    $rs = array();
+    foreach ($get as $dt)
+    {
+      $rs[] = '<li class="p-t-4">
+        <a href="#" class="s-text13 active1">
+          '.$dt->PRT_NAME.'
+        </a>
+      </li>';
+    }
+    return $rs;
   }
 }
