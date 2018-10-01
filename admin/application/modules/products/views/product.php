@@ -29,7 +29,7 @@
                   </div>
                   <div class="x_content">
                   	<div id="alert-del"></div>
-                    <table id="dtb-prodall" class="table table-striped table-bordered" width="100%">
+                    <table id="dtb-prodall" class="table table-striped table-bordered table-condensed" width="100%">
                     	<thead>
                       	<tr>
                       		<th >No</th>

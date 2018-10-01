@@ -9,6 +9,7 @@
 				"responsive": true,
         "processing": true,
         "serverSide": true,
+        "pageLength": 100,
         "order": [],
         "ajax": {
         	"url": "<?php echo site_url('Products/get_productall')?>",
