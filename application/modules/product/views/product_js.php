@@ -39,25 +39,25 @@
 	<script type="text/javascript">
 		/*[ No ui ]
 	    ===========================================================*/
-	    var filterBar = document.getElementById('filter-bar');
+	    // var filterBar = document.getElementById('filter-bar');
 
-	    noUiSlider.create(filterBar, {
-	        start: [ 0, 10000000 ],
-	        connect: true,
-	        range: {
-	            'min': 0,
-	            'max': 999999999
-	        }
-	    });
+	    // noUiSlider.create(filterBar, {
+	    //     start: [ 0, 10000000 ],
+	    //     connect: true,
+	    //     range: {
+	    //         'min': 0,
+	    //         'max': 999999999
+	    //     }
+	    // });
 
-	    var skipValues = [
-	    document.getElementById('value-lower'),
-	    document.getElementById('value-upper')
-	    ];
+	    // var skipValues = [
+	    // document.getElementById('value-lower'),
+	    // document.getElementById('value-upper')
+	    // ];
 
-	    filterBar.noUiSlider.on('update', function( values, handle ) {
-	        skipValues[handle].innerHTML = Math.round(values[handle]) ;
-	    });
+	    // filterBar.noUiSlider.on('update', function( values, handle ) {
+	    //     skipValues[handle].innerHTML = Math.round(values[handle]) ;
+	    // });
 	</script>
 	<!--===============================================================================================-->
 	<script type="text/javascript" src="<?php echo base_url()?>assets/frontend/vendor/numeral/min/numeral.min.js"></script>

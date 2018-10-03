@@ -33,14 +33,13 @@
                     	<thead>
                       	<tr>
                       		<th >No</th>
-                          <th >Kode Produk</th>
-                      		<th >Nama</th>
+                      		<th class="col-xs-3">Nama</th>
+                          <th >Status</th>
                       		<th >Price</th>
-                          <th >Tax</th>
                           <th >Rent</th>
+                          <th >Tax</th>
                           <th >Insurance</th>
-                      		<th >Edit</th>
-                      		<th >Hapus</th>
+                      		<th >Action</th>
                       	</tr>
                       </thead>
                       <tbody>

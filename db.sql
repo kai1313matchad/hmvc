@@ -675,33 +675,68 @@ CREATE TABLE IF NOT EXISTS `mona_prodpict` (
   PRIMARY KEY (`PRODPIC_ID`),
   KEY `FK__mona_product` (`PROD_ID`),
   CONSTRAINT `FK__mona_product` FOREIGN KEY (`PROD_ID`) REFERENCES `mona_product` (`PROD_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=85 DEFAULT CHARSET=latin1;
 
--- Dumping data for table iontest.mona_prodpict: ~22 rows (approximately)
+-- Dumping data for table iontest.mona_prodpict: ~28 rows (approximately)
 /*!40000 ALTER TABLE `mona_prodpict` DISABLE KEYS */;
 INSERT INTO `mona_prodpict` (`PRODPIC_ID`, `PROD_ID`, `PRODPIC_PATH`, `PRODPIC_TOKEN`, `PRODPIC_STS`) VALUES
-	(3, 12, '/assets/img/product/img_1536135838.jpg', '0.49449667368695094', '0'),
-	(4, 12, '/assets/img/product/img_1536135839.jpg', '0.15822889900545478', '0'),
-	(5, 13, '/assets/img/product/img_1536219001.jpg', '0.19879843409379205', '0'),
-	(6, 14, '/assets/img/product/img_1536219664.jpg', '0.57749587654983', '0'),
-	(9, 18, '/assets/img/product/img_1536821676.jpg', '0.8144185132752937', '0'),
-	(10, 20, '/assets/img/product/img_1537430179.jpg', '0.7936943873816651', '0'),
-	(11, 22, '/assets/img/product/img_1537430551.jpg', '0.2744140047621988', '0'),
-	(12, 23, '/assets/img/product/img_1537430669.jpg', '0.5124474610954985', '0'),
-	(13, 24, '/assets/img/product/img_1537430786.JPG', '0.10007213111433377', '0'),
-	(14, 25, '/assets/img/product/img_1537431775.jpeg', '0.044220873366618285', '0'),
-	(15, 25, '/assets/img/product/img_1537431775.JPG', '0.5992423991266689', '0'),
-	(16, 25, '/assets/img/product/img_1537431776.JPG', '0.016536746840075', '0'),
-	(17, 25, '/assets/img/product/img_15374317761.JPG', '0.5633343191985638', '0'),
-	(18, 26, '/assets/img/product/img_1537431941.jpg', '0.9355577010629907', '0'),
-	(19, 27, '/assets/img/product/img_1537432695.jpg', '0.6191698361130891', '0'),
-	(20, 28, '/assets/img/product/img_1537432823.jpg', '0.31459409769571556', '0'),
-	(21, 29, '/assets/img/product/img_1537433440.jpg', '0.22859293900066913', '0'),
-	(22, 29, '/assets/img/product/img_15374334401.jpg', '0.34282839204019533', '0'),
-	(23, 29, '/assets/img/product/img_15374334402.jpg', '0.5449636326754432', '0'),
-	(24, 40, '/assets/img/product/img_1537502904.JPG', '0.955740335585642', '0'),
-	(25, 41, '/assets/img/product/img_1537511364.jpg', '0.5689961642381117', '0'),
-	(26, 41, '/assets/img/product/img_1537511365.jpg', '0.13456466185193783', '0');
+	(27, 68, '/assets/img/product/img_1538454667.jpg', '0.07414500974486127', '0'),
+	(28, 83, '/assets/img/product/img_1538454760.jpg', '0.5512647620353047', '0'),
+	(29, 70, '/assets/img/product/img_1538454777.jpg', '0.44540060683327254', '0'),
+	(30, 96, '/assets/img/product/img_1538536074.jpg', '0.03093483230382721', '0'),
+	(31, 87, '/assets/img/product/img_1538536160.jpg', '0.408540445570164', '0'),
+	(32, 88, '/assets/img/product/img_1538536175.jpg', '0.6274403566976368', '0'),
+	(33, 27, '/assets/img/product/img_1538536205.JPG', '0.4216248173064785', '0'),
+	(34, 100, '/assets/img/product/img_1538536277.jpg', '0.8880192902051143', '0'),
+	(35, 22, '/assets/img/product/img_1538536448.jpg', '0.22814579407270785', '0'),
+	(36, 21, '/assets/img/product/img_1538537559.jpg', '0.57567741743493', '0'),
+	(37, 102, '/assets/img/product/img_1538537916.jpg', '0.25752174376816406', '0'),
+	(38, 99, '/assets/img/product/img_1538537987.JPG', '0.41908520494436874', '0'),
+	(39, 86, '/assets/img/product/img_1538538000.jpg', '0.5545507607402724', '0'),
+	(40, 51, '/assets/img/product/img_1538538489.jpg', '0.7457259566226184', '0'),
+	(41, 89, '/assets/img/product/img_1538538498.jpg', '0.5154430994453212', '0'),
+	(42, 60, '/assets/img/product/img_1538538503.jpg', '0.2960690853568759', '0'),
+	(43, 61, '/assets/img/product/img_1538538508.jpg', '0.6409898664003664', '0'),
+	(44, 63, '/assets/img/product/img_1538538514.jpg', '0.27712727151977967', '0'),
+	(45, 77, '/assets/img/product/img_1538538640.jpg', '0.5121544955594739', '0'),
+	(46, 62, '/assets/img/product/img_1538538659.jpg', '0.27048519833440987', '0'),
+	(47, 52, '/assets/img/product/img_1538538666.jpg', '0.11105983120741159', '0'),
+	(48, 79, '/assets/img/product/img_1538538763.jpg', '0.013213632941639464', '0'),
+	(49, 78, '/assets/img/product/img_1538538768.jpg', '0.10212890314271772', '0'),
+	(50, 65, '/assets/img/product/img_1538538772.jpg', '0.10231565076148175', '0'),
+	(51, 66, '/assets/img/product/img_1538538778.jpg', '0.48654872073367805', '0'),
+	(52, 67, '/assets/img/product/img_1538538784.jpg', '0.338791389346337', '0'),
+	(53, 80, '/assets/img/product/img_1538538790.jpg', '0.16567507256138225', '0'),
+	(54, 69, '/assets/img/product/img_1538538840.jpg', '0.8914591808950052', '0'),
+	(55, 93, '/assets/img/product/img_1538538845.jpg', '0.73468933715308', '0'),
+	(56, 91, '/assets/img/product/img_1538538850.jpg', '0.05652246299117358', '0'),
+	(57, 50, '/assets/img/product/img_1538538856.jpg', '0.9000794625643653', '0'),
+	(58, 49, '/assets/img/product/img_1538538861.jpg', '0.34587005196756926', '0'),
+	(59, 81, '/assets/img/product/img_1538538865.jpg', '0.8597085059616729', '0'),
+	(60, 72, '/assets/img/product/img_1538538869.jpg', '0.060013493041703336', '0'),
+	(61, 90, '/assets/img/product/img_1538538874.jpg', '0.6293373123617152', '0'),
+	(62, 71, '/assets/img/product/img_1538538879.jpg', '0.5873230163720446', '0'),
+	(63, 95, '/assets/img/product/img_1538538884.jpg', '0.8097442110152622', '0'),
+	(64, 94, '/assets/img/product/img_1538538895.jpg', '0.9435641091449056', '0'),
+	(65, 85, '/assets/img/product/img_1538538922.jpg', '0.5716819298817071', '0'),
+	(66, 84, '/assets/img/product/img_1538538926.jpg', '0.021397533146254588', '0'),
+	(67, 82, '/assets/img/product/img_1538538934.jpg', '0.7508533587344366', '0'),
+	(68, 31, '/assets/img/product/img_1538538939.jpg', '0.5108492556769406', '0'),
+	(69, 75, '/assets/img/product/img_1538538945.jpg', '0.33678866243935013', '0'),
+	(70, 74, '/assets/img/product/img_1538538949.jpg', '0.9294049694295536', '0'),
+	(71, 32, '/assets/img/product/img_1538538955.jpg', '0.3835621601447923', '0'),
+	(72, 43, '/assets/img/product/img_1538539005.jpg', '0.769820914940712', '0'),
+	(73, 20, '/assets/img/product/img_1538539021.jpg', '0.360397512925682', '0'),
+	(74, 97, '/assets/img/product/img_1538539034.jpg', '0.20878748325609853', '0'),
+	(75, 98, '/assets/img/product/img_1538539038.jpg', '0.6226383665945623', '0'),
+	(76, 25, '/assets/img/product/img_1538539046.jpg', '0.1629521889599317', '0'),
+	(78, 42, '/assets/img/product/img_1538539083.jpg', '0.9021208444070516', '0'),
+	(79, 30, '/assets/img/product/img_1538539096.jpg', '0.06026005554931224', '0'),
+	(80, 104, '/assets/img/product/img_1538540070.jpg', '0.6610936007475985', '0'),
+	(81, 106, '/assets/img/product/img_1538540190.jpg', '0.13067100113998897', '0'),
+	(82, 105, '/assets/img/product/img_1538540207.jpg', '0.1763845002117812', '0'),
+	(83, 28, '/assets/img/product/img_1538542128.JPG', '0.8843580375655582', '0'),
+	(84, 108, '/assets/img/product/img_1538542421.jpg', '0.8171201375961217', '0');
 /*!40000 ALTER TABLE `mona_prodpict` ENABLE KEYS */;
 
 -- Dumping structure for table iontest.mona_prodsize
@@ -712,7 +747,7 @@ CREATE TABLE IF NOT EXISTS `mona_prodsize` (
   `PRSZ_INFO` varchar(1024) NOT NULL DEFAULT '0',
   `PRSZ_DTSTS` char(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`PRSZ_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table iontest.mona_prodsize: ~10 rows (approximately)
 /*!40000 ALTER TABLE `mona_prodsize` DISABLE KEYS */;
@@ -726,7 +761,8 @@ INSERT INTO `mona_prodsize` (`PRSZ_ID`, `PRSZ_NAME`, `PRSZ_INFO`, `PRSZ_DTSTS`) 
 	(7, '6x12 H', 'Horizontal', '1'),
 	(8, '8x16 H', 'Horizontal', '1'),
 	(9, '16x8 V', 'Vertical', '1'),
-	(10, '12x 6 V', 'Vertical', '1');
+	(10, '12x6 V', 'Vertical', '1'),
+	(11, '5x3 V', 'Vertical', '1');
 /*!40000 ALTER TABLE `mona_prodsize` ENABLE KEYS */;
 
 -- Dumping structure for table iontest.mona_prodtype
@@ -788,41 +824,72 @@ CREATE TABLE IF NOT EXISTS `mona_product` (
   CONSTRAINT `FK_mona_product_mona_prodtype` FOREIGN KEY (`PRT_ID`) REFERENCES `mona_prodtype` (`PRT_ID`),
   CONSTRAINT `FK_mona_product_mona_province` FOREIGN KEY (`PROV_ID`) REFERENCES `mona_province` (`PROV_ID`),
   CONSTRAINT `FK_mona_product_mona_subdistrict` FOREIGN KEY (`SUBDIS_ID`) REFERENCES `mona_subdistrict` (`SUBDIS_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=111 DEFAULT CHARSET=latin1;
 
--- Dumping data for table iontest.mona_product: ~33 rows (approximately)
+-- Dumping data for table iontest.mona_product: ~68 rows (approximately)
 /*!40000 ALTER TABLE `mona_product` DISABLE KEYS */;
 INSERT INTO `mona_product` (`PROD_ID`, `PROV_ID`, `DIS_ID`, `SUBDIS_ID`, `PRT_ID`, `PRSZ_ID`, `CONS_ID`, `PROD_CODE`, `PROD_NAME`, `PROD_SLUG`, `PROD_STREETADDR`, `PROD_PRICE`, `PROD_SPCPRICE`, `PROD_PIC`, `PROD_DESCRIPTION`, `PROD_VIDLINK`, `PROD_STS`, `PROD_TAXDUE`, `PROD_RENTDUE`, `PROD_INSURANCEDUE`, `PROD_UPDATE`, `PROD_DTSTS`) VALUES
-	(12, '35', '3578', '357802', 'BIB', 1, 1, 'BIB3578000001', 'Sby Pusat No 24', 'sby-pusat-no-24', '', 130000000, 100000000, NULL, '<p>Penerangan : 4 Lampu LED @800 watt</p><p>Traffic lokasi : &gt;100.000 kendaraan/hari</p><p>View : Dari Jalan A, Surabaya<br></p>', 'https://www.youtube.com/embed/IdWMfjl8dLE', '1', NULL, NULL, NULL, '2018-09-14 13:19:10', '1'),
-	(13, '35', '3578', '357803', 'BIB', 1, 1, 'BIB3578000002', 'Sby Pusat Pinggir2', 'sby-pusat-pinggir2', '', 100000000, 0, NULL, '<p><br></p>', NULL, '1', NULL, NULL, NULL, '2018-09-06 14:40:02', '1'),
-	(14, '35', '3578', '357803', 'BAL', 1, 1, 'BAL3578000003', 'Sby Pusat Pinggir', 'sby-pusat-pinggir', '', 120000000, 0, NULL, '<p><br></p>', 'https://www.youtube.com/watch?v=IdWMfjl8dLE', '1', NULL, NULL, NULL, '2018-09-10 11:47:51', '1'),
-	(16, '35', '3578', '357807', 'BIB', 10, 1, 'BIB3578000004', 'Surabaya - Jl. Embong Malang no.76A', 'surabaya-jl-embong-malang-no76a', 'Jl. Embong Malang no.76A', 70000000, 0, NULL, '<p>Penerangan 8 Unit LED @100 Watt</p><p>View dari Embong Malang<br></p>', 'https://www.youtube.com/embed/IdWMfjl8dLE', '1', NULL, NULL, NULL, '2018-09-21 14:12:01', '1'),
-	(18, '35', '3578', '357804', 'BIB', 1, 1, 'BIB3578000005', 'Surabaya - Jl. Indragiri no. 61', 'surabaya-jl-indragiri-no-61', '', 110000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/l6zv901Tz20', '1', NULL, NULL, NULL, '2018-09-20 15:18:51', '1'),
-	(20, '35', '3578', '357828', 'BIB', 1, 1, 'BIB3578000006', 'Surabaya - Jl. Pahlawan no. 94', 'surabaya-jl-pahlawan-no-94', 'Jl. Pahlawan no. 94', 60000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', NULL, NULL, NULL, '2018-09-20 14:56:28', '1'),
-	(21, '35', '3578', '357828', 'BIB', 1, 1, 'BIB3578000007', 'Surabaya - Jl. Mulyorejo (view Jl. IR. Soekarno)', 'surabaya-jl-mulyorejo-view-jl-ir-soekarno', 'Jl. Mulyorejo (view Jl. IR. Soekarno)', 35000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', NULL, NULL, NULL, '2018-09-20 15:00:27', '1'),
-	(22, '35', '3578', '357828', 'BIB', 1, 1, 'BIB3578000008', 'Surabaya - Jl. Mayjen Sungkono no. 176-178', 'surabaya-jl-mayjen-sungkono-no-176-178', 'Jl. Mayjen Sungkono no. 176-178', 70000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', NULL, NULL, NULL, '2018-09-20 15:02:32', '1'),
-	(23, '35', '3578', '357828', 'BIB', 1, 1, 'BIB3578000009', 'Surabaya - Jl. Kertajaya Indah Timur no. 100 (Front Side)', 'surabaya-jl-kertajaya-indah-timur-no-100-front-side', '', 80000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', NULL, NULL, NULL, '2018-09-20 15:19:08', '1'),
-	(24, '35', '3578', '357828', 'BIB', 1, 1, 'BIB3578000010', 'Surabaya - Jl. Kertajaya Indah Timur no. 100 (Back Side)', 'surabaya-jl-kertajaya-indah-timur-no-100-back-side', '', 80000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', NULL, NULL, NULL, '2018-09-20 15:19:04', '1'),
-	(25, '35', '3578', '357828', 'BIB', 1, 1, 'BIB3578000011', 'Surabaya - Jl. HR. Muhammad no. 25A', 'surabaya-jl-hr-muhammad-no-25a', 'Jl. HR. Muhammad no. 25A', 65000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', NULL, NULL, NULL, '2018-09-20 15:23:00', '1'),
-	(26, '35', '3578', '357828', 'BIB', 1, 1, 'BIB3578000012', 'Surabaya - Jl. Hayam Wuruk no. 04', 'surabaya-jl-hayam-wuruk-no-04', 'Jl. Hayam Wuruk no. 04', 0, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', NULL, NULL, NULL, '2018-09-20 15:25:46', '1'),
-	(27, '35', '3578', '357828', 'BIB', 1, 1, 'BIB3578000013', 'Surabaya - Jl. Hayam Wuruk no. 04', 'surabaya-jl-hayam-wuruk-no-04', 'Jl. Hayam Wuruk no. 04', 70000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', NULL, NULL, NULL, '2018-09-20 15:38:17', '1'),
-	(28, '35', '3578', '357828', 'BIB', 1, 1, 'BIB3578000014', 'Surabaya - Jl. Gubeng Pojok no. 17C', 'surabaya-jl-gubeng-pojok-no-17c', 'Jl. Gubeng Pojok no. 17C', 120000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', NULL, NULL, NULL, '2018-09-20 15:40:29', '1'),
-	(29, '35', '3578', '357828', 'BIB', 1, 1, 'BIB3578000015', 'Surabaya - Jl. Embong Malang no. 76A', 'surabaya-jl-embong-malang-no-76a', 'Jl. Embong Malang no. 76A', 70000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', NULL, NULL, NULL, '2018-09-20 15:50:42', '1'),
-	(30, '35', '3578', '357828', 'BIB', 5, 1, 'BIB3578000016', 'Surabaya - Jl. Adityawarman no. 47', 'surabaya-jl-adityawarman-no-47', 'Jl. Adityawarman no. 47', 55000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/Pwn64yhXAXQ', '1', NULL, NULL, NULL, '2018-09-21 14:22:35', '1'),
-	(31, '35', '3515', '351512', 'BIB', 1, 1, 'BIB3515000001', 'Sidoarjo - Jl. Raya Kletek', 'sidoarjo-jl-raya-kletek', 'Jl. Raya Kletek', 35000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', NULL, NULL, NULL, '2018-09-20 16:17:51', '1'),
-	(32, '35', '3514', '351414', 'BAL', 1, 1, 'BAL3514000001', 'Pasuruan - Jl. Soekarno Hatta', 'pasuruan-jl-soekarno-hatta', 'Jl. Soekarno Hatta', 6000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', NULL, NULL, NULL, '2018-09-20 16:19:04', '1'),
-	(33, '35', '3573', '357301', 'BAL', 1, 1, 'BAL3573000001', 'Malang - Jl. Tlogomas', 'malang-jl-tlogomas', 'Jl. Tlogomas', 15000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', NULL, NULL, NULL, '2018-09-20 16:21:04', '1'),
-	(39, '35', '3510', NULL, 'BIB', 1, 1, 'BIB3510000001', 'Banyuwangi - JL KH Wahid Hasyim No.104', 'banyuwangi-jl-kh-wahid-hasyim-no104', 'JL KH Wahid Hasyim No.104', 120000000, 80000000, NULL, '<p><br></p>', '', '1', '2018-09-19', '2018-09-24', '2018-09-17', '2018-09-21 15:42:54', '1'),
-	(40, '51', '5171', NULL, 'BIB', 1, 1, 'BIB5171000001', 'Denpasar - Jl. Cokroaminoto', 'denpasar-jl-cokroaminoto', 'Jl. Cokroaminoto', 35000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', NULL, NULL, NULL, '2018-09-21 11:06:40', '1'),
-	(41, '35', '3508', NULL, 'BIB', 1, 1, 'BIB3508000001', 'Lumajang - JL Leces No.43', 'lumajang-jl-leces-no43', 'JL Leces No.43', 120000000, 110000000, NULL, '<p><br></p>', '', '1', NULL, NULL, NULL, '2018-09-21 13:28:41', '1'),
-	(42, '35', '3578', NULL, 'BIB', 9, 1, 'BIB3578000017', 'Surabaya - Jl. Gubeng Pojok no. 17B', 'surabaya-jl-gubeng-pojok-no-17b', 'Jl. Gubeng Pojok no. 17B', 120000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/m6Fu7feM6Fg', '1', NULL, NULL, NULL, '2018-09-21 14:14:42', '1'),
-	(43, '35', '3578', NULL, 'VDT', 4, 1, 'VDT3578000001', 'Surabaya - Jl. Pemuda no. 120', 'surabaya-jl-pemuda-no-120', 'Jl. Pemuda no. 120', 250000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/6vbA2dql3ZA', '1', NULL, NULL, NULL, '2018-09-21 14:17:57', '1'),
-	(47, '35', '3525', NULL, 'BAL', 1, 1, 'BAL3525000001', 'Gresik - Jl. Dr. Wahidin Sudiro Husodo (Terminal Bunder)', 'gresik-jl-dr-wahidin-sudiro-husodo-terminal-bunder', 'Jl. Dr. Wahidin Sudiro Husodo (Terminal Bunder)', 15000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/Um7lKvUERZE', '1', NULL, NULL, NULL, '2018-09-21 14:33:01', '1'),
-	(49, '35', '3507', NULL, 'JPO', 8, 1, 'JPO3507000001', 'Malang - Malang - Jl. Raya Lawang (menuju Malang)', 'malang-malang-jl-raya-lawang-menuju-malang', 'Malang - Jl. Raya Lawang (menuju Malang)', 40000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/XMfeE3vEf6Y', '1', NULL, NULL, NULL, '2018-09-21 14:37:13', '1'),
-	(50, '35', '3507', NULL, 'JPO', 8, 1, 'JPO3507000002', 'Malang - Malang - Jl. Raya Lawang (menuju Surabaya)', 'malang-malang-jl-raya-lawang-menuju-surabaya', 'Malang - Jl. Raya Lawang (menuju Surabaya)', 40000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/lzHsu4nudPo', '1', NULL, NULL, NULL, '2018-09-21 14:38:07', '1'),
-	(51, '35', '3572', NULL, 'BIB', 5, 1, 'BIB3572000001', 'Blitar - Jl. Merdeka', 'blitar-jl-merdeka', 'Jl. Merdeka', 20000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', NULL, NULL, NULL, '2018-09-21 14:39:54', '1'),
-	(52, '31', '3172', NULL, 'BAL', 1, 1, 'BAL3172000001', 'Jakarta Utara - Jl. Bangun Cipta Sarana', 'jakarta-utara-jl-bangun-cipta-sarana', 'Jl. Bangun Cipta Sarana', 30000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', NULL, NULL, NULL, '2018-09-21 15:16:11', '1'),
-	(59, '35', '3526', NULL, 'BIB', 1, 1, 'BIB3526000001', 'Bangkalan - Jalan Madura', 'bangkalan-jalan-madura', 'Jalan Madura', 10000000, 0, NULL, '<p><br></p>', '', '1', '2018-09-21', '2018-09-29', '2018-09-21', '2018-09-21 15:25:47', '1');
+	(20, '35', '3578', '357828', 'BIB', 1, 1, 'BIB3578000006', 'Surabaya - Jl. Pahlawan no. 94', 'surabaya-jl-pahlawan-no-94', 'Jl. Pahlawan no. 94', 60000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2018-09-20', '2018-10-03', '2018-10-03 16:31:55', '1'),
+	(21, '35', '3578', '357828', 'BIB', 1, 1, 'BIB3578000007', 'Surabaya - Jl. Mulyorejo (view Jl. IR. Soekarno)', 'surabaya-jl-mulyorejo-view-jl-ir-soekarno', 'Jl. Mulyorejo (view Jl. IR. Soekarno)', 35000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-01', '2018-10-01', '2018-10-01', '2018-10-03 16:22:39', '1'),
+	(22, '35', '3578', '357828', 'BIB', 1, 1, 'BIB3578000008', 'Surabaya - Jl. Mayjen Sungkono no. 176-178', 'surabaya-jl-mayjen-sungkono-no-176-178', 'Jl. Mayjen Sungkono no. 176-178', 70000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2019-04-30', '2018-10-03', '2018-10-03 16:31:43', '1'),
+	(25, '35', '3578', '357828', 'BIB', 1, 1, 'BIB3578000011', 'Surabaya - Jl. HR. Muhammad no. 25A', 'surabaya-jl-hr-muhammad-no-25a', 'Jl. HR. Muhammad no. 25A', 65000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-01', '2018-10-01', '2018-10-01', '2018-10-03 16:22:44', '1'),
+	(27, '35', '3578', '357828', 'BIB', 1, 1, 'BIB3578000013', 'Surabaya - Jl. Hayam Wuruk no. 04', 'surabaya-jl-hayam-wuruk-no-04', 'Jl. Hayam Wuruk no. 04', 70000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2018-09-27', '2018-10-03', '2018-10-03 16:31:30', '1'),
+	(28, '35', '3578', '357828', 'BIB', 1, 1, 'BIB3578000014', 'Surabaya - Jl. Gubeng Pojok no. 17C', 'surabaya-jl-gubeng-pojok-no-17c', 'Jl. Gubeng Pojok no. 17C', 120000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2018-07-30', '2018-10-03', '2018-10-03 16:31:23', '1'),
+	(30, '35', '3578', '357828', 'BIB', 1, 1, 'BIB3578000016', 'Surabaya - Jl. Adityawarman no. 47', 'surabaya-jl-adityawarman-no-47', 'Jl. Adityawarman no. 47', 55000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/Pwn64yhXAXQ', '1', '2018-10-03', '2018-10-05', '2018-10-03', '2018-10-03 16:30:56', '1'),
+	(31, '35', '3515', '351512', 'BIB', 1, 1, 'BIB3515000001', 'Sidoarjo - Jl. Raya Kletek', 'sidoarjo-jl-raya-kletek', 'Jl. Raya Kletek', 35000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2018-08-19', '2018-10-03', '2018-10-03 16:30:50', '1'),
+	(32, '35', '3514', '351414', 'BAL', 1, 1, 'BAL3514000001', 'Pasuruan - Jl. Soekarno-Hatta', 'pasuruan-jl-soekarno-hatta', 'Jl. Soekarno-Hatta', 6000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2019-04-27', '2018-10-03', '2018-10-03 16:30:43', '1'),
+	(33, '35', '3573', '357301', 'BAL', 1, 1, 'BAL3573000001', 'Malang - Jl. Tlogomas', 'malang-jl-tlogomas', 'Jl. Tlogomas', 15000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2019-03-31', '2018-10-03', '2018-10-03 16:30:36', '1'),
+	(42, '35', '3578', NULL, 'BIB', 1, 1, 'BIB3578000017', 'Surabaya - Jl. Gubeng Pojok no. 17B', 'surabaya-jl-gubeng-pojok-no-17b', 'Jl. Gubeng Pojok no. 17B', 120000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/m6Fu7feM6Fg', '1', '2018-10-03', '2019-04-30', '2018-10-03', '2018-10-03 16:31:16', '1'),
+	(43, '35', '3578', NULL, 'VDT', 1, 1, 'VDT3578000001', 'Surabaya - Jl. Pemuda no. 120', 'surabaya-jl-pemuda-no-120', 'Jl. Pemuda no. 120', 250000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/6vbA2dql3ZA', '1', '2018-10-03', '2018-10-03', '2018-10-03', '2018-10-03 16:32:03', '1'),
+	(49, '35', '3507', NULL, 'JPO', 1, 1, 'JPO3507000001', 'Malang - Jl. Raya Lawang (menuju Malang)', 'malang-jl-raya-lawang-menuju-malang', 'Jl. Raya Lawang (menuju Malang)', 40000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/XMfeE3vEf6Y', '1', '2018-10-03', '2018-09-21', '2018-10-03', '2018-10-03 16:29:47', '1'),
+	(50, '35', '3507', NULL, 'JPO', 1, 1, 'JPO3507000002', 'Malang - Jl. Raya Lawang (menuju Surabaya)', 'malang-jl-raya-lawang-menuju-surabaya', 'Jl. Raya Lawang (menuju Surabaya)', 40000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/lzHsu4nudPo', '1', '2018-10-03', '2018-09-04', '2018-10-03', '2018-10-03 16:29:55', '1'),
+	(51, '35', '3572', NULL, 'BIB', 1, 1, 'BIB3572000001', 'Blitar - Jl. Merdeka', 'blitar-jl-merdeka', 'Jl. Merdeka', 20000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2018-10-03', '2018-10-03', '2018-10-03 16:22:56', '1'),
+	(52, '31', '3172', NULL, 'BAL', 1, 1, 'BAL3172000001', 'Jakarta Utara - Jl. Bangun Cipta Sarana', 'jakarta-utara-jl-bangun-cipta-sarana', 'Jl. Bangun Cipta Sarana', 30000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2018-10-03', '2018-10-03', '2018-10-03 16:23:04', '1'),
+	(60, '31', '3173', NULL, 'BAL', 1, 1, 'BAL3173000001', 'Jakarta Barat - Jl. KS. Tubun', 'jakarta-barat-jl-ks-tubun', 'Jl. KS. Tubun', 35000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2018-10-03', '2018-10-03', '2018-10-03 16:23:12', '1'),
+	(61, '31', '3171', NULL, 'BAL', 1, 1, 'BAL3171000001', 'Jakarta Pusat - Jl. Pangeran Jayakarta', 'jakarta-pusat-jl-pangeran-jayakarta', 'Jl. Pangeran Jayakarta', 30000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2018-10-03', '2018-10-03', '2018-10-03 16:23:19', '1'),
+	(62, '31', '3175', NULL, 'BAL', 1, 1, 'BAL3175000001', 'Jakarta Timur - Jl. Raya Pondok Gede', 'jakarta-timur-jl-raya-pondok-gede', 'Jl. Raya Pondok Gede', 30000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2018-10-03', '2018-10-03', '2018-10-03 16:23:26', '1'),
+	(63, '31', '3171', NULL, 'BAL', 1, 1, 'BAL3171000002', 'Jakarta Pusat - Jl. Stasiun Senen', 'jakarta-pusat-jl-stasiun-senen', 'Jl. Stasiun Senen', 30000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2018-10-03', '2018-10-03', '2018-10-03 16:25:11', '1'),
+	(65, '35', '3509', NULL, 'BAL', 1, 1, 'BAL3509000001', 'Jember - Jl. Rambipuji', 'jember-jl-rambipuji', 'Jl. Rambipuji', 7500000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2018-10-03', '2018-10-03', '2018-10-03 16:25:30', '1'),
+	(66, '35', '3509', NULL, 'BAL', 1, 1, 'BAL3509000002', 'Jember - Jl. Raya Tanggul', 'jember-jl-raya-tanggul', 'Jl. Raya Tanggul', 15000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2018-10-03', '2018-10-03', '2018-10-03 16:25:36', '1'),
+	(67, '35', '3509', NULL, 'BAL', 1, 1, 'BAL3509000003', 'Jember - Jl. Slamet Riyadi', 'jember-jl-slamet-riyadi', 'Jl. Slamet Riyadi', 7500000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2018-10-03', '2018-10-03', '2018-10-03 16:25:42', '1'),
+	(68, '32', '3208', NULL, 'BAL', 1, 1, 'BAL3208000001', 'Kuningan - Jl. Siliwangi no. 01', 'kuningan-jl-siliwangi-no-01', 'Jl. Siliwangi no. 01', 15000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2018-10-03', '2018-10-03', '2018-10-03 16:25:47', '1'),
+	(69, '35', '3573', NULL, 'BND', 1, 1, 'BND3573000001', 'Malang - Jl. Soekarno-Hatta (Menuju Jl. Borobudur)', 'malang-jl-soekarno-hatta-menuju-jl-borobudur', 'Jl. Soekarno-Hatta (Menuju Jl. Borobudur)', 25000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2018-10-03', '2018-10-03', '2018-10-03 16:30:27', '1'),
+	(70, '35', '3573', NULL, 'BAL', 1, 1, 'BAL3573000002', 'Malang - Jl. Kawi', 'malang-jl-kawi', 'Jl. Kawi', 12500000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/fTgDcHBjPp0', '1', '2018-10-03', '2018-10-03', '2018-10-03', '2018-10-03 16:25:53', '1'),
+	(71, '35', '3573', NULL, 'BAL', 1, 1, 'BAL3573000003', 'Malang - Jl. Kyai Tamin (B)', 'malang-jl-kyai-tamin-b', 'Jl. Kyai Tamin (B)', 12500000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2019-04-09', '2018-10-03', '2018-10-03 16:29:33', '1'),
+	(72, '35', '3573', NULL, 'BAL', 1, 1, 'BAL3573000004', 'Malang - Jl. Pattimura', 'malang-jl-pattimura', 'Jl. Pattimura', 15000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2018-10-03', '2018-10-03', '2018-10-03 16:26:04', '1'),
+	(74, '35', '3574', NULL, 'BIB', 1, 1, 'BIB3574000001', 'Probolinggo - Jl. Soekarno Hatta (Banyuwangi ke Surabaya)', 'probolinggo-jl-soekarno-hatta-banyuwangi-ke-surabaya', 'Jl. Soekarno Hatta (Banyuwangi ke Surabaya)', 15000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2018-10-03', '2018-10-03', '2018-10-03 16:26:17', '1'),
+	(75, '35', '3574', NULL, 'BIB', 1, 1, 'BIB3574000002', 'Probolinggo - Jl. Soekarno Hatta (Surabaya ke Banyuwangi)', 'probolinggo-jl-soekarno-hatta-surabaya-ke-banyuwangi', 'Jl. Soekarno Hatta (Surabaya ke Banyuwangi)', 15000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2018-10-03', '2018-10-03', '2018-10-03 16:26:25', '1'),
+	(77, '31', '3174', NULL, 'BIB', 1, 1, 'BIB3174000001', 'Jakarta Selatan - Jl. Lenteng Agung Raya', 'jakarta-selatan-jl-lenteng-agung-raya', 'Jl. Lenteng Agung Raya', 80000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2018-10-03', '2018-10-03', '2018-10-03 16:25:17', '1'),
+	(78, '35', '3509', NULL, 'BIB', 1, 1, 'BIB3509000001', 'Jember - Jl. Puger', 'jember-jl-puger', 'Jl. Puger', 7500000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2018-10-03', '2018-10-03', '2018-10-03 16:25:24', '1'),
+	(79, '35', '3509', NULL, 'BIB', 1, 1, 'BIB3509000002', 'Jember - Jl. Jawa', 'jember-jl-jawa', 'Jl. Jawa', 20000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2018-08-30', '2018-10-03', '2018-10-03 16:33:30', '1'),
+	(80, '35', '3509', NULL, 'JPO', 1, 1, 'JPO3509000001', 'Jember - Jl. Sultan Agung', 'jember-jl-sultan-agung', 'Jl. Sultan Agung', 35000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2018-11-25', '2018-10-03', '2018-10-03 16:28:31', '1'),
+	(81, '35', '3573', NULL, 'BIB', 1, 1, 'BIB3573000001', 'Malang - Jl. Ranugrati', 'malang-jl-ranugrati', 'Jl. Ranugrati', 35000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2018-10-03', '2018-10-03', '2018-10-03 16:26:10', '1'),
+	(82, '35', '3515', NULL, 'BIB', 5, 1, 'BIB3515000002', 'Sidoarjo - Jl. Raya Taman no. 15', 'sidoarjo-jl-raya-taman-no-15', 'Jl. Raya Taman no. 15', 27500000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-23', '2018-10-12', '2018-10-19', '2018-10-01 10:25:17', '1'),
+	(83, '35', '3512', NULL, 'BIB', 1, 1, 'BIB3512000001', 'Situbondo - Jl. A. Yani (view Jl. A. Jakfar)', 'situbondo-jl-a-yani-view-jl-a-jakfar', 'Jl. A. Yani (view Jl. A. Jakfar)', 20000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-27', '2018-10-15', '2018-10-03', '2018-10-02 11:33:02', '1'),
+	(84, '35', '3512', NULL, 'BIB', 6, 1, 'BIB3512000002', 'Situbondo - Jl. A. Yani no. 196', 'situbondo-jl-a-yani-no-196', 'Jl. A. Yani no. 196', 30000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-11-02', '2018-11-07', '2018-10-13', '2018-10-01 10:30:16', '1'),
+	(85, '32', '3211', NULL, 'BAL', 1, 1, 'BAL3211000001', 'Sumedang - Jl. Prabu Tadjimalela', 'sumedang-jl-prabu-tadjimalela', 'Jl. Prabu Tadjimalela', 15000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-11-02', '2018-10-19', '2018-10-26', '2018-10-01 10:32:33', '1'),
+	(86, '35', '3578', NULL, 'BIB', 1, 1, 'BIB3578000018', 'Surabaya - Jl. Sulawesi', 'surabaya-jl-sulawesi', 'Jl. Sulawesi', 35000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/uVtpoIU5TGo', '1', '2017-12-25', '2018-11-02', '2017-12-25', '2018-10-03 11:24:24', '1'),
+	(87, '35', '3578', NULL, 'BIB', 1, 1, 'BIB3578000019', 'Surabaya - Jl. Embong Malang no. 76A', 'surabaya-jl-embong-malang-no-76a', 'Jl. Embong Malang no. 76A', 70000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/IdWMfjl8dLE', '1', '2018-10-03', '2019-01-31', '2018-10-03', '2018-10-03 16:31:10', '1'),
+	(88, '35', '3578', NULL, 'BIB', 1, 1, 'BIB3578000020', 'Surabaya - Jl. Adityawarman no. 46', 'surabaya-jl-adityawarman-no-46', 'Jl. Adityawarman no. 46', 70000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/B2GJi0OrEnE', '1', '2018-10-01', '2018-07-15', '2018-10-01', '2018-10-03 16:17:36', '1'),
+	(89, '35', '3525', NULL, 'BAL', 1, 1, 'BAL3525000002', 'Gresik - Jl. Raya Dr. Wahidin Sudiro Husodo (Terminal Bunder)', 'gresik-jl-raya-dr-wahidin-sudiro-husodo-terminal-bunder', 'Jl. Raya Dr. Wahidin Sudiro Husodo (Terminal Bunder)', 15000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/Um7lKvUERZE', '1', '2018-10-03', '2019-03-31', '2018-10-03', '2018-10-03 16:27:50', '1'),
+	(90, '35', '3573', NULL, 'BAL', 1, 1, 'BAL3573000005', 'Malang - Jl. P.B. Sudirman', 'malang-jl-pb-sudirman', 'Jl. P.B. Sudirman', 12500000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/mcTiwiXXch4', '1', '2018-10-03', '2019-03-31', '2018-10-03', '2018-10-03 16:29:41', '1'),
+	(91, '35', '3573', NULL, 'BAL', 1, 1, 'BAL3573000006', 'Malang - Jl. Semeru', 'malang-jl-semeru', 'Jl. Semeru', 15000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/fnk6g9Mfmdo', '1', '2018-10-03', '2019-02-17', '2018-10-03', '2018-10-03 16:30:06', '1'),
+	(93, '35', '3573', NULL, 'BND', 1, 1, 'BND3573000002', 'Malang - Jl. Soekarno Hatta (menuju daerah Dinoyo)', 'malang-jl-soekarno-hatta-menuju-daerah-dinoyo', 'Jl. Soekarno Hatta (menuju daerah Dinoyo)', 30000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2018-08-17', '2018-10-03', '2018-10-03 16:30:16', '1'),
+	(94, '35', '3573', NULL, 'BAL', 1, 1, 'BAL3573000007', 'Malang - Jl. Borobudur', 'malang-jl-borobudur', 'Jl. Borobudur', 12500000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2019-06-11', '2018-10-03', '2018-10-03 16:29:25', '1'),
+	(95, '35', '3573', NULL, 'BAL', 1, 1, 'BAL3573000008', 'Malang - Jl. Kyai Tamin (A)', 'malang-jl-kyai-tamin-a', 'Jl. Kyai Tamin (A)', 15000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2018-10-03', '2018-10-03', '2018-10-03 16:25:59', '1'),
+	(96, '35', '3578', NULL, 'BAL', 1, 1, 'BAL3578000004', 'Surabaya - Jl. Blauran no. 85', 'surabaya-jl-blauran-no-85', 'Jl. Blauran no. 85', 25000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2018-11-08', '2018-10-03', '2018-10-03 16:31:01', '1'),
+	(97, '35', '3578', NULL, 'BIB', 1, 1, 'BIB3578000021', 'Surabaya - Jl. Kertajaya Indah Timur no. 100 (Menuju Merr)', 'surabaya-jl-kertajaya-indah-timur-no-100-menuju-merr', 'Jl. Kertajaya Indah Timur no. 100 (Menuju Merr)', 80000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2018-09-07', '2018-10-03', '2018-10-03 16:31:36', '1'),
+	(98, '35', '3578', NULL, 'BIB', 1, 1, 'BIB3578000022', 'Surabaya - Jl. Kertajaya Indah Timur no. 100 (Menuju Galaxy Mall)', 'surabaya-jl-kertajaya-indah-timur-no-100-menuju-galaxy-mall', 'Jl. Kertajaya Indah Timur no. 100 (Menuju Galaxy Mall)', 80000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2018-10-14', '2018-10-03', '2018-10-03 16:33:36', '1'),
+	(99, '35', '3578', NULL, 'BIB', 1, 1, 'BIB3578000023', 'Surabaya - Jl. Perak Barat no. 01', 'surabaya-jl-perak-barat-no-01', 'Jl. Perak Barat no. 01', 35000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2018-08-06', '2018-10-03', '2018-10-03 16:32:09', '1'),
+	(100, '35', '3578', NULL, 'BIB', 1, 1, 'BIB3578000024', 'Surabaya - Jl. Indragiri no. 61', 'surabaya-jl-indragiri-no-61', 'Jl. Indragiri no. 61', 110000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/l6zv901Tz20', '1', '2018-10-03', '2018-10-03', '2018-10-03', '2018-10-03 16:24:17', '1'),
+	(102, '35', '3578', NULL, 'BAL', 1, 1, 'BAL3578000005', 'Surabaya - Jl. Gunung Sari (Pengairan - Seberang Hotel Singgasana)', 'surabaya-jl-gunung-sari-pengairan-seberang-hotel-singgasana', 'Jl. Gunung Sari (Pengairan - Seberang Hotel Singgasana)', 15000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2018-10-03', '2018-10-03', '2018-10-03 16:24:10', '1'),
+	(104, '35', '3578', NULL, 'BIB', 1, 1, 'BIB3578000025', 'Surabaya - Jl. Ambengan', 'surabaya-jl-ambengan', 'Jl. Ambengan', 35000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2018-10-03', '2018-10-03', '2018-10-03 16:23:56', '1'),
+	(105, '35', '3578', NULL, 'BIB', 1, 1, 'BIB3578000026', 'Surabaya - Jl. Gubernur Suryo', 'surabaya-jl-gubernur-suryo', 'Jl. Gubernur Suryo', 70000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2018-10-03', '2018-10-03', '2018-10-03 16:23:48', '1'),
+	(106, '35', '3578', NULL, 'BIB', 1, 1, 'BIB3578000027', 'Surabaya - Jl. Kapas Krampung no. 2A', 'surabaya-jl-kapas-krampung-no-2a', 'Jl. Kapas Krampung no. 2A', 35000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2018-10-03', '2018-10-03', '2018-10-03 16:23:41', '1'),
+	(107, '35', '3578', NULL, 'BIB', 1, 1, 'BIB3578000028', 'Surabaya - Jl. Putro Agung', 'surabaya-jl-putro-agung', 'Jl. Putro Agung', 55000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2018-10-03', '2018-10-03', '2018-10-03 16:23:34', '1'),
+	(108, '51', '5171', NULL, 'BIB', 1, 1, 'BIB5171000001', 'Denpasar - Jl. Cokroaminoto', 'denpasar-jl-cokroaminoto', 'Jl. Cokroaminoto', 27500000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2018-10-03', '2018-10-03', '2018-10-03 16:24:02', '1'),
+	(109, '35', '3579', NULL, 'BAL', 1, 1, 'BAL3579000001', 'Batu - Jl. Agus Salim', 'batu-jl-agus-salim', 'Jl. Agus Salim', 10000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2018-07-16', '2018-10-03', '2018-10-03 16:28:16', '1'),
+	(110, '35', '3578', NULL, 'BIB', 1, 1, 'BIB3578000029', 'Surabaya - Jl. Mayjen Sungkono No. 3A (Bundaran Satelit ke Hotel Shangrila)', 'surabaya-jl-mayjen-sungkono-no-3a-bundaran-satelit-ke-hotel-shangrila', 'Jl. Mayjen Sungkono No. 3A (Bundaran Satelit ke Hotel Shangrila)', 70000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '2018-10-03', '2018-09-01', '2018-10-03', '2018-10-03 16:31:49', '1');
 /*!40000 ALTER TABLE `mona_product` ENABLE KEYS */;
 
 -- Dumping structure for table iontest.mona_province
@@ -8031,7 +8098,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table iontest.users: ~3 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-	(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1537511669, 1, 'Admin', 'istrator', 'ADMIN', '0'),
+	(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1538559152, 1, 'Admin', 'istrator', 'ADMIN', '0'),
 	(2, '127.0.0.1', 'tes1', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', NULL, 'tes@mail.com', NULL, NULL, NULL, NULL, 1532591726, 1532940104, 1, 'tes', 'tes', 'tes', '123415'),
 	(3, '127.0.0.1', 'tes2@mail.com', '$2y$08$N/k5kV1vMgglz/olhGc0OuOYMdqHfyXFiN2LFPwnyRM1Tt5WwsqKu', NULL, 'tes2@mail.com', NULL, NULL, NULL, NULL, 1532591825, NULL, 1, 'tes2', 'tes2', 'tes2', '987654');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;

@@ -15,7 +15,7 @@
         	"url": "<?php echo site_url('Products/get_productall')?>",
           "type": "POST",
           },
-      	"columnDefs": [{"className": "text-center", "targets": ['_all']}],
+      	"columnDefs": [{"className": "text-center", "targets": [0,2,3,4,5,6,7,]}],
     		});
     	}
     	function reload_table()
