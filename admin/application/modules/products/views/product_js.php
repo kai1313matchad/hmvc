@@ -11,6 +11,7 @@
     <script src="<?php echo base_url()?>assets/frontend/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
     <script src="<?php echo base_url()?>assets/frontend/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
     <script src="<?php echo base_url()?>assets/frontend/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
     <script src="<?php echo base_url()?>assets/frontend/vendors/jszip/dist/jszip.min.js"></script>
     <script src="<?php echo base_url()?>assets/frontend/vendors/pdfmake/build/pdfmake.min.js"></script>
     <script src="<?php echo base_url()?>assets/frontend/vendors/pdfmake/build/vfs_fonts.js"></script>

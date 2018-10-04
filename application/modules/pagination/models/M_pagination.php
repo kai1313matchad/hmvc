@@ -16,7 +16,8 @@
 	    $this->db->join('mona_prodpict h','h.prod_id = a.prod_id');
 	    $this->db->where('h.prodpic_id = (select max(prodpic_id) from mona_prodpict where prod_id = a.prod_id)');
 	    $this->db->limit($rowperpage,$rowno);
-	    $this->db->order_by('a.prod_name');
+	    // $this->db->order_by('a.prod_name');
+	    $this->db->order_by('e.prov_name,f.dis_name');
 	    $query = $this->db->get();
 	    return $query->result_array();
 	  }
