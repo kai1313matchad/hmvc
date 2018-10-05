@@ -1,45 +1,71 @@
 	<script>
 		$(document).ready(function(){
+			var kategori = $('[name="kategori"]').val();
+			var location = $('[name="location"]').val();
+			var size = $('[name="size"]').val();
 			var sort = $('[name="sorting"]').val();
-			switch(sort)
-			{
-				case '2':
-				loadPagination2(0);
-				break;
-				case '3':
-				loadPagination3(0);
-				break;
-				case '4':
-				loadPagination4(0);
-				break;
-				case '5':
-				loadPagination5(0);
-				break;
-				default:
-				loadPagination(0);
-			}
-			$('.pagination').on('click','a',function(e){
-				e.preventDefault(); 
-				var pageno = $(this).attr('data-ci-pagination-page');
-				switch(sort)
-				{
-					case '2':
-					loadPagination2(pageno);
-					break;
-					case '3':
-					loadPagination3(pageno);
-					break;
-					case '4':
-					loadPagination4(pageno);
-					break;
-					case '5':
-					loadPagination5(pageno);
-					break;
-					default:
-					loadPagination(pageno);
-				}
+			if ($('[name="filter"]').val() == 1){
+				// alert('Test');
+				$('[name="filter"]').val(0);
+				loadPagination6(0,kategori,location.size);
+				$('.pagination').on('click','a',function(e){
+					e.preventDefault(); 
+					var pageno = $(this).attr('data-ci-pagination-page');
+					loadPagination6(pageno,kategori,location.size);
+				});
+			} else {
+					switch(sort)
+					{
+						case '2':
+						loadPagination2(0);
+						break;
+						case '3':
+						loadPagination3(0);
+						break;
+						case '4':
+						loadPagination4(0);
+						break;
+						case '5':
+						loadPagination5(0);
+						break;
+						default:
+						loadPagination(0);
+					}
+					$('.pagination').on('click','a',function(e){
+						e.preventDefault(); 
+						var pageno = $(this).attr('data-ci-pagination-page');
+						switch(sort)
+						{
+							case '2':
+							loadPagination2(pageno);
+							break;
+							case '3':
+							loadPagination3(pageno);
+							break;
+							case '4':
+							loadPagination4(pageno);
+							break;
+							case '5':
+							loadPagination5(pageno);
+							break;
+							default:
+							loadPagination(pageno);
+						}
+					});
+			};
+			$(".selection-3").select2({
+				minimumResultsForSearch: 20,
+				dropdownParent: $('#dropDownSelect3')
 			});
-		})
+			$(".selection-4").select2({
+				minimumResultsForSearch: 20,
+				dropdownParent: $('#dropDownSelect4')
+			});
+			$(".selection-5").select2({
+				minimumResultsForSearch: 20,
+				dropdownParent: $('#dropDownSelect5')
+			});
+		});
 
 		function onchange(e) 
 		{
@@ -116,6 +142,21 @@
 					success: function(response)
 					{
 						$('.pagination').html(response.pagination);
+						// createList(response.result,response.row);
+					}
+			});
+		}
+
+		function loadPagination6(pagno)
+		{   
+			$.ajax({
+					url: '<?=base_url()?>Pagination/loadProdRecordFilter/'+pagno,
+					type: 'post',
+					data: $('#formfilter').serialize(),
+					dataType: 'json',
+					success: function(response)
+					{
+						$('.pagination').html(response.pagination);
 						createList(response.result,response.row);
 					}
 			});
@@ -140,5 +181,16 @@
 		{
 			var nameProduct = $(id).parent().parent().parent().find('.block2-name').html();			
 			swal(nameProduct, "is added to wishlist !", "success");
+		}
+		function filterprod(aktif)
+		{
+			var kategori = $('[name="kategori"]').val();
+			var lokasi = $('[name="location"]').val();
+			var size = $('[name="size"]').val();
+			$('[name="filter"]').val(1);
+			$('[name="ktg"]').val(kategori);
+			$('[name="loc"]').val(lokasi);
+			$('[name="siz"]').val(size);
+			window.location.reload();
 		}
 	</script>
