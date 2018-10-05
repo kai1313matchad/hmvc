@@ -2,9 +2,9 @@
 	defined('BASEPATH') OR exit('No direct script access allowed');
 	class Dtb_productall extends CI_Model 
 	{
-		var $table = 'mona_product';
-		var $column_order = array(null,'prod_code','prod_name','prod_price','prod_taxdue','prod_rentdue','prod_insurancedue');
-		var $column_search = array('prod_code','prod_name','prod_price','prod_taxdue','prod_rentdue','prod_insurancedue');
+		var $table = 'mona_product a';
+		var $column_order = array(null,'prod_name','cons_name','prod_price','prod_taxdue','prod_rentdue','prod_insurancedue');
+		var $column_search = array('prod_name','cons_name','prod_price','prod_taxdue','prod_rentdue','prod_insurancedue');
 		var $order = array('prod_name' => 'asc');
 		public function __construct()
 		{
@@ -13,7 +13,8 @@
 		private function _get_datatables_query()
 		{		
 			$this->db->from($this->table);
-			$this->db->where('prod_dtsts','1');
+			$this->db->join('mona_construct_sts b','b.cons_id = a.cons_id');
+			$this->db->where('a.prod_dtsts','1');
 			$i = 0;
 			foreach ($this->column_search as $item)
 			{

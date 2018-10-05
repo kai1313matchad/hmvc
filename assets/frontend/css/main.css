@@ -1637,6 +1637,27 @@ li.sale-noti > a {
 /*[ Block2 ]
 ///////////////////////////////////////////////////////////
 */
+.block2-labelava::before,
+.block2-labelsold::before
+{
+  z-index: 100;
+  font-family: Montserrat-Regular;
+  font-size: 12px;
+  color: white;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 22px;
+  border-radius: 11px;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+}
 .block2-labelsale::before,
 .block2-labelnew::before 
 {
@@ -1661,12 +1682,22 @@ li.sale-noti > a {
 
 .block2-labelsale::before {
   background-color: #e65540;
-  content: 'Sale';
+  content: 'Sales';
 }
 
 .block2-labelnew::before {
   background-color: #66a8a6;
-  content: 'New';
+  content: 'News';
+}
+
+.block2-labelsold::before {
+  background-color: #e65540;
+  content: 'Occupied';
+}
+
+.block2-labelava::before {
+  background-color: #66a8a6;
+  content: 'Available';
 }
 
 /* ------------------------------------ */
@@ -1676,7 +1707,7 @@ li.sale-noti > a {
   height: 100%;
   top: 0;
   left: 0;
-  background-color: rgba(0,0,0,0.3);
+  /*background-color: rgba(0,0,0,0.3);*/
   opacity: 0;
 }
 

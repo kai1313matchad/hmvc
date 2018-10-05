@@ -32,18 +32,17 @@
                     <table id="dtb-prodall" class="table table-striped table-bordered table-condensed" width="100%">
                     	<thead>
                       	<tr>
-                      		<th >No</th>
-                          <th >Kode Produk</th>
-                      		<th >Nama</th>
+                      		<!-- <th >No</th> -->
+                      		<th class="col-xs-3">Nama</th>
+                          <th >Status</th>
                       		<th >Price</th>
-                          <th >Tax</th>
                           <th >Rent</th>
+                          <th >Tax</th>
                           <th >Insurance</th>
-                      		<th >Edit</th>
-                      		<th >Hapus</th>
+                      		<th >Action</th>
                       	</tr>
                       </thead>
-                      <tbody>
+                      <tbody id="tbcontent">
                       </tbody>
                     </table>
                   </div>
@@ -53,65 +52,6 @@
 
             <div class="clearfix"></div>
 
-            <!-- <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Add/Edit User</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                    <br />
-                    <form id="form-product" class="form-horizontal form-label-left" enctype="multipart/form-data">
-                    	<input type="hidden" name="form_status" value="1">
-                    	<div class="col-xs-12" id="alert-div">
-                    	</div>
-                    	<div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Product ID
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" name="productid" required="required" class="form-control col-md-7 col-xs-12" placeholder="Product ID">
-                          <span class="help-block"></span>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Product Name <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" name="productname" required="required" class="form-control col-md-7 col-xs-12" placeholder="Product Name">
-                          <span class="help-block"></span>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Product Price <span class="required">*</span></label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input class="form-control col-md-7 col-xs-12 curr-num" type="text" name="productprice" required="required" placeholder="Price">
-                          <span class="help-block"></span>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Product Picture <span class="required">*</span></label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input class="form-control col-md-7 col-xs-12" type="file" id="productpic" name="productpic" required="required">
-                          <span class="help-block"></span>
-                        </div>
-                      </div>
-                      <div class="ln_solid"></div>
-                      <div class="form-group">
-                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-						  						<button class="btn btn-primary" type="reset" onclick="resetbtn()">Reset</button>
-                          <button type="button" class="btn btn-success" onclick="save()">Submit</button>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div> -->
           </div>
         </div>
         <!-- /page content -->

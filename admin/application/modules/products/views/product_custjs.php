@@ -1,7 +1,51 @@
 		<script>
     	$(document).ready(function(){
-    		tables();
+    		// tables();
+        createtb();
     	});
+      function createtb()
+      {
+        $.ajax({
+          url : "<?php echo site_url('Products/get_all')?>",
+          type: "GET",
+          dataType: "JSON",
+          success: function(data)
+          {
+            for (var i = 0; i < data.length; i++)
+            {
+              var rent = Date.parse(data[i]["PROD_RENTDUE"]);
+              var tax = Date.parse(data[i]["PROD_TAXDUE"]);
+              var insu = Date.parse(data[i]["PROD_INSURANCEDUE"]);
+              var $tr = $('<tr>').append(
+                  // $('<td class="text-center">'+(i+1)+'</td>'),
+                  $('<td class="text-left">'+data[i]["PROD_NAME"]+'</td>'),
+                  $('<td class="text-center">'+data[i]["CONS_NAME"]+'</td>'),
+                  $('<td class="text-center numm">'+data[i]["PROD_PRICE"]+'</td>'),
+                  $('<td data-order="'+rent+'" class="text-center">'+data[i]["PROD_RENTDUE"]+'</td>'),
+                  $('<td data-order="'+tax+'" class="text-center">'+data[i]["PROD_TAXDUE"]+'</td>'),
+                  $('<td data-order="'+insu+'" class="text-center">'+data[i]["PROD_INSURANCEDUE"]+'</td>'),
+                  $('<td class="text-center"><a href="Products/crud/'+data[i]["PROD_CODE"]+'" target="blank__" title="Edit Data" class="btn btn-xs btn-primary btn-responsive"><span class="glyphicon glyphicon-pencil"></span> </a> <a href="javascript:void(0)" title="Hapus Data" class="btn btn-xs btn-danger btn-responsive" onclick="delete_prod('+"'"+data[i]["PROD_ID"]+"'"+')"><span class="glyphicon glyphicon-trash"></span> </a></td>')
+                ).appendTo('#tbcontent');
+            }
+            dtables();
+            $('td.numm').number(true,2);
+          },
+          error: function (jqXHR, textStatus, errorThrown)
+          {
+            alert('Error Delete Product Data');
+          }
+        });
+      }
+      function dtables()
+      {
+        $('#dtb-prodall').DataTable({
+          info: true,
+          responsive: true,
+          processing: true,
+          pageLength: 100,
+          order: [[0, 'asc']],
+        });
+      }
     	function tables()
     	{
     		table = $('#dtb-prodall').DataTable({
@@ -10,12 +54,23 @@
         "processing": true,
         "serverSide": true,
         "pageLength": 100,
-        "order": [],
+        // "order": [],
         "ajax": {
         	"url": "<?php echo site_url('Products/get_productall')?>",
           "type": "POST",
           },
-      	"columnDefs": [{"className": "text-center", "targets": ['_all']}],
+      	"columnDefs": 
+          [
+            {"className": "text-center", "targets": [0,2,3,4,5,6,7]},
+          ],
+        "createdRow": function(row, data, dataIndex)
+          {
+            var $dateCell = $(row).find('td:eq(4)'); // get first column
+            var dateOrder = $dateCell.text(); // get the ISO date
+            $dateCell
+            .attr('data-order', moment(dateOrder)) // set it to data-order
+            .text(moment(dateOrder).format('DD-MMM-YYYY')); // and set the formatted text
+          }
     		});
     	}
     	function reload_table()

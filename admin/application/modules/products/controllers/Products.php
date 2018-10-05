@@ -165,15 +165,15 @@ class Products extends MX_Controller
       $no++;
       $row = array();
       $row[] = $no;
-      $row[] = $dat->PROD_CODE;
       $row[] = $dat->PROD_NAME;
+      $row[] = $dat->CONS_NAME;
       $row[] = number_format($dat->PROD_PRICE);
-      $row[] = $dat->PROD_TAXDUE;
       $row[] = $dat->PROD_RENTDUE;
+      // $row[] = date_format(date_create($dat->PROD_RENTDUE),"d/m/Y");
+      $row[] = $dat->PROD_TAXDUE;
       $row[] = $dat->PROD_INSURANCEDUE;
-      // $row[] = '<a href="'.base_url().$dat->PROD_PIC.'" target="blank__"><img class="img-responsive img-adm-product" src="'.base_url().$dat->PROD_PIC.'"></a>';
-      $row[] = '<a href="Products/crud/'.$dat->PROD_CODE.'" target="blank__" title="Edit Data" class="btn btn-sm btn-primary btn-responsive"><span class="glyphicon glyphicon-pencil"></span> </a>';
-      $row[] = '<a href="javascript:void(0)" title="Hapus Data" class="btn btn-sm btn-danger btn-responsive" onclick="delete_prod('."'".$dat->PROD_ID."'".')"><span class="glyphicon glyphicon-trash"></span> </a>';
+      $row[] = '<a href="Products/crud/'.$dat->PROD_CODE.'" target="blank__" title="Edit Data" class="btn btn-xs btn-primary btn-responsive"><span class="glyphicon glyphicon-pencil"></span> </a> <a href="javascript:void(0)" title="Hapus Data" class="btn btn-xs btn-danger btn-responsive" onclick="delete_prod('."'".$dat->PROD_ID."'".')"><span class="glyphicon glyphicon-trash"></span> </a>';
+      // $row[] = '<a href="javascript:void(0)" title="Hapus Data" class="btn btn-xs btn-danger btn-responsive" onclick="delete_prod('."'".$dat->PROD_ID."'".')"><span class="glyphicon glyphicon-trash"></span> </a>';
       $data[] = $row;
     }
     $output = array(
@@ -183,6 +183,15 @@ class Products extends MX_Controller
             "data" => $data,
     );      
     echo json_encode($output);
+  }
+  
+  public function get_all()
+  {
+    $this->db->from('mona_product a');
+    $this->db->join('mona_construct_sts b','b.cons_id = a.cons_id');
+    $this->db->where('a.prod_dtsts','1');
+    $data = $this->db->get()->result();
+    echo json_encode($data);
   }
 
   public function get_prodrow($id)

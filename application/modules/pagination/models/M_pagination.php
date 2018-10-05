@@ -16,7 +16,8 @@
 	    $this->db->join('mona_prodpict h','h.prod_id = a.prod_id');
 	    $this->db->where('h.prodpic_id = (select max(prodpic_id) from mona_prodpict where prod_id = a.prod_id)');
 	    $this->db->limit($rowperpage,$rowno);
-	    $this->db->order_by('a.prod_name');
+	    // $this->db->order_by('a.prod_name');
+	    $this->db->order_by('e.prov_name,f.dis_name');
 	    $query = $this->db->get();
 	    return $query->result_array();
 	  }
@@ -31,7 +32,7 @@
 	    $this->db->join('mona_construct_sts d','d.cons_id = a.cons_id');
 	    $this->db->join('mona_province e','e.prov_id = a.prov_id');
 	    $this->db->join('mona_district f','f.dis_id = a.dis_id');
-	    $this->db->join('mona_subdistrict g','g.subdis_id = a.subdis_id');
+	    // $this->db->join('mona_subdistrict g','g.subdis_id = a.subdis_id');
 	    $this->db->join('mona_prodpict h','h.prod_id = a.prod_id');
 	    $this->db->where('h.prodpic_id = (select max(prodpic_id) from mona_prodpict where prod_id = a.prod_id)');
 	    $query = $this->db->get();

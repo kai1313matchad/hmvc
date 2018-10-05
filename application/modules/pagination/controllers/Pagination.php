@@ -20,16 +20,18 @@ class Pagination extends MX_Controller
 
     //Get Records
     $records = $this->pgn->getProdData($rowno,$rowperpage);
-    foreach ($records as $res)
-    {
-      # code...
-    }
+    // foreach ($records as $res)
+    // {
+    //   # code...
+    // }
 
     //Pagination Config
     $config['base_url'] = base_url().'Pagination/loadProdRecord';
     $config['use_page_numbers'] = TRUE;
     $config['total_rows'] = $allcount;
     $config['per_page'] = $rowperpage;
+    $config['first_link'] = '<<';
+    $config['last_link'] = '>>';
     $config['cur_tag_open'] = '<a href="" class="item-pagination flex-c-m trans-0-4 active-pagination">';
     $config['cur_tag_close'] = '</a>';
     $config['attributes'] = array('class' => 'item-pagination flex-c-m trans-0-4');
@@ -67,6 +69,8 @@ class Pagination extends MX_Controller
     $config['use_page_numbers'] = TRUE;
     $config['total_rows'] = $allcount;
     $config['per_page'] = $rowperpage;
+    $config['first_link'] = '<<';
+    $config['last_link'] = '>>';
     $config['cur_tag_open'] = '<a href="" class="item-pagination flex-c-m trans-0-4 active-pagination">';
     $config['cur_tag_close'] = '</a>';
     $config['attributes'] = array('class' => 'item-pagination flex-c-m trans-0-4');
@@ -104,6 +108,8 @@ class Pagination extends MX_Controller
     $config['use_page_numbers'] = TRUE;
     $config['total_rows'] = $allcount;
     $config['per_page'] = $rowperpage;
+    $config['first_link'] = '<<';
+    $config['last_link'] = '>>';
     $config['cur_tag_open'] = '<a href="" class="item-pagination flex-c-m trans-0-4 active-pagination">';
     $config['cur_tag_close'] = '</a>';
     $config['attributes'] = array('class' => 'item-pagination flex-c-m trans-0-4');
@@ -141,6 +147,8 @@ class Pagination extends MX_Controller
     $config['use_page_numbers'] = TRUE;
     $config['total_rows'] = $allcount;
     $config['per_page'] = $rowperpage;
+    $config['first_link'] = '<<';
+    $config['last_link'] = '>>';
     $config['cur_tag_open'] = '<a href="" class="item-pagination flex-c-m trans-0-4 active-pagination">';
     $config['cur_tag_close'] = '</a>';
     $config['attributes'] = array('class' => 'item-pagination flex-c-m trans-0-4');
@@ -178,6 +186,8 @@ class Pagination extends MX_Controller
     $config['use_page_numbers'] = TRUE;
     $config['total_rows'] = $allcount;
     $config['per_page'] = $rowperpage;
+    $config['first_link'] = '<<';
+    $config['last_link'] = '>>';
     $config['cur_tag_open'] = '<a href="" class="item-pagination flex-c-m trans-0-4 active-pagination">';
     $config['cur_tag_close'] = '</a>';
     $config['attributes'] = array('class' => 'item-pagination flex-c-m trans-0-4');
