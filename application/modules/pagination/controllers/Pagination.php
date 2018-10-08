@@ -200,4 +200,36 @@ class Pagination extends MX_Controller
 
     echo json_encode($data);
   }
+
+  public function loadProdRecordFilter($rowno=0)
+  {
+    $rowperpage = 12;
+    //Row Position
+    if($rowno != 0)
+    {
+      $rowno = ($rowno-1) * $rowperpage;
+    }
+    $kat = $this->input->post('ctg');
+    $loc = $this->input->post('loc');
+    $siz = $this->input->post('siz');
+    $txt = $this->input->post('prod_name');
+    //All Records Count
+    $allcount = $this->pgn->getrecordProdCountFilter($kat,$loc,$siz,$txt);
+    //Get Records
+    $records = $this->pgn->getProdDataFilter($rowno,$rowperpage,$kat,$loc,$siz,$txt);
+    //Pagination Config
+    $config['base_url'] = base_url().'Pagination/loadProdRecord';
+    $config['use_page_numbers'] = TRUE;
+    $config['total_rows'] = $allcount;
+    $config['per_page'] = $rowperpage;
+    $config['cur_tag_open'] = '<a href="" class="item-pagination flex-c-m trans-0-4 active-pagination">';
+    $config['cur_tag_close'] = '</a>';
+    $config['attributes'] = array('class' => 'item-pagination flex-c-m trans-0-4');
+    $this->pagination->initialize($config);
+    //Initial array
+    $data['pagination'] = $this->pagination->create_links();
+    $data['result'] = $records;
+    $data['row'] = $rowno;
+    echo json_encode($data);
+  }
 }

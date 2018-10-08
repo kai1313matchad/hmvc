@@ -14,6 +14,8 @@ class Product extends MX_Controller
     $data['view_addonjs'] = array('product_js');
     $data['view_addoncustjs'] = array('product_custjs');
     $data['ctg'] = $this->get_categories();
+    $data['lok'] = $this->get_location();
+    $data['size'] = $this->get_size();
   	$this->templates_->shop($data);
   }
   public function details()
@@ -75,13 +77,39 @@ class Product extends MX_Controller
   {
     $get = $this->db->get('mona_prodtype')->result();
     $rs = array();
+    $cnt = 0;
     foreach ($get as $dt)
     {
-      $rs[] = '<li class="p-t-4">
-        <a href="#" class="s-text13 active1">
-          '.$dt->PRT_NAME.'
-        </a>
-      </li>';
+      $cnt++;
+      $rs[$cnt]['PRT_ID'] = $dt->PRT_ID;
+      $rs[$cnt]['PRT_NAME'] = $dt->PRT_NAME;
+    }
+    return $rs;
+  }
+
+    public function get_location()
+  {
+    $get = $this->db->get('mona_district')->result();
+    $rs = array();
+    $cnt=0;
+    foreach ($get as $dt)
+    {
+      $cnt++;
+      $rs[$cnt]['DIS_ID'] = $dt->DIS_ID;
+      $rs[$cnt]['DIS_NAME'] = $dt->DIS_NAME;
+    }
+    return $rs;
+  }
+  public function get_size()
+  {
+    $get = $this->db->get('mona_prodsize')->result();
+    $rs = array();
+    $cnt=0;
+    foreach ($get as $dt)
+    {
+      $cnt++;
+      $rs[$cnt]['PRSZ_ID']= $dt->PRSZ_ID;
+      $rs[$cnt]['PRSZ_NAME']= $dt->PRSZ_NAME;
     }
     return $rs;
   }

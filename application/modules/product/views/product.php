@@ -12,70 +12,84 @@
 	<section class="bgwhite p-t-55 p-b-65">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
+				<div class="col-sm-12 col-xs-12 col-md-4 col-lg-3 p-b-50">
 					<div class="leftbar p-r-20 p-r-0-sm">
-						<!--  -->
-						<h4 class="m-text14 p-b-7">
+						<input type="hidden" name="filter" value="0"></input> 
+						<input type="hidden" name="ctg" value=""></input> 
+						<input type="hidden" name="loc" value=""></input> 
+						<input type="hidden" name="siz" value=""></input> 
+
+						<h4 class="m-text14 p-b-2">
 							Categories
 						</h4>
-
-						<ul class="p-b-54">
+						<ul class="p-b-5">
 							<li class="p-t-4">
-								<a href="#" class="s-text13 active1">
-									All
-								</a>
+								<?php
+									  echo '<div class="rs2-select2 bo4 of-hidden">';
+											echo '<select class="selection-3" name="categories">';
+												echo '<option value=0>All</option>';
+											foreach ($ctg as $ct)
+										  { 
+										  	echo '<option Value="'. $ct['PRT_ID'] .'">'. $ct['PRT_NAME'] .'</option>';
+										  }
+											echo '</select>';
+										echo '</div>';
+								?>
 							</li>
+						</ul>
 
-							<?php
-								foreach ($ctg as $ct)
-								{
-									echo $ct;
-								}
-							?>
-
-							<!-- <li class="p-t-4">
-								<a href="#" class="s-text13">
-									Billboard
-								</a>
-							</li>
-
+						<h4 class="m-text14 p-b-2">
+							Location
+						</h4>
+						<ul class="p-b-5">
 							<li class="p-t-4">
-								<a href="#" class="s-text13">
-									Videotron
-								</a>
+								<?php
+								  echo '<div class="rs2-select2 bo4 of-hidden">'; 
+										echo '<select class="selection-4" name="location">';
+											echo '<option value=0>All</option>';
+										foreach ($lok as $ct2)
+									  {
+									  	echo '<option Value="'. $ct2['DIS_ID'] .'">'.$ct2['DIS_NAME'].'</option>';
+									  }
+										echo '</select>';
+									echo '</div>';
+								?>
 							</li>
-
+						</ul>
+						<h4 class="m-text14 p-b-2">
+							Size
+						</h4>
+						<ul class="p-b-5">
 							<li class="p-t-4">
-								<a href="#" class="s-text13">
-									JPO
-								</a>
+								<?php
+								  echo '<div class="rs2-select2 bo4 of-hidden">'; 
+										echo '<select class="selection-4" name="size">';
+											echo '<option value=0>All</option>';
+										foreach ($size as $ct3)
+									  {
+									  	echo '<option Value="'. $ct3['PRSZ_ID'] .'">'.$ct3['PRSZ_NAME'].'</option>';
+									  }
+										echo '</select>';
+									echo '</div>';
+								?>
 							</li>
-
-							<li class="p-t-4">
-								<a href="#" class="s-text13">
-									Neonbox
-								</a>
-							</li> -->
 						</ul>
 
 						<div class="search-product pos-relative bo4 of-hidden">
-							<input class="s-text7 size6 p-l-23 p-r-50" type="text" name="search-product" placeholder="Search Products...">
-
-							<button class="flex-c-m size5 ab-r-m color2 color0-hov trans-0-4">
+							<input class="s-text7 size6 p-l-23 p-r-50" type="text" name="prod_name" placeholder="Search Products...">
+							<button type="button" onclick="filterprod(1)" class="flex-c-m size5 ab-r-m color2 color0-hov trans-0-4">
 								<i class="fs-12 fa fa-search" aria-hidden="true"></i>
 							</button>
 						</div>
 					</div>
 				</div>
 
-				<div class="col-sm-6 col-md-8 col-lg-9 p-b-50">
-					<!--  -->
+				<div class="col-sm-12 col-xs-12 col-md-8 col-lg-9 p-b-50">
 					<div class="flex-sb-m flex-w p-b-35">
 						<div class="flex-w">
-							<div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
+							<div class="col-sm-6 col-xs-6 col-md-6 col-lg-6 rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-5">
 								<select class="selection-2" name="sorting" id="sorting">
 									<option value=0>Default Sorting</option>
-									<!-- <option value=1>Popularity</option> -->
 									<option value=2>Price: low to high</option>
 									<option value=3>Price: high to low</option>
 									<option value=4>Product Name: A to Z</option>
@@ -83,7 +97,7 @@
 								</select>
 							</div>
 
-							<div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
+							<div class="col-sm-5 col-xs-5 col-md-5 col-lg-5 rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-5">
 								<select class="selection-2" name="sorting">
 									<option>Price</option>
 									<option>$0.00 - $50.00</option>
@@ -106,8 +120,6 @@
 
 					<!-- Pagination -->
 					<div class="pagination flex-m flex-w p-t-26">
-						<!-- <a href="#" class="item-pagination flex-c-m trans-0-4 active-pagination">1</a>
-						<a href="#" class="item-pagination flex-c-m trans-0-4">2</a> -->
 					</div>
 				</div>
 			</div>
@@ -116,3 +128,6 @@
 	<!-- Container Selection -->
 	<div id="dropDownSelect1"></div>
 	<div id="dropDownSelect2"></div>
+	<div id="dropDownSelect3"></div>
+	<div id="dropDownSelect4"></div>
+	<div id="dropDownSelect5"></div>
