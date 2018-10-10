@@ -145,6 +145,8 @@
             $('select#subdistrict').val(data.SUBDIS_ID);
             $('#subdistrict').prop('disabled', true);
             $('#subdistrict').selectpicker('refresh');
+            $('select#prodsize').val(data.PRSZ_ID);
+            $('#prodsize').selectpicker('refresh');
           	$('[name="productprice"]').val(data.PROD_PRICE);
             $('[name="specialprice"]').val(data.PROD_SPCPRICE);
             $('[name="videolink"]').val(data.PROD_VIDLINK);

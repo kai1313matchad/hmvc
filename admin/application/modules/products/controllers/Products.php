@@ -166,6 +166,7 @@ class Products extends MX_Controller
       $row = array();
       $row[] = $no;
       $row[] = $dat->PROD_NAME;
+      $row[] = $dat->PRSZ_NAME;
       $row[] = $dat->CONS_NAME;
       $row[] = number_format($dat->PROD_PRICE);
       $row[] = $dat->PROD_RENTDUE;
@@ -189,6 +190,8 @@ class Products extends MX_Controller
   {
     $this->db->from('mona_product a');
     $this->db->join('mona_construct_sts b','b.cons_id = a.cons_id');
+    $this->db->join('mona_prodsize c','c.prsz_id = a.prsz_id');
+    $this->db->join('mona_prodtype d','d.prt_id = a.prt_id');
     $this->db->where('a.prod_dtsts','1');
     $data = $this->db->get()->result();
     echo json_encode($data);

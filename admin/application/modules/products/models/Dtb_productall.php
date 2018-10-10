@@ -3,8 +3,8 @@
 	class Dtb_productall extends CI_Model 
 	{
 		var $table = 'mona_product a';
-		var $column_order = array(null,'prod_name','cons_name','prod_price','prod_taxdue','prod_rentdue','prod_insurancedue');
-		var $column_search = array('prod_name','cons_name','prod_price','prod_taxdue','prod_rentdue','prod_insurancedue');
+		var $column_order = array(null,'prod_name','prsz_name','cons_name','prod_price','prod_taxdue','prod_rentdue','prod_insurancedue');
+		var $column_search = array('prod_name','prsz_name','cons_name','prod_price','prod_taxdue','prod_rentdue','prod_insurancedue');
 		var $order = array('prod_name' => 'asc');
 		public function __construct()
 		{
@@ -14,6 +14,7 @@
 		{		
 			$this->db->from($this->table);
 			$this->db->join('mona_construct_sts b','b.cons_id = a.cons_id');
+			$this->db->join('mona_prodsize c','c.prsz_id = a.prsz_id');
 			$this->db->where('a.prod_dtsts','1');
 			$i = 0;
 			foreach ($this->column_search as $item)

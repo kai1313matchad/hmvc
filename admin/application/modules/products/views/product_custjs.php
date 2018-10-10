@@ -16,10 +16,14 @@
               var rent = Date.parse(data[i]["PROD_RENTDUE"]);
               var tax = Date.parse(data[i]["PROD_TAXDUE"]);
               var insu = Date.parse(data[i]["PROD_INSURANCEDUE"]);
+              var light = (data[i]["PROD_LIGHTING"] != '0')?'BL':'FL';
               var $tr = $('<tr>').append(
                   // $('<td class="text-center">'+(i+1)+'</td>'),
                   $('<td class="text-left">'+data[i]["PROD_NAME"]+'</td>'),
+                  $('<td class="text-center">'+data[i]["PRT_NAME"]+'</td>'),
+                  $('<td class="text-center">'+data[i]["PRSZ_NAME"]+'</td>'),
                   $('<td class="text-center">'+data[i]["CONS_NAME"]+'</td>'),
+                  $('<td class="text-center">'+light+'</td>'),
                   $('<td class="text-center numm">'+data[i]["PROD_PRICE"]+'</td>'),
                   $('<td data-order="'+rent+'" class="text-center">'+data[i]["PROD_RENTDUE"]+'</td>'),
                   $('<td data-order="'+tax+'" class="text-center">'+data[i]["PROD_TAXDUE"]+'</td>'),

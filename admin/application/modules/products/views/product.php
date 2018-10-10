@@ -33,13 +33,16 @@
                     	<thead>
                       	<tr>
                       		<!-- <th >No</th> -->
-                      		<th class="col-xs-3">Nama</th>
-                          <th >Status</th>
-                      		<th >Price</th>
-                          <th >Rent</th>
-                          <th >Tax</th>
-                          <th >Insurance</th>
-                      		<th >Action</th>
+                      		<th class="col-xs-3 text-center">Nama</th>
+                          <th class="text-center">Type</th>
+                          <th class="text-center">Size</th>
+                          <th class="text-center">Status</th>
+                          <th class="text-center"><i class="fa fa-lightbulb-o"></i></th>
+                      		<th class="text-center">Price</th>
+                          <th class="text-center">Rent</th>
+                          <th class="text-center">Tax</th>
+                          <th class="text-center">Insurance</th>
+                      		<th class="text-center">Action</th>
                       	</tr>
                       </thead>
                       <tbody id="tbcontent">

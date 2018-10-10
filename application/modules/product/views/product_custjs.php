@@ -4,7 +4,63 @@
 			var location = $('[name="location"]').val();
 			var size = $('[name="size"]').val();
 			var sort = $('[name="sorting"]').val();
+			filterload_();
+			// if ($('[name="filter"]').val() == 1)
+			// {
+			// 	$('[name="filter"]').val(0);
+			// 	loadPagination6(0);
+			// 	$('.pagination').on('click','a',function(e){
+			// 		e.preventDefault();
+			// 		var pageno = $(this).attr('data-ci-pagination-page');
+			// 		loadPagination6(pageno);
+			// 	});
+			// }
+			// else
+			// {
+			// 	$('.pagination').on('click','a',function(e){
+			// 		e.preventDefault(); 
+			// 		var pageno = $(this).attr('data-ci-pagination-page');
+			// 		switch(sort)
+			// 		{
+			// 			case '2':
+			// 			loadPagination2(pageno);
+			// 			break;
+			// 			case '3':
+			// 			loadPagination3(pageno);
+			// 			break;
+			// 			case '4':
+			// 			loadPagination4(pageno);
+			// 			break;
+			// 			case '5':
+			// 			loadPagination5(pageno);
+			// 			break;
+			// 			default:
+			// 			loadPagination(pageno);
+			// 		}
+			// 	});
+			// 	switch(sort)
+			// 	{
+			// 		case '2':
+			// 		loadPagination2(0);
+			// 		break;
+			// 		case '3':
+			// 		loadPagination3(0);
+			// 		break;
+			// 		case '4':
+			// 		loadPagination4(0);
+			// 		break;
+			// 		case '5':
+			// 		loadPagination5(0);
+			// 		break;
+			// 		default:
+			// 		loadPagination(0);
+			// 	}
+			// }
+		})
 
+		function filterload_()
+		{
+			var sort = $('[name="sorting"]').val();
 			if ($('[name="filter"]').val() == 1)
 			{
 				$('[name="filter"]').val(0);
@@ -56,24 +112,12 @@
 					loadPagination(0);
 				}
 			}
-		})
-
-		function filter_()
-		{
-			$.ajax({
-					url: '<?=base_url()?>Product/filter/',
-					type: 'post',
-					dataType: 'json',
-					success: function(response)
-					{
-						
-					}
-			});
 		}
 
 		function loadSort(id)
 		{
-			window.location.reload();
+			// window.location.reload();
+			filterload_();
 		}
 
 		// function onchange(e) 
@@ -208,10 +252,10 @@
 			$('[name="ctg"]').val(ctg);
 			$('[name="loc"]').val(loc);
 			$('[name="siz"]').val(size);
-			$('.pagination').attr('id','filterPag');
+			filterload_();
 			// var pagId = $('[name="paging"]').attr('id');
 			// alert(pagId);
 			// loadPagination6(0);
-			window.location.reload();
+			// window.location.reload();
 		}
 	</script>
