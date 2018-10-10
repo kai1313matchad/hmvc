@@ -26,7 +26,7 @@
 							<li class="p-t-4">
 								<?php
 									  echo '<div class="rs2-select2 bo4 of-hidden">';
-											echo '<select class="selection-3" name="categories">';
+											echo '<select class="selection-3" name="categories" >';
 												echo '<option value=0>All</option>';
 											foreach ($ctg as $ct)
 										  { 
@@ -45,7 +45,7 @@
 							<li class="p-t-4">
 								<?php
 								  echo '<div class="rs2-select2 bo4 of-hidden">'; 
-										echo '<select class="selection-4" name="location">';
+										echo '<select class="selection-4" name="location" >';
 											echo '<option value=0>All</option>';
 										foreach ($lok as $ct2)
 									  {
@@ -63,7 +63,7 @@
 							<li class="p-t-4">
 								<?php
 								  echo '<div class="rs2-select2 bo4 of-hidden">'; 
-										echo '<select class="selection-4" name="size">';
+										echo '<select class="selection-5" name="size" >';
 											echo '<option value=0>All</option>';
 										foreach ($size as $ct3)
 									  {
@@ -77,7 +77,10 @@
 
 						<div class="search-product pos-relative bo4 of-hidden">
 							<input class="s-text7 size6 p-l-23 p-r-50" type="text" name="prod_name" placeholder="Search Products...">
-							<button type="button" onclick="filterprod(1)" class="flex-c-m size5 ab-r-m color2 color0-hov trans-0-4">
+						</div>
+						<br>
+						<div class="pos-relative bo4 of-hidden">
+							<button type="button" onclick="filter_()" class="btn btn-primary form-control">
 								<i class="fs-12 fa fa-search" aria-hidden="true"></i>
 							</button>
 						</div>
@@ -88,7 +91,7 @@
 					<div class="flex-sb-m flex-w p-b-35">
 						<div class="flex-w">
 							<div class="col-sm-6 col-xs-6 col-md-6 col-lg-6 rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-5">
-								<select class="selection-2" name="sorting" id="sorting">
+								<select class="selection-2" name="sorting" id="sorting" onchange="loadSort(this)">
 									<option value=0>Default Sorting</option>
 									<option value=2>Price: low to high</option>
 									<option value=3>Price: high to low</option>
@@ -119,7 +122,7 @@
 					</div>
 
 					<!-- Pagination -->
-					<div class="pagination flex-m flex-w p-t-26">
+					<div id="allPag" name="paging" class="pagination flex-m flex-w p-t-26">
 					</div>
 				</div>
 			</div>

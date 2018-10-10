@@ -18,6 +18,21 @@ class Product extends MX_Controller
     $data['size'] = $this->get_size();
   	$this->templates_->shop($data);
   }
+
+  public function filter()
+  {
+    $this->load->module('templates_');
+    $data['view_module'] = 'product';
+    $data['view_content'] = 'product';
+    $data['view_addoncss'] = array('product_css');
+    $data['view_addonjs'] = array('product_js');
+    $data['view_addoncustjs'] = array('product_custjs');
+    $data['ctg'] = $this->get_categories();
+    $data['lok'] = $this->get_location();
+    $data['size'] = $this->get_size();
+    $this->templates_->shop($data);
+  }
+
   public function details()
   {
     $slug = ($this->uri->segment(3))?$this->uri->segment(3):NULL;

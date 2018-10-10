@@ -10,6 +10,19 @@
 			minimumResultsForSearch: 20,
 			dropdownParent: $('#dropDownSelect2')
 		});
+
+		$(".selection-3").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect3')
+		});
+		$(".selection-4").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect4')
+		});
+		$(".selection-5").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect5')
+		});
 	</script>
 	<!--===============================================================================================-->
 	<script type="text/javascript" src="<?php echo base_url()?>assets/frontend/vendor/daterangepicker/moment.min.js"></script>

@@ -65,7 +65,7 @@ class Pagination extends MX_Controller
     }
 
     //Pagination Config
-    $config['base_url'] = base_url().'Pagination/loadProdRecord';
+    $config['base_url'] = base_url().'Pagination/loadProdRecordtoexpensive';
     $config['use_page_numbers'] = TRUE;
     $config['total_rows'] = $allcount;
     $config['per_page'] = $rowperpage;
@@ -104,7 +104,7 @@ class Pagination extends MX_Controller
     }
 
     //Pagination Config
-    $config['base_url'] = base_url().'Pagination/loadProdRecord';
+    $config['base_url'] = base_url().'Pagination/loadProdRecordtocheap';
     $config['use_page_numbers'] = TRUE;
     $config['total_rows'] = $allcount;
     $config['per_page'] = $rowperpage;
@@ -143,7 +143,7 @@ class Pagination extends MX_Controller
     }
 
     //Pagination Config
-    $config['base_url'] = base_url().'Pagination/loadProdRecord';
+    $config['base_url'] = base_url().'Pagination/loadProdRecordAtoZ';
     $config['use_page_numbers'] = TRUE;
     $config['total_rows'] = $allcount;
     $config['per_page'] = $rowperpage;
@@ -182,7 +182,7 @@ class Pagination extends MX_Controller
     }
 
     //Pagination Config
-    $config['base_url'] = base_url().'Pagination/loadProdRecord';
+    $config['base_url'] = base_url().'Pagination/loadProdRecordZtoA';
     $config['use_page_numbers'] = TRUE;
     $config['total_rows'] = $allcount;
     $config['per_page'] = $rowperpage;
@@ -218,7 +218,7 @@ class Pagination extends MX_Controller
     //Get Records
     $records = $this->pgn->getProdDataFilter($rowno,$rowperpage,$kat,$loc,$siz,$txt);
     //Pagination Config
-    $config['base_url'] = base_url().'Pagination/loadProdRecord';
+    $config['base_url'] = base_url().'Pagination/loadProdRecordFilter';
     $config['use_page_numbers'] = TRUE;
     $config['total_rows'] = $allcount;
     $config['per_page'] = $rowperpage;

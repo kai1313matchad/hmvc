@@ -4,26 +4,15 @@
 			var location = $('[name="location"]').val();
 			var size = $('[name="size"]').val();
 			var sort = $('[name="sorting"]').val();
-			$(".selection-3").select2({
-				minimumResultsForSearch: 20,
-				dropdownParent: $('#dropDownSelect3')
-			});
-			$(".selection-4").select2({
-				minimumResultsForSearch: 20,
-				dropdownParent: $('#dropDownSelect4')
-			});
-			$(".selection-5").select2({
-				minimumResultsForSearch: 20,
-				dropdownParent: $('#dropDownSelect5')
-			});
+
 			if ($('[name="filter"]').val() == 1)
 			{
 				$('[name="filter"]').val(0);
-				loadPagination6(0,kategori,location.size);
+				loadPagination6(0);
 				$('.pagination').on('click','a',function(e){
-					e.preventDefault(); 
+					e.preventDefault();
 					var pageno = $(this).attr('data-ci-pagination-page');
-					loadPagination6(pageno,kategori,location.size);
+					loadPagination6(pageno);
 				});
 			}
 			else
@@ -69,16 +58,35 @@
 			}
 		})
 
-		function onchange(e) 
+		function filter_()
 		{
-			if (e.currentTarget.value >= 0)
-			{
-				if ($('[name="filter"]').val() == 1)
-				{
-					window.location.reload();
-				}
-			}
+			$.ajax({
+					url: '<?=base_url()?>Product/filter/',
+					type: 'post',
+					dataType: 'json',
+					success: function(response)
+					{
+						
+					}
+			});
 		}
+
+		function loadSort(id)
+		{
+			window.location.reload();
+		}
+
+		// function onchange(e) 
+		// {
+		// 	if (e.currentTarget.value >= 0)
+		// 	{
+		// 		window.location.reload();
+		// 		// if ($('[name="filter"]').val() == 1)
+		// 		// {
+		// 		// 	window.location.reload();
+		// 		// }
+		// 	}
+		// }
 
 		// document.getElementById('sorting').addEventListener('change', onchange);
 
@@ -178,25 +186,32 @@
 				$('#product_list').append(div);
 			}
 		}
+
 		function cart(id)
 		{			
 			var prodName = $(id).parent().parent().parent().find('.block2-name').html();
 			swal(prodName, "is added to cart !", "success");
 		}
+
 		function wishlist(id)
 		{
 			var nameProduct = $(id).parent().parent().parent().find('.block2-name').html();			
 			swal(nameProduct, "is added to wishlist !", "success");
 		}
-		function filterprod(id)
+		
+		function filter_()
 		{
 			var ctg = $('[name="categories"]').val();
 			var loc = $('[name="location"]').val();
 			var size = $('[name="size"]').val();
-			$('[name="filter"]').val(id);
+			$('[name="filter"]').val(1);
 			$('[name="ctg"]').val(ctg);
 			$('[name="loc"]').val(loc);
 			$('[name="siz"]').val(size);
+			$('.pagination').attr('id','filterPag');
+			// var pagId = $('[name="paging"]').attr('id');
+			// alert(pagId);
+			// loadPagination6(0);
 			window.location.reload();
 		}
 	</script>
