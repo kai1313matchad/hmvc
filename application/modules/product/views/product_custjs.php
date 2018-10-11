@@ -63,7 +63,6 @@
 			var sort = $('[name="sorting"]').val();
 			if ($('[name="filter"]').val() == 1)
 			{
-				$('[name="filter"]').val(0);
 				loadPagination6(0);
 				$('.pagination').on('click','a',function(e){
 					e.preventDefault();
@@ -117,6 +116,7 @@
 		function loadSort(id)
 		{
 			// window.location.reload();
+			$('[name="filter"]').val(0);
 			filterload_();
 		}
 

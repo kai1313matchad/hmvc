@@ -31,6 +31,11 @@
                       <li><a href="<?php echo base_url('Dashboard')?>">Dashboard</a></li>
                     </ul>
                   </li>
+                  <li><a><i class="fa fa-newspaper-o"></i> Blog <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="<?php echo base_url('Blogpost')?>">Manage</a></li>
+                    </ul>
+                  </li>
                   <li><a><i class="fa fa-sliders"></i> Customize <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?php echo base_url('Banners');?>">Main Banner</a></li>
