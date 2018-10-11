@@ -120,24 +120,19 @@
                                 <span class="help-block"></span>
                               </div>
                             </div>
-                            <!-- <div class="form-group">
-                              <label class="control-label col-md-3 col-sm-3 col-xs-12">Size
-                              </label>
+                            <div class="form-group">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">Lighting</label>
                               <div class="col-md-6 col-sm-6 col-xs-12">
-                                <select id="prodsize" name="prodsize" data-live-search="true" class="form-control text-center" required>
-                                </select>
-                                <span class="help-block"></span>
+                                <div id="lighting" class="btn-group" data-toggle="buttons">
+                                  <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                    <input type="radio" name="lighting" value="0"> Frontlite
+                                  </label>
+                                  <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                    <input type="radio" name="lighting" value="1"> Backlite
+                                  </label>
+                                </div>
                               </div>
-                            </div> -->
-                           <!--  <div class="form-group">
-                              <label class="control-label col-md-3 col-sm-3 col-xs-12">Construct
-                              </label>
-                              <div class="col-md-6 col-sm-6 col-xs-12">
-                                <select id="prodcons" name="prodcons" data-live-search="true" class="form-control text-center" required>
-                                </select>
-                                <span class="help-block"></span>
-                              </div>
-                            </div> -->
+                            </div>
                             <div class="form-group">
                               <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Product Price</label>
                               <div class="col-md-6 col-sm-6 col-xs-12">

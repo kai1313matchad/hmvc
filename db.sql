@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `login_attempts` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table iontest.login_attempts: ~1 rows (approximately)
+-- Dumping data for table iontest.login_attempts: ~0 rows (approximately)
 /*!40000 ALTER TABLE `login_attempts` DISABLE KEYS */;
 /*!40000 ALTER TABLE `login_attempts` ENABLE KEYS */;
 
@@ -694,7 +694,7 @@ CREATE TABLE IF NOT EXISTS `mona_prodpict` (
   CONSTRAINT `FK__mona_product` FOREIGN KEY (`PROD_ID`) REFERENCES `mona_product` (`PROD_ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=147 DEFAULT CHARSET=latin1;
 
--- Dumping data for table iontest.mona_prodpict: ~60 rows (approximately)
+-- Dumping data for table iontest.mona_prodpict: ~61 rows (approximately)
 /*!40000 ALTER TABLE `mona_prodpict` DISABLE KEYS */;
 INSERT INTO `mona_prodpict` (`PRODPIC_ID`, `PROD_ID`, `PRODPIC_PATH`, `PRODPIC_TOKEN`, `PRODPIC_STS`) VALUES
 	(28, 83, '/assets/img/product/img_1538454760.jpg', '0.5512647620353047', '0'),
@@ -770,7 +770,7 @@ CREATE TABLE IF NOT EXISTS `mona_prodsize` (
   PRIMARY KEY (`PRSZ_ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
--- Dumping data for table iontest.mona_prodsize: ~10 rows (approximately)
+-- Dumping data for table iontest.mona_prodsize: ~12 rows (approximately)
 /*!40000 ALTER TABLE `mona_prodsize` DISABLE KEYS */;
 INSERT INTO `mona_prodsize` (`PRSZ_ID`, `PRSZ_NAME`, `PRSZ_INFO`, `PRSZ_DTSTS`) VALUES
 	(1, '6x4 V', 'Vertical', '1'),
@@ -975,7 +975,7 @@ CREATE TABLE IF NOT EXISTS `mona_subdistrict` (
   PRIMARY KEY (`SUBDIS_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table iontest.mona_subdistrict: ~7,090 rows (approximately)
+-- Dumping data for table iontest.mona_subdistrict: ~7,094 rows (approximately)
 /*!40000 ALTER TABLE `mona_subdistrict` DISABLE KEYS */;
 INSERT INTO `mona_subdistrict` (`SUBDIS_ID`, `DIS_ID`, `SUBDIS_NAME`, `SUBDIS_DTSTS`) VALUES
 	('110101', '1101', 'Bakongan', NULL),
