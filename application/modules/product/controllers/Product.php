@@ -90,7 +90,7 @@ class Product extends MX_Controller
 
   public function get_categories()
   {
-    $get = $this->db->get('mona_prodtype')->result();
+    $get = $this->db->get_where('mona_prodtype',array('prt_dtsts'=>'1'))->result();
     $rs = array();
     $cnt = 0;
     foreach ($get as $dt)
@@ -117,7 +117,7 @@ class Product extends MX_Controller
   }
   public function get_size()
   {
-    $get = $this->db->get('mona_prodsize')->result();
+    $get = $this->db->get_where('mona_prodsize',array('prsz_dtsts'=>'1'))->result();
     $rs = array();
     $cnt=0;
     foreach ($get as $dt)

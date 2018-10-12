@@ -17,6 +17,7 @@
               var tax = Date.parse(data[i]["PROD_TAXDUE"]);
               var insu = Date.parse(data[i]["PROD_INSURANCEDUE"]);
               var light = (data[i]["PROD_LIGHTING"] != '0')?'BL':'FL';
+              var pub = (data[i]["PROD_STS"] != '0')?'<i class="fa fa-eye"></i>':'<i class="fa fa-eye-slash"></i>';
               var $tr = $('<tr>').append(
                   // $('<td class="text-center">'+(i+1)+'</td>'),
                   $('<td class="text-left">'+data[i]["PROD_NAME"]+'</td>'),
@@ -28,6 +29,7 @@
                   $('<td data-order="'+rent+'" class="text-center">'+data[i]["PROD_RENTDUE"]+'</td>'),
                   $('<td data-order="'+tax+'" class="text-center">'+data[i]["PROD_TAXDUE"]+'</td>'),
                   $('<td data-order="'+insu+'" class="text-center">'+data[i]["PROD_INSURANCEDUE"]+'</td>'),
+                  $('<td data-order="'+data[i]["PROD_STS"]+'" class="text-center">'+pub+'</td>'),
                   $('<td class="text-center"><a href="Products/crud/'+data[i]["PROD_CODE"]+'" target="blank__" title="Edit Data" class="btn btn-xs btn-primary btn-responsive"><span class="glyphicon glyphicon-pencil"></span> </a> <a href="javascript:void(0)" title="Hapus Data" class="btn btn-xs btn-danger btn-responsive" onclick="delete_prod('+"'"+data[i]["PROD_ID"]+"'"+')"><span class="glyphicon glyphicon-trash"></span> </a></td>')
                 ).appendTo('#tbcontent');
             }

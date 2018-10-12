@@ -42,6 +42,7 @@
                           <th class="text-center">Rent</th>
                           <th class="text-center">Tax</th>
                           <th class="text-center">Insurance</th>
+                          <th class="text-center"><i class="fa fa-bolt"></i></th>
                       		<th class="text-center">Action</th>
                       	</tr>
                       </thead>

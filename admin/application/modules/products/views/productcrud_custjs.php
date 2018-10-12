@@ -7,6 +7,7 @@
         $('#province').selectpicker({});
         $('#district').selectpicker({});
         $('#subdistrict').selectpicker({});
+        $('#prodlight').selectpicker({});
         dropsize_('prodsize','PRSZ_ID','PRSZ_NAME');
         dropcons_('prodcons','CONS_ID','CONS_NAME');
         dropprov_('mona_province','province','PROV_ID','PROV_NAME');
@@ -147,9 +148,12 @@
             $('#subdistrict').selectpicker('refresh');
             $('select#prodsize').val(data.PRSZ_ID);
             $('#prodsize').selectpicker('refresh');
+            $('select#prodlight').val(data.PROD_LIGHTING);
+            $('#prodlight').selectpicker('refresh');
+            $('[name="publish"][value='+data.PROD_STS+']').prop('checked',true);
           	$('[name="productprice"]').val(data.PROD_PRICE);
             $('[name="specialprice"]').val(data.PROD_SPCPRICE);
-            $('[name="videolink"]').val(data.PROD_VIDLINK);
+            $('[name="videolink"]').val((data.PROD_VIDLINK != '')?data.PROD_VIDLINK:'https://www.youtube.com/embed/');
             $('[name="taxdue"]').val(data.PROD_TAXDUE);
             $('[name="rentdue"]').val(data.PROD_RENTDUE);
             $('[name="insurancedue"]').val(data.PROD_INSURANCEDUE);
