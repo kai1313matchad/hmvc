@@ -74,7 +74,7 @@
 				</div>
 
 				<!-- Header Icon -->
-				<div class="header-icons">
+				<!-- <div class="header-icons">
 					<a href="#" class="header-wrapicon1 dis-block">
 						<img src="<?php echo base_url()?>assets/frontend/images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
 					</a>
@@ -85,7 +85,6 @@
 						<img src="<?php echo base_url()?>assets/frontend/images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
 						<span class="header-icons-noti">0</span>
 
-						<!-- Header cart noti -->
 						<div class="header-cart header-dropdown">
 							<ul class="header-cart-wrapitem">
 								<li class="header-cart-item">
@@ -143,14 +142,12 @@
 
 							<div class="header-cart-buttons">
 								<div class="header-cart-wrapbtn">
-									<!-- Button -->
 									<a href="cart.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
 										View Cart
 									</a>
 								</div>
 
 								<div class="header-cart-wrapbtn">
-									<!-- Button -->
 									<a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
 										Check Out
 									</a>
@@ -158,7 +155,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 
@@ -172,7 +169,7 @@
 			<!-- Button show menu -->
 			<div class="btn-show-menu">
 				<!-- Header Icon mobile -->
-				<div class="header-icons-mobile">
+				<!-- <div class="header-icons-mobile">
 					<a href="#" class="header-wrapicon1 dis-block">
 						<img src="<?php echo base_url()?>assets/frontend/images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
 					</a>
@@ -183,7 +180,6 @@
 						<img src="<?php echo base_url()?>assets/frontend/images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
 						<span class="header-icons-noti">0</span>
 
-						<!-- Header cart noti -->
 						<div class="header-cart header-dropdown">
 							<ul class="header-cart-wrapitem">
 								<li class="header-cart-item">
@@ -241,14 +237,12 @@
 
 							<div class="header-cart-buttons">
 								<div class="header-cart-wrapbtn">
-									<!-- Button -->
 									<a href="cart.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
 										View Cart
 									</a>
 								</div>
 
 								<div class="header-cart-wrapbtn">
-									<!-- Button -->
 									<a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
 										Check Out
 									</a>
@@ -256,7 +250,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 
 				<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
 					<span class="hamburger-box">
@@ -271,23 +265,23 @@
 			<nav class="side-menu">
 				<ul class="main-menu">
 					<li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
-						<span class="topbar-child1">
+						<!-- <span class="topbar-child1">
 							Free shipping for standard order over $100
-						</span>
+						</span> -->
 					</li>
 
 					<li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
 						<div class="topbar-child2-mobile">
 							<span class="topbar-email">
-								fashe@example.com
+								marketing@match-advertising.com
 							</span>
 
-							<div class="topbar-language rs1-select2">
+							<!-- <div class="topbar-language rs1-select2">
 								<select class="selection-1" name="time">
 									<option>USD</option>
 									<option>EUR</option>
 								</select>
-							</div>
+							</div> -->
 						</div>
 					</li>
 
@@ -302,21 +296,21 @@
 					</li>
 
 					<li class="item-menu-mobile">
-						<a href="index.html">Home</a>
-						<ul class="sub-menu">
+						<a href="<?php echo base_url('Home');?>">Home</a>
+						<!-- <ul class="sub-menu">
 							<li><a href="index.html">Homepage V1</a></li>
 							<li><a href="home-02.html">Homepage V2</a></li>
 							<li><a href="home-03.html">Homepage V3</a></li>
-						</ul>
+						</ul> -->
 						<i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
 					</li>
 
 					<li class="item-menu-mobile">
-						<a href="product.html">Shop</a>
+						<a href="<?php echo base_url('Product');?>">Shop</a>
 					</li>
 
 					<li class="item-menu-mobile">
-						<a href="product.html">Sale</a>
+						<a href="<?php echo base_url('Sale');?>">Sale</a>
 					</li>
 
 					<li class="item-menu-mobile">
