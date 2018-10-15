@@ -90,7 +90,7 @@
 				<div class="col-sm-12 col-xs-12 col-md-8 col-lg-9 p-b-50">
 					<div class="flex-sb-m flex-w p-b-35">
 						<div class="flex-w">
-							<div class="col-sm-6 col-xs-6 col-md-6 col-lg-6 rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-5">
+							<div class="col-sm-6 col-xs-6 col-md-6 col-lg-6 rs2-select2 bo4 of-hidden w-size33 m-t-5 m-b-5 m-r-5">
 								<select class="selection-2" name="sorting" id="sorting" onchange="loadSort(this)">
 									<option value=0>Default Sorting</option>
 									<option value=2>Price: low to high</option>
@@ -100,7 +100,7 @@
 								</select>
 							</div>
 
-							<div class="col-sm-5 col-xs-5 col-md-5 col-lg-5 rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-5">
+							<!-- <div class="col-sm-5 col-xs-5 col-md-5 col-lg-5 rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-5">
 								<select class="selection-2" name="sorting">
 									<option>Price</option>
 									<option>$0.00 - $50.00</option>
@@ -108,9 +108,8 @@
 									<option>$100.00 - $150.00</option>
 									<option>$150.00 - $200.00</option>
 									<option>$200.00+</option>
-
 								</select>
-							</div>
+							</div> -->
 						</div>
 
 						<!-- <span class="s-text8 p-t-5 p-b-5">
