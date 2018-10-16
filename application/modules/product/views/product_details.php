@@ -145,7 +145,7 @@
           <div class="tab-pane fade" id="pop2" role="tabpanel" aria-labelledby="pop2-tab">
           	<div class="pt-3"></div>
 						<div class="pos-relative embed-responsive embed-responsive-16by9">
-							<iframe src="https://www.google.com/maps/embed?pb=!1m17!1m8!1m3!1d1976.3083702630906!2d112.69740098220892!3d-7.83032506490821!3m2!1i1024!2i768!4f13.1!4m6!3e2!4m3!3m2!1d-7.8303255!2d112.6973635!4m0!5e0!3m2!1sen!2sid!4v1536892115652"></iframe>
+							<?= $prod_mapurl?>
 						</div>
           </div>
 				</div>

@@ -55,6 +55,7 @@ class Product extends MX_Controller
       $data['prod_categories'] = $this->db->get_where('mona_prodtype',array('prt_id'=>$get->row()->PRT_ID))->row()->PRT_NAME;
       $data['prod_pic'] = $this->get_img($get->row()->PROD_ID);
       $data['prod_vidurl'] = '<iframe src="'.$get->row()->PROD_VIDLINK.'"></iframe>';
+      $data['prod_mapurl'] = '<iframe src="'.$get->row()->PROD_MAPLINK.'"></iframe>';
       $data['prod_desc'] = $get->row()->PROD_DESCRIPTION;
       $this->load->module('templates_');
       $data['view_module'] = 'product';
