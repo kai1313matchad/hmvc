@@ -5,7 +5,7 @@
 			function getmainbanners()
 			{
 				$.ajax({
-        	url : "<?php echo site_url('Home/get_mainbanners')?>",
+        	url : "<?php echo site_url('home/get_mainbanners')?>",
           type: "GET",
           dataType: "JSON",
           success: function(data)

@@ -167,9 +167,9 @@
 		</div>
 	</div>
 
-	<div class="container bgwhite">
+	<!-- <div class="container bgwhite">
 		<div id="googleMap" style="width:100%;height:400px;"></div>
-	</div>
+	</div> -->
 
 
 	<!-- Relate Product -->

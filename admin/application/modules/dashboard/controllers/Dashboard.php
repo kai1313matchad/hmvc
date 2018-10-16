@@ -11,12 +11,12 @@ class Dashboard extends MX_Controller
     if (!$this->ion_auth->logged_in())
     {
       // redirect them to the login page
-      redirect('Signin', 'refresh');
+      redirect('signin', 'refresh');
     }
     elseif(!$this->ion_auth->is_admin())
     {
       $this->session->set_flashdata('message', 'You must be an administrator to view this page.');
-      redirect('Signin');
+      redirect('signin');
     }
   	else
     {

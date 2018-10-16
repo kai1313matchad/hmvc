@@ -797,7 +797,7 @@ CREATE TABLE IF NOT EXISTS `mona_prodtype` (
   PRIMARY KEY (`PRT_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table iontest.mona_prodtype: ~6 rows (approximately)
+-- Dumping data for table iontest.mona_prodtype: ~5 rows (approximately)
 /*!40000 ALTER TABLE `mona_prodtype` DISABLE KEYS */;
 INSERT INTO `mona_prodtype` (`PRT_ID`, `PRT_NAME`, `PRT_INFO`, `PRT_DTSTS`) VALUES
 	('BAL', 'Baliho', 'Reklame ukuran kecil', '1'),
@@ -850,7 +850,7 @@ CREATE TABLE IF NOT EXISTS `mona_product` (
   CONSTRAINT `FK_mona_product_mona_subdistrict` FOREIGN KEY (`SUBDIS_ID`) REFERENCES `mona_subdistrict` (`SUBDIS_ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=112 DEFAULT CHARSET=latin1;
 
--- Dumping data for table iontest.mona_product: ~62 rows (approximately)
+-- Dumping data for table iontest.mona_product: ~61 rows (approximately)
 /*!40000 ALTER TABLE `mona_product` DISABLE KEYS */;
 INSERT INTO `mona_product` (`PROD_ID`, `PROV_ID`, `DIS_ID`, `SUBDIS_ID`, `PRT_ID`, `PRSZ_ID`, `CONS_ID`, `PROD_CODE`, `PROD_NAME`, `PROD_SLUG`, `PROD_STREETADDR`, `PROD_PRICE`, `PROD_SPCPRICE`, `PROD_PIC`, `PROD_DESCRIPTION`, `PROD_VIDLINK`, `PROD_STS`, `PROD_LIGHTING`, `PROD_TAXDUE`, `PROD_RENTDUE`, `PROD_INSURANCEDUE`, `PROD_UPDATE`, `PROD_DTSTS`) VALUES
 	(20, '35', '3578', '357828', 'BIB', 6, 1, 'BIB3578000006', 'Surabaya - Jl. Pahlawan no. 94', 'surabaya-jl-pahlawan-no-94', 'Jl. Pahlawan no. 94', 600000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '0', '2018-10-03', '2000-01-01', '2018-10-03', '2018-10-10 17:16:16', '1'),
@@ -892,7 +892,7 @@ INSERT INTO `mona_product` (`PROD_ID`, `PROV_ID`, `DIS_ID`, `SUBDIS_ID`, `PRT_ID
 	(83, '35', '3512', NULL, 'BIB', 3, 1, 'BIB3512000001', 'Situbondo - Jl. A. Yani (view Jl. A. Jakfar)', 'situbondo-jl-a-yani-view-jl-a-jakfar', 'Jl. A. Yani (view Jl. A. Jakfar)', 200000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '0', '2018-10-27', '2018-10-15', '2018-10-03', '2018-10-10 16:39:41', '1'),
 	(84, '35', '3512', NULL, 'BIB', 6, 1, 'BIB3512000002', 'Situbondo - Jl. A. Yani no. 196', 'situbondo-jl-a-yani-no-196', 'Jl. A. Yani no. 196', 300000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '0', '2018-11-02', '2018-11-07', '2018-10-13', '2018-10-10 16:39:45', '1'),
 	(85, '32', '3211', NULL, 'BAL', 1, 1, 'BAL3211000001', 'Sumedang - Jl. Prabu Tadjimalela', 'sumedang-jl-prabu-tadjimalela', 'Jl. Prabu Tadjimalela', 150000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '0', '2018-11-02', '2018-10-01', '2018-10-26', '2018-10-08 10:20:31', '1'),
-	(86, '35', '3578', NULL, 'BIB', 3, 1, 'BIB3578000018', 'Surabaya - Jl. Sulawesi', 'surabaya-jl-sulawesi', 'Jl. Sulawesi', 350000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/uVtpoIU5TGo', '1', '0', '2017-12-25', '2018-11-02', '2017-12-25', '2018-10-10 17:03:01', '1'),
+	(86, '35', '3578', NULL, 'BIB', 3, 1, 'BIB3578000018', 'Surabaya - Jl. Sulawesi', 'surabaya-jl-sulawesi', 'Jl. Sulawesi', 350000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/Y6LT6SayTZo', '1', '0', '2017-12-25', '2018-11-02', '2017-12-25', '2018-10-15 09:43:07', '1'),
 	(87, '35', '3578', NULL, 'BIB', 6, 1, 'BIB3578000019', 'Surabaya - Jl. Embong Malang no. 76A', 'surabaya-jl-embong-malang-no-76a', 'Jl. Embong Malang no. 76A', 700000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/IdWMfjl8dLE', '1', '0', '2018-10-03', '2019-01-31', '2018-10-03', '2018-10-10 17:09:38', '1'),
 	(88, '35', '3578', NULL, 'BIB', 6, 1, 'BIB3578000020', 'Surabaya - Jl. Adityawarman no. 46', 'surabaya-jl-adityawarman-no-46', 'Jl. Adityawarman no. 46', 700000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/B2GJi0OrEnE', '1', '0', '2018-10-01', '2018-07-15', '2018-10-01', '2018-10-10 16:40:13', '1'),
 	(89, '35', '3525', NULL, 'BAL', 1, 1, 'BAL3525000002', 'Gresik - Jl. Raya Dr. Wahidin Sudiro Husodo (Terminal Bunder)', 'gresik-jl-raya-dr-wahidin-sudiro-husodo-terminal-bunder', 'Jl. Raya Dr. Wahidin Sudiro Husodo (Terminal Bunder)', 150000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/Um7lKvUERZE', '1', '0', '2018-10-03', '2019-03-31', '2018-10-03', '2018-10-08 10:13:36', '1'),
@@ -8123,7 +8123,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table iontest.users: ~3 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-	(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1539333586, 1, 'Admin', 'istrator', 'ADMIN', '0'),
+	(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1539587086, 1, 'Admin', 'istrator', 'ADMIN', '0'),
 	(2, '127.0.0.1', 'tes1', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', NULL, 'tes@mail.com', NULL, NULL, NULL, NULL, 1532591726, 1532940104, 1, 'tes', 'tes', 'tes', '123415'),
 	(3, '127.0.0.1', 'tes2@mail.com', '$2y$08$N/k5kV1vMgglz/olhGc0OuOYMdqHfyXFiN2LFPwnyRM1Tt5WwsqKu', NULL, 'tes2@mail.com', NULL, NULL, NULL, NULL, 1532591825, NULL, 1, 'tes2', 'tes2', 'tes2', '987654');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;

@@ -6,7 +6,7 @@
       function createtb()
       {
         $.ajax({
-          url : "<?php echo site_url('Products/get_all')?>",
+          url : "<?php echo site_url('products/get_all')?>",
           type: "GET",
           dataType: "JSON",
           success: function(data)
@@ -30,7 +30,7 @@
                   $('<td data-order="'+tax+'" class="text-center">'+data[i]["PROD_TAXDUE"]+'</td>'),
                   $('<td data-order="'+insu+'" class="text-center">'+data[i]["PROD_INSURANCEDUE"]+'</td>'),
                   $('<td data-order="'+data[i]["PROD_STS"]+'" class="text-center">'+pub+'</td>'),
-                  $('<td class="text-center"><a href="Products/crud/'+data[i]["PROD_CODE"]+'" target="blank__" title="Edit Data" class="btn btn-xs btn-primary btn-responsive"><span class="glyphicon glyphicon-pencil"></span> </a> <a href="javascript:void(0)" title="Hapus Data" class="btn btn-xs btn-danger btn-responsive" onclick="delete_prod('+"'"+data[i]["PROD_ID"]+"'"+')"><span class="glyphicon glyphicon-trash"></span> </a></td>')
+                  $('<td class="text-center"><a href="products/crud/'+data[i]["PROD_CODE"]+'" target="blank__" title="Edit Data" class="btn btn-xs btn-primary btn-responsive"><span class="glyphicon glyphicon-pencil"></span> </a> <a href="javascript:void(0)" title="Hapus Data" class="btn btn-xs btn-danger btn-responsive" onclick="delete_prod('+"'"+data[i]["PROD_ID"]+"'"+')"><span class="glyphicon glyphicon-trash"></span> </a></td>')
                 ).appendTo('#tbcontent');
             }
             dtables();
@@ -62,7 +62,7 @@
         "pageLength": 100,
         // "order": [],
         "ajax": {
-        	"url": "<?php echo site_url('Products/get_productall')?>",
+        	"url": "<?php echo site_url('products/get_productall')?>",
           "type": "POST",
           },
       	"columnDefs": 
@@ -86,7 +86,7 @@
       function save_()
       {
         $.ajax({
-          url : "<?php echo site_url('Products/test')?>",
+          url : "<?php echo site_url('products/test')?>",
           data : $('#form-product').serialize(),
           type: "POST",
           dataType: "JSON",
@@ -114,7 +114,7 @@
         fd.append("file", file_data);
         var other_data = $('#form-product').serializeArray();
         $.each(other_data,function(key,input){fd.append(input.name,input.value);});
-      	url = "<?php echo site_url('admin/product/Product_/save_product')?>";
+      	url = "<?php echo site_url('admin/product/product_/save_product')?>";
       	$.ajax({
 					url : url,
           type: "POST",
@@ -165,7 +165,7 @@
       	$('.form-group').removeClass('has-error');
         $('.help-block').empty();
         $.ajax({
-        	url : "<?php echo site_url('admin/product/Product_/get_prodrow/')?>"+id,
+        	url : "<?php echo site_url('admin/product/product_/get_prodrow/')?>"+id,
           type: "GET",
           dataType: "JSON",
           success: function(data)
@@ -185,7 +185,7 @@
       	if(confirm('Are you sure delete this data?'))
       	{
       		$.ajax({
-	        	url : "<?php echo site_url('admin/product/Product_/del_product/')?>"+id,
+	        	url : "<?php echo site_url('admin/product/product_/del_product/')?>"+id,
 	          type: "GET",
 	          dataType: "JSON",
 	          success: function(data)
@@ -206,7 +206,7 @@
       function drop_(tb,id,idx,v)
       {
         $.ajax({
-          url : "<?php echo site_url('Products/get_dropprov/')?>"+tb,
+          url : "<?php echo site_url('products/get_dropprov/')?>"+tb,
           type: "GET",
           dataType: "JSON",
           success: function(data)
@@ -233,7 +233,7 @@
       {
         $('#'+id).empty();
         $.ajax({
-          url : "<?php echo site_url('Products/get_dropdistrict/')?>"+pk,
+          url : "<?php echo site_url('products/get_dropdistrict/')?>"+pk,
           type: "GET",
           dataType: "JSON",
           success: function(data)
@@ -260,7 +260,7 @@
       {
         $('#'+id).empty();
         $.ajax({
-          url : "<?php echo site_url('Products/get_dropsubdistrict/')?>"+pk,
+          url : "<?php echo site_url('products/get_dropsubdistrict/')?>"+pk,
           type: "GET",
           dataType: "JSON",
           success: function(data)
@@ -286,7 +286,7 @@
       function dropprodtype(tb,id,idx,v)
       {
         $.ajax({
-          url : "<?php echo site_url('Products/get_dropprodtype/')?>"+tb,
+          url : "<?php echo site_url('products/get_dropprodtype/')?>"+tb,
           type: "GET",
           dataType: "JSON",
           success: function(data)

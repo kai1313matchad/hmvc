@@ -29,7 +29,7 @@
 
 			<div class="wrap_header">
 				<!-- Logo -->
-				<a href="<?php echo base_url('Home');?>" class="logo">
+				<a href="<?php echo base_url('home');?>" class="logo">
 					<img src="<?php echo base_url()?>assets/frontend/images/icons/logo.png" alt="IMG-LOGO">
 				</a>
 
@@ -38,7 +38,7 @@
 					<nav class="menu">
 						<ul class="main_menu">
 							<li>
-								<a href="<?php echo base_url('Home');?>">Home</a>
+								<a href="<?php echo base_url('home');?>">Home</a>
 								<!-- <ul class="sub_menu">
 									<li><a href="index.html">Homepage V1</a></li>
 									<li><a href="home-02.html">Homepage V2</a></li>
@@ -47,11 +47,11 @@
 							</li>
 
 							<li>
-								<a href="<?php echo base_url('Product');?>">Shop</a>
+								<a href="<?php echo base_url('product');?>">Shop</a>
 							</li>
 
 							<li class="sale-noti">
-								<a href="<?php echo base_url('Sale');?>">Sale</a>
+								<a href="<?php echo base_url('sale');?>">Sale</a>
 							</li>
 
 							<li>
@@ -296,7 +296,7 @@
 					</li>
 
 					<li class="item-menu-mobile">
-						<a href="<?php echo base_url('Home');?>">Home</a>
+						<a href="<?php echo base_url('home');?>">Home</a>
 						<!-- <ul class="sub-menu">
 							<li><a href="index.html">Homepage V1</a></li>
 							<li><a href="home-02.html">Homepage V2</a></li>
@@ -306,11 +306,11 @@
 					</li>
 
 					<li class="item-menu-mobile">
-						<a href="<?php echo base_url('Product');?>">Shop</a>
+						<a href="<?php echo base_url('product');?>">Shop</a>
 					</li>
 
 					<li class="item-menu-mobile">
-						<a href="<?php echo base_url('Sale');?>">Sale</a>
+						<a href="<?php echo base_url('sale');?>">Sale</a>
 					</li>
 
 					<li class="item-menu-mobile">
