@@ -8,7 +8,7 @@
               <div class="title_right">
                 <div class="col-md-2 col-sm-2 col-xs-12 form-group pull-right top_search">
                   <div class="input-group">
-                    <a href="<?php echo base_url('Products/crud/add')?>" class="btn btn-block btn-primary">Add</a>
+                    <a href="<?php echo base_url('products/crud/add')?>" class="btn btn-block btn-primary">Add</a>
                   </div>
                 </div>
               </div>

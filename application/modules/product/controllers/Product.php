@@ -39,6 +39,8 @@ class Product extends MX_Controller
     $get = $this->db->get_where('mona_product',array('prod_slug'=>$slug));
     if($get->num_rows()>0)
     {
+      $getDet = $this->db->join('mona_prodsize b','b.prsz_id = a.prsz_id')->join('mona_district c','c.dis_id = a.dis_id')->where('a.prod_id',$get->row()->PROD_ID)->get('mona_product a')->row();
+      $light = ($getDet->PROD_LIGHTING != '0')?'Backlite':'Frontlite';
       $price = $get->row()->PROD_PRICE;
       $contract = array(6,3,1);
       $retail_price = array();
@@ -56,7 +58,7 @@ class Product extends MX_Controller
       $data['prod_pic'] = $this->get_img($get->row()->PROD_ID);
       $data['prod_vidurl'] = '<iframe src="'.$get->row()->PROD_VIDLINK.'"></iframe>';
       $data['prod_mapurl'] = '<iframe src="'.$get->row()->PROD_MAPLINK.'"></iframe>';
-      $data['prod_desc'] = $get->row()->PROD_DESCRIPTION;
+      $data['prod_desc'] = 'Location '.$getDet->DIS_NAME.', '.$getDet->PROD_STREETADDR.'<br>'.'Size '.$getDet->PRSZ_NAME.'<br>'.'Lighting '.$light.'<br>'.$getDet->PROD_DESCRIPTION;
       $this->load->module('templates_');
       $data['view_module'] = 'product';
       $data['view_content'] = 'product_details';
