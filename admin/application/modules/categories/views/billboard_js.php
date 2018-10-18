@@ -11,7 +11,7 @@
                         "serverSide": true,
                         "order": [],
                         "ajax": {
-                        "url": "<?php echo site_url('Categories/get_billboardall')?>",
+                        "url": "<?php echo site_url('categories/get_billboardall')?>",
                         "type": "POST",
                     },
                     "columnDefs": [{"className": "text-center", "targets": ['_all']}],
@@ -25,7 +25,7 @@
 
       function save()
       {
-        url = "<?php echo site_url('Categories/save_type')?>";
+        url = "<?php echo site_url('categories/save_type')?>";
         $.ajax({
                   url : url,
                   type: "POST",
@@ -52,7 +52,7 @@
       function edit_type(id)
       {
         $.ajax({
-            url : "<?php echo site_url('Categories/get_bbtypetoedit/')?>"+id,
+            url : "<?php echo site_url('categories/get_bbtypetoedit/')?>"+id,
             type: "GET",
               dataType: "JSON",
               success: function(data)
@@ -75,7 +75,7 @@
         if(confirm('Are you sure delete this data?'))
         {  
             $.ajax({
-              url : "<?php echo site_url('Categories/del_type/')?>"+id,
+              url : "<?php echo site_url('categories/del_type/')?>"+id,
               type: "GET",
               dataType: "JSON",
               success: function(data)
