@@ -5,6 +5,9 @@ class Pagination extends MX_Controller
   {
   	parent::__construct();
     $this->load->model('M_pagination','pgn');
+    $this->load->helper('text');
+    $this->load->helper('tglindo_helper');
+    // $this->load->model('Post_model');
   }
   public function loadProdRecord($rowno=0)
   {
@@ -230,6 +233,74 @@ class Pagination extends MX_Controller
     $data['pagination'] = $this->pagination->create_links();
     $data['result'] = $records;
     $data['row'] = $rowno;
+    echo json_encode($data);
+  }
+
+  public function loadBlogRecord($rowno=0)
+  {
+    $rowperpage = 3;
+    //Row Position
+    if($rowno != 0)
+    {
+      $rowno = ($rowno - 1) * $rowperpage;
+    }
+
+    //All Records Count
+    $allcount = $this->pgn->getrecordBlogCount();
+
+    //Get Records
+    $records = $this->pgn->getBlogData($rowno,$rowperpage);
+    // foreach ($records as $res)
+    // {
+    //   # code...
+    // }
+
+    //Pagination Config
+    // $config['base_url'] = base_url('Blogpost/index/');
+    // $config['use_page_numbers'] = TRUE;
+    // $config['total_rows'] = $allcount;
+    // $config['per_page'] = $rowperpage;
+    // $config['first_link'] = '<<';
+    // $config['last_link'] = '>>';
+    // $config['cur_tag_open'] = '<a href="" class="item-pagination flex-c-m trans-0-4 active-pagination">';
+    // $config['cur_tag_close'] = '</a>';
+    // $config['attributes'] = array('class' => 'item-pagination flex-c-m trans-0-4');
+
+    $config['base_url'] = base_url('Pagination/loadBlogRecord/');
+    $config['total_rows'] = $allcount;
+    $config['per_page'] = 3;
+
+    $config['num_tag_open'] = '<li>';
+    $config['num_tag_close']= '</li>';
+    $config['first_link'] = '<<';
+    $config['last_link'] = '>>';
+    $config['prev_link']    = '&lt;';
+    $config['prev_tag_open']='<li>';
+    $config['prev_tag_close']='</li>';
+    $config['next_link']    = '&gt;';
+    $config['next_tag_open']='<li>';
+    $config['next_tag_close']='</li>';
+    // $config['cur_tag_open']='<li class="active disabled"><a href="#">';
+    // $config['cur_tag_close']='</a></li>';
+    $config['cur_tag_open'] = '<a href="" class="item-pagination flex-c-m trans-0-4 active-pagination">';
+    $config['cur_tag_close'] = '</a>';
+    $config['first_tag_open']='<li>';
+    $config['first_tag_close']='</li>';
+    $config['last_tag_open']='<li>';
+    $config['last_tag_close']='</li>';
+    $config['attributes'] = array('class' => 'item-pagination flex-c-m trans-0-4');
+    $this->pagination->initialize($config);
+
+    //Initial array
+    $data['pagination'] = $this->pagination->create_links();
+    $data['result'] = $records;
+    $data['row'] = $rowno;
+
+    echo json_encode($data);
+  }
+  function ajax_picktgl($tgl)
+  {
+    $data['tgl']=tgl_indo($tgl);
     echo json_encode($data);
   }
 }
