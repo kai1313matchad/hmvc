@@ -5,8 +5,6 @@ class Post_model extends CI_Model{
 
 	public function __construct(){
 		parent::__construct();
-		$this->load->helper('cleanurl_helper');
-		$this->load->helper('tglindo_helper');
 	}
 
 	public function create($table,$data){

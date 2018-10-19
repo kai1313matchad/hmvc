@@ -5,9 +5,6 @@ class Pagination extends MX_Controller
   {
   	parent::__construct();
     $this->load->model('M_pagination','pgn');
-    $this->load->helper('text');
-    $this->load->helper('tglindo_helper');
-    // $this->load->model('Post_model');
   }
   public function loadProdRecord($rowno=0)
   {
