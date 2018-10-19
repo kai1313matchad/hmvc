@@ -69,6 +69,11 @@
 					<span class="s-text8 m-r-35">SKU: <?= $prod_code ;?></span>
 					<span class="s-text8">Categories: <?= $prod_categories ;?></span>
 				</div>
+				<div class="p-b-5">
+					<div class="col-xs-2">
+						<a href="<?php echo base_url()?>admin<?= $prod_fs ;?>" target="blank___" class="btn btn-success" type="button">Download Factsheet</a>
+					</div>
+				</div>
 
 				<!--  -->
 				<!-- <div class="p-t-33 p-b-30">

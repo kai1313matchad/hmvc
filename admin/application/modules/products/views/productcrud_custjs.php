@@ -173,7 +173,7 @@
             $('[name="rentdue"]').val(data.PROD_RENTDUE);
             $('[name="insurancedue"]').val(data.PROD_INSURANCEDUE);
             var pic = data.PROD_PIC;
-            var newSrc = (pic = 'null')?"<?php echo base_url()?>/assets/img/factsheet/default.jpg":"<?php echo base_url()?>"+data.PROD_PIC;
+            var newSrc = (pic = '')?"<?php echo base_url()?>/assets/img/factsheet/default.jpg":"<?php echo base_url()?>"+data.PROD_PIC;
             $('#fs_img').attr('src', newSrc);
             $('#summernote').summernote('code',data.PROD_DESCRIPTION);
           },
