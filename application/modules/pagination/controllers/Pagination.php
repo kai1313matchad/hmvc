@@ -256,38 +256,14 @@ class Pagination extends MX_Controller
     // }
 
     //Pagination Config
-    // $config['base_url'] = base_url('Blogpost/index/');
-    // $config['use_page_numbers'] = TRUE;
-    // $config['total_rows'] = $allcount;
-    // $config['per_page'] = $rowperpage;
-    // $config['first_link'] = '<<';
-    // $config['last_link'] = '>>';
-    // $config['cur_tag_open'] = '<a href="" class="item-pagination flex-c-m trans-0-4 active-pagination">';
-    // $config['cur_tag_close'] = '</a>';
-    // $config['attributes'] = array('class' => 'item-pagination flex-c-m trans-0-4');
-
     $config['base_url'] = base_url('Pagination/loadBlogRecord/');
+    $config['use_page_numbers'] = TRUE;
     $config['total_rows'] = $allcount;
-    $config['per_page'] = 3;
-
-    $config['num_tag_open'] = '<li>';
-    $config['num_tag_close']= '</li>';
+    $config['per_page'] = $rowperpage;
     $config['first_link'] = '<<';
     $config['last_link'] = '>>';
-    $config['prev_link']    = '&lt;';
-    $config['prev_tag_open']='<li>';
-    $config['prev_tag_close']='</li>';
-    $config['next_link']    = '&gt;';
-    $config['next_tag_open']='<li>';
-    $config['next_tag_close']='</li>';
-    // $config['cur_tag_open']='<li class="active disabled"><a href="#">';
-    // $config['cur_tag_close']='</a></li>';
     $config['cur_tag_open'] = '<a href="" class="item-pagination flex-c-m trans-0-4 active-pagination">';
     $config['cur_tag_close'] = '</a>';
-    $config['first_tag_open']='<li>';
-    $config['first_tag_close']='</li>';
-    $config['last_tag_open']='<li>';
-    $config['last_tag_close']='</li>';
     $config['attributes'] = array('class' => 'item-pagination flex-c-m trans-0-4');
     $this->pagination->initialize($config);
 
