@@ -36,16 +36,31 @@
         });
         $('#summernote').summernote('fontName', 'Times New Roman');
       }
-      function test_()
+      function save_fs()
       {
+        var fd = new FormData();
+        var file_data = $('#fsfile').prop('files')[0];
+        fd.append("file", file_data);
+        var other_data = $('form').serializeArray();
+        $.each(other_data,function(key,input){fd.append(input.name,input.value);});
         $.ajax({
-          url : "<?php echo site_url('products/test')?>",
-          data : $('form').serialize(),
+          url : "<?php echo site_url('products/save_factsheet')?>",
           type: "POST",
+          cache: false,
+          contentType: false,
+          processData: false,
+          data: fd,
           dataType: "JSON",
           success: function(data)
           {
-            alert(data.tes);
+            if(data.status)
+            {
+              reload_fs($('[name="productid"]').val());
+            }
+            else
+            {
+              alert('Failed to Upload Factsheet');
+            }
           },
           error: function (jqXHR, textStatus, errorThrown)
           {
@@ -64,7 +79,6 @@
           {
             if(data.status)
             {
-              // $('#alert-div').append('<div class="alert alert-success alert dismissible fade in" role="alert"><button class="close" type="button" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">x</span></button>Success Update Data</div>');
               var url = "<?php echo site_url('products')?>";
               window.location = url;
             }
@@ -158,6 +172,9 @@
             $('[name="taxdue"]').val(data.PROD_TAXDUE);
             $('[name="rentdue"]').val(data.PROD_RENTDUE);
             $('[name="insurancedue"]').val(data.PROD_INSURANCEDUE);
+            var pic = data.PROD_PIC;
+            var newSrc = (pic = 'null')?"<?php echo base_url()?>/assets/img/factsheet/default.jpg":"<?php echo base_url()?>"+data.PROD_PIC;
+            $('#fs_img').attr('src', newSrc);
             $('#summernote').summernote('code',data.PROD_DESCRIPTION);
           },
           error: function (jqXHR, textStatus, errorThrown)
@@ -364,6 +381,23 @@
           }
         });
         populate_pic($('[name="productid"]').val());
+      }
+      function reload_fs(id)
+      {
+        $.ajax({
+          url : "<?php echo site_url('products/get_prodrow/')?>"+id,
+          type: "GET",
+          dataType: "JSON",
+          success: function(data)
+          {
+            var newSrc = "<?php echo base_url()?>"+data.PROD_PIC;
+            $('#fs_img').attr('src', newSrc);
+          },
+          error: function (jqXHR, textStatus, errorThrown)
+          {
+            alert('Error get data from ajax');
+          }
+        })
       }
     </script>
     <script type="text/javascript">

@@ -38,10 +38,12 @@
                         </li>
                         <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Product Description</a>
                         </li>
+                        <li role="presentation" class=""><a href="#tab_content4" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Factsheet</a>
+                        </li>
                       </ul>
                       <div id="myTabContent" class="tab-content">
-                        <form role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
-                          <div id="form-product" class="form-horizontal form-label-left" enctype="multipart/form-data">
+                        <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+                          <form id="form-product" class="form-horizontal form-label-left" enctype="multipart/form-data">
                             <input type="hidden" name="form_status" value="<?= $form_sts;?>">
                             <input type="hidden" name="productid" value="<?= $prod_id;?>">
                             <?php
@@ -201,8 +203,8 @@
                                 <input type="radio" class="flat" name="publish" id="publishN" value="0" /> Non-Published
                               </div>
                             </div>
-                          </div>
-                        </form>
+                          </form>
+                        </div>
                         <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
                           <div class="dropzone">
                             <div class="dz-message">
@@ -219,6 +221,27 @@
                               <textarea id="summernote" name="proddesc"></textarea>
                             </div>
                           </form>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content4" aria-labelledby="profile-tab">
+                          <form id="factsheet" class="form-horizontal form-label-left" enctype="multipart/form-data">
+                            <div class="form-group">
+                              <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Factsheet</label>
+                              <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input class="form-control" type="file" name="fsfile" id="fsfile" required="required">
+                                <span class="help-block"></span>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="col-xs-offset-3 col-md-offset-3 col-sm-offset-3 col-xs-6 col-md-2 col-sm-4">
+                                <button type="button" onclick="save_fs()" class="btn btn-info btn-block">Upload</button>
+                              </div>
+                            </div>
+                          </form>
+                          <div class="row">
+                            <div class="col-md-offset-3 col-sm-offset-3 col-xs-12 col-md-6 col-sm-6">
+                              <img src="<?php echo base_url()?>assets/img/factsheet/default.jpg" class="img-responsive" id="fs_img">
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>

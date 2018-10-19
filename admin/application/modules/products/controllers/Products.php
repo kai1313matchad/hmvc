@@ -399,6 +399,69 @@ class Products extends MX_Controller
     echo json_encode($data);
   }
 
+  public function save_factsheet()
+  {
+    $id=$this->input->post('productid');
+    $getFs=$this->db->get_where('mona_product',array('prod_id'=>$id))->row()->PROD_PIC;
+    if(empty($_FILES['file']['name']))
+    {
+      $data['error_str'] = 'Nothing To Upload';
+      $data['error_str_sts'] = TRUE;
+      $data['status'] = FALSE;
+      echo json_encode($data);
+      exit();
+    }
+    else
+    {
+      if($getFs != '' || $getFs != NULL)
+      {
+        $this->fs_config_();
+        if(!$this->upload->do_upload('file'))
+        {
+          $data['error_str'] = $this->upload->display_errors();
+          $data['error_str_sts'] = TRUE;
+          $data['status'] = FALSE;
+          echo json_encode($data);
+          exit();
+        }
+        else
+        {
+          $unlink = @unlink('.'.$getFs);
+          $fileinfo_ = $this->upload->data();
+          $path = '/assets/img/factsheet/'.$fileinfo_['file_name'];
+          $upd = array(
+            'prod_pic' => $path
+          );
+          $update = $this->db->update('mona_product',$upd,array('prod_id'=>$id));
+          $data['status']=($this->db->affected_rows())?TRUE:FALSE;
+        }
+      }
+      else
+      {
+        $this->fs_config_();
+        if(!$this->upload->do_upload('file'))
+        {
+          $data['error_str'] = $this->upload->display_errors();
+          $data['error_str_sts'] = TRUE;
+          $data['status'] = FALSE;
+          echo json_encode($data);
+          exit();
+        }
+        else
+        {
+          $fileinfo_ = $this->upload->data();
+          $path = '/assets/img/factsheet/'.$fileinfo_['file_name'];
+          $upd = array(
+            'prod_pic' => $path
+          );
+          $update = $this->db->update('mona_product',$upd,array('prod_id'=>$id));
+          $data['status']=($this->db->affected_rows())?TRUE:FALSE;
+        }
+      }
+    }
+    echo json_encode($data);
+  }
+
   public function save_product()
   {
     $this->_validate_product();
@@ -539,6 +602,16 @@ class Products extends MX_Controller
   {
     $nmfile='img_'.time();
     $config['upload_path']='./assets/img/product/';
+    $config['allowed_types']='jpg|jpeg|png';
+    $config['max_size']='2048';
+    $config['file_name']=$nmfile;
+    $this->upload->initialize($config);
+  }
+
+  public function fs_config_()
+  {
+    $nmfile='img_'.time();
+    $config['upload_path']='./assets/img/factsheet/';
     $config['allowed_types']='jpg|jpeg|png';
     $config['max_size']='2048';
     $config['file_name']=$nmfile;
