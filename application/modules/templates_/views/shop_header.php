@@ -63,7 +63,7 @@
 							</li>
 
 							<li>
-								<a href="about.html">About</a>
+								<a href="<?php echo base_url('aboutus');?>">About</a>
 							</li>
 
 							<li>
