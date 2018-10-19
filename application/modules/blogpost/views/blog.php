@@ -23,25 +23,7 @@
 	                </h1>
 	                <div class="row" id="blog_content">
 					</div>
-									<?php if(!empty($record)):?>
-										<?php foreach($record as $row): ?>
-											<!-- First Blog Post -->
-											<h2>
-												<a href="<?php echo base_url()?>Blogpost/read/<?php echo $row['BLOG_ID']?>"><?php echo $row['BLOG_TITLE'];?></a>
-											</h2>
-											<p class="lead">
-												<!-- by <?php echo $row['author'];?> -->
-											</p>
-											<p><span class="glyphicon glyphicon-time"></span> Posted on <?php echo tgl_indo($row['BLOG_DATE']);?></p>
-											<hr>
-											<img class="img-responsive" src="<?php echo base_url().'admin/assets/img/blogpost/'.$row['BLOG_PICTURE'];?>" width="800" height="300"alt="">
-											<hr>
-											<p><?php echo word_limiter($row['BLOG_CONTENT'],50);?></p>
-											<!--<a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>-->
-											<a class="btn btn-primary" href="<?php echo base_url()?>Blogpost/read/<?php echo $row['BLOG_ID']?>">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
-											<hr>
-										<?php endforeach;?>
-									<?php endif;?>					
+														
 	                <!-- Pager -->
 	                <ul class="pager">
 	                    <!-- <?php //echo $pagination ;?> -->
