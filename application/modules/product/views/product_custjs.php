@@ -5,6 +5,7 @@
 			var size = $('[name="size"]').val();
 			var sort = $('[name="sorting"]').val();
 			filterload_();
+
 			// if ($('[name="filter"]').val() == 1)
 			// {
 			// 	$('[name="filter"]').val(0);
@@ -226,7 +227,7 @@
 			{
 				var label = (Date.parse(res[index].PROD_RENTDUE)<Date.parse(Date()))?'labelava':'labelsold';
 				price = (res[index].PROD_SPCPRICE > 0)?'<span class="block2-oldprice m-text7 p-r-5">Rp '+numeral(res[index].PROD_PRICE/10).format('0,0.-')+'</span><br><span class="block2-newprice m-text8 p-r-5">Rp '+numeral(res[index].PROD_SPCPRICE/10).format('0,0.-')+'</span>':'<span class="block2-price m-text6 p-r-5">Rp '+numeral(res[index].PROD_PRICE/10).format('0,0.-')+'</span>';
-				var div = '<div class="col-sm-6 col-xs-6 col-md-6 col-lg-4 p-b-50"><!-- Block --><div class="block2"><div class="block2-img wrap-pic-w of-hidden hov-img-zoom pos-relative block2-'+label+'"><a href="<?php echo base_url();?>product/details/'+res[index].PROD_SLUG+'"><img src="<?php echo base_url()?>admin'+res[index].PRODPIC_PATH+'" alt="IMG-PRODUCT"></a></div><div class="block2-txt p-t-20"><a href="<?php echo base_url();?>product/details/'+res[index].PROD_SLUG+'" class="block2-name dis-block s-text3 p-b-5">'+res[index].PROD_NAME+'</a>'+price+'</div></div></div>';
+				var div = '<div class="col-sm-6 col-xs-6 col-md-6 col-lg-4 p-b-50"><!-- Block --><div class="block2"><div class="block2-img wrap-pic-w of-hidden hov-img-zoom pos-relative block2-'+label+'"><a href="<?php echo base_url();?>Product/details/'+res[index].PROD_SLUG+'"><img src="<?php echo base_url()?>admin'+res[index].PRODPIC_PATH+'" alt="IMG-PRODUCT"></a></div><div class="block2-txt p-t-20"><a href="<?php echo base_url();?>Product/details/'+res[index].PROD_SLUG+'" class="block2-name dis-block s-text3 p-b-5">'+res[index].PROD_NAME+'</a>'+price+'</div></div></div>';
 				$('#product_list').append(div);
 			}
 		}

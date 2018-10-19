@@ -169,5 +169,26 @@
 	    $result = $query->result_array();
 	    return $result[0]['allcount'];
  		}
+
+ 	  public function getBlogData($rowno,$rowperpage)
+	  {
+	    $this->db->select('*');
+	    $this->db->from('mona_blog');
+	    $this->db->where('BLOG_DTSTS','1');
+	    $this->db->limit($rowperpage,$rowno);
+	    $query = $this->db->get();
+	    return $query->result_array();
+	  }
+
+	  // Select total records
+	  public function getrecordBlogCount()
+	  {
+	    $this->db->select('count(*) as allcount');
+	    $this->db->from('mona_blog');
+	    $this->db->where('BLOG_DTSTS','1');
+	    $query = $this->db->get();
+	    $result = $query->result_array();
+	    return $result[0]['allcount'];
+	  }	
 	}
 ?>
