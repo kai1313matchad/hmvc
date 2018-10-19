@@ -4,8 +4,6 @@ class Blogpost extends MX_Controller
   function __construct()
   {
   	parent::__construct();
-  	$this->load->helper('text');
-  	$this->load->helper('tglindo_helper');
     $this->load->model('Post_model');
   }
 
@@ -45,7 +43,7 @@ class Blogpost extends MX_Controller
     $data['view_addoncustjs'] = array('blog_custjs');
     // $data['record'] = $this->Post_model->read('mona_blog', $limit, $offset);
     // $data['pagination'] = $this->pagination->create_links();
-  	$this->templates_->blog($data);
+  	$this->templates_->shop($data);
   }
 
   public function read($id){

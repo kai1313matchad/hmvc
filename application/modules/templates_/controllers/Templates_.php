@@ -31,28 +31,6 @@ class Templates_ extends MX_Controller
     }
   	$this->load->view('baseshop',$data);
   }
-  public function blog($data)
-  {
-    $data['basic_css'] = TRUE;
-    $data['blog_css'] = TRUE;
-    $data['module'] = $data['view_module'];
-    $data['content'] = $data['view_content'];
-    $data['addon_css'] = array();
-    if(isset($data['view_addoncss']))
-    {
-      $data['addon_css'] = $data['view_addoncss'];
-    }
-    $data['addon_js'] = array();
-    if(isset($data['view_addonjs']))
-    {
-      $data['addon_js'] = $data['view_addonjs'];
-    }
-    if(isset($data['view_addoncustjs']))
-    {
-      $data['addon_custjs'] = $data['view_addoncustjs'];
-    }
-    $this->load->view('baseblog',$data);
-  }
   public function basic_css()
   {
   	$this->load->view('basic_css');
