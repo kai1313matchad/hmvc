@@ -1,5 +1,5 @@
 <?php
-class Banners extends MX_Controller
+class Mainbanners extends MX_Controller
 {
   function __construct()
   {
@@ -10,7 +10,7 @@ class Banners extends MX_Controller
   public function index()
   {
   	$this->load->module('templates_');
-  	$data['view_module'] = 'banners';
+  	$data['view_module'] = 'mainbanners';
   	$data['view_content'] = 'banners';
     $data['view_addoncss'] = array('banners_css');
     $data['view_addonjs'] = array('banners_js');
@@ -39,7 +39,7 @@ class Banners extends MX_Controller
             "recordsTotal" => $this->bannall->count_all(),
             "recordsFiltered" => $this->bannall->count_filtered(),
             "data" => $data,
-    );      
+    );
     echo json_encode($output);
   }
   public function get_bannerrow($id)

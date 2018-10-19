@@ -22,7 +22,7 @@
 			</div>
 
 			<div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
-				<h4 class="s-text12 p-b-30">
+				<!-- <h4 class="s-text12 p-b-30">
 					Categories
 				</h4>
 
@@ -50,7 +50,7 @@
 							Neonbox
 						</a>
 					</li>
-				</ul>
+				</ul> -->
 			</div>
 
 			<div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
@@ -59,12 +59,6 @@
 				</h4>
 
 				<ul>
-					<li class="p-b-9">
-						<a href="#" class="s-text7">
-							Search
-						</a>
-					</li>
-
 					<li class="p-b-9">
 						<a href="#" class="s-text7">
 							About Us
@@ -76,12 +70,6 @@
 							Contact Us
 						</a>
 					</li>
-
-					<li class="p-b-9">
-						<a href="#" class="s-text7">
-							Returns
-						</a>
-					</li>
 				</ul>
 			</div>
 
@@ -91,24 +79,6 @@
 				</h4>
 
 				<ul>
-					<li class="p-b-9">
-						<a href="#" class="s-text7">
-							Track Order
-						</a>
-					</li>
-
-					<li class="p-b-9">
-						<a href="#" class="s-text7">
-							Returns
-						</a>
-					</li>
-
-					<li class="p-b-9">
-						<a href="#" class="s-text7">
-							Shipping
-						</a>
-					</li>
-
 					<li class="p-b-9">
 						<a href="#" class="s-text7">
 							FAQs

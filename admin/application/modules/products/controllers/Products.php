@@ -295,6 +295,7 @@ class Products extends MX_Controller
               'prt_id'=>$this->input->post('prodtype'),
               'prsz_id'=>$this->input->post('prodsize'),
               'cons_id'=>$this->input->post('prodcons'),
+              'prod_lighting'=>$this->input->post('prodlight'),
               'prod_code'=>$code,
               'prod_name'=>$prod_name,
               'prod_slug'=>url_title($prod_name, 'dash', true),
@@ -302,11 +303,12 @@ class Products extends MX_Controller
               'prod_price'=>($this->input->post('productprice') != '')?$this->input->post('productprice'):0,
               'prod_spcprice'=>($this->input->post('specialprice') != '')?$this->input->post('specialprice'):0,
               'prod_vidlink'=>$this->input->post('videolink'),
+              'prod_maplink'=>$this->input->post('maplink'),
               'prod_taxdue'=>$this->input->post('taxdue'),
               'prod_rentdue'=>$this->input->post('rentdue'),
               'prod_insurancedue'=>$this->input->post('insurancedue'),
               'prod_description'=>$this->input->post('proddesc'),
-              'prod_sts'=>'1',
+              'prod_sts'=>$this->input->post('publish'),
               'prod_update'=>now(),
               'prod_dtsts'=>'1'
             ); 
@@ -322,6 +324,7 @@ class Products extends MX_Controller
               'prt_id'=>$this->input->post('prodtype'),
               'prsz_id'=>$this->input->post('prodsize'),
               'cons_id'=>$this->input->post('prodcons'),
+              'prod_lighting'=>$this->input->post('prodlight'),
               'prod_code'=>$code,
               'prod_name'=>$prod_name,
               'prod_slug'=>url_title($prod_name, 'dash', true),
@@ -329,11 +332,12 @@ class Products extends MX_Controller
               'prod_price'=>($this->input->post('productprice') != '')?$this->input->post('productprice'):0,
               'prod_spcprice'=>($this->input->post('specialprice') != '')?$this->input->post('specialprice'):0,
               'prod_vidlink'=>$this->input->post('videolink'),
+              'prod_maplink'=>$this->input->post('maplink'),
               'prod_taxdue'=>$this->input->post('taxdue'),
               'prod_rentdue'=>$this->input->post('rentdue'),
               'prod_insurancedue'=>$this->input->post('insurancedue'),
               'prod_description'=>$this->input->post('proddesc'),
-              'prod_sts'=>'1',
+              'prod_sts'=>$this->input->post('publish'),
               'prod_update'=>date('Y-m-d H:i:s'),
               'prod_dtsts'=>'1'
             );
@@ -368,17 +372,19 @@ class Products extends MX_Controller
         $upd = array(
           'prsz_id'=>$this->input->post('prodsize'),
           'cons_id'=>$this->input->post('prodcons'),
+          'prod_lighting'=>$this->input->post('prodlight'),
           'prod_name'=>$prod_name,
           'prod_slug'=>url_title($prod_name, 'dash', true),
           'prod_streetaddr'=>$this->input->post('streetaddr'),
           'prod_price'=>($this->input->post('productprice') != '')?$this->input->post('productprice'):0,
           'prod_spcprice'=>($this->input->post('specialprice') != '')?$this->input->post('specialprice'):0,
           'prod_vidlink'=>$this->input->post('videolink'),
+          'prod_maplink'=>$this->input->post('maplink'),
           'prod_taxdue'=>$this->input->post('taxdue'),
           'prod_rentdue'=>$this->input->post('rentdue'),
           'prod_insurancedue'=>$this->input->post('insurancedue'),
           'prod_description'=>$this->input->post('proddesc'),
-          'prod_sts'=>'1',
+          'prod_sts'=>$this->input->post('publish'),
           'prod_update'=>date('Y-m-d H:i:s'),
           'prod_dtsts'=>'1'
         ); 
@@ -390,81 +396,6 @@ class Products extends MX_Controller
         redirect('Error_404');
         break;
     }
-    // $subdis = $this->input->post('subdistrict');
-    // switch (true)
-    // {
-    //   case ($getcode == 'T' and $sts == '1'):
-    //     $newid = $this->add_product();
-    //     $upd = array(
-    //       'prov_id'=>$this->input->post('province'),
-    //       'dis_id'=>$this->input->post('district'),
-    //       // 'subdis_id'=>$this->input->post('subdistrict'),
-    //       'prt_id'=>$this->input->post('prodtype'),
-    //       'prsz_id'=>$this->input->post('prodsize'),
-    //       'cons_id'=>$this->input->post('prodcons'),
-    //       'prod_code'=>$code,
-    //       'prod_name'=>$prod_name,
-    //       'prod_slug'=>url_title($prod_name, 'dash', true),
-    //       'prod_streetaddr'=>$this->input->post('streetaddr'),
-    //       'prod_price'=>($this->input->post('productprice') != '')?$this->input->post('productprice'):0,
-    //       'prod_spcprice'=>($this->input->post('specialprice') != '')?$this->input->post('specialprice'):0,
-    //       'prod_vidlink'=>$this->input->post('videolink'),
-    //       'prod_description'=>$this->input->post('proddesc'),
-    //       'prod_sts'=>'1',
-    //       'prod_update'=>now(),
-    //       'prod_dtsts'=>'1'
-    //     ); 
-    //     $update = $this->db->update('mona_product',$upd,array('prod_id'=>$newid));
-    //     $data['msg'] = $this->db->error();
-    //     $data['status'] = ($this->db->affected_rows())?TRUE:FALSE;
-    //     break;
-    //   case ($getcode == 'F' and $sts == '1'):
-    //     $upd = array(
-    //       'prov_id'=>$this->input->post('province'),
-    //       'dis_id'=>$this->input->post('district'),
-    //       // 'subdis_id'=>$this->input->post('subdistrict'),
-    //       'prt_id'=>$this->input->post('prodtype'),
-    //       'prsz_id'=>$this->input->post('prodsize'),
-    //       'cons_id'=>$this->input->post('prodcons'),
-    //       'prod_code'=>$code,
-    //       'prod_name'=>$prod_name,
-    //       'prod_slug'=>url_title($prod_name, 'dash', true),
-    //       'prod_streetaddr'=>$this->input->post('streetaddr'),
-    //       'prod_price'=>($this->input->post('productprice') != '')?$this->input->post('productprice'):0,
-    //       'prod_spcprice'=>($this->input->post('specialprice') != '')?$this->input->post('specialprice'):0,
-    //       'prod_vidlink'=>$this->input->post('videolink'),
-    //       'prod_description'=>$this->input->post('proddesc'),
-    //       'prod_sts'=>'1',
-    //       'prod_update'=>date('Y-m-d H:i:s'),
-    //       'prod_dtsts'=>'1'
-    //     ); 
-    //     $update = $this->db->update('mona_product',$upd,array('prod_id'=>$id));
-    //     $data['msg'] = $this->db->error();
-    //     $data['status'] = ($this->db->affected_rows())?TRUE:FALSE;
-    //     break;
-    //   case ($getcode == 'T' and $sts == '2'):
-    //     $upd = array(
-    //       'prsz_id'=>$this->input->post('prodsize'),
-    //       'cons_id'=>$this->input->post('prodcons'),
-    //       'prod_name'=>$prod_name,
-    //       'prod_slug'=>url_title($prod_name, 'dash', true),
-    //       'prod_streetaddr'=>$this->input->post('streetaddr'),
-    //       'prod_price'=>($this->input->post('productprice') != '')?$this->input->post('productprice'):0,
-    //       'prod_spcprice'=>($this->input->post('specialprice') != '')?$this->input->post('specialprice'):0,
-    //       'prod_vidlink'=>$this->input->post('videolink'),
-    //       'prod_description'=>$this->input->post('proddesc'),
-    //       'prod_sts'=>'1',
-    //       'prod_update'=>date('Y-m-d H:i:s'),
-    //       'prod_dtsts'=>'1'
-    //     ); 
-    //     $update = $this->db->update('mona_product',$upd,array('prod_id'=>$id));
-    //     $data['msg'] = $this->db->error();
-    //     $data['status'] = ($this->db->affected_rows())?TRUE:FALSE;
-    //     break;
-    //   default:
-    //     redirect('Error_404');
-    //     break;
-    // }
     echo json_encode($data);
   }
 

@@ -3724,6 +3724,10 @@ SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE SHAPE
 	width: calc(49% - 55px);
 }
 
+.w-size33 {
+	width: 500px;
+}
+
 /*[ Height Size ]
 ///////////////////////////////////////////////////////////
 */

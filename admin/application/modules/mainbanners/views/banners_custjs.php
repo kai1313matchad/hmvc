@@ -1,8 +1,9 @@
 		<script>
-    	$(document).ready(function(){
-    		tables();
-    	});
-    	function tables()
+    	// $(document).ready(function(){
+    	// 	tables_();
+    	// });
+      tables_();
+    	function tables_()
     	{
     		table = $('#dtb-mainbannerall').DataTable({
     		"info": false,
@@ -11,7 +12,7 @@
         "serverSide": true,
         "order": [],
         "ajax": {
-        	"url": "<?php echo site_url('Banners/get_mainbannerall')?>",
+        	"url": "<?php echo site_url('mainbanners/get_mainbannerall')?>",
           "type": "POST",
           },
       	"columnDefs": [{"className": "text-center", "targets": ['_all']}],
@@ -24,7 +25,7 @@
       function add_banner()
       {
         $.ajax({
-          url : "<?php echo site_url('Banners/add_banner')?>",
+          url : "<?php echo site_url('mainbanners/add_banner')?>",
           type: "GET",
           dataType: "JSON",
           success: function(data)
@@ -45,7 +46,7 @@
       function edit_banner(id)
       {
         $.ajax({
-          url : "<?php echo site_url('Banners/update_banner')?>",
+          url : "<?php echo site_url('mainbanners/update_banner')?>",
           data : {bann_id : id, bann_name : $('[name="bannername['+id+']"]').val(), bann_link : $('[name="bannerlink['+id+']"]').val()},
           type: "POST",
           dataType: "JSON",
@@ -67,7 +68,7 @@
         fd.append("file", file_data);
         var other_data = $('#form-img').serializeArray();
         $.each(other_data,function(key,input){fd.append(input.name,input.value);});
-      	url = "<?php echo site_url('Banners/save_img')?>";
+      	url = "<?php echo site_url('mainbanners/save_img')?>";
       	$.ajax({
 					url : url,
           type: "POST",
@@ -104,7 +105,7 @@
       	if(confirm('Are you sure delete this data?'))
       	{
       		$.ajax({
-	        	url : "<?php echo site_url('Banners/del_banner/')?>"+id,
+	        	url : "<?php echo site_url('mainbanners/del_banner/')?>"+id,
 	          type: "GET",
 	          dataType: "JSON",
 	          success: function(data)

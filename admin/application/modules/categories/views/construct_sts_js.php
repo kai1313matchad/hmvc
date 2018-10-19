@@ -11,7 +11,7 @@
                         "serverSide": true,
                         "order": [],
                         "ajax": {
-                        "url": "<?php echo site_url('Categories/get_constructall')?>",
+                        "url": "<?php echo site_url('categories/get_constructall')?>",
                         "type": "POST",
                     },
                     "columnDefs": [{"className": "text-center", "targets": ['_all']}],
@@ -25,7 +25,7 @@
 
       function save()
       {
-        url = "<?php echo site_url('Categories/save_construct')?>";
+        url = "<?php echo site_url('categories/save_construct')?>";
         $.ajax({
                   url : url,
                   type: "POST",
@@ -52,7 +52,7 @@
       function edit_construct(id)
       {
         $.ajax({
-            url : "<?php echo site_url('Categories/get_constructtoedit/')?>"+id,
+            url : "<?php echo site_url('categories/get_constructtoedit/')?>"+id,
             type: "GET",
               dataType: "JSON",
               success: function(data)
@@ -74,7 +74,7 @@
         if(confirm('Are you sure delete this data?'))
         {  
             $.ajax({
-              url : "<?php echo site_url('Categories/del_construct/')?>"+id,
+              url : "<?php echo site_url('categories/del_construct/')?>"+id,
               type: "GET",
               dataType: "JSON",
               success: function(data)

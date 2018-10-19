@@ -28,38 +28,38 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="<?php echo base_url('Dashboard')?>">Dashboard</a></li>
+                      <li><a href="<?php echo base_url('dashboard')?>">Dashboard</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-newspaper-o"></i> Blog <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="<?php echo base_url('Blogpost')?>">Manage</a></li>
+                      <li><a href="<?php echo base_url('blogpost')?>">Manage</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-sliders"></i> Customize <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="<?php echo base_url('Banners');?>">Main Banner</a></li>
+                      <li><a href="<?php echo base_url('mainbanners');?>">Main Banner</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-book"></i> Categories <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="<?php echo base_url('Categories/billboard');?>">Billboard</a></li>
-                      <li><a href="<?php echo base_url('Categories/province');?>">Province</a></li>
-                      <li><a href="<?php echo base_url('Categories/district');?>">District</a></li>
-                      <li><a href="<?php echo base_url('Categories/subdistrict');?>">Sub-district</a></li>
-                      <li><a href="<?php echo base_url('Categories/size');?>">Size</a></li>
-                      <li><a href="<?php echo base_url('Categories/construct');?>">Construction</a></li>
+                      <li><a href="<?php echo base_url('categories/billboard');?>">Billboard</a></li>
+                      <li><a href="<?php echo base_url('categories/province');?>">Province</a></li>
+                      <li><a href="<?php echo base_url('categories/district');?>">District</a></li>
+                      <li><a href="<?php echo base_url('categories/subdistrict');?>">Sub-district</a></li>
+                      <li><a href="<?php echo base_url('categories/size');?>">Size</a></li>
+                      <li><a href="<?php echo base_url('categories/construct');?>">Construction</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-users"></i> Users <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="<?php echo base_url('Users');?>">Manage</a></li>
+                      <li><a href="<?php echo base_url('users');?>">Manage</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-cubes"></i> Products <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="<?php echo base_url('Products');?>">Manage</a></li>
-                      <li><a href="<?php echo base_url('Auctions');?>">Auctions</a></li>
+                      <li><a href="<?php echo base_url('products');?>">Manage</a></li>
+                      <li><a href="<?php echo base_url('auctions');?>">Auctions</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -100,7 +100,7 @@
                       </a>
                     </li>
                     <li><a href="javascript:;">Help</a></li> -->
-                    <li><a href="<?php echo base_url('Signin/logout')?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                    <li><a href="<?php echo base_url('signin/logout')?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
 

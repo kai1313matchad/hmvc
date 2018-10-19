@@ -71,7 +71,7 @@
 				</div>
 
 				<!--  -->
-				<div class="p-t-33 p-b-30">
+				<!-- <div class="p-t-33 p-b-30">
 					<div class="flex-m flex-w p-b-10">
 						<div class="s-text15 w-size15 t-center">
 							Duration
@@ -88,52 +88,66 @@
 						</div>
 					</div>
 
-					<!-- <div class="flex-m flex-w">
-						<div class="s-text15 w-size15 t-center">
-							Color
-						</div>
-
-						<div class="rs2-select2 rs3-select2 bo4 of-hidden w-size16">
-							<select class="selection-2" name="color">
-								<option>Choose an option</option>
-								<option>Gray</option>
-								<option>Red</option>
-								<option>Black</option>
-								<option>Blue</option>
-							</select>
-						</div>
-					</div> -->
-
 					<div class="flex-r-m flex-w p-t-10">
 						<div class="w-size16 flex-m flex-w">
-							<!-- <div class="flex-w bo5 of-hidden m-r-22 m-t-10 m-b-10">
-								<button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
-									<i class="fs-12 fa fa-minus" aria-hidden="true"></i>
-								</button>
-
-								<input class="size8 m-text18 t-center num-product" type="number" name="num-product" value="1">
-
-								<button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
-									<i class="fs-12 fa fa-plus" aria-hidden="true"></i>
-								</button>
-							</div> -->
-
 							<div class="btn-addcart-product-detail size9 trans-0-4 m-t-10 m-b-10">
-								<!-- Button -->
 								<button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
 									Add to Cart
 								</button>
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 
 		<div class="flex-w flex-sb">
 			<div class="w-size31 p-t-35 respon5">
-				<div class="pos-relative embed-responsive embed-responsive-16by9">
-					<?= $prod_vidurl ;?>
+				<!-- <div class="wrap-dropdown-content bo6 p-t-15 p-b-14 active-dropdown-content">
+					<h5 class="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4">
+						Video
+						<i class="down-mark fs-12 color1 fa fa-minus dis-none" aria-hidden="true"></i>
+						<i class="up-mark fs-12 color1 fa fa-plus" aria-hidden="true"></i>
+					</h5>
+
+					<div class="dropdown-content dis-none p-t-15 p-b-23">
+						<div class="pos-relative embed-responsive embed-responsive-16by9">
+							<?= $prod_vidurl ;?>
+						</div>
+					</div>
+				</div>
+				<div class="wrap-dropdown-content bo6 p-t-15 p-b-14">
+					<h5 class="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4">
+						Map
+						<i class="down-mark fs-12 color1 fa fa-minus dis-none" aria-hidden="true"></i>
+						<i class="up-mark fs-12 color1 fa fa-plus" aria-hidden="true"></i>
+					</h5>
+
+					<div class="dropdown-content dis-none p-t-15 p-b-23">
+						<div class="pos-relative embed-responsive embed-responsive-16by9">
+							<iframe src="https://www.google.com/maps/embed?pb=!1m17!1m8!1m3!1d1976.3083702630906!2d112.69740098220892!3d-7.83032506490821!3m2!1i1024!2i768!4f13.1!4m6!3e2!4m3!3m2!1d-7.8303255!2d112.6973635!4m0!5e0!3m2!1sen!2sid!4v1536892115652"></iframe>
+						</div>
+					</div>
+				</div> -->
+				<nav class="nav-justified">
+					<div class="nav nav-tabs " id="nav-tab" role="tablist">
+          	<a class="nav-item nav-link active" id="pop1-tab" data-toggle="tab" href="#pop1" role="tab" aria-controls="pop1" aria-selected="true"><strong>Video</strong></a>
+          	<a class="nav-item nav-link" id="pop2-tab" data-toggle="tab" href="#pop2" role="tab" aria-controls="pop2" aria-selected="false"><strong>Map</strong></a>
+          </div>
+				</nav>
+				<div class="tab-content" id="nav-tabContent">
+					<div class="tab-pane fade show active" id="pop1" role="tabpanel" aria-labelledby="pop1-tab">
+          	<div class="pt-3"></div>
+						<div class="pos-relative embed-responsive embed-responsive-16by9">
+							<?= $prod_vidurl ;?>
+						</div>
+          </div>
+          <div class="tab-pane fade" id="pop2" role="tabpanel" aria-labelledby="pop2-tab">
+          	<div class="pt-3"></div>
+						<div class="pos-relative embed-responsive embed-responsive-16by9">
+							<?= $prod_mapurl?>
+						</div>
+          </div>
 				</div>
 			</div>
 			<div class="w-size32 p-t-35 respon5">
@@ -143,15 +157,19 @@
 						<i class="down-mark fs-12 color1 fa fa-minus dis-none" aria-hidden="true"></i>
 						<i class="up-mark fs-12 color1 fa fa-plus" aria-hidden="true"></i>
 					</h5>
-
 					<div class="dropdown-content dis-none p-t-15 p-b-23">
 						<div class="s-text8">
-							<?= $prod_desc?>							
+							<?= $prod_desc?>
 						</div>
 					</div>
 				</div>
+			</div>
 		</div>
 	</div>
+
+	<!-- <div class="container bgwhite">
+		<div id="googleMap" style="width:100%;height:400px;"></div>
+	</div> -->
 
 
 	<!-- Relate Product -->

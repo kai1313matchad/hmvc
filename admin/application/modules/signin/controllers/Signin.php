@@ -25,18 +25,18 @@ class Signin extends MX_Controller
       if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember))
       {
         $this->session->set_flashdata('message', $this->ion_auth->messages());
-        redirect('Dashboard', 'refresh');
+        redirect('dashboard', 'refresh');
       }
       else
       {
         $this->session->set_flashdata('message', $this->ion_auth->errors());        
-        redirect('Signin');
+        redirect('signin');
       }
     }
     else
     {
       var_dump('validasi error');
-      redirect('Signin');
+      redirect('signin');
     }
   }
   public function logout()
@@ -46,6 +46,6 @@ class Signin extends MX_Controller
 
     // redirect them to the login page
     $this->session->set_flashdata('message', 'Logout Success');
-    redirect('Signin');
+    redirect('signin');
   }
 }

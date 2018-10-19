@@ -7,6 +7,7 @@
         $('#province').selectpicker({});
         $('#district').selectpicker({});
         $('#subdistrict').selectpicker({});
+        $('#prodlight').selectpicker({});
         dropsize_('prodsize','PRSZ_ID','PRSZ_NAME');
         dropcons_('prodcons','CONS_ID','CONS_NAME');
         dropprov_('mona_province','province','PROV_ID','PROV_NAME');
@@ -38,7 +39,7 @@
       function test_()
       {
         $.ajax({
-          url : "<?php echo site_url('Products/test')?>",
+          url : "<?php echo site_url('products/test')?>",
           data : $('form').serialize(),
           type: "POST",
           dataType: "JSON",
@@ -55,7 +56,7 @@
       function save_()
       {
         $.ajax({
-          url : "<?php echo site_url('Products/save_products')?>",
+          url : "<?php echo site_url('products/save_products')?>",
           data : $('form').serialize(),
           type: "POST",
           dataType: "JSON",
@@ -64,7 +65,7 @@
             if(data.status)
             {
               // $('#alert-div').append('<div class="alert alert-success alert dismissible fade in" role="alert"><button class="close" type="button" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">x</span></button>Success Update Data</div>');
-              var url = "<?php echo site_url('Products')?>";
+              var url = "<?php echo site_url('products')?>";
               window.location = url;
             }
             else
@@ -85,7 +86,7 @@
         fd.append("file", file_data);
         var other_data = $('#form-product').serializeArray();
         $.each(other_data,function(key,input){fd.append(input.name,input.value);});
-      	url = "<?php echo site_url('Products/save_product')?>";
+      	url = "<?php echo site_url('products/save_product')?>";
       	$.ajax({
 					url : url,
           type: "POST",
@@ -125,7 +126,7 @@
       function get_prod(id)
       {
         $.ajax({
-        	url : "<?php echo site_url('Products/get_prodrow/')?>"+id,
+        	url : "<?php echo site_url('products/get_prodrow/')?>"+id,
           type: "GET",
           dataType: "JSON",
           success: function(data)
@@ -147,9 +148,13 @@
             $('#subdistrict').selectpicker('refresh');
             $('select#prodsize').val(data.PRSZ_ID);
             $('#prodsize').selectpicker('refresh');
+            $('select#prodlight').val(data.PROD_LIGHTING);
+            $('#prodlight').selectpicker('refresh');
+            $('[name="publish"][value='+data.PROD_STS+']').prop('checked',true);
           	$('[name="productprice"]').val(data.PROD_PRICE);
             $('[name="specialprice"]').val(data.PROD_SPCPRICE);
-            $('[name="videolink"]').val(data.PROD_VIDLINK);
+            $('[name="videolink"]').val((data.PROD_VIDLINK != '')?data.PROD_VIDLINK:'https://www.youtube.com/embed/');
+            $('[name="maplink"]').val(data.PROD_MAPLINK);
             $('[name="taxdue"]').val(data.PROD_TAXDUE);
             $('[name="rentdue"]').val(data.PROD_RENTDUE);
             $('[name="insurancedue"]').val(data.PROD_INSURANCEDUE);
@@ -164,7 +169,7 @@
       function dropsize_(id,idx,v)
       {
         $.ajax({
-          url : "<?php echo site_url('Products/get_dropsize')?>",
+          url : "<?php echo site_url('products/get_dropsize')?>",
           type: "GET",
           dataType: "JSON",
           success: function(data)
@@ -190,7 +195,7 @@
       function dropcons_(id,idx,v)
       {
         $.ajax({
-          url : "<?php echo site_url('Products/get_dropcons')?>",
+          url : "<?php echo site_url('products/get_dropcons')?>",
           type: "GET",
           dataType: "JSON",
           success: function(data)
@@ -216,7 +221,7 @@
       function dropprov_(tb,id,idx,v)
       {
         $.ajax({
-          url : "<?php echo site_url('Products/get_dropprov/')?>"+tb,
+          url : "<?php echo site_url('products/get_dropprov/')?>"+tb,
           type: "GET",
           dataType: "JSON",
           success: function(data)
@@ -247,7 +252,7 @@
       {
         $('#'+id).empty();
         $.ajax({
-          url : "<?php echo site_url('Products/get_dropdistrict/')?>"+pk,
+          url : "<?php echo site_url('products/get_dropdistrict/')?>"+pk,
           type: "GET",
           dataType: "JSON",
           success: function(data)
@@ -274,7 +279,7 @@
       {
         $('#'+id).empty();
         $.ajax({
-          url : "<?php echo site_url('Products/get_dropsubdistrict/')?>"+pk,
+          url : "<?php echo site_url('products/get_dropsubdistrict/')?>"+pk,
           type: "GET",
           dataType: "JSON",
           success: function(data)
@@ -300,7 +305,7 @@
       function dropprodtype(tb,id,idx,v)
       {
         $.ajax({
-          url : "<?php echo site_url('Products/get_dropprodtype/')?>"+tb,
+          url : "<?php echo site_url('products/get_dropprodtype/')?>"+tb,
           type: "GET",
           dataType: "JSON",
           success: function(data)
@@ -327,7 +332,7 @@
       {
         $('#uploaded_img').empty();
         $.ajax({
-          url : "<?php echo site_url('Products/get_pic/')?>"+id,
+          url : "<?php echo site_url('products/get_pic/')?>"+id,
           type: "GET",
           dataType: "JSON",
           success: function(data)
@@ -348,7 +353,7 @@
         $.ajax({
           type:"post",
           data:{token:id},
-          url:"<?php echo base_url('Products/remove_pic') ?>",
+          url:"<?php echo base_url('products/remove_pic') ?>",
           cache:false,
           dataType: 'json',
           success: function(){
@@ -365,7 +370,7 @@
       Dropzone.autoDiscover = false;
 
       var foto_upload= new Dropzone(".dropzone",{
-      url: "<?php echo base_url('Products/upload_pic') ?>",
+      url: "<?php echo base_url('products/upload_pic') ?>",
       maxFilesize: 2,
       method:"post",
       acceptedFiles:"image/*",
@@ -395,7 +400,7 @@
         $.ajax({
           type:"post",
           data:{token:token},
-          url:"<?php echo base_url('Products/remove_pic') ?>",
+          url:"<?php echo base_url('products/remove_pic') ?>",
           cache:false,
           dataType: 'json',
           success: function(){

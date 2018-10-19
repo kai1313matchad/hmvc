@@ -68,7 +68,7 @@
                               }
                             ?>
                             <div class="form-group">
-                              <label class="control-label col-md-3 col-sm-3 col-xs-12">Type-Size-Construct
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">Specification
                               </label>
                               <div class="col-md-2 col-sm-2 col-xs-4">
                                 <select id="prodtype" name="prodtype" data-live-search="true" class="form-control text-center" required>
@@ -80,8 +80,15 @@
                                 </select>
                                 <span class="help-block"></span>
                               </div>
-                              <div class="col-md-2 col-sm-2 col-xs-4">
+                              <div class="col-md-1 col-sm-1 col-xs-2">
                                 <select id="prodcons" name="prodcons" data-live-search="true" class="form-control text-center" required>
+                                </select>
+                                <span class="help-block"></span>
+                              </div>
+                              <div class="col-md-1 col-sm-1 col-xs-2">
+                                <select id="prodlight" name="prodlight" data-live-search="true" class="form-control text-center" required>
+                                  <option value="0">FL</option>
+                                  <option value="1">BL</option>
                                 </select>
                                 <span class="help-block"></span>
                               </div>
@@ -121,19 +128,6 @@
                               </div>
                             </div>
                             <div class="form-group">
-                              <label class="control-label col-md-3 col-sm-3 col-xs-12">Lighting</label>
-                              <div class="col-md-6 col-sm-6 col-xs-12">
-                                <div id="lighting" class="btn-group" data-toggle="buttons">
-                                  <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                    <input type="radio" name="lighting" value="0"> Frontlite
-                                  </label>
-                                  <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                    <input type="radio" name="lighting" value="1"> Backlite
-                                  </label>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="form-group">
                               <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Product Price</label>
                               <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input class="form-control col-md-7 col-xs-12 curr-num" type="text" name="productprice" required="required" placeholder="Price">
@@ -150,7 +144,14 @@
                             <div class="form-group">
                               <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Video URL</label>
                               <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input class="form-control col-md-7 col-xs-12" type="text" name="videolink" required="required" placeholder="Video Embed URL">
+                                <input class="form-control col-md-7 col-xs-12" type="text" name="videolink" required="required" value="https://www.youtube.com/embed/">
+                                <span class="help-block"></span>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Video URL</label>
+                              <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input class="form-control col-md-7 col-xs-12" type="text" name="maplink" required="required" placeholder="Map Embed Link">
                                 <span class="help-block"></span>
                               </div>
                             </div>
@@ -193,20 +194,13 @@
                                 <span class="help-block"></span>
                               </div>
                             </div>
-                            <!-- <div class="form-group">
-                              <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Product Picture</label>
-                              <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input class="form-control col-md-7 col-xs-12" type="file" id="productpic" name="productpic" required="required">
-                                <span class="help-block"></span>
-                              </div>
-                            </div> -->
-                            <!-- <div class="ln_solid"></div>
                             <div class="form-group">
-                              <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                <button class="btn btn-primary" type="reset" onclick="resetbtn()">Reset</button>
-                                <button type="button" class="btn btn-success" onclick="save()">Submit</button>
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">Publish Status</label>
+                              <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="radio" class="flat" name="publish" id="publishP" value="1" checked="" required /> Published
+                                <input type="radio" class="flat" name="publish" id="publishN" value="0" /> Non-Published
                               </div>
-                            </div> -->
+                            </div>
                           </div>
                         </form>
                         <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">

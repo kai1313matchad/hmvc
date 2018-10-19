@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `login_attempts` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table iontest.login_attempts: ~0 rows (approximately)
+-- Dumping data for table iontest.login_attempts: ~1 rows (approximately)
 /*!40000 ALTER TABLE `login_attempts` DISABLE KEYS */;
 /*!40000 ALTER TABLE `login_attempts` ENABLE KEYS */;
 
@@ -692,9 +692,9 @@ CREATE TABLE IF NOT EXISTS `mona_prodpict` (
   PRIMARY KEY (`PRODPIC_ID`),
   KEY `FK__mona_product` (`PROD_ID`),
   CONSTRAINT `FK__mona_product` FOREIGN KEY (`PROD_ID`) REFERENCES `mona_product` (`PROD_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=147 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=148 DEFAULT CHARSET=latin1;
 
--- Dumping data for table iontest.mona_prodpict: ~61 rows (approximately)
+-- Dumping data for table iontest.mona_prodpict: ~60 rows (approximately)
 /*!40000 ALTER TABLE `mona_prodpict` DISABLE KEYS */;
 INSERT INTO `mona_prodpict` (`PRODPIC_ID`, `PROD_ID`, `PRODPIC_PATH`, `PRODPIC_TOKEN`, `PRODPIC_STS`) VALUES
 	(28, 83, '/assets/img/product/img_1538454760.jpg', '0.5512647620353047', '0'),
@@ -705,7 +705,6 @@ INSERT INTO `mona_prodpict` (`PRODPIC_ID`, `PROD_ID`, `PRODPIC_PATH`, `PRODPIC_T
 	(34, 100, '/assets/img/product/img_1538536277.jpg', '0.8880192902051143', '0'),
 	(35, 22, '/assets/img/product/img_1538536448.jpg', '0.22814579407270785', '0'),
 	(36, 21, '/assets/img/product/img_1538537559.jpg', '0.57567741743493', '0'),
-	(37, 102, '/assets/img/product/img_1538537916.jpg', '0.25752174376816406', '0'),
 	(39, 86, '/assets/img/product/img_1538538000.jpg', '0.5545507607402724', '0'),
 	(83, 28, '/assets/img/product/img_1538542128.JPG', '0.8843580375655582', '0'),
 	(88, 60, '/assets/img/product/img_1538619187.jpg', '0.3377587605947481', '0'),
@@ -757,7 +756,8 @@ INSERT INTO `mona_prodpict` (`PRODPIC_ID`, `PROD_ID`, `PRODPIC_PATH`, `PRODPIC_T
 	(143, 67, '/assets/img/product/img_1538971176.JPG', '0.5038964674632689', '0'),
 	(144, 80, '/assets/img/product/img_1538971184.JPG', '0.29482062906262607', '0'),
 	(145, 99, '/assets/img/product/img_1538980181.JPG', '0.2787519224842958', '0'),
-	(146, 99, '/assets/img/product/img_1538980245.JPG', '0.8839713313113193', '0');
+	(146, 99, '/assets/img/product/img_1538980245.JPG', '0.8839713313113193', '0'),
+	(147, 111, '/assets/img/product/img_1539317385.jpg', '0.6001964434435647', '0');
 /*!40000 ALTER TABLE `mona_prodpict` ENABLE KEYS */;
 
 -- Dumping structure for table iontest.mona_prodsize
@@ -770,7 +770,7 @@ CREATE TABLE IF NOT EXISTS `mona_prodsize` (
   PRIMARY KEY (`PRSZ_ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
--- Dumping data for table iontest.mona_prodsize: ~12 rows (approximately)
+-- Dumping data for table iontest.mona_prodsize: ~10 rows (approximately)
 /*!40000 ALTER TABLE `mona_prodsize` DISABLE KEYS */;
 INSERT INTO `mona_prodsize` (`PRSZ_ID`, `PRSZ_NAME`, `PRSZ_INFO`, `PRSZ_DTSTS`) VALUES
 	(1, '6x4 V', 'Vertical', '1'),
@@ -804,6 +804,7 @@ INSERT INTO `mona_prodtype` (`PRT_ID`, `PRT_NAME`, `PRT_INFO`, `PRT_DTSTS`) VALU
 	('BIB', 'Billboard', 'Reklame ukuran besar', '1'),
 	('BND', 'Bando', 'Bando', '1'),
 	('JPO', 'JPO', 'Jembatan penyebrangan orang', '1'),
+	('Midib', 'Midiboard', 'Midiboard', '1'),
 	('VDT', 'Videotron', 'Reklame dengan materi berbentuk video', '1');
 /*!40000 ALTER TABLE `mona_prodtype` ENABLE KEYS */;
 
@@ -847,7 +848,7 @@ CREATE TABLE IF NOT EXISTS `mona_product` (
   CONSTRAINT `FK_mona_product_mona_prodtype` FOREIGN KEY (`PRT_ID`) REFERENCES `mona_prodtype` (`PRT_ID`),
   CONSTRAINT `FK_mona_product_mona_province` FOREIGN KEY (`PROV_ID`) REFERENCES `mona_province` (`PROV_ID`),
   CONSTRAINT `FK_mona_product_mona_subdistrict` FOREIGN KEY (`SUBDIS_ID`) REFERENCES `mona_subdistrict` (`SUBDIS_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=111 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=112 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table iontest.mona_product: ~61 rows (approximately)
 /*!40000 ALTER TABLE `mona_product` DISABLE KEYS */;
@@ -891,12 +892,12 @@ INSERT INTO `mona_product` (`PROD_ID`, `PROV_ID`, `DIS_ID`, `SUBDIS_ID`, `PRT_ID
 	(83, '35', '3512', NULL, 'BIB', 3, 1, 'BIB3512000001', 'Situbondo - Jl. A. Yani (view Jl. A. Jakfar)', 'situbondo-jl-a-yani-view-jl-a-jakfar', 'Jl. A. Yani (view Jl. A. Jakfar)', 200000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '0', '2018-10-27', '2018-10-15', '2018-10-03', '2018-10-10 16:39:41', '1'),
 	(84, '35', '3512', NULL, 'BIB', 6, 1, 'BIB3512000002', 'Situbondo - Jl. A. Yani no. 196', 'situbondo-jl-a-yani-no-196', 'Jl. A. Yani no. 196', 300000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '0', '2018-11-02', '2018-11-07', '2018-10-13', '2018-10-10 16:39:45', '1'),
 	(85, '32', '3211', NULL, 'BAL', 1, 1, 'BAL3211000001', 'Sumedang - Jl. Prabu Tadjimalela', 'sumedang-jl-prabu-tadjimalela', 'Jl. Prabu Tadjimalela', 150000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '0', '2018-11-02', '2018-10-01', '2018-10-26', '2018-10-08 10:20:31', '1'),
-	(86, '35', '3578', NULL, 'BIB', 3, 1, 'BIB3578000018', 'Surabaya - Jl. Sulawesi', 'surabaya-jl-sulawesi', 'Jl. Sulawesi', 350000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/uVtpoIU5TGo', '1', '0', '2017-12-25', '2018-11-02', '2017-12-25', '2018-10-10 17:03:01', '1'),
+	(86, '35', '3578', NULL, 'BIB', 3, 1, 'BIB3578000018', 'Surabaya - Jl. Sulawesi', 'surabaya-jl-sulawesi', 'Jl. Sulawesi', 350000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/Y6LT6SayTZo', '1', '0', '2017-12-25', '2018-11-02', '2017-12-25', '2018-10-15 09:43:07', '1'),
 	(87, '35', '3578', NULL, 'BIB', 6, 1, 'BIB3578000019', 'Surabaya - Jl. Embong Malang no. 76A', 'surabaya-jl-embong-malang-no-76a', 'Jl. Embong Malang no. 76A', 700000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/IdWMfjl8dLE', '1', '0', '2018-10-03', '2019-01-31', '2018-10-03', '2018-10-10 17:09:38', '1'),
 	(88, '35', '3578', NULL, 'BIB', 6, 1, 'BIB3578000020', 'Surabaya - Jl. Adityawarman no. 46', 'surabaya-jl-adityawarman-no-46', 'Jl. Adityawarman no. 46', 700000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/B2GJi0OrEnE', '1', '0', '2018-10-01', '2018-07-15', '2018-10-01', '2018-10-10 16:40:13', '1'),
 	(89, '35', '3525', NULL, 'BAL', 1, 1, 'BAL3525000002', 'Gresik - Jl. Raya Dr. Wahidin Sudiro Husodo (Terminal Bunder)', 'gresik-jl-raya-dr-wahidin-sudiro-husodo-terminal-bunder', 'Jl. Raya Dr. Wahidin Sudiro Husodo (Terminal Bunder)', 150000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/Um7lKvUERZE', '1', '0', '2018-10-03', '2019-03-31', '2018-10-03', '2018-10-08 10:13:36', '1'),
 	(90, '35', '3573', NULL, 'BAL', 1, 1, 'BAL3573000005', 'Malang - Jl. P.B. Sudirman', 'malang-jl-pb-sudirman', 'Jl. P.B. Sudirman', 125000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/mcTiwiXXch4', '1', '0', '2018-10-03', '2019-03-31', '2018-10-03', '2018-10-08 10:17:22', '1'),
-	(91, '35', '3573', NULL, 'BAL', 1, 1, 'BAL3573000006', 'Malang - Jl. Semeru', 'malang-jl-semeru', 'Jl. Semeru', 150000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/fnk6g9Mfmdo', '1', '0', '2018-10-03', '2019-02-17', '2018-10-03', '2018-10-08 10:17:39', '1'),
+	(91, '35', '3573', NULL, 'BAL', 1, 1, 'BAL3573000006', 'Malang - Jl. Semeru', 'malang-jl-semeru', 'Jl. Semeru', 150000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/mfSf8cvfwYU', '1', '0', '2018-10-03', '2019-02-17', '2018-10-03', '2018-10-12 10:54:41', '1'),
 	(93, '35', '3573', NULL, 'BND', 5, 1, 'BND3573000002', 'Malang - Jl. Soekarno Hatta (menuju daerah Dinoyo)', 'malang-jl-soekarno-hatta-menuju-daerah-dinoyo', 'Jl. Soekarno Hatta (menuju daerah Dinoyo)', 300000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '0', '2018-10-03', '2018-08-17', '2018-10-03', '2018-10-10 16:59:44', '1'),
 	(94, '35', '3573', NULL, 'BAL', 1, 1, 'BAL3573000007', 'Malang - Jl. Borobudur', 'malang-jl-borobudur', 'Jl. Borobudur', 125000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '0', '2018-10-03', '2019-06-11', '2018-10-03', '2018-10-08 10:17:08', '1'),
 	(95, '35', '3573', NULL, 'BAL', 1, 1, 'BAL3573000008', 'Malang - Jl. Kyai Tamin (A)', 'malang-jl-kyai-tamin-a', 'Jl. Kyai Tamin (A)', 150000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '0', '2018-10-03', '2018-10-03', '2018-10-03', '2018-10-08 10:17:16', '1'),
@@ -905,14 +906,15 @@ INSERT INTO `mona_product` (`PROD_ID`, `PROV_ID`, `DIS_ID`, `SUBDIS_ID`, `PRT_ID
 	(98, '35', '3578', NULL, 'BIB', 7, 1, 'BIB3578000022', 'Surabaya - Jl. Kertajaya Indah Timur no. 100 (Menuju Galaxy Mall)', 'surabaya-jl-kertajaya-indah-timur-no-100-menuju-galaxy-mall', 'Jl. Kertajaya Indah Timur no. 100 (Menuju Galaxy Mall)', 800000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '0', '2018-10-03', '2018-10-14', '2018-10-03', '2018-10-10 17:08:27', '1'),
 	(99, '35', '3578', NULL, 'BIB', 3, 1, 'BIB3578000023', 'Surabaya - Jl. Perak Barat no. 01', 'surabaya-jl-perak-barat-no-01', 'Jl. Perak Barat no. 01', 350000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/VFLSnZXQrAA', '1', '0', '2018-10-03', '2018-08-06', '2018-10-03', '2018-10-10 17:07:10', '1'),
 	(100, '35', '3578', NULL, 'BIB', 9, 1, 'BIB3578000024', 'Surabaya - Jl. Indragiri no. 61', 'surabaya-jl-indragiri-no-61', 'Jl. Indragiri no. 61', 1100000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/bE5KT-Y6Rkg', '1', '0', '2018-10-03', '2018-10-03', '2018-10-03', '2018-10-10 16:44:42', '1'),
-	(102, '35', '3578', NULL, 'BAL', 11, 1, 'BAL3578000005', 'Surabaya - Jl. Gunung Sari (Pengairan - Seberang Hotel Singgasana)', 'surabaya-jl-gunung-sari-pengairan-seberang-hotel-singgasana', 'Jl. Gunung Sari (Pengairan - Seberang Hotel Singgasana)', 150000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '0', '2018-10-03', '2018-10-03', '2018-10-03', '2018-10-10 17:19:02', '1'),
+	(102, '35', '3578', NULL, 'BAL', 11, 1, 'BAL3578000005', 'Surabaya - xxx', 'surabaya-xxx', 'xxx', 0, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '0', '0', '2018-10-03', '2018-10-03', '2018-10-03', '2018-10-12 11:10:13', '1'),
 	(104, '35', '3578', NULL, 'BIB', 3, 1, 'BIB3578000025', 'Surabaya - Jl. Ambengan', 'surabaya-jl-ambengan', 'Jl. Ambengan', 350000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '0', '2018-10-03', '2018-10-03', '2018-10-03', '2018-10-10 16:40:35', '1'),
-	(105, '35', '3578', NULL, 'BIB', 5, 2, 'BIB3578000026', 'Surabaya - Jl. Gubernur Suryo', 'surabaya-jl-gubernur-suryo', 'Jl. Gubernur Suryo', 700000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '0', '0000-00-00', '0000-00-00', '0000-00-00', '2018-10-10 17:06:57', '1'),
-	(106, '35', '3578', NULL, 'BIB', 4, 1, 'BIB3578000027', 'Surabaya - Jl. Kapas Krampung no. 2A', 'surabaya-jl-kapas-krampung-no-2a', 'Jl. Kapas Krampung no. 2A', 350000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '0', '2018-10-03', '2018-10-03', '2018-10-03', '2018-10-10 16:48:25', '1'),
+	(105, '35', '3578', NULL, 'BIB', 5, 1, 'BIB3578000026', 'Surabaya - Jl. Gubernur Suryo', 'surabaya-jl-gubernur-suryo', 'Jl. Gubernur Suryo', 700000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '0', '2018-10-01', '2018-10-01', '2018-10-01', '2018-10-12 11:12:55', '1'),
+	(106, '35', '3578', NULL, 'BIB', 4, 1, 'BIB3578000027', 'Surabaya - Jl. Kapas Krampung no. 2A', 'surabaya-jl-kapas-krampung-no-2a', 'Jl. Kapas Krampung no. 2A', 350000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', 'https://www.youtube.com/embed/N_OizLKMDSg', '1', '0', '2018-10-03', '2018-10-03', '2018-10-03', '2018-10-12 10:03:40', '1'),
 	(107, '35', '3578', NULL, 'BIB', 6, 1, 'BIB3578000028', 'Surabaya - Jl. Putro Agung', 'surabaya-jl-putro-agung', 'Jl. Putro Agung', 550000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '0', '2018-10-03', '2018-10-03', '2018-10-03', '2018-10-10 16:50:42', '1'),
 	(108, '51', '5171', NULL, 'BIB', 3, 1, 'BIB5171000001', 'Denpasar - Jl. Cokroaminoto', 'denpasar-jl-cokroaminoto', 'Jl. Cokroaminoto', 275000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '0', '2018-10-03', '2000-01-01', '2018-10-03', '2018-10-10 16:35:04', '1'),
-	(109, '35', '3579', NULL, 'BAL', 4, 1, 'BAL3579000001', 'Batu - Jl. Agus Salim', 'batu-jl-agus-salim', 'Jl. Agus Salim', 100000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '0', '2018-10-03', '2018-07-16', '2018-10-03', '2018-10-10 17:25:07', '1'),
-	(110, '35', '3578', NULL, 'BIB', 1, 1, 'BIB3578000029', 'Surabaya - Jl. Mayjen Sungkono No. 3A (Bundaran Satelit ke Hotel Shangrila)', 'surabaya-jl-mayjen-sungkono-no-3a-bundaran-satelit-ke-hotel-shangrila', 'Jl. Mayjen Sungkono No. 3A (Bundaran Satelit ke Hotel Shangrila)', 700000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '0', '2018-10-03', '2018-09-01', '2018-10-03', '2018-10-08 10:30:11', '1');
+	(109, '35', '3579', NULL, 'BAL', 1, 1, 'BAL3579000001', 'Batu - Jl. Agus Salim', 'batu-jl-agus-salim', 'Jl. Agus Salim', 100000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '0', '2018-10-03', '2018-07-16', '2018-10-03', '2018-10-11 11:26:34', '1'),
+	(110, '35', '3578', NULL, 'BIB', 1, 1, 'BIB3578000029', 'Surabaya - Jl. Mayjen Sungkono No. 3A (Bundaran Satelit ke Hotel Shangrila)', 'surabaya-jl-mayjen-sungkono-no-3a-bundaran-satelit-ke-hotel-shangrila', 'Jl. Mayjen Sungkono No. 3A (Bundaran Satelit ke Hotel Shangrila)', 700000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '0', '2018-10-03', '2018-09-01', '2018-10-03', '2018-10-08 10:30:11', '1'),
+	(111, '35', '3578', NULL, 'Midib', 11, 1, 'Midib3578000001', 'Surabaya - Jl. Gunung Sari (Pengairan - Seberang Hotel Singgasana)', 'surabaya-jl-gunung-sari-pengairan-seberang-hotel-singgasana', 'Jl. Gunung Sari (Pengairan - Seberang Hotel Singgasana)', 150000000, 0, NULL, '<p><span style="font-family: &quot;Times New Roman&quot;;">?</span><br></p>', '', '1', '0', '2018-10-03', '2018-10-03', '2018-10-03', '2018-10-12 11:09:52', '1');
 /*!40000 ALTER TABLE `mona_product` ENABLE KEYS */;
 
 -- Dumping structure for table iontest.mona_province
@@ -975,7 +977,7 @@ CREATE TABLE IF NOT EXISTS `mona_subdistrict` (
   PRIMARY KEY (`SUBDIS_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table iontest.mona_subdistrict: ~7,094 rows (approximately)
+-- Dumping data for table iontest.mona_subdistrict: ~7,090 rows (approximately)
 /*!40000 ALTER TABLE `mona_subdistrict` DISABLE KEYS */;
 INSERT INTO `mona_subdistrict` (`SUBDIS_ID`, `DIS_ID`, `SUBDIS_NAME`, `SUBDIS_DTSTS`) VALUES
 	('110101', '1101', 'Bakongan', NULL),
@@ -8121,7 +8123,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table iontest.users: ~3 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-	(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1539223832, 1, 'Admin', 'istrator', 'ADMIN', '0'),
+	(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1539587086, 1, 'Admin', 'istrator', 'ADMIN', '0'),
 	(2, '127.0.0.1', 'tes1', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', NULL, 'tes@mail.com', NULL, NULL, NULL, NULL, 1532591726, 1532940104, 1, 'tes', 'tes', 'tes', '123415'),
 	(3, '127.0.0.1', 'tes2@mail.com', '$2y$08$N/k5kV1vMgglz/olhGc0OuOYMdqHfyXFiN2LFPwnyRM1Tt5WwsqKu', NULL, 'tes2@mail.com', NULL, NULL, NULL, NULL, 1532591825, NULL, 1, 'tes2', 'tes2', 'tes2', '987654');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
