@@ -613,7 +613,7 @@ class Products extends MX_Controller
     $nmfile='img_'.time();
     $config['upload_path']='./assets/img/factsheet/';
     $config['allowed_types']='jpg|jpeg|png';
-    $config['max_size']='2048';
+    $config['max_size']='4096';
     $config['file_name']=$nmfile;
     $this->upload->initialize($config);
   }
