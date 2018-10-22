@@ -13,6 +13,7 @@ ENGINE=InnoDB
 	CHANGE COLUMN `BLOGCTG_ID` `BLOGCTG_ID` INT(11) NOT NULL AUTO_INCREMENT FIRST;
 - Edit tabel blog
 	ALTER TABLE `mona_blog`
+	ADD COLUMN `BLOGCTG_ID` INT(11) NOT NULL DEFAULT '0' AFTER `BLOG_ID`,
 	ADD CONSTRAINT `FK_mona_blog_mona_blogcategories` FOREIGN KEY (`BLOGCTG_ID`) REFERENCES `mona_blogcategories` (`BLOGCTG_ID`);
 - Tabel baru
 CREATE TABLE `mona_contactus` (
