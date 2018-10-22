@@ -1,3 +1,33 @@
+22102018
+- Tabel baru
+CREATE TABLE `mona_blogcategories` (
+	`BLOGCTG_ID` INT NOT NULL,
+	`BLOGCTG_NAME` VARCHAR(1024) NULL,
+	`BLOGCTG_DTSTS` CHAR(1) NULL,
+	PRIMARY KEY (`BLOGCTG_ID`)
+)
+COLLATE='latin1_swedish_ci'
+ENGINE=InnoDB
+;
+	ALTER TABLE `mona_blogcategories`
+	CHANGE COLUMN `BLOGCTG_ID` `BLOGCTG_ID` INT(11) NOT NULL AUTO_INCREMENT FIRST;
+- Edit tabel blog
+	ALTER TABLE `mona_blog`
+	ADD CONSTRAINT `FK_mona_blog_mona_blogcategories` FOREIGN KEY (`BLOGCTG_ID`) REFERENCES `mona_blogcategories` (`BLOGCTG_ID`);
+- Tabel baru
+CREATE TABLE `mona_contactus` (
+	`CTC_ID` INT NOT NULL AUTO_INCREMENT,
+	`CTC_NAME` CHAR(200) NULL,
+	`CTC_PHONE` CHAR(100) NULL,
+	`CTC_MAIL` VARCHAR(1024) NULL,
+	`CTC_TEXT` LONGTEXT NULL,
+	`CTC_STS` CHAR(1) NULL,
+	`CTC_DTSTS` CHAR(1) NULL,
+	PRIMARY KEY (`CTC_ID`)
+)
+COLLATE='latin1_swedish_ci'
+ENGINE=InnoDB
+;
 19102018
 - Tabel baru
 CREATE TABLE `mona_store` (

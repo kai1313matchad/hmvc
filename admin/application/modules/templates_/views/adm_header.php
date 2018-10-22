@@ -34,6 +34,7 @@
                   <li><a><i class="fa fa-newspaper-o"></i> Blog <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?php echo base_url('blogpost')?>">Manage</a></li>
+                      <li><a href="<?php echo base_url('blogpost/categories')?>">Categories</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-sliders"></i> Customize <span class="fa fa-chevron-down"></span></a>
