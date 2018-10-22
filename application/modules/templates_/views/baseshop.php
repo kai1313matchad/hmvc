@@ -5,6 +5,7 @@
   <title>Matchadonline</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" value="summary"> 
 
   <!-- Icon -->
   <link rel="icon" type="image/png" href="<?php echo base_url();?>assets/frontend/images/icons/favicon.png"/>
