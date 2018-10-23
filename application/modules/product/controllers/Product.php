@@ -35,6 +35,7 @@ class Product extends MX_Controller
 
   public function details()
   {
+    $this->load->module('socialmeta');
     $slug = ($this->uri->segment(3))?$this->uri->segment(3):NULL;
     $get = $this->db->get_where('mona_product',array('prod_slug'=>$slug));
     if($get->num_rows()>0)
@@ -49,6 +50,7 @@ class Product extends MX_Controller
         $ret = abs($price)/10*$con;
         $retail_price[] = '<span class="m-text17">Rp '.number_format($ret).'</span><span class="m-text17c">/'.$con.' Months</span><br>';
       }
+      $data['meta_addon'] = $this->socialmeta->socialtag($getDet->PROD_ID);
       $data['prod_retail'] = $retail_price;
       $data['prod_name'] = $get->row()->PROD_NAME;
       $data['prod_price'] = 'Rp '.number_format($get->row()->PROD_PRICE);

@@ -2,10 +2,19 @@
 <html>
 <head>
 	<!-- Page Title -->
-  <title>Matchadonline</title>
+  <title>Match Ad Online</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="twitter:card" value="summary"> 
+  <!-- Addon Meta -->
+  <?php 
+    if(isset($meta_add))
+    {
+      foreach ($meta_add as $meta)
+      {
+        echo $meta."\n";
+      }
+    }
+  ?>
 
   <!-- Icon -->
   <link rel="icon" type="image/png" href="<?php echo base_url();?>assets/frontend/images/icons/favicon.png"/>

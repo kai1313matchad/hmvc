@@ -171,6 +171,7 @@
             $('[name="maplink"]').val(data.PROD_MAPLINK);
             $('[name="taxdue"]').val(data.PROD_TAXDUE);
             $('[name="rentdue"]').val(data.PROD_RENTDUE);
+            $('[name="locdue"]').val(data.PROD_LOCRENTDUE);
             $('[name="insurancedue"]').val(data.PROD_INSURANCEDUE);
             var pic = data.PROD_PIC;
             var newSrc = (pic = '')?"<?php echo base_url()?>/assets/img/factsheet/default.jpg":"<?php echo base_url()?>"+data.PROD_PIC;

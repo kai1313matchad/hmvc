@@ -15,6 +15,11 @@ class Templates_ extends MX_Controller
     $data['shop_css'] = TRUE;
     $data['module'] = $data['view_module'];
     $data['content'] = $data['view_content'];
+    $data['meta_add'] = array();
+    if(isset($data['meta_addon']))
+    {
+      $data['meta_add'] = $data['meta_addon'];
+    }
     $data['addon_css'] = array();
     if(isset($data['view_addoncss']))
     {

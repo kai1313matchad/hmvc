@@ -1,3 +1,7 @@
+23102018
+- edit tabel mona_product
+	ALTER TABLE `mona_product`
+	ADD COLUMN `PROD_LOCRENTDUE` DATE NULL DEFAULT NULL AFTER `PROD_RENTDUE`;
 22102018
 - Tabel baru
 CREATE TABLE `mona_blogcategories` (

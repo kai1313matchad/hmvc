@@ -39,9 +39,10 @@
                           <th class="text-center">Status</th>
                           <th class="text-center"><i class="fa fa-lightbulb-o"></i></th>
                       		<th class="text-center">Price</th>
-                          <th class="text-center">Rent</th>
-                          <th class="text-center">Tax</th>
-                          <th class="text-center">Insurance</th>
+                          <th class="col-xs-1 text-center">Client</th>
+                          <th class="col-xs-1 text-center">Tax</th>
+                          <th class="col-xs-1 text-center">Rent</th>
+                          <th class="col-xs-1 text-center">Insu.</th>
                           <th class="text-center"><i class="fa fa-bolt"></i></th>
                       		<th class="text-center">Action</th>
                       	</tr>
