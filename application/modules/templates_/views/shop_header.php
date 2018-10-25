@@ -67,7 +67,7 @@
 							</li>
 
 							<li>
-								<a href="contact.html">Contact</a>
+								<a href="<?php echo base_url('contactus');?>">Contact</a>
 							</li>
 						</ul>
 					</nav>

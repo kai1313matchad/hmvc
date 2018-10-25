@@ -30,7 +30,7 @@
                           <th class="col-sm-3">Title</th>
                       		<th class="col-sm-6">Slug</th>
                           <th class="col-sm-1">Date</th>
-                          <!-- <th class="col-sm-1">Update</th> -->
+                          <th class="col-sm-1">Categories</th>
                           <th class="col-sm-1">Content</th>
                           <th class="col-sm-1">Picture</th>
                           <th class="col-sm-1">Update</th>
@@ -63,6 +63,7 @@
                     <form id="form-blogpost" class="form-horizontal form-label-left" enctype="multipart/form-data">
                       <input type="hidden" name="form_status" value="1">
                       <input type="hidden" name="blog_id" value="1">
+                      <input type="hidden" name="blogctg_id" value=0>
                       <input type="hidden" name="picture_name" value="">
                       <div class="col-xs-12" id="alert-div">
                       </div>
@@ -84,6 +85,15 @@
                             </span>
                             <input id="blog_date" type='text' class="form-control input-group-addon" name="blog_date" value="" />
                           </div>
+                          <span class="help-block"></span>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Categories
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <select id="blog_categories" name="blog_categories" data-live-search="true" class="form-control text-center" required>
+                          </select>
                           <span class="help-block"></span>
                         </div>
                       </div>

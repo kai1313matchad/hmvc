@@ -47,9 +47,16 @@ class Blogpost extends MX_Controller
   }
 
   public function read($id){
+  	    $this->load->module('templates_');
 		$data['record']=$this->Post_model->baca_artikel($id);
 		// $data['komentar']=$this->Post_model->read_komen($id);
-		$this->load->view('v_single',$data);
+		$data['view_module'] = 'blogpost';
+	  	$data['view_content'] = 'blog';
+	    $data['view_addoncss'] = array('blog_css');
+	    $data['view_addonjs'] = array('blog_js');
+	    $data['view_addoncustjs'] = array('blog_custjs');
+		// $this->load->view('blog_details',$data);
+		$this->templates_->shop($data);
 	}
 
   public function pictBlog($offset){

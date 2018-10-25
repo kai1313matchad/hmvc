@@ -4,9 +4,11 @@
 			// var location = $('[name="location"]').val();
 			// var size = $('[name="size"]').val();
 			// var sort = $('[name="sorting"]').val();
-			filterload_();
-			// var pageno = $(this).attr('data-ci-pagination-page');
-			// loadPagination(pageno);
+			// filterload_();
+			isiAboutUs();
+			// loadHistory();
+			//var pageno = $(this).attr('data-ci-pagination-page');
+			//loadPagination(pageno);
 		})
 
 		function filterload_()
@@ -29,44 +31,39 @@
 
 		// document.getElementById('sorting').addEventListener('change', onchange);
 
-		function loadPagination(pagno)
+		function loadHistory()
 		{
 			$.ajax({
-					url: '<?=base_url()?>Pagination/loadBlogRecord/'+pagno,
+					url: '<?=base_url()?>Aboutus/readStory/',
 					type: 'get',
 					dataType: 'json',
-					success: function(response)
+					success: function(data)
 					{
-						$('.pagination').html(response.pagination);
-						isiBlog(response.result,response.row);
+						// $('[name="story"]').val(data[0]["STORE_HISTORY"]);
+						var ourstory=data[0]["STORE_HISTORY"];
+						return ourstory;
 					}
 			});
 		}
 
-        function isiBlog(res,sno)
+        function isiAboutUs()
         {
-        	$('#blog_content').empty();
-        	moment.updateLocale('id', {
-										    months : [
-										        "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli",
-										        "Agustus", "September", "Oktober", "November", "Desember"
-										    ]
-										});
-			moment.locale('id');
-			// alert(moment.locale());
-        	for(index in res)
-			{
-				var label ='Posted on '+res[index].BLOG_DATE;
-				var div1='<h2><a href="<?php echo base_url()?>Blogpost/read/'+res[index].BLOG_ID+'"?>'+res[index].BLOG_TITLE +'</a></h2><hr />';
-				var tgl = moment(res[index].BLOG_DATE).format('DD MMMM YYYY');
-				// var tgl = '11 Oktober 2018';
-				var div2='<p><span class="glyphicon glyphicon-time"></span> Posted on '+ tgl +'</p>';
-				var div3='<img class="img-responsive" src="<?php echo base_url();?>admin/assets/img/blogpost/'+res[index].BLOG_PICTURE+'?>" width="800" height="300"alt=""><hr />';
-				var div4='<p>'+res[index].BLOG_CONTENT+'</p>';
-				var div5='<a class="btn btn-primary" href="<?php echo base_url();?>Blogpost/read/'+res[index].BLOG_ID+'?>">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>';
-				var div = '<div>'+div1+div2+div3+div4'</div>'
-				$('#blog_content').append(div);						
-			}
+        	$.ajax({
+					url: '<?=base_url()?>Aboutus/readStory/',
+					type: 'get',
+					dataType: 'json',
+					success: function(data)
+					{
+						var ourstory=data[0]["STORE_HISTORY"];
+						$('#aboutus_content').empty();
+        	
+						var div1='<h3 class="m-text26 p-t-15 p-b-16">Our Story</h3>';
+						var div2='<div><span name="story">'+ourstory+'</span></div>';
+						var div= '<div>'+div1 + div2+'</div>';
+						$('#aboutus_content').append(div);
+						return ourstory;
+					}
+			});
         }
 
         function pickTgl(tgl){

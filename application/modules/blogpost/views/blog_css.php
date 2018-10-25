@@ -4,3 +4,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/frontend/vendor/slick/slick.css">
 	<!-- Nouislider -->
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/frontend/vendor/noui/nouislider.min.css">
+	<style>
+		#more {display: none;}
+	</style>
+	

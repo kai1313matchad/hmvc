@@ -17,22 +17,9 @@
 
 	            <!-- Blog Entries Column -->
 	            <div class="col-md-8">
-	                <h1 class="page-header">
-	                    Blog
-	                    <small>by Match Ad</small>
-	                </h1>
-	                <div class="row" id="blog_content">
+	                <div class="row" id="aboutus_content">
 					</div>
-														
-	                <!-- Pager -->
-	                <ul class="pager">
-	                    <!-- <?php //echo $pagination ;?> -->
-	                    <div id="allPag" name="paging" class="pagination flex-m flex-w p-t-26"></div>
-	                </ul>
 	            </div>
-	            <div class="col-md-4">
-					<?php require_once('sidebar.php'); ?>
-			    </div>
 			</div>
 		</div>
 	</section>

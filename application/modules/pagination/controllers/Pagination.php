@@ -271,6 +271,7 @@ class Pagination extends MX_Controller
 
     echo json_encode($data);
   }
+  
   function ajax_picktgl($tgl)
   {
     $data['tgl']=tgl_indo($tgl);

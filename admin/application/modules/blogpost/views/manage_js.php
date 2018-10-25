@@ -5,6 +5,7 @@
           format: 'YYYY-MM-DD'
         });
         wysiwig();
+        dropcategories_('mona_blogcategories','blog_categories','BLOGCTG_ID','BLOGCTG_NAME');
     	});
       function wysiwig()
       {
@@ -135,5 +136,33 @@
         $('#form-blogpost')[0].reset();
         $('.form-group').removeClass('has-error');
         $('.help-block').empty();
+      }
+
+      function dropcategories_(tb,id,idx,v)
+      {
+        $.ajax({
+          url : "<?php echo site_url('Blogpost/get_dropcategories/')?>"+tb,
+          type: "GET",
+          dataType: "JSON",
+          success: function(data)
+          {   
+            var select = document.getElementById(id);
+            var option;
+            for (var i = 0; i < data.length; i++)
+            {
+              option = document.createElement('option');
+              option.value = data[i][idx];
+              // option.text = data[i][idx] + ' ' + data[i][v];
+              option.text = data[i][v];
+              select.add(option);
+            }
+            $('#'+id).selectpicker({});
+            $('#'+id).selectpicker('refresh');
+          },
+          error: function (jqXHR, textStatus, errorThrown)
+          {
+            alert('Error get product data');
+          }
+        });
       }
 		</script>

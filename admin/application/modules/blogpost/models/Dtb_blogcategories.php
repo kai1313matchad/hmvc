@@ -1,11 +1,11 @@
 <?php
 	defined('BASEPATH') OR exit('No direct script access allowed');
-	class Dtb_blogpost extends CI_Model 
+	class Dtb_blogcategories extends CI_Model 
 	{
-		var $table = 'mona_blog';
-		var $column_order = array(null,'blog_title','blog_slug','blog_date','blog_categories','blog_update','blog_content','blog_picture');
-		var $column_search = array('blog_title','blog_slug','blog_date','blog_categories','blog_update','blog_content','blog_picture');
-		var $order = array('blog_title' => 'asc');
+		var $table = 'mona_blogcategories';
+		var $column_order = array(null,'blogctg_name');
+		var $column_search = array('blogctg_name');
+		var $order = array('blogctg_name' => 'asc');
 		public function __construct()
 		{
 			parent::__construct();		
@@ -13,9 +13,7 @@
 		private function _get_datatables_query()
 		{		
 			$this->db->from($this->table);
-			// $this->db->join('mona_construct_sts b','b.cons_id = a.cons_id');
-			// $this->db->join('mona_prodsize c','c.prsz_id = a.prsz_id');
-			$this->db->where('blog_dtsts','1');
+			$this->db->where('blogctg_dtsts','1');
 			$i = 0;
 			foreach ($this->column_search as $item)
 			{
@@ -65,5 +63,13 @@
 			$this->db->from($this->table);
 			return $this->db->count_all_results();
 		}
+		public function order_by($tb,$id)
+	    {
+	        $this->db->from($tb);
+	        $this->db->where('BLOGCTG_DTSTS <> 0');
+	        $this->db->order_by($id);
+	        $query = $this->db->get();
+	        return $query->result();
+	    }
 	}
 ?>
