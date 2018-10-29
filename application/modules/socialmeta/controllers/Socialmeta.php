@@ -8,9 +8,9 @@ class Socialmeta extends MX_Controller
   
   public function socialtag($id)
   {
-    $getProd = $this->db->join('mona_prodsize b','b.prsz_id = a.prsz_id')->join('mona_district c','c.dis_id = a.dis_id')->join('mona_prodtype')->where('a.prod_id',$id)->get('mona_product a')->row();
+    $getProd = $this->db->join('mona_prodsize b','b.prsz_id = a.prsz_id')->join('mona_district c','c.dis_id = a.dis_id')->where('a.prod_id',$id)->get('mona_product a')->row();
     $getPic = $this->db->get_where('mona_prodpict',array('prod_id'=>$getProd->PROD_ID))->last_row()->PRODPIC_PATH;
-    $desc = 'Tipe : '
+    // $desc = 'Tipe : '
     $res = array();
     $res[] = '<meta name="twitter:card" content="summary_large_image">';
     $res[] = '<meta name="twitter:site" content="www.matchadonline.com">';
@@ -29,6 +29,7 @@ class Socialmeta extends MX_Controller
     $res[] = '<meta property="og:site_name" content="Match Ad Online" />';
     $res[] = '<meta property="product:price:amount" content="'.(($getProd->PROD_PRICE)/10).'" />';
     $res[] = '<meta property="product:price:currency" content="Rp" />';
+
     return $res;
   }
 }
