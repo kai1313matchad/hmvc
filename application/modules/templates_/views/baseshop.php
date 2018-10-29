@@ -17,7 +17,7 @@
   ?>
 
   <!-- Icon -->
-  <link rel="icon" type="image/png" href="<?php echo base_url();?>assets/frontend/images/icons/favicon.png"/>
+  <link rel="icon" href="<?php echo base_url();?>assets/frontend/images/icons/favicon.png"/>
 
   <!-- Basic Css -->
   <?php

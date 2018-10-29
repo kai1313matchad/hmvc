@@ -169,6 +169,7 @@
             $('[name="specialprice"]').val(data.PROD_SPCPRICE);
             $('[name="videolink"]').val((data.PROD_VIDLINK != '')?data.PROD_VIDLINK:'https://www.youtube.com/embed/');
             $('[name="maplink"]').val(data.PROD_MAPLINK);
+            $('[name="shortcode"]').val(data.PROD_SHORT);
             $('[name="taxdue"]').val(data.PROD_TAXDUE);
             $('[name="rentdue"]').val(data.PROD_RENTDUE);
             $('[name="locdue"]').val(data.PROD_LOCRENTDUE);
