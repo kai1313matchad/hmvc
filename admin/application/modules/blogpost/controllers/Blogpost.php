@@ -16,6 +16,7 @@ class Blogpost extends MX_Controller
     $data['view_addonjs'] = array('blogpost_js');
     $data['view_addoncustjs'] = array('manage_js');
   	$this->templates_->admin($data);
+    
   }
 
    public function categories()
