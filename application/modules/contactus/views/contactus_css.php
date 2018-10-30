@@ -19,7 +19,7 @@
 	padding-left: 10px;
 	padding-right: 10px;
 	}
-	input[type=text] {
+	/*input[type=text] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -45,5 +45,5 @@
     border: 3px solid #555;
     background-color: #3CBC8D;
     color: white;
-	}
+	}*/
 	</style>

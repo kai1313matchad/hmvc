@@ -26,34 +26,34 @@
 		            		<h2>Send us your message</h2>
 		            	</div>
 		            	<div class="form-group">
-	                        <div class="col-md-20 col-sm-20 col-xs-20">
-	                          <input type="text" name="contact_name" required="required" class="form-control col-md-20 col-xs-20" placeholder="Full Name">
+	                        <div class="bo4 of-hidden size15 m-b-20">
+	                          <input type="text" name="contact_name" required="required" class="sizefull s-text7 p-l-22 p-r-22" placeholder="Full Name">
 	                          <span class="help-block"></span>
 	                        </div>
 	                     </div>
 	                     <div class="form-group">
-	                        <div class="col-md-20 col-sm-20 col-xs-12">
-	                          <input type="tel" name="contact_phone" required="required" class="form-control col-md-6 col-xs-12" placeholder="Phone Number">
+	                        <div class="bo4 of-hidden size15 m-b-20">
+	                          <input type="tel" name="contact_phone" required="required" class="sizefull s-text7 p-l-22 p-r-22" placeholder="Phone Number">
 	                          <span class="help-block"></span>
 	                        </div>
 	                     </div>
 	                     <div class="form-group">
-	                        <div class="col-md-20 col-sm-20 col-xs-12">
-	                          <input type="email" name="contact_mail" required="required" class="form-control col-md-20 col-xs-20" placeholder="E-mail Address">
+	                        <div class="bo4 of-hidden size15 m-b-20">
+	                          <input type="email" name="contact_mail" required="required" class="sizefull s-text7 p-l-22 p-r-22" placeholder="E-mail Address">
 	                          <span class="help-block"></span>
 	                        </div>
 	                     </div>
 	                     <div class="form-group">
-	                        <div class="col-md-20 col-sm-20 col-xs-12">
+	                        <!-- <div class="dis-block s-text7 size20 bo4 p-l-22 p-r-22 p-t-13 m-b-20"> -->
 	                          <textarea rows="4"  name="contact_message" required="required" class="form-control col-md-20 col-xs-20" placeholder="Message"></textarea>
-	                          <span class="help-block"></span>
-	                        </div>
+	                          <!-- <span class="help-block"></span> -->
+	                        <!-- </div> -->
                       	</div>
-                      	<div class="form-group">
-	                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-	                          <button type="button" class="btn btn-primary btn-round-lg btn-lg" onclick="simpan()">Send</button>
+                      	<!-- <div class="form-group"> -->
+	                        <div class="w-size25">
+	                          <button class="flex-c-m size2 bg1 bo-rad-23 hov1 m-text3 trans-0-4" onclick="simpan()">Send</button>
 	                        </div>
-                        </div>
+                        <!-- </div> -->
 	            	</form>
 	            </div>
 			</div>
