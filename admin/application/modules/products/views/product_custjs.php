@@ -16,6 +16,7 @@
               var rent = Date.parse(data[i]["PROD_RENTDUE"]);
               var tax = Date.parse(data[i]["PROD_TAXDUE"]);
               var insu = Date.parse(data[i]["PROD_INSURANCEDUE"]);
+              var loc = Date.parse(data[i]["PROD_LOCRENTDUE"]);
               var light = (data[i]["PROD_LIGHTING"] != '0')?'BL':'FL';
               var pub = (data[i]["PROD_STS"] != '0')?'<i class="fa fa-eye"></i>':'<i class="fa fa-eye-slash"></i>';
               var $tr = $('<tr>').append(
@@ -28,7 +29,7 @@
                   $('<td class="text-center numm">'+data[i]["PROD_PRICE"]+'</td>'),
                   $('<td data-order="'+rent+'" class="text-center">'+moment(data[i]["PROD_RENTDUE"]).format('DD MMM YYYY')+'</td>'),
                   $('<td data-order="'+tax+'" class="text-center">'+moment(data[i]["PROD_TAXDUE"]).format('DD MMM YYYY')+'</td>'),
-                  $('<td data-order="'+tax+'" class="text-center"></td>'),
+                  $('<td data-order="'+loc+'" class="text-center">'+moment(data[i]["PROD_LOCRENTDUE"]).format('DD MMM YYYY')+'</td>'),
                   $('<td data-order="'+insu+'" class="text-center">'+moment(data[i]["PROD_INSURANCEDUE"]).format('DD MMM YYYY')+'</td>'),
                   $('<td data-order="'+data[i]["PROD_STS"]+'" class="text-center">'+pub+'</td>'),
                   $('<td class="text-center"><a href="products/crud/'+data[i]["PROD_CODE"]+'" target="blank__" title="Edit Data" class="btn btn-xs btn-primary btn-responsive"><span class="glyphicon glyphicon-pencil"></span> </a> <a href="javascript:void(0)" title="Hapus Data" class="btn btn-xs btn-danger btn-responsive" onclick="delete_prod('+"'"+data[i]["PROD_ID"]+"'"+')"><span class="glyphicon glyphicon-trash"></span> </a></td>')
