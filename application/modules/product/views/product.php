@@ -1,5 +1,5 @@
 	<!-- Title Page -->
-	<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url(<?php echo base_url()?>admin/assets/img/shopcategories/shoptab.jpg);">
+	<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url(<?php echo base_url()?>admin/assets/img/shopcategories/btab.gif);">
 		<!-- <h2 class="l-text2 t-center">
 			Caption
 		</h2>
