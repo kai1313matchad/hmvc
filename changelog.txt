@@ -1,3 +1,31 @@
+13112018
+- Create tabel mona_client
+CREATE TABLE `mona_client` (
+	`CLIENT_ID` INT NOT NULL AUTO_INCREMENT,
+	`CLIENT_NAME` CHAR(200) NULL,
+	`CLIENT_INFO` VARCHAR(1024) NULL,
+	`CLIENT_DTSTS` CHAR(1) NULL,
+	PRIMARY KEY (`CLIENT_ID`)
+)
+COLLATE='latin1_swedish_ci'
+ENGINE=InnoDB
+;
+- Create tabel mona_history_client
+CREATE TABLE `mona_history_client` (
+	`HISCL_ID` INT NOT NULL AUTO_INCREMENT,
+	`CLIENT_ID` INT NULL,
+	`PROD_ID` INT NULL,
+	`HISCL_DATESTART` DATE NULL,
+	`HISCL_DATEEND` DATE NULL,
+	PRIMARY KEY (`HISCL_ID`)
+)
+COLLATE='latin1_swedish_ci'
+ENGINE=InnoDB
+;
+	ALTER TABLE `mona_history_client`
+	ADD CONSTRAINT `FK_mona_history_client_mona_client` FOREIGN KEY (`CLIENT_ID`) REFERENCES `mona_client` (`CLIENT_ID`),
+	ADD CONSTRAINT `FK_mona_history_client_mona_product` FOREIGN KEY (`PROD_ID`) REFERENCES `mona_product` (`PROD_ID`);
+
 23102018
 - edit tabel mona_product
 	ALTER TABLE `mona_product`
