@@ -16,6 +16,10 @@
               var pub = (data[i]["PROD_STS"] != '0')?'<i class="fa fa-eye"></i>':'<i class="fa fa-eye-slash"></i>';
               var $tr = $('<tr>').append(
                   $('<td class="text-center">'+data[i]["CLIENT_NAME"]+'</td>'),
+                  $('<td class="text-center">'+data[i]["CLIENT_PICNAME"]+'</td>'),
+                  $('<td class="text-center">'+data[i]["CLIENT_LOCATION"]+'</td>'),
+                  $('<td class="text-center">'+data[i]["CLIENT_PHONE"]+'</td>'),
+                  $('<td class="text-center">'+data[i]["CLIENT_MAIL"]+'</td>'),
                   $('<td class="text-center">'+data[i]["CLIENT_INFO"]+'</td>'),
                   $('<td class="text-center"><a href="javascript:void(0)" class="btn btn-xs btn-primary btn-responsive" onclick="edit_client('+"'"+data[i]["CLIENT_ID"]+"'"+')"><span class="glyphicon glyphicon-pencil"></span> </a> <a href="javascript:void(0)" title="Hapus Data" class="btn btn-xs btn-danger btn-responsive" onclick="delete_client('+"'"+data[i]["CLIENT_ID"]+"'"+')"><span class="glyphicon glyphicon-trash"></span> </a></td>')
                 ).appendTo('#tbcontent');
@@ -78,11 +82,15 @@
           {
           	$('[name="clientid"]').val(data.CLIENT_ID);
           	$('[name="clientname"]').val(data.CLIENT_NAME);
+            $('[name="picname"]').val(data.CLIENT_PICNAME);
+            $('[name="officeloc"]').val(data.CLIENT_LOCATION);
+            $('[name="clientphone"]').val(data.CLIENT_PHONE);
+            $('[name="clientmail"]').val(data.CLIENT_MAIL);
           	$('[name="clientinfo"]').val(data.CLIENT_INFO);
           },
           error: function (jqXHR, textStatus, errorThrown)
           {
-          	alert('Error Get Product Data');
+          	alert('Error Get Client Data');
           }
         });
       }

@@ -58,6 +58,10 @@ class Client extends MX_Controller
     {
       $ins = array(
         'client_name'=>$this->input->post('clientname'),
+        'client_picname'=>$this->input->post('picname'),
+        'client_location'=>$this->input->post('officeloc'),
+        'client_phone'=>$this->input->post('clientphone'),
+        'client_mail'=>$this->input->post('clientmail'),
         'client_info'=>$this->input->post('clientinfo'),
         'client_dtsts'=>'1'
       );
@@ -68,6 +72,10 @@ class Client extends MX_Controller
     {
       $upd = array(
         'client_name'=>$this->input->post('clientname'),
+        'client_picname'=>$this->input->post('picname'),
+        'client_location'=>$this->input->post('officeloc'),
+        'client_phone'=>$this->input->post('clientphone'),
+        'client_mail'=>$this->input->post('clientmail'),
         'client_info'=>$this->input->post('clientinfo'),
         'client_dtsts'=>'1'
       );

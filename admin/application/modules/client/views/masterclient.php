@@ -26,9 +26,13 @@
                     <table id="dtb-client" class="table table-striped table-bordered" width="100%">
                     	<thead>
                       	<tr>
-                          <th class="col-sm-4">Client Name</th>
-                      		<th class="col-sm-4">Information</th>
-                          <th class="col-sm-4">Action</th>
+                          <th class="text-center col-sm-2">Client Name</th>
+                          <th class="text-center col-sm-1">PIC</th>
+                          <th class="text-center col-sm-2">Office</th>
+                          <th class="text-center col-sm-2">Phone</th>
+                          <th class="text-center col-sm-2">Email</th>
+                      		<th class="text-center col-sm-2">Information</th>
+                          <th class="text-center col-sm-1">Action</th>
                       	</tr>
                       </thead>
                       <tbody id="tbcontent">
@@ -66,6 +70,34 @@
                         </div>
                       </div>
                       <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">PIC Name
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" name="picname" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Office
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" name="officeloc" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Phone
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" name="clientphone" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Mail
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="email" name="clientmail" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Information
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
@@ -88,33 +120,3 @@
           </div>
         </div>
         <!-- /page content -->
-        <!-- Modal -->
-        <div class="modal fade bs-example-modal-sm" id="img_modal" tabindex="-1" role="dialog" aria-hidden="true">
-          <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
-                </button>
-                <h4 class="modal-title" id="myModalLabel2">Modal title</h4>
-              </div>
-              <div class="modal-body">
-                <div id="alert-div"></div>
-                <form id="form-img" class="form-horizontal form-label-left" enctype="multipart/form-data">
-                  <div class="form-group">
-                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Image</label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                      <input type="file" id="bannerpic" name="bannerpic" required="required">
-                      <span class="help-block"></span>
-                    </div>
-                    <input type="hidden" name="bannerid" value="">
-                  </div>
-                </form>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" onclick="save_img()">Save</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- /Modal -->

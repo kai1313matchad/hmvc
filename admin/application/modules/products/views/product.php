@@ -60,3 +60,37 @@
           </div>
         </div>
         <!-- /page content -->
+        <!-- Modal -->
+        <div class="modal fade bs-example-modal-sm" id="modalHisClient" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel2">Client History</h4>
+              </div>
+              <div class="modal-body">
+                <div id="alert-div"></div>
+                <div class="row">
+                  <div class="col-xs-12">
+                    <table id="dtb-hisclient" class="table table-striped table-bordered table-condensed" width="100%">
+                      <thead>
+                        <tr>
+                          <th class="text-center">Client</th>
+                          <th class="text-center">Start</th>
+                          <th class="text-center">End</th>
+                        </tr>
+                      </thead>
+                      <tbody id="tbcontent_hisclient"></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="save_img()">Save</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /Modal -->
