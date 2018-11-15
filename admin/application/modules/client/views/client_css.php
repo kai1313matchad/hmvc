@@ -1,3 +1,5 @@
+		<!-- Datetimepicker -->
+    <link href="<?php echo base_url()?>assets/frontend/vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
 		<!-- Datatables -->
     <link href="<?php echo base_url()?>assets/frontend/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url()?>assets/frontend/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">

@@ -28,8 +28,9 @@
                       	<tr>
                           <th class="col-sm-3">Location/Product</th>
                           <th class="col-sm-3">Client Name</th>
-                      		<th class="col-sm-2">Start</th>
-                          <th class="col-sm-2">End</th>
+                      		<th class="col-sm-1">Start</th>
+                          <th class="col-sm-1">End</th>
+                          <th class="col-sm-2">Value</th>
                           <th class="col-sm-2">Action</th>
                       	</tr>
                       </thead>
@@ -83,7 +84,7 @@
                               <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
                               </span>
-                              <input type='text' class="form-control input-group-addon" name="perstart" value="" placeholder="Start Date"/>
+                              <input type='text' class="form-control input-group-addon" id="perstart" name="perstart" value="" placeholder="Start Date"/>
                           </div>
                         </div>
                         <div class="col-md-3 col-sm-3 col-xs-6">
@@ -91,8 +92,15 @@
                               <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
                               </span>
-                              <input type='text' class="form-control input-group-addon" name="perend" value="" placeholder="End Date"/>
+                              <input type='text' class="form-control input-group-addon" id="perend" name="perend" value="" placeholder="End Date"/>
                           </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Valuation</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input class="form-control col-md-7 col-xs-12 curr-num" type="text" name="valuation" required="required" placeholder="Valuation">
+                          <span class="help-block"></span>
                         </div>
                       </div>
                       <div class="ln_solid"></div>

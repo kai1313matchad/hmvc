@@ -23,10 +23,12 @@
                   $('<td class="text-center">'+data[i]["CLIENT_NAME"]+'</td>'),
                   $('<td class="text-center">'+data[i]["HISCL_DATESTART"]+'</td>'),
                   $('<td class="text-center">'+data[i]["HISCL_DATEEND"]+'</td>'),
+                  $('<td class="text-center numm">'+data[i]["HISCL_VALUE"]+'</td>'),
                   $('<td class="text-center"><a href="javascript:void(0)" class="btn btn-xs btn-primary btn-responsive" onclick="edit_hisclient('+"'"+data[i]["HISCL_ID"]+"'"+')"><span class="glyphicon glyphicon-pencil"></span> </a> <a href="javascript:void(0)" title="Hapus Data" class="btn btn-xs btn-danger btn-responsive" onclick="delete_hisclient('+"'"+data[i]["HISCL_ID"]+"'"+')"><span class="glyphicon glyphicon-trash"></span> </a></td>')
                 ).appendTo('#tbcontent');
             }
             dtables();
+            $('td.numm').number(true,2);
           },
           error: function (jqXHR, textStatus, errorThrown)
           {
@@ -145,6 +147,7 @@
           	$('#clientlist').selectpicker('refresh');
           	$('[name="perstart"]').val(data.HISCL_DATESTART);
           	$('[name="perend"]').val(data.HISCL_DATEEND);
+            $('[name="valuation"]').val(data.HISCL_VALUE);
           },
           error: function (jqXHR, textStatus, errorThrown)
           {

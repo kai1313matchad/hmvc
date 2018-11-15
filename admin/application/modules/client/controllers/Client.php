@@ -93,13 +93,15 @@ class Client extends MX_Controller
     $prodId = $this->input->post('product');
     $dateStr = $this->input->post('perstart');
     $dateEnd = $this->input->post('perend');
+    $value = $this->input->post('valuation');
     if($sts != '1')
     {
       $ins = array(
         'client_id'=>$clientId,
         'prod_id'=>$prodId,
         'hiscl_datestart'=>$dateStr,
-        'hiscl_dateend'=>$dateEnd
+        'hiscl_dateend'=>$dateEnd,
+        'hiscl_value'=>$value
       );
       $this->db->insert('mona_history_client',$ins);
       $data['status'] = ($this->db->affected_rows())?TRUE:FALSE;
@@ -115,7 +117,8 @@ class Client extends MX_Controller
         'client_id'=>$clientId,
         'prod_id'=>$prodId,
         'hiscl_datestart'=>$dateStr,
-        'hiscl_dateend'=>$dateEnd
+        'hiscl_dateend'=>$dateEnd,
+        'hiscl_value'=>$value
       );
       $this->db->update('mona_history_client',$upd,array('hiscl_id'=>$hisId));
       $data['status'] = ($this->db->affected_rows())?TRUE:FALSE;
@@ -200,6 +203,12 @@ class Client extends MX_Controller
     {
       $data['inputerror'][] = 'perend';
       $data['error_string'][] = 'Date End Cannot be Null';
+      $data['status'] = FALSE;
+    }
+    if($this->input->post('valuation') == '')
+    {
+      $data['inputerror'][] = 'valuation';
+      $data['error_string'][] = 'Value Cannot be Null';
       $data['status'] = FALSE;
     }
     if($data['status'] === FALSE)
