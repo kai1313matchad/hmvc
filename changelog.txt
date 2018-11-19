@@ -1,3 +1,7 @@
+19112018
+- edit tabel mona_history_client
+	ALTER TABLE `mona_history_client`
+	CHANGE COLUMN `HISCL_VALUE` `HISCL_VALUE` BIGINT NULL DEFAULT NULL AFTER `HISCL_DATEEND`;
 15112018
 - edit tabel mona_client
 	ALTER TABLE `mona_client`

@@ -1,5 +1,5 @@
     <!-- Datetimepicker -->
-    <script src="http://localhost/hmvc/admin/assets/frontend/vendors/moment/moment.js"></script>
+    <script src="<?php echo base_url()?>assets/frontend/vendors/moment/moment.js"></script>
     <script src="<?php echo base_url()?>assets/frontend/vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
     <!-- Datatables -->
     <script src="<?php echo base_url()?>assets/frontend/vendors/datatables.net/js/jquery.dataTables.min.js"></script>

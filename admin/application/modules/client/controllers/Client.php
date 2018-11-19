@@ -126,7 +126,6 @@ class Client extends MX_Controller
         'prod_rentdue'=>$dateEnd
       );
       $this->db->update('mona_product',$updProd,array('prod_id'=>$prodId));
-      $data['status'] = ($this->db->affected_rows())?TRUE:FALSE;
     }
     echo json_encode($data);
   }
