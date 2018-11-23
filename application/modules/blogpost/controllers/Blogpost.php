@@ -46,15 +46,15 @@ class Blogpost extends MX_Controller
   	$this->templates_->shop($data);
   }
 
-  public function read($id){
+  public function read(){
   	    $this->load->module('templates_');
-		$data['record']=$this->Post_model->baca_artikel($id);
+		// $data['record']=$this->Post_model->baca_artikel($id);
 		// $data['komentar']=$this->Post_model->read_komen($id);
 		$data['view_module'] = 'blogpost';
-	  	$data['view_content'] = 'blog';
-	    $data['view_addoncss'] = array('blog_css');
-	    $data['view_addonjs'] = array('blog_js');
-	    $data['view_addoncustjs'] = array('blog_custjs');
+	  	$data['view_content'] = 'blog_details';
+	    $data['view_addoncss'] = array('blog_details_css');
+	    $data['view_addonjs'] = array('blog_details_js');
+	    $data['view_addoncustjs'] = array('blog_details_custjs');
 		// $this->load->view('blog_details',$data);
 		$this->templates_->shop($data);
 	}
@@ -64,5 +64,13 @@ class Blogpost extends MX_Controller
   	$limit = $config['per_page'];
 	// $offset = (int) $this->uri->segment(3);
   	$this->Post_model->read('mona_blog', $limit, $offset);
+  }
+
+  public function read_more($id){
+  		// $id = $this->uri->segment($id);
+  	 //    echo $id;
+  		// exit();
+  		$data = $this->Post_model->baca_artikel($id);
+  		echo json_encode($data);
   }
 }

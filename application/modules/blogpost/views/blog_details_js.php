@@ -12,6 +12,10 @@
 		});
 	</script>
 	<!--===============================================================================================-->
+	<script type="text/javascript" src="<?php echo base_url()?>assets/frontend/vendor/daterangepicker/moment.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url()?>assets/frontend/vendor/daterangepicker/daterangepicker.js"></script>
+	<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script type="text/javascript" src="<?php echo base_url()?>assets/frontend/vendor/slick/slick.min.js"></script>
 	<script type="text/javascript" src="<?php echo base_url()?>assets/frontend/js/slick-custom.js"></script>
 	<!--===============================================================================================-->
@@ -38,3 +42,4 @@
 			});
 		});
 	</script>
+	<script type="text/javascript" src="<?php echo base_url()?>assets/frontend/vendor/numeral/min/numeral.min.js"></script>

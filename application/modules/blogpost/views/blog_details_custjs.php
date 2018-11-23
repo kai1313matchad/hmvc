@@ -1,24 +1,13 @@
 	<script>
 		$(document).ready(function(){
-			// var kategori = $('[name="kategori"]').val();
-			// var location = $('[name="location"]').val();
-			// var size = $('[name="size"]').val();
-			// var sort = $('[name="sorting"]').val();
-			filterload_();
-			// var pageno = $(this).attr('data-ci-pagination-page');
-			// loadPagination(pageno);
+			var pathArray = window.location.pathname.split('/');
+			var id = pathArray[4];
+			filterload_(id);
 		})
 
-		function filterload_()
+		function filterload_(id)
 		{
-			//var sort = $('[name="sorting"]').val();
-			loadPagination(0);
-			$('.pagination').on('click','a',function(e){
-				e.preventDefault();
-				var pageno = $(this).attr('data-ci-pagination-page');
-				loadPagination(pageno);
-			});
-			
+			loadPagination(id);
 		}
 
 		function loadSort(id)
@@ -27,46 +16,33 @@
 			filterload_();
 		}
 
-		// document.getElementById('sorting').addEventListener('change', onchange);
-
-		function loadPagination(pagno)
+		function loadPagination(id)
 		{
 			$.ajax({
-					url: '<?=base_url()?>Pagination/loadBlogRecord/'+pagno,
+					url: '<?=base_url()?>Blogpost/read_more/'+id,
 					type: 'get',
 					dataType: 'json',
-					success: function(response)
+					success: function(data)
 					{
-						$('.pagination').html(response.pagination);
-						isiBlog(response.result,response.row);
+						isiBlog(data);
 					}
 			});
 		}
 
-        function isiBlog(res,sno)
+        function isiBlog(data)
         {
         	$('#blog_content').empty();
-        	moment.updateLocale('id', {
-										    months : [
-										        "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli",
-										        "Agustus", "September", "Oktober", "November", "Desember"
-										    ]
-										});
+        	moment.updateLocale('id', {months : ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli","Agustus", "September", "Oktober", "November", "Desember"]});
 			moment.locale('id');
-			// alert(moment.locale());
-        	for(index in res)
-			{
-				var label ='Posted on '+res[index].BLOG_DATE;
-				var div1='<h2><a href="<?php echo base_url()?>Blogpost/read/'+res[index].BLOG_ID+'"?>'+res[index].BLOG_TITLE +'</a></h2><hr />';
-				var tgl = moment(res[index].BLOG_DATE).format('DD MMMM YYYY');
-				// var tgl = '11 Oktober 2018';
-				var div2='<p><span class="glyphicon glyphicon-time"></span> Posted on '+ tgl +'</p>';
-				var div3='<img class="img-responsive" src="<?php echo base_url();?>admin/assets/img/blogpost/'+res[index].BLOG_PICTURE+'?>" width="800" height="300"alt=""><hr />';
-				var div4='<p>'+res[index].BLOG_CONTENT+'</p>';
-				var div5='<a class="btn btn-primary" href="<?php echo base_url();?>Blogpost/read/'+res[index].BLOG_ID+'?>">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>';
-				var div = '<div>'+div1+div2+div3+div4'</div>'
-				$('#blog_content').append(div);						
-			}
+			var label ='Posted on '+data[0]["BLOG_DATE"];
+			var readmore = data[0]["BLOG_CONTENT"];
+			var div1='<h2><a> '+ data[0]["BLOG_TITLE"] +'</a></h2><hr />';
+			var tgl = moment(data[0]["BLOG_DATE"]).format('DD MMMM YYYY');
+			var div2='<p><span class="glyphicon glyphicon-time"></span> Posted on '+ tgl +'</p>';
+			var div3='<img class="img-responsive" src="<?php echo base_url();?>admin/assets/img/blogpost/'+data[0]["BLOG_PICTURE"]+'?>" width="800" height="300"alt=""><hr />';
+			var div4='<p><div id="more'+data[0]["BLOG_ID"]+'">'+readmore+'</div></p>';
+			var div = '<div>'+div1+div2+div3+div4+'</div>';
+			$('#blog_content').append(div);							
         }
 
         function pickTgl(tgl){

@@ -190,5 +190,15 @@
 	    $result = $query->result_array();
 	    return $result[0]['allcount'];
 	  }	
+
+	  public function getBlogDetail($id)
+	  {
+	  	$this->db->select('*');
+	    $this->db->from('mona_blog');
+	    $this->db->where('BLOG_ID',$id);
+	    $this->db->where('BLOG_DTSTS','1');
+	    $query = $this->db->get();
+	    return $query->result_array();
+	  }
 	}
 ?>
