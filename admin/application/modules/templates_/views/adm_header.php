@@ -64,6 +64,12 @@
                       <li><a href="<?php echo base_url('auctions');?>">Auctions</a></li>
                     </ul>
                   </li>
+                  <li><a><i class="fa fa-users"></i> Clients <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="<?php echo base_url('client');?>">Manage</a></li>
+                      <li><a href="<?php echo base_url('client/master');?>">Data</a></li>
+                    </ul>
+                  </li>
                 </ul>
               </div>
             </div>

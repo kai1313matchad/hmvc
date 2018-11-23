@@ -623,4 +623,10 @@ class Products extends MX_Controller
     $config['file_name']=$nmfile;
     $this->upload->initialize($config);
   }
+
+  public function getHisClient($id)
+  {
+    $data = $this->db->join('mona_client c','c.client_id = a.client_id')->join('mona_product b','b.prod_id = a.prod_id')->get_where('mona_history_client a',array('a.prod_id'=>$id))->result();
+    echo json_encode($data);
+  }
 }

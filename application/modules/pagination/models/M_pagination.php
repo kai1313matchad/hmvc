@@ -14,6 +14,7 @@
 	    $this->db->join('mona_district f','f.dis_id = a.dis_id');
 	    $this->db->join('mona_prodpict h','h.prod_id = a.prod_id');
 	    $this->db->where('h.prodpic_id = (select max(prodpic_id) from mona_prodpict where prod_id = a.prod_id)');
+	    $this->db->where('a.prod_sts','1');
 	    $this->db->limit($rowperpage,$rowno);
 	    $this->db->order_by('e.prov_name,f.dis_name');
 	    $query = $this->db->get();
@@ -32,6 +33,7 @@
 	    $this->db->join('mona_district f','f.dis_id = a.dis_id');
 	    $this->db->join('mona_prodpict h','h.prod_id = a.prod_id');
 	    $this->db->where('h.prodpic_id = (select max(prodpic_id) from mona_prodpict where prod_id = a.prod_id)');
+	    $this->db->where('a.prod_sts','1');
 	    $query = $this->db->get();
 	    $result = $query->result_array();
 	    return $result[0]['allcount'];
@@ -48,6 +50,7 @@
 	    $this->db->join('mona_district f','f.dis_id = a.dis_id');
 	    $this->db->join('mona_prodpict h','h.prod_id = a.prod_id');
 	    $this->db->where('h.prodpic_id = (select max(prodpic_id) from mona_prodpict where prod_id = a.prod_id)');
+	    $this->db->where('a.prod_sts','1');
 	    $this->db->limit($rowperpage,$rowno);
 	    $this->db->order_by('a.prod_price','asc');
 	    $query = $this->db->get();
@@ -65,6 +68,7 @@
 	    $this->db->join('mona_district f','f.dis_id = a.dis_id');
 	    $this->db->join('mona_prodpict h','h.prod_id = a.prod_id');
 	    $this->db->where('h.prodpic_id = (select max(prodpic_id) from mona_prodpict where prod_id = a.prod_id)');
+	    $this->db->where('a.prod_sts','1');
 	    $this->db->limit($rowperpage,$rowno);
 	    $this->db->order_by('a.prod_price','desc');
 	    $query = $this->db->get();
@@ -82,6 +86,7 @@
 	    $this->db->join('mona_district f','f.dis_id = a.dis_id');
 	    $this->db->join('mona_prodpict h','h.prod_id = a.prod_id');
 	    $this->db->where('h.prodpic_id = (select max(prodpic_id) from mona_prodpict where prod_id = a.prod_id)');
+	    $this->db->where('a.prod_sts','1');
 	    $this->db->limit($rowperpage,$rowno);
 	    $this->db->order_by('a.prod_name','asc');
 	    $query = $this->db->get();
@@ -99,6 +104,7 @@
 	    $this->db->join('mona_district f','f.dis_id = a.dis_id');
 	    $this->db->join('mona_prodpict h','h.prod_id = a.prod_id');
 	    $this->db->where('h.prodpic_id = (select max(prodpic_id) from mona_prodpict where prod_id = a.prod_id)');
+	    $this->db->where('a.prod_sts','1');
 	    $this->db->limit($rowperpage,$rowno);
 	    $this->db->order_by('a.prod_name','desc');
 	    $query = $this->db->get();
@@ -116,6 +122,7 @@
 	    $this->db->join('mona_district f','f.dis_id = a.dis_id');
 	    $this->db->join('mona_prodpict h','h.prod_id = a.prod_id');
 	    $this->db->where('h.prodpic_id = (select max(prodpic_id) from mona_prodpict where prod_id = a.prod_id)');
+	    $this->db->where('a.prod_sts','1');
 	    if ($kategori != '0')
 	    {
 	    	$this->db->where('a.prt_id',$kategori);
@@ -149,6 +156,7 @@
 	    $this->db->join('mona_district f','f.dis_id = a.dis_id');
 	    $this->db->join('mona_prodpict h','h.prod_id = a.prod_id');
 	    $this->db->where('h.prodpic_id = (select max(prodpic_id) from mona_prodpict where prod_id = a.prod_id)');
+	    $this->db->where('a.prod_sts','1');
 	    if ($kategori != '0')
 	    {
 	    	$this->db->where('a.prt_id',$kategori);

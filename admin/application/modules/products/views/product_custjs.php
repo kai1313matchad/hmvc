@@ -27,7 +27,7 @@
                   $('<td class="text-center">'+data[i]["CONS_NAME"]+'</td>'),
                   $('<td class="text-center">'+light+'</td>'),
                   $('<td class="text-center numm">'+data[i]["PROD_PRICE"]+'</td>'),
-                  $('<td data-order="'+rent+'" class="text-center">'+moment(data[i]["PROD_RENTDUE"]).format('DD MMM YYYY')+'</td>'),
+                  $('<td data-order="'+rent+'" class="text-center"><a onclick="popHisClient('+data[i]["PROD_ID"]+')">'+moment(data[i]["PROD_RENTDUE"]).format('DD MMM YYYY')+'</a></td>'),
                   $('<td data-order="'+tax+'" class="text-center">'+moment(data[i]["PROD_TAXDUE"]).format('DD MMM YYYY')+'</td>'),
                   $('<td data-order="'+loc+'" class="text-center">'+moment(data[i]["PROD_LOCRENTDUE"]).format('DD MMM YYYY')+'</td>'),
                   $('<td data-order="'+insu+'" class="text-center">'+moment(data[i]["PROD_INSURANCEDUE"]).format('DD MMM YYYY')+'</td>'),
@@ -36,6 +36,34 @@
                 ).appendTo('#tbcontent');
             }
             dtables();
+            $('td.numm').number(true,2);
+          },
+          error: function (jqXHR, textStatus, errorThrown)
+          {
+            alert('Error Delete Product Data');
+          }
+        });
+      }
+      function createHisClient(id)
+      {
+        $('#tbcontent_hisclient').empty();
+        $.ajax({
+          url : "<?php echo site_url('products/getHisClient/')?>"+id,
+          type: "GET",
+          dataType: "JSON",
+          success: function(data)
+          {
+            for (var i = 0; i < data.length; i++)
+            {
+              var start = Date.parse(data[i]["HISCL_DATESTART"]);
+              var end = Date.parse(data[i]["HISCL_DATEEND"]);
+              var $tr = $('<tr>').append(
+                  $('<td class="text-left">'+data[i]["CLIENT_NAME"]+'</td>'),
+                  $('<td data-order="'+start+'" class="text-center">'+moment(data[i]["HISCL_DATESTART"]).format('DD MMM YYYY')+'</td>'),
+                  $('<td data-order="'+end+'" class="text-center">'+moment(data[i]["HISCL_DATEEND"]).format('DD MMM YYYY')+'</td>')
+                ).appendTo('#tbcontent_hisclient');
+            }
+            dtables_hisclient();
             $('td.numm').number(true,2);
           },
           error: function (jqXHR, textStatus, errorThrown)
@@ -54,33 +82,18 @@
           order: [[0, 'asc']],
         });
       }
-    	function tables()
-    	{
-    		table = $('#dtb-prodall').DataTable({
-    		"info": false,
-				"responsive": true,
-        "processing": true,
-        "serverSide": true,
-        "pageLength": 100,
-        // "order": [],
-        "ajax": {
-        	"url": "<?php echo site_url('products/get_productall')?>",
-          "type": "POST",
-          },
-      	"columnDefs": 
-          [
-            {"className": "text-center", "targets": [0,2,3,4,5,6,7]},
-          ],
-        "createdRow": function(row, data, dataIndex)
-          {
-            var $dateCell = $(row).find('td:eq(4)'); // get first column
-            var dateOrder = $dateCell.text(); // get the ISO date
-            $dateCell
-            .attr('data-order', moment(dateOrder)) // set it to data-order
-            .text(moment(dateOrder).format('DD-MMM-YYYY')); // and set the formatted text
-          }
-    		});
-    	}
+    	function dtables_hisclient()
+      {
+        $('#dtb-hisclient').DataTable({
+          info: false,
+          searching: false,
+          responsive: true,
+          processing: true,
+          bLengthChange: false,
+          // pageLength: 100,
+          order: [[2, 'asc']],
+        });
+      }
     	function reload_table()
       {
       	table.ajax.reload(null,false);
@@ -108,6 +121,12 @@
             alert('Error Update Data');
           }
         });
+      }
+      function popHisClient(id)
+      {
+        $("#dtb-hisclient").dataTable().fnDestroy();
+        createHisClient(id);
+        $('#modalHisClient').modal('show');
       }
       function save()
       {
