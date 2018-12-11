@@ -73,4 +73,15 @@ class Blogpost extends MX_Controller
   		$data = $this->Post_model->baca_artikel($id);
   		echo json_encode($data);
   }
+
+  public function blognew()
+  {
+  	$this->load->module('templates_');
+  	$data['view_module'] = 'blogpost';
+  	$data['view_content'] = 'blognew';
+    $data['view_addoncss'] = array('blog_css');
+    $data['view_addonjs'] = array('blog_js');
+    $data['view_addoncustjs'] = array('blog_custjs');
+    $this->templates_->shop($data);
+  }
 }

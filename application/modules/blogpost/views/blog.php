@@ -12,28 +12,27 @@
 	<section class="bgwhite p-t-55 p-b-65">
 		
 		<div class="container">
-
-	        <div class="row">
-
-	            <!-- Blog Entries Column -->
-	            <div class="col-md-8">
-	                <h1 class="page-header">
-	                    Blog
-	                    <small>by Match Ad</small>
-	                </h1>
-	                <div class="row" id="blog_content">
-					</div>
-														
-	                <!-- Pager -->
-	                <ul class="pager">
-	                    <!-- <?php //echo $pagination ;?> -->
-	                    <div id="allPag" name="paging" class="pagination flex-m flex-w p-t-26"></div>
-	                </ul>
-	            </div>
-	            <div class="col-md-4">
+			<div class="row">
+				<div class="col-xs-8">
+					<div class="row">
+	                	<div class="col-xs-4">
+	                		<img class="img-responsive img-thumbnail" src="http://localhost/hmvc/admin/assets/img/blogpost/blog_2018-08-17_Hari_Kemerdekaan_RI_(1).jpeg?>">
+	                	</div>
+	                	<div class="col-xs-5">
+	                		<p>
+	                			lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+	                			lorem ipsum
+	                			lorem ipsum
+	                			lorem ipsum
+	                		</p>
+	                	</div>
+	                </div>
+				</div>
+				<div class="col-xs-4">
 					<?php require_once('sidebar.php'); ?>
-			    </div>
+				</div>
 			</div>
+	        
 		</div>
 	</section>
 	<!-- Container Selection -->
