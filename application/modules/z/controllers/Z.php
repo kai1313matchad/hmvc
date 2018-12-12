@@ -7,7 +7,7 @@ class Z extends MX_Controller
   }
   public function ly()
   {
-  	$slug = ($this->uri->segment(3))?$this->uri->segment(3):NULL;
+  	$slug = ($this->uri->segment(1))?$this->uri->segment(1):NULL;
     $get = $this->db->get_where('mona_product',array('prod_short'=>$slug));
     if($get->num_rows()>0)
     {
