@@ -302,6 +302,7 @@ class Products extends MX_Controller
               'prod_streetaddr'=>$this->input->post('streetaddr'),
               'prod_price'=>($this->input->post('productprice') != '')?$this->input->post('productprice'):0,
               'prod_spcprice'=>($this->input->post('specialprice') != '')?$this->input->post('specialprice'):0,
+              'prod_spcdura'=>$this->input->post('specialduration'),
               'prod_vidlink'=>$this->input->post('videolink'),
               'prod_maplink'=>$this->input->post('maplink'),
               'prod_short'=>$this->input->post('shortcode'),
@@ -333,6 +334,7 @@ class Products extends MX_Controller
               'prod_streetaddr'=>$this->input->post('streetaddr'),
               'prod_price'=>($this->input->post('productprice') != '')?$this->input->post('productprice'):0,
               'prod_spcprice'=>($this->input->post('specialprice') != '')?$this->input->post('specialprice'):0,
+              'prod_spcdura'=>$this->input->post('specialduration'),
               'prod_vidlink'=>$this->input->post('videolink'),
               'prod_maplink'=>$this->input->post('maplink'),
               'prod_short'=>$this->input->post('shortcode'),
@@ -382,6 +384,7 @@ class Products extends MX_Controller
           'prod_streetaddr'=>$this->input->post('streetaddr'),
           'prod_price'=>($this->input->post('productprice') != '')?$this->input->post('productprice'):0,
           'prod_spcprice'=>($this->input->post('specialprice') != '')?$this->input->post('specialprice'):0,
+          'prod_spcdura'=>$this->input->post('specialduration'),
           'prod_vidlink'=>$this->input->post('videolink'),
           'prod_maplink'=>$this->input->post('maplink'),
           'prod_short'=>$this->input->post('shortcode'),
@@ -436,7 +439,8 @@ class Products extends MX_Controller
           $fileinfo_ = $this->upload->data();
           $path = '/assets/img/factsheet/'.$fileinfo_['file_name'];
           $upd = array(
-            'prod_pic' => $path
+            'prod_pic' => $path,
+            'prod_fsupdate' => date('Y-m-d')
           );
           $update = $this->db->update('mona_product',$upd,array('prod_id'=>$id));
           $data['status']=($this->db->affected_rows())?TRUE:FALSE;
@@ -458,7 +462,8 @@ class Products extends MX_Controller
           $fileinfo_ = $this->upload->data();
           $path = '/assets/img/factsheet/'.$fileinfo_['file_name'];
           $upd = array(
-            'prod_pic' => $path
+            'prod_pic' => $path,
+            'prod_fsupdate' => date('Y-m-d')
           );
           $update = $this->db->update('mona_product',$upd,array('prod_id'=>$id));
           $data['status']=($this->db->affected_rows())?TRUE:FALSE;

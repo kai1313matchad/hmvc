@@ -167,6 +167,7 @@
             $('[name="publish"][value='+data.PROD_STS+']').prop('checked',true);
           	$('[name="productprice"]').val(data.PROD_PRICE);
             $('[name="specialprice"]').val(data.PROD_SPCPRICE);
+            $('[name="specialduration"]').val(data.PROD_SPCDURA);
             $('[name="videolink"]').val((data.PROD_VIDLINK != '')?data.PROD_VIDLINK:'https://www.youtube.com/embed/');
             $('[name="maplink"]').val(data.PROD_MAPLINK);
             $('[name="shortcode"]').val(data.PROD_SHORT);

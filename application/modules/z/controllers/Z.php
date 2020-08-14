@@ -15,7 +15,7 @@ class Z extends MX_Controller
     }
     else
     {
-      redirect('Error_404');
+      redirect('error_404');
     }
   }
 }

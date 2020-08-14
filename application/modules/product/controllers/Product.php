@@ -69,6 +69,7 @@ class Product extends MX_Controller
       $data['prod_name'] = $get->row()->PROD_NAME;
       $data['prod_price'] = 'Rp '.number_format($get->row()->PROD_PRICE);
       $data['prod_spcprice'] = ($get->row()->PROD_SPCPRICE > 0)?'Rp '.number_format($get->row()->PROD_SPCPRICE):NULL;
+      $data['prod_spcdura'] = $get->row()->PROD_SPCDURA;
       $data['prod_code'] = $get->row()->PROD_CODE;
       $data['prod_categories'] = $this->db->get_where('mona_prodtype',array('prt_id'=>$get->row()->PRT_ID))->row()->PRT_NAME;
       $data['prod_pic'] = $this->get_img($get->row()->PROD_ID);

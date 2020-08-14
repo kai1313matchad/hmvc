@@ -1,6 +1,32 @@
 		<script>
 			$(document).ready(function(){
     		getmainbanners();
+        $('.slick-promo').slick({
+          infinite: true,
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          dots: false,
+          arrows: true,
+          appendArrows: $('.wrap-promo'),
+          prevArrow:'<button class="arrow-slick-promo prev-slick-promo"><i class="fa  fa-angle-left" aria-hidden="true"></i></button>',
+          nextArrow:'<button class="arrow-slick-promo next-slick-promo"><i class="fa  fa-angle-right" aria-hidden="true"></i></button>', 
+          responsive: [
+            {
+              breakpoint: 600,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+              }
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+              }
+            }
+          ]
+        });
     	});
 			function getmainbanners()
 			{

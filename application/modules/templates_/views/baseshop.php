@@ -33,7 +33,7 @@
   	{
   		foreach ($addon_css as $addon)
   		{
-  			$this->load->view($module.'/'.$addon);	
+  			$this->load->view($module.'/'.$addon);
   		}  		
   	}
   ?>

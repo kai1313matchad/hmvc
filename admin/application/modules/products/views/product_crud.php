@@ -144,6 +144,13 @@
                               </div>
                             </div>
                             <div class="form-group">
+                              <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Special Duration</label>
+                              <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input class="form-control col-md-7 col-xs-12" type="text" name="specialduration" required="required" placeholder="Special Duration">
+                                <span class="help-block"></span>
+                              </div>
+                            </div>
+                            <div class="form-group">
                               <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Video URL</label>
                               <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input class="form-control col-md-7 col-xs-12" type="text" name="videolink" required="required" value="https://www.youtube.com/embed/">

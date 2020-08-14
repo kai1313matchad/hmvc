@@ -5,58 +5,6 @@
 			var size = $('[name="size"]').val();
 			var sort = $('[name="sorting"]').val();
 			filterload_();
-
-			// if ($('[name="filter"]').val() == 1)
-			// {
-			// 	$('[name="filter"]').val(0);
-			// 	loadPagination6(0);
-			// 	$('.pagination').on('click','a',function(e){
-			// 		e.preventDefault();
-			// 		var pageno = $(this).attr('data-ci-pagination-page');
-			// 		loadPagination6(pageno);
-			// 	});
-			// }
-			// else
-			// {
-			// 	$('.pagination').on('click','a',function(e){
-			// 		e.preventDefault(); 
-			// 		var pageno = $(this).attr('data-ci-pagination-page');
-			// 		switch(sort)
-			// 		{
-			// 			case '2':
-			// 			loadPagination2(pageno);
-			// 			break;
-			// 			case '3':
-			// 			loadPagination3(pageno);
-			// 			break;
-			// 			case '4':
-			// 			loadPagination4(pageno);
-			// 			break;
-			// 			case '5':
-			// 			loadPagination5(pageno);
-			// 			break;
-			// 			default:
-			// 			loadPagination(pageno);
-			// 		}
-			// 	});
-			// 	switch(sort)
-			// 	{
-			// 		case '2':
-			// 		loadPagination2(0);
-			// 		break;
-			// 		case '3':
-			// 		loadPagination3(0);
-			// 		break;
-			// 		case '4':
-			// 		loadPagination4(0);
-			// 		break;
-			// 		case '5':
-			// 		loadPagination5(0);
-			// 		break;
-			// 		default:
-			// 		loadPagination(0);
-			// 	}
-			// }
 		})
 
 		function filterload_()
@@ -120,20 +68,6 @@
 			$('[name="filter"]').val(0);
 			filterload_();
 		}
-
-		// function onchange(e) 
-		// {
-		// 	if (e.currentTarget.value >= 0)
-		// 	{
-		// 		window.location.reload();
-		// 		// if ($('[name="filter"]').val() == 1)
-		// 		// {
-		// 		// 	window.location.reload();
-		// 		// }
-		// 	}
-		// }
-
-		// document.getElementById('sorting').addEventListener('change', onchange);
 
 		function loadPagination(pagno)
 		{
@@ -226,8 +160,9 @@
 			for(index in res)
 			{
 				var label = (Date.parse(res[index].PROD_RENTDUE)<Date.parse(Date()))?'labelava':'labelsold';
-				price = (res[index].PROD_SPCPRICE > 0)?'<span class="block2-oldprice m-text7 p-r-5">Rp '+numeral(res[index].PROD_PRICE/10).format('0,0.-')+'</span><br><span class="block2-newprice m-text8 p-r-5">Rp '+numeral(res[index].PROD_SPCPRICE/10).format('0,0.-')+'</span>':'<span class="block2-price m-text6 p-r-5">Rp '+numeral(res[index].PROD_PRICE/10).format('0,0.-')+'</span>';
-				var div = '<div class="col-sm-6 col-xs-6 col-md-6 col-lg-4 p-b-50"><!-- Block --><div class="block2"><div class="block2-img wrap-pic-w of-hidden hov-img-zoom pos-relative block2-'+label+'"><a href="<?php echo base_url();?>Product/details/'+res[index].PROD_SLUG+'"><img src="<?php echo base_url()?>admin'+res[index].PRODPIC_PATH+'" alt="IMG-PRODUCT"></a></div><div class="block2-txt p-t-20"><a href="<?php echo base_url();?>Product/details/'+res[index].PROD_SLUG+'" class="block2-name dis-block s-text3 p-b-5">'+res[index].PROD_NAME+'</a>'+price+'</div></div></div>';
+				// price = (res[index].PROD_SPCPRICE > 0)?'<span class="block2-oldprice m-text7 p-r-5">Rp '+numeral(res[index].PROD_PRICE/10).format('0,0.-')+'</span><br><span class="block2-newprice m-text8 p-r-5">Rp '+numeral(res[index].PROD_SPCPRICE/10).format('0,0.-')+'</span>':'<span class="block2-price m-text6 p-r-5">Rp '+numeral(res[index].PROD_PRICE/10).format('0,0.-')+'</span>';
+				price = (res[index].PROD_SPCPRICE > 0)?'<span class="block2-oldprice m-text7 p-r-5">Rp '+numeral(res[index].PROD_PRICE).format('0,0.-')+'/Year</span><br><span class="block2-newprice m-text8 p-r-5">Rp '+numeral(res[index].PROD_SPCPRICE).format('0,0.-')+'/'+res[index].PROD_SPCDURA+'</span>':'<span class="block2-price m-text6 p-r-5">Rp '+numeral(res[index].PROD_PRICE/10).format('0,0.-')+'</span>';
+				var div = '<div class="col-sm-6 col-xs-6 col-md-6 col-lg-4 p-b-50"><!-- Block --><div class="block2"><div class="block2-img wrap-pic-w of-hidden hov-img-zoom pos-relative block2-'+label+'"><a href="<?php echo base_url();?>product/details/'+res[index].PROD_SLUG+'"><img src="<?php echo base_url()?>admin'+res[index].PRODPIC_PATH+'" alt="IMG-PRODUCT"></a></div><div class="block2-txt p-t-20"><a href="<?php echo base_url();?>product/details/'+res[index].PROD_SLUG+'" class="block2-name dis-block s-text3 p-b-5">'+res[index].PROD_NAME+'</a>'+price+'</div></div></div>';
 				$('#product_list').append(div);
 			}
 		}

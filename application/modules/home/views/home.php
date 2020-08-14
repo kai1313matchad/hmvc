@@ -7,6 +7,15 @@
 		</div>
 	</section>
 
+	<section class="promo-products">
+		<h2>OUR PROMO</h2>
+		<div class="wrap-promo">
+			<div class="slick-promo">
+				<?= $promo; ?>
+			</div>
+		</div>
+	</section>
+
 
 	<!-- Banner -->
 	<!-- <section class="banner bgwhite p-t-40 p-b-40">
