@@ -39,6 +39,7 @@ class Home extends MX_Controller
                     <img src="'.base_url().'assets/frontend/images/misc/75indo.png" class="notify-badge" alt="">
                     <img src="'.base_url().'admin'.$pic.'" width="100%" class="img-promo" alt="'.$dt->PROD_NAME.'">
                   </a>
+                  <div class="promo-title"><h5>'.$dt->PROD_NAME.'</h5></div>
                 </div>';
     }
     return($html);

@@ -11,6 +11,11 @@
 }
 .promo-products .slick-promo .item-slick-promo .img-promo {
   border-radius: 10px;
+  margin-bottom: 10px;
+}
+.promo-products .slick-promo .item-slick-promo .promo-title {
+  min-height: 50px;
+  margin-bottom: 10px;
 }
 .arrow-slick-promo {
   display: -webkit-box;
@@ -65,4 +70,5 @@
   line-height: 2rem;;
   font-size: 1rem;
   color:white;
+  opacity: 0;
 }

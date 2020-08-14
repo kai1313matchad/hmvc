@@ -5,6 +5,7 @@
           infinite: true,
           slidesToShow: 3,
           slidesToScroll: 1,
+          autoplay: true,
           dots: false,
           arrows: true,
           appendArrows: $('.wrap-promo'),
@@ -16,13 +17,15 @@
               settings: {
                 slidesToShow: 2,
                 slidesToScroll: 1,
+                vertical: true
               }
             },
             {
               breakpoint: 480,
               settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                vertical: true
               }
             }
           ]
