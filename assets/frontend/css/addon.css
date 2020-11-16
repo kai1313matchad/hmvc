@@ -1,0 +1,92 @@
+.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	left:40px;
+	background-color:#25d366;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+  font-size:30px;
+	box-shadow: 2px 2px 3px #999;
+  z-index:100;
+}
+.my-float{
+	margin-top:16px;
+}
+.float-santa {
+	position:fixed;
+	width:20%;
+	height:20%;
+	bottom:50%;
+	left:0;
+	z-index: 101;
+}
+
+#snowflakeContainer {
+	position: absolute;
+  left: 0px;
+  top: 0px;
+  display: none;
+}
+
+.snowflake {
+	position: fixed;
+  background-color: #CCC;
+  user-select: none;
+  z-index: 1000;
+  pointer-events: none;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+}
+
+.main-section {
+	background-image: url('../images/misc/banner3.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.promo-products {
+	position: relative;
+	color: #ffffff;
+	padding-top: 36em;
+}
+.promo-products .wrap-promo {
+	padding-bottom: 3em;
+}
+.promo-products .img-border {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+.btn-wrapper {
+	display: flex;
+	justify-content: center;
+	padding-bottom: 3em;
+}
+.btn-our {
+	border: 2px solid #f6f6f6;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bolder;
+	border-radius: 90px;
+	color: #ffffff;
+	background: rgb(184,34,46);
+	background: linear-gradient(90deg, rgba(184,34,46,1) 0%, rgba(126,44,44,1) 100%);
+}
+
+@media only screen and (max-device-width: 480px) {
+	.main-section {
+		background-size: contain;
+	}
+	.promo-products {
+		padding-top: 13em;
+	}
+	.btn-our {
+		font-size: 80%;
+	}
+	.promo-products .wrap-promo {
+		padding-bottom: 1em;
+	}
+}
+

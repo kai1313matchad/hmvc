@@ -16,6 +16,7 @@
 .promo-products .slick-promo .item-slick-promo .promo-title {
   min-height: 50px;
   margin-bottom: 10px;
+  text-align: center;
 }
 .arrow-slick-promo {
   display: -webkit-box;
@@ -32,7 +33,7 @@
   position: absolute;
   background-color: black;
   opacity: 0;
-  top: 50%;
+  top: 35%;
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
@@ -57,8 +58,31 @@
   opacity: 0.5;
 }
 @media only screen and (max-device-width: 480px) {
+  .promo-products h2 {
+    margin-bottom: 30px;
+  }
   .arrow-slick-promo {
     opacity: 0.5;
+  }
+  .next-slick-promo {
+    right: 45%;
+    left: auto;
+    bottom: 50px;
+    top: auto;
+  }
+  .prev-slick-promo {
+    right: 45%;
+    left: auto;
+    bottom: auto;
+    top: 10px;
+  }
+  .arrow-slick-promo {
+    background-color: transparent;
+    color: #000;
+    font-size: 168px;
+  }
+  .wrap-promo:hover .arrow-slick-promo {
+    opacity: 0.2;
   }
 }
 .notify-badge{
@@ -70,5 +94,5 @@
   line-height: 2rem;;
   font-size: 1rem;
   color:white;
-  opacity: 0;
+  opacity: 1;
 }
