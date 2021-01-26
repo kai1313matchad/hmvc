@@ -54,7 +54,7 @@ class Home extends MX_Controller
       $pic = $this->db->select('PRODPIC_PATH')->get_where('mona_prodpict', array('PROD_ID'=>$dt->PROD_ID))->row()->PRODPIC_PATH;
       $html .= '<div class="col-md-4 item-slick-promo">
                   <a href="'.base_url().'product/details/'.$dt->PROD_SLUG.'">
-                    <img src="'.base_url().'assets/frontend/images/misc/badgesanta.png" class="notify-badge" alt="">
+                    <img src="'.base_url().'assets/frontend/images/misc/badgeimlek.png" class="notify-badge" alt="">
                     <img src="'.base_url().'admin'.$pic.'" width="100%" class="img-promo" alt="'.$dt->PROD_NAME.'">
                   </a>
                   <div class="promo-title"><h5>'.$dt->PROD_NAME.'</h5></div>
