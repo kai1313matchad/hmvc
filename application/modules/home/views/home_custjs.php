@@ -1,6 +1,6 @@
 		<script>
 			$(document).ready(function(){
-    		// getmainbanners();
+    		getmainbanners();
         $('.slick-promo').slick({
           infinite: true,
           slidesToShow: 3,
