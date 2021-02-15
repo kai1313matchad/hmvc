@@ -49,7 +49,7 @@
 }
 .promo-products {
 	position: relative;
-	color: #ffffff;
+	/* color: #ffffff; */
 	/* padding-top: 36em; */
 }
 .promo-products .wrap-promo {
@@ -80,7 +80,7 @@
 		background-size: contain;
 	}
 	.promo-products {
-		padding-top: 13em;
+		padding-top: 2em;
 	}
 	.btn-our {
 		font-size: 80%;
