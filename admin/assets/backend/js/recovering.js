@@ -1,18 +1,12 @@
 let isValid = false;
-let promo_id = $('#promo_id').val();
-let Promotion = {
+let recovering_id = $('#recovering_id').val();
+let Recovering = {
     setModule: () => {
-        return "promotions"
+        return "recovering"
     },
 
     setValidation: () => {
         if ($('.inp_title').val() == '') {
-            isValid = false;
-        } else if ($('.inp_background').val() == '') {
-            isValid = false;
-        } else if ($('.inp_startdate').val() == '') {
-            isValid = false;
-        } else if ($('.inp_enddate').val() == '') {
             isValid = false;
         } else {
             isValid = true;
@@ -29,7 +23,7 @@ let Promotion = {
             contentType: false,
             processData: false,
             dataType: "html",
-            url: `${Url.state}/${Promotion.setModule()}/read`,
+            url: `${Url.state}/${Recovering.setModule()}/read`,
             success: function(resp) {
                 $('.loading-page').addClass('d-none');
                 $('#tbcontent').html(resp)
@@ -41,19 +35,16 @@ let Promotion = {
         $('.loading-page').removeClass('d-none');
         let data = {
             title: $('.inp_title').val(),
-            related_product: $('#related_product').val(),
-            city: $('#inp_city').val(),
-            startdate: $('.inp_startdate').val(),
-            enddate: $('.inp_enddate').val(),
+            description: $('#description').val(),
         }
 
-        isValid = Promotion.setValidation();
+        isValid = Recovering.setValidation();
 
         let formData = new FormData();
         formData.append("data", JSON.stringify(data));
 
         if (isValid) {
-            console.log('Url', `${Url.state}/${Promotion.setModule()}/create`);
+            console.log('Url', `${Url.state}/${Recovering.setModule()}/create`);
             $.ajax({
                 type: "POST",
                 cache: false,
@@ -61,22 +52,22 @@ let Promotion = {
                 processData: false,
                 data: formData,
                 dataType: "JSON",
-                url: `${Url.state}/${Promotion.setModule()}/create`,
+                url: `${Url.state}/${Recovering.setModule()}/create`,
                 success: function(resp) {
-                    window.location.href = `${Url.state}/${Promotion.setModule()}/edit/${resp}`;
+                    window.location.href = `${Url.state}/${Recovering.setModule()}/edit/${resp}`;
                 }
             });
         }
     },
 
-    createBgImg: () => {
+    createImg: () => {
         var previewNode = document.querySelector("#template");
         previewNode.id = "";
         var previewTemplate = previewNode.parentNode.innerHTML;
         previewNode.parentNode.removeChild(previewNode);
         
         var myDropzone = new Dropzone("#bg_img", {
-            url: `${Url.state}/${Promotion.setModule()}/createBgImg/${promo_id}`,
+            url: `${Url.state}/${Recovering.setModule()}/createImg/${recovering_id}`,
             previewTemplate: previewTemplate,
             previewsContainer: "#previews",
             maxFiles: 1,
@@ -93,48 +84,21 @@ let Promotion = {
         });
     },
 
-    createBadgeImg: () => {
-        var previewNodeBadge = document.querySelector("#template-badge");
-        previewNodeBadge.id = "";
-        var previewTemplate = previewNodeBadge.parentNode.innerHTML;
-        previewNodeBadge.parentNode.removeChild(previewNodeBadge);
-        
-        var myDropzoneBadge = new Dropzone("#bg_img_badge", {
-            url: `${Url.state}/${Promotion.setModule()}/createBadgeImg/${promo_id}`,
-            previewTemplate: previewTemplate,
-            previewsContainer: "#previews-badge",
-            maxFiles: 1,
-            acceptedFiles: ".jpeg,.jpg,.png,.gif"
-        });
-
-        myDropzoneBadge.on("addedfile", function(file) {
-            console.log(file);
-        });
-
-        // Hide the total progress bar when nothing's uploading anymore
-        myDropzoneBadge.on("queuecomplete", function(progress) {
-            window.location.reload();
-        });
-    },
-
     update: (elm, id) => {
         $('.loading-page').removeClass('d-none');
         let data = {
             id: id,
             title: $('.inp_title').val(),
-            related_product: $('#related_product').val(),
-            city: $('#inp_city').val(),
-            startdate: $('.inp_startdate').val(),
-            enddate: $('.inp_enddate').val(),
+            description: $('#description').val(),
         }
 
-        isValid = Promotion.setValidation();
+        isValid = Recovering.setValidation();
 
         let formData = new FormData();
         formData.append("data", JSON.stringify(data));
 
         if (isValid) {
-            console.log('Url', `${Url.state}/${Promotion.setModule()}/update`);
+            console.log('Url', `${Url.state}/${Recovering.setModule()}/update`);
             $.ajax({
                 type: "POST",
                 cache: false,
@@ -142,9 +106,9 @@ let Promotion = {
                 processData: false,
                 data: formData,
                 dataType: "JSON",
-                url: `${Url.state}/${Promotion.setModule()}/update`,
+                url: `${Url.state}/${Recovering.setModule()}/update`,
                 success: function(resp) {
-                    window.location.href = `${Url.state}/${Promotion.setModule()}`;
+                    window.location.href = `${Url.state}/${Recovering.setModule()}`;
                 }
             });
         }
@@ -152,7 +116,7 @@ let Promotion = {
 };
 
 $(function() {
-    Promotion.read();
+    Recovering.read();
     $('.inp_startdate').datetimepicker({
         format: 'YYYY-MM-DD'
     });
@@ -160,11 +124,15 @@ $(function() {
         format: 'YYYY-MM-DD'
     });
     $('#related_product').select2();
-    $('#inp_city').select2();
 
-    console.log(window.location.pathname.split("/")[3]);
+    $('#description').summernote({
+        placeholder: 'Description Content Here',
+        height: 200
+    });
+    // $('#description').summernote('fontName', 'Times New Roman');
+
+    console.log("Tes", window.location.pathname.split("/")[3]);
     if (window.location.pathname.split("/")[3] == "edit") {
-        Promotion.createBgImg();
-        Promotion.createBadgeImg();
+        Recovering.createImg();
     };
 });

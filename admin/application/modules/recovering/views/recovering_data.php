@@ -1,8 +1,9 @@
-<?php foreach($read_promotion as $k => $val) {?>
+<?php foreach($read_recovering as $k => $val) {?>
 <tr>
     <td><?php echo $val->TITLE?></td>
-    <td><?php echo date('d M Y', strtotime($val->START_DATE))?></td>
-    <td><?php echo date('d M Y', strtotime($val->END_DATE))?></td>
+    <td><?php echo $val->DESCRIPTION?></td>
+    <td><?php echo date('d M Y H:i', strtotime($val->CREATED_AT))?></td>
+    <td><?php echo date('d M Y H:i', strtotime($val->UPDATED_AT))?></td>
     <td width="60" class="text-center">
         <a class="btn btn-danger" data-toggle="modal" data-target="#delete-<?php echo $k?>">Hapus</a>
         <!-- Modal -->
@@ -20,13 +21,13 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <a href="<?php echo base_url()?>/promotions/delete/<?php echo $val->ID?>" type="button" class="btn btn-primary">Ya, Hapus</a>
+                        <a href="<?php echo base_url()?>/recovering/delete/<?php echo $val->ID?>" type="button" class="btn btn-primary">Ya, Hapus</a>
                     </div>
                 </div>
             </div>
         </div>
     </td>
-    <td width="60" class="text-center"><a class="btn btn-warning" href="<?php echo base_url()?>promotions/edit/<?php echo $val->ID?>">Ubah</a></td>
+    <td width="60" class="text-center"><a class="btn btn-warning" href="<?php echo base_url()?>recovering/edit/<?php echo $val->ID?>">Ubah</a></td>
 </tr>
 <?php }?>
 <script>
