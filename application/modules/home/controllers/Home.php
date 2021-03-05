@@ -14,6 +14,16 @@ class Home extends MX_Controller
     $data['view_addoncss'] = array('home_css');
     $data['view_addonjs'] = array('home_js');
     $data['view_addoncustjs'] = array('home_custjs');
+    $data['read_city'] = [
+      ["CITY_ID" => "1", "NAME" => "Jakarta", "IMAGE" => "jakarta.jpg"],
+      ["CITY_ID" => "2", "NAME" => "Surabaya", "IMAGE" => "surabaya.jpg"],
+      ["CITY_ID" => "3", "NAME" => "Malang", "IMAGE" => "malang.jpg"],
+      ["CITY_ID" => "4", "NAME" => "Bali", "IMAGE" => "bali.jpg"],
+      ["CITY_ID" => "5", "NAME" => "Bandung", "IMAGE" => "bandung.jpg"],
+      ["CITY_ID" => "6", "NAME" => "Bogor", "IMAGE" => "bogor.jpg"],
+      ["CITY_ID" => "7", "NAME" => "Yogyakarta", "IMAGE" => "yogyakarta.jpg"],
+      ["CITY_ID" => "8", "NAME" => "Manado", "IMAGE" => "manado.jpg"],
+    ]; 
     $this->templates_->shop($data);
   }
   public function get_mainbanners()

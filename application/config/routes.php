@@ -59,4 +59,6 @@ $route['contactus'] = 'contactus';
 $route['error_404'] = 'error_404';
 $route['sale'] = 'sale';
 $route['blogpost'] = 'blogpost';
+$route['promotions'] = 'promotions';
+$route['recovering'] = 'recovering';
 $route['(:any)'] = 'z/ly/';

@@ -32,8 +32,8 @@
             <table id="dtb-promotion" class="table table-striped table-bordered table-condensed" width="100%">
               <thead>
                 <tr>
-                  <th class="text-center" width="150">Title</th>
-                  <th class="text-center">Description</th>
+                  <th class="text-center">Title</th>
+                  <th class="text-center" style="max-width: 450px;">Description</th>
                   <th class="text-center" width="125">Created At</th>
                   <th class="text-center" width="125">Updated At</th>
                   <th class="text-center"></th>

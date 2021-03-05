@@ -1,7 +1,9 @@
 <?php foreach($read_recovering as $k => $val) {?>
 <tr>
     <td><?php echo $val->TITLE?></td>
-    <td><?php echo $val->DESCRIPTION?></td>
+    <td>
+        <?php echo $val->DESCRIPTION?>
+    </td>
     <td><?php echo date('d M Y H:i', strtotime($val->CREATED_AT))?></td>
     <td><?php echo date('d M Y H:i', strtotime($val->UPDATED_AT))?></td>
     <td width="60" class="text-center">

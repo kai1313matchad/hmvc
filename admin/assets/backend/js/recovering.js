@@ -117,13 +117,6 @@ let Recovering = {
 
 $(function() {
     Recovering.read();
-    $('.inp_startdate').datetimepicker({
-        format: 'YYYY-MM-DD'
-    });
-    $('.inp_enddate').datetimepicker({
-        format: 'YYYY-MM-DD'
-    });
-    $('#related_product').select2();
 
     $('#description').summernote({
         placeholder: 'Description Content Here',

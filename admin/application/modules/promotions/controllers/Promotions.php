@@ -115,14 +115,16 @@ class Promotions extends MX_Controller
     array('ID' => $data->id));
 
     $this->db->delete('mona_promotion_details', array('PROMO_ID' => $data->id));
-
-    foreach ($data->related_product as $key => $value) {
-      $this->db->insert('mona_promotion_details',
-        array(
-          'PROD_ID'=> $value,
-          'PROMO_ID'=> $data->id,
-        )
-      );
+    // print_r($data->related_product);die;
+    if (isset($data->related_product)) {
+      foreach ($data->related_product as $key => $value) {
+        $this->db->insert('mona_promotion_details',
+          array(
+            'PROD_ID'=> $value,
+            'PROMO_ID'=> $data->id,
+          )
+        );
+      }
     }
     echo json_encode($data->id);
   }

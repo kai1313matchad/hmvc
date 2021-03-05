@@ -477,7 +477,7 @@ CREATE TABLE `mona_promotion_details` (
   KEY `FK_PROD_ID_idx` (`PROD_ID`),
   CONSTRAINT `FK_PROD_ID2` FOREIGN KEY (`PROD_ID`) REFERENCES `mona_product` (`PROD_ID`),
   CONSTRAINT `FK_PROMO_ID1` FOREIGN KEY (`PROMO_ID`) REFERENCES `mona_promotions` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -486,7 +486,7 @@ CREATE TABLE `mona_promotion_details` (
 
 LOCK TABLES `mona_promotion_details` WRITE;
 /*!40000 ALTER TABLE `mona_promotion_details` DISABLE KEYS */;
-INSERT INTO `mona_promotion_details` VALUES (29,17,21),(30,18,20),(31,18,21),(32,18,25),(33,19,20),(34,19,21),(35,19,22);
+INSERT INTO `mona_promotion_details` VALUES (46,18,20),(47,18,21),(48,18,25),(49,17,21);
 /*!40000 ALTER TABLE `mona_promotion_details` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -504,8 +504,10 @@ CREATE TABLE `mona_promotions` (
   `START_DATE` date DEFAULT NULL,
   `END_DATE` date DEFAULT NULL,
   `STATUS` varchar(10) DEFAULT 'active',
+  `BADGE` varchar(100) DEFAULT NULL,
+  `CITY` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -514,7 +516,7 @@ CREATE TABLE `mona_promotions` (
 
 LOCK TABLES `mona_promotions` WRITE;
 /*!40000 ALTER TABLE `mona_promotions` DISABLE KEYS */;
-INSERT INTO `mona_promotions` VALUES (17,'Promo Idul Ied','img_1613986532.jpg','2021-02-26','2021-03-03','active'),(18,'Promo Idul Adha','img_1613987932.jpg','2021-03-03','2021-03-06','active'),(19,'Testingan','img_1613988750.jpg','2021-02-25','2021-02-27','active');
+INSERT INTO `mona_promotions` VALUES (17,'Promo Lebaran','img_1614839211.jpg','2021-02-26','2021-03-03','active',NULL,'2'),(18,'Promo Puasa','img_1613987932.jpg','2021-03-03','2021-03-06','active','img_1614695035.png','2'),(22,'Promo Tahun Baru','img_1614840477.jpg','2021-03-03','2021-03-06','active',NULL,'2'),(23,'Promo Natal','img_1614840370.jpg','2021-03-03','2021-03-06','active',NULL,'2'),(24,'Promo Imlek','img_1614840196.jpg','2021-03-03','2021-03-06','active',NULL,'2'),(25,'Promo Kemerdekaan','img_1614839741.jpg','2021-03-03','2021-03-06','active',NULL,'2'),(26,'Promo Suka-Suka','img_1614840237.jpg','2021-03-03','2021-03-06','active',NULL,'2'),(27,'Promo Ulang Tahun','img_1614839633.jpg','2021-03-03','2021-03-06','active',NULL,'2'),(28,'Promo Covid','img_1614840499.jpg','2021-03-03','2021-03-06','active',NULL,'2');
 /*!40000 ALTER TABLE `mona_promotions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -543,6 +545,34 @@ LOCK TABLES `mona_province` WRITE;
 /*!40000 ALTER TABLE `mona_province` DISABLE KEYS */;
 INSERT INTO `mona_province` VALUES ('11','Aceh','aceh','',0),('12','Sumatera Utara','sumatera-utara','',0),('13','Sumatera Barat','sumatera-barat','',0),('14','Riau','riau','',0),('15','Jambi','jambi','',0),('16','Sumatera Selatan','sumatera-selatan','',0),('17','Bengkulu','bengkulu','',0),('18','Lampung','lampung','',0),('19','Kepulauan Bangka Belitung','kepulauan-bangka-belitung','',0),('21','Kepulauan Riau','kepulauan-riau','',0),('31','DKI Jakarta','dki-jakarta','',0),('32','Jawa Barat','jawa-barat','',0),('33','Jawa Tengah','jawa-tengah','',0),('34','DI Yogyakarta','di-yogyakarta','',0),('35','Jawa Timur','jawa-timur','',0),('36','Banten','banten','',0),('51','Bali','bali','',0),('52','Nusa Tenggara Barat','nusa-tenggara-barat','',0),('53','Nusa Tenggara Timur','nusa-tenggara-timur','',0),('61','Kalimantan Barat','kalimantan-barat','',0),('62','Kalimantan Tengah','kalimantan-tengah','',0),('63','Kalimantan Selatan','kalimantan-selatan','',0),('64','Kalimantan Timur','kalimantan-timur','',0),('65','Kalimantan Utara','kalimantan-utara','',0),('71','Sulawesi Utara','sulawesi-utara','',0),('72','Sulawesi Tengah','sulawesi-tengah','',0),('73','Sulawesi Selatan','sulawesi-selatan','',0),('74','Sulawesi Tenggara','sulawesi-tenggara','',0),('75','Gorontalo','gorontalo','',0),('76','Sulawesi Barat','sulawesi-utara','',0),('81','Maluku','maluku','',0),('82','Maluku Utara','maluku-utara','',0),('91','Papua Barat','papua-barat','',0),('92','Papua','papua','',0);
 /*!40000 ALTER TABLE `mona_province` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `mona_recovering`
+--
+
+DROP TABLE IF EXISTS `mona_recovering`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `mona_recovering` (
+  `ID` int NOT NULL AUTO_INCREMENT,
+  `TITLE` varchar(100) DEFAULT NULL,
+  `DESCRIPTION` text,
+  `IMAGE` varchar(100) DEFAULT NULL,
+  `CREATED_AT` timestamp NULL DEFAULT NULL,
+  `UPDATED_AT` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `mona_recovering`
+--
+
+LOCK TABLES `mona_recovering` WRITE;
+/*!40000 ALTER TABLE `mona_recovering` DISABLE KEYS */;
+INSERT INTO `mona_recovering` VALUES (5,'Beda Vaksin Covid-19 Pfizer dan Moderna','<p>Perkembangan yang cukup menggembirakan di tengah pandemi COVID-19, setelah hasil uji coba dari perusahaan vaksin Pfizer, kini perusahaan bioteknologi asal Amerika Serikat Moderna mengumumkan telah berhasil memproduksi vaksin untuk COVID-19. Baik Pfizer dan Moderna mendapatkan hasil uji coba yang diklaim efektifitas vaksinnya 90% hingga 95%.</p><p>Dari kedua vaksin ini, perbedaan yang nampak adalah vaksin Moderna tidak memerlukan suhu penyimpanan yang lebih rendah daripada vaksin Pfizer.</p><p>Kedua vaksin ini memiliki efek sampiing yang mirip, yaitu nyeri di tempat injeksi, kelelahan, dan nyeri otot serta sendi yang berlangsung antara 1 atau 2 hari.</p><p>Kedua vaksin ini sama-sama menggunakan metode baru yaitu Messenger RNA(mRNA). Metode ini merupakan teknologi yang memasukkan mRNA sintesis ke dalam sel-sel hidup yang akan memprogram ulang sel-sel untuk mengembangkan respons kekebalan tubuh.</p><p>Perkembangan terkini, kedua vaksin tersebut sedang menunggu persetujuan FDA, Badan Pengawasan Obat dan Makanan Amerika, untuk izin penyebarluasannya.</p><p>Referensi :</p><p>https://www.pegipegi.com/travel/ini-beda-vaksin-moderna-dan-pfizer-dalam-melawan-covid-19/</p><p>https://www.halodoc.com/artikel/dinilai-paling-efektif-ini-bedanya-vaksin-corona-pfizer-dan-moderna</p><p><br></p>','img_1614842401.jpg','2021-03-04 07:19:47','2021-03-05 03:33:06'),(6,'Interpol Bongkar Sindikat Pemasok Vaksin Palsu di China','<div>Interpol berhasil membongkar sindikat distributor vaksin virus corona (Covid-19) palsu global di China dan Afrika Selatan yang beroperasi di Asia dan Afrika.</div><div>Tim interpol juga turut menyita ratusan vaksin ilegal dalam penangkapan sindikat tersebut.</div><div><br></div><div>Melalui pernyataan pada Rabu (3/3), Interpol berhasil membongkar gudang tempat sekitar 400 ampul atau setara 2.400 dosis vaksin corona palsu di sebuah gedung di Germiston, Gauteng, Afrika Selatan.</div><div><br></div><div>\"Petugas juga menemukan sejumlah besar masker 3M palsu dan menangkap tiga warga negara China dan seorang warga Zambia,\" papar Interpol seperti dikutip CNN.</div><div><br></div><div>Sementara itu di China, Interpol juga berhasil mengidentifikasi jaringan yang menjual vaksin Covid-19 palsu. Aparat berhasil merazia gudang produksi, menyita lebih dari 3.000 dosis vaksin palsu, dan menahan sekitar 80 orang tersangka.</div><div><br></div><div>\"Pengungkapan sindikat ini mungkin hanya lah puncak gunung es saja, kemungkinan masih ada (sindikat) yang lebih besar lagi terkait pemalsuan vaksin Covid-19,\" kata Sekretaris Jenderal Interpol, Jurgen Stock.</div><div><br></div><div>Interpol mengatakan pihaknya juga tengah menangani \"laporan tambahan tentang distribusi vaksin palsu dan upaya penipuan yang menargetkan\" badan kesehatan seperti panti jompo.</div><div><br></div><div>Badan keamanan tersebut juga telah memperingatkan publik internasional bahwa tidak ada vaksin yang telah mendapat lisensi dan saat ini tersedia untuk dijual secara daring.</div><div><br></div><div>\"Vaksin apa pun yang diiklankan di situs web gelap bukan merupakan yang sah dan tidak pernah diuji tingkat keamanannya,\" kata Interpol.</div><div><br></div><div>Sementara itu, seorang juru bicara Kementerian Keamanan Publik China mengatakan bahwa \"pemerintah Negeri Tirai Bambu sangat mementingkan keamanan vaksin\".</div><div><br></div><div>Beijing juga menekankan bahwa pihaknya akan terus \"memperkuat kerja sama konstruktif\" dengan Interpol demi menindak kejahatan vaksin ilegal.</div><div><br></div><div>Penyebaran vaksin Covid-19 palsu dan alat medis utama lain kian marak terjadi ketika hampir seluruh negara di dunia tengah berlomba-lomba memenuhi pasokan vaksin untuk kebutuhan dalam negerinya.</div><div><br></div><div>Belakangan, penyebaran vaksin palsu juga beredar di Filipina, di mana sejumlah pejabat Presiden Rodrigo Duterte hingga ajudan pribadinya dilaporkan telah mendapat suntikan vaksin corona. Padahal, negara di Asia Tenggara itu belum memulai program vaksinasi dan menerima pasokan vaksin.</div>','img_1614905650.jpg','2021-03-05 00:53:54','2021-03-05 03:31:50');
+/*!40000 ALTER TABLE `mona_recovering` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -660,7 +690,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'127.0.0.1','administrator','$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36','','admin@admin.com','',NULL,NULL,NULL,1268889823,1613966778,1,'Admin','istrator','ADMIN','0'),(2,'127.0.0.1','tes1','$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36',NULL,'tes@mail.com',NULL,NULL,NULL,NULL,1532591726,1532940104,1,'tes','tes','tes','123415'),(3,'127.0.0.1','tes2@mail.com','$2y$08$N/k5kV1vMgglz/olhGc0OuOYMdqHfyXFiN2LFPwnyRM1Tt5WwsqKu',NULL,'tes2@mail.com',NULL,NULL,NULL,NULL,1532591825,NULL,1,'tes2','tes2','tes2','987654');
+INSERT INTO `users` VALUES (1,'127.0.0.1','administrator','$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36','','admin@admin.com','',NULL,NULL,NULL,1268889823,1614905526,1,'Admin','istrator','ADMIN','0'),(2,'127.0.0.1','tes1','$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36',NULL,'tes@mail.com',NULL,NULL,NULL,NULL,1532591726,1532940104,1,'tes','tes','tes','123415'),(3,'127.0.0.1','tes2@mail.com','$2y$08$N/k5kV1vMgglz/olhGc0OuOYMdqHfyXFiN2LFPwnyRM1Tt5WwsqKu',NULL,'tes2@mail.com',NULL,NULL,NULL,NULL,1532591825,NULL,1,'tes2','tes2','tes2','987654');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -703,4 +733,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-02-26  9:44:36
+-- Dump completed on 2021-03-05 14:20:50
