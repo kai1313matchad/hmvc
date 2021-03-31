@@ -15,14 +15,14 @@ class Home extends MX_Controller
     $data['view_addonjs'] = array('home_js');
     $data['view_addoncustjs'] = array('home_custjs');
     $data['read_city'] = [
-      ["CITY_ID" => "31", "NAME" => "Jakarta", "IMAGE" => "jakarta.jpg"],
-      ["CITY_ID" => "3578", "NAME" => "Surabaya", "IMAGE" => "surabaya.jpg"],
-      ["CITY_ID" => "3573", "NAME" => "Malang", "IMAGE" => "malang.jpg"],
-      ["CITY_ID" => "5171", "NAME" => "Denpasar", "IMAGE" => "bali.jpg"],
-      ["CITY_ID" => "3273", "NAME" => "Bandung", "IMAGE" => "bandung.jpg"],
-      ["CITY_ID" => "3271", "NAME" => "Bogor", "IMAGE" => "bogor.jpg"],
-      ["CITY_ID" => "3471", "NAME" => "Yogyakarta", "IMAGE" => "yogyakarta.jpg"],
-      ["CITY_ID" => "7171", "NAME" => "Manado", "IMAGE" => "manado.jpg"],
+      ["CITY_ID" => "31", "NAME" => "Jakarta", "IMAGE" => "jakarta.jpg", "VIDEO" => ""],
+      ["CITY_ID" => "3578", "NAME" => "Surabaya", "IMAGE" => "surabaya.jpg", "VIDEO" => "https://www.youtube.com/embed/jWcaDWndoBI"],
+      ["CITY_ID" => "3573", "NAME" => "Malang", "IMAGE" => "malang.jpg", "VIDEO" => "https://www.youtube.com/embed/fTgDcHBjPp0"],
+      ["CITY_ID" => "5171", "NAME" => "Denpasar", "IMAGE" => "bali.jpg", "VIDEO" => ""],
+      ["CITY_ID" => "3273", "NAME" => "Bandung", "IMAGE" => "bandung.jpg", "VIDEO" => ""],
+      ["CITY_ID" => "3271", "NAME" => "Bogor", "IMAGE" => "bogor.jpg", "VIDEO" => ""],
+      ["CITY_ID" => "3471", "NAME" => "Yogyakarta", "IMAGE" => "yogyakarta.jpg", "VIDEO" => ""],
+      ["CITY_ID" => "7171", "NAME" => "Manado", "IMAGE" => "manado.jpg", "VIDEO" => ""],
     ]; 
     $this->templates_->shop($data);
   }

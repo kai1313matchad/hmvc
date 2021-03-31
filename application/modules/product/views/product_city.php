@@ -1,6 +1,6 @@
 <!-- Title Page -->
 <section class="bg-title-page flex-col-c-m">
-	<iframe src="https://www.youtube.com/embed/jWcaDWndoBI"></iframe>
+	<iframe src="<?php echo $header_video ?>"></iframe>
 </section>
 
 <!-- Content page -->
@@ -50,16 +50,14 @@
 							<div class="col-sm-6 col-xs-6 col-md-6 col-lg-4 p-b-50">
 								<div class="block2">
 									<div class="block2-img wrap-pic-w hov-img-zoom pos-relative block2-<?php if($val['PROD_RENTDUE'] < date('Y-m-d')) {?>labelava<?php } else {?>labelsold<?php }?>">
-										<a href="<?php echo base_url();?>product/details/<?php echo $val['PROD_SLUG']?>">
-											<?php if($val['PROD_SPCPRICE'] > 0) {?>
-												<img src="<?= base_url()?>assets/frontend/images/misc/badgeimlek.png" class="notify-badge" alt="">
-											<?php }?>
-											<?php if($val['PROD_VIDLINK'] == '' || $val['PROD_VIDLINK'] == null) {?>
-												<img src="<?php echo base_url()?>admin/<?php echo $val['PRODPIC_PATH']?>" alt="IMG-PRODUCT">
-											<?php } else {?>
-												<iframe src="<?php echo $val['PROD_VIDLINK']?>" class="video-thumbnail"></iframe>
-											<?php }?>
-										</a>
+										<?php if($val['PROD_SPCPRICE'] > 0) {?>
+											<img src="<?= base_url()?>assets/frontend/images/misc/badgeimlek.png" class="notify-badge" alt="">
+										<?php }?>
+										<?php if($val['PROD_VIDLINK'] == '' || $val['PROD_VIDLINK'] == null) {?>
+											<img src="<?php echo base_url()?>admin/<?php echo $val['PRODPIC_PATH']?>" alt="IMG-PRODUCT">
+										<?php } else {?>
+											<iframe src="<?php echo $val['PROD_VIDLINK']?>" class="video-thumbnail"></iframe>
+										<?php }?>
 										<div class="block2-txt p-t-20">
 											<a href="<?php echo base_url();?>product/details/<?php echo $val['PROD_SLUG']?>" class="block2-name dis-block s-text3 p-b-5"><?php echo $val['PROD_NAME'] ?></a>
 											<?php if ($val['PROD_SPCPRICE'] > 0) {?>
@@ -150,7 +148,7 @@
 
 	.bg-title-page > iframe {
 		width: 100%;
-		height: 239px;
+		height: 500px;
 	}
 
 	.video-thumbnail {

@@ -160,14 +160,14 @@ class Product extends MX_Controller
     $limit = $this->input->get('limit');
     $page = $this->input->get('page');
     $data['read_city'] = [
-      ["CITY_ID" => "31", "NAME" => "Jakarta", "IMAGE" => "jakarta.jpg"],
-      ["CITY_ID" => "3578", "NAME" => "Surabaya", "IMAGE" => "surabaya.jpg"],
-      ["CITY_ID" => "3573", "NAME" => "Malang", "IMAGE" => "malang.jpg"],
-      ["CITY_ID" => "5171", "NAME" => "Denpasar", "IMAGE" => "bali.jpg"],
-      ["CITY_ID" => "3273", "NAME" => "Bandung", "IMAGE" => "bandung.jpg"],
-      ["CITY_ID" => "3271", "NAME" => "Bogor", "IMAGE" => "bogor.jpg"],
-      ["CITY_ID" => "3471", "NAME" => "Yogyakarta", "IMAGE" => "yogyakarta.jpg"],
-      ["CITY_ID" => "7171", "NAME" => "Manado", "IMAGE" => "manado.jpg"],
+      ["CITY_ID" => "31", "NAME" => "Jakarta", "IMAGE" => "jakarta.jpg", "VIDEO" => ""],
+      ["CITY_ID" => "3578", "NAME" => "Surabaya", "IMAGE" => "surabaya.jpg", "VIDEO" => "https://www.youtube.com/embed/jWcaDWndoBI"],
+      ["CITY_ID" => "3573", "NAME" => "Malang", "IMAGE" => "malang.jpg", "VIDEO" => "https://www.youtube.com/embed/fTgDcHBjPp0"],
+      ["CITY_ID" => "5171", "NAME" => "Denpasar", "IMAGE" => "bali.jpg", "VIDEO" => ""],
+      ["CITY_ID" => "3273", "NAME" => "Bandung", "IMAGE" => "bandung.jpg", "VIDEO" => ""],
+      ["CITY_ID" => "3271", "NAME" => "Bogor", "IMAGE" => "bogor.jpg", "VIDEO" => ""],
+      ["CITY_ID" => "3471", "NAME" => "Yogyakarta", "IMAGE" => "yogyakarta.jpg", "VIDEO" => ""],
+      ["CITY_ID" => "7171", "NAME" => "Manado", "IMAGE" => "manado.jpg", "VIDEO" => ""],
     ]; 
     
     $filter['search'] = $this->input->get('search');
@@ -193,9 +193,22 @@ class Product extends MX_Controller
     $data['ctg'] = $this->get_categories();
     $data['lok'] = $this->get_location();
     $data['size'] = $this->get_size();
+    $data['header_video'] = $this->getVideo($data['read_city'], $_GET['city']);
     $data['read_product'] = $this->modelProduct->readData($limit, $page_first, $filter); 
 
-    // echo"<pre>";print_r($data['read_product']);die;
+    // echo"<pre>";print_r($data['header_video']);die;
     $this->templates_->shop($data);
+  }
+
+  public function getVideo($array, $id)
+  {
+    $data = '';
+    foreach ($array as $key => $value) {
+      if ($value['CITY_ID'] == $id) {
+        $data = $value['VIDEO'];
+      }
+    }
+
+    return $data;
   }
 }
