@@ -1,11 +1,6 @@
 <!-- Title Page -->
-<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url(<?php echo base_url()?>admin/assets/img/shopcategories/btab.gif);">
-	<!-- <h2 class="l-text2 t-center">
-		Caption
-	</h2>
-	<p class="m-text13 t-center">
-		Sub Caption
-	</p> -->
+<section class="bg-title-page flex-col-c-m">
+	<iframe src="https://www.youtube.com/embed/jWcaDWndoBI"></iframe>
 </section>
 
 <!-- Content page -->
@@ -59,7 +54,11 @@
 											<?php if($val['PROD_SPCPRICE'] > 0) {?>
 												<img src="<?= base_url()?>assets/frontend/images/misc/badgeimlek.png" class="notify-badge" alt="">
 											<?php }?>
-											<img src="<?php echo base_url()?>admin/<?php echo $val['PRODPIC_PATH']?>" alt="IMG-PRODUCT">
+											<?php if($val['PROD_VIDLINK'] == '' || $val['PROD_VIDLINK'] == null) {?>
+												<img src="<?php echo base_url()?>admin/<?php echo $val['PRODPIC_PATH']?>" alt="IMG-PRODUCT">
+											<?php } else {?>
+												<iframe src="<?php echo $val['PROD_VIDLINK']?>" class="video-thumbnail"></iframe>
+											<?php }?>
 										</a>
 										<div class="block2-txt p-t-20">
 											<a href="<?php echo base_url();?>product/details/<?php echo $val['PROD_SLUG']?>" class="block2-name dis-block s-text3 p-b-5"><?php echo $val['PROD_NAME'] ?></a>
@@ -143,6 +142,20 @@
 		color: #fff;
 		background-color: #222222;
 		border-color: #222222;
+	}
+
+	.bg-title-page {
+		padding: 0 !important
+	}
+
+	.bg-title-page > iframe {
+		width: 100%;
+		height: 239px;
+	}
+
+	.video-thumbnail {
+		width: 100%;
+		height: 208px;
 	}
 </style>
 <!-- Container Selection -->
