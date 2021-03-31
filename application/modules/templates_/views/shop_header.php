@@ -67,7 +67,7 @@
 							</li>
 
 							<li>
-								<a href="<?php echo base_url()?>promotions/read?city=&page=1&limit=12">Promo</a>
+								<a href="<?php echo base_url()?>promotions/read?city=&page=1&limit=12&sortName=">Promo</a>
 							</li>
 
 							<li>

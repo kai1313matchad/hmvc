@@ -15,14 +15,14 @@ class Promotions extends MX_Controller
     $data['view_addoncss'] = array('promotion_css');
     $data['view_addonjs'] = array('promotion_js');
     $data['read_city'] = [
-      ["CITY_ID" => "1", "NAME" => "Jakarta", "IMAGE" => "jakarta.jpg"],
-      ["CITY_ID" => "2", "NAME" => "Surabaya", "IMAGE" => "surabaya.jpg"],
-      ["CITY_ID" => "3", "NAME" => "Malang", "IMAGE" => "malang.jpg"],
-      ["CITY_ID" => "4", "NAME" => "Bali", "IMAGE" => "bali.jpg"],
-      ["CITY_ID" => "5", "NAME" => "Bandung", "IMAGE" => "bandung.jpg"],
-      ["CITY_ID" => "6", "NAME" => "Bogor", "IMAGE" => "bogor.jpg"],
-      ["CITY_ID" => "7", "NAME" => "Yogyakarta", "IMAGE" => "yogyakarta.jpg"],
-      ["CITY_ID" => "8", "NAME" => "Manado", "IMAGE" => "manado.jpg"],
+      ["CITY_ID" => "31", "NAME" => "Jakarta", "IMAGE" => "jakarta.jpg"],
+      ["CITY_ID" => "3578", "NAME" => "Surabaya", "IMAGE" => "surabaya.jpg"],
+      ["CITY_ID" => "3573", "NAME" => "Malang", "IMAGE" => "malang.jpg"],
+      ["CITY_ID" => "5171", "NAME" => "Denpasar", "IMAGE" => "bali.jpg"],
+      ["CITY_ID" => "3273", "NAME" => "Bandung", "IMAGE" => "bandung.jpg"],
+      ["CITY_ID" => "3271", "NAME" => "Bogor", "IMAGE" => "bogor.jpg"],
+      ["CITY_ID" => "3471", "NAME" => "Yogyakarta", "IMAGE" => "yogyakarta.jpg"],
+      ["CITY_ID" => "7171", "NAME" => "Manado", "IMAGE" => "manado.jpg"],
     ]; 
   	$this->templates_->shop($data);
   }
@@ -36,14 +36,14 @@ class Promotions extends MX_Controller
     $limit = $this->input->get('limit');
     $page = $this->input->get('page');
     $data['read_city'] = [
-      ["CITY_ID" => "1", "NAME" => "Jakarta", "IMAGE" => "jakarta.jpg"],
-      ["CITY_ID" => "2", "NAME" => "Surabaya", "IMAGE" => "surabaya.jpg"],
-      ["CITY_ID" => "3", "NAME" => "Malang", "IMAGE" => "malang.jpg"],
-      ["CITY_ID" => "4", "NAME" => "Bali", "IMAGE" => "bali.jpg"],
-      ["CITY_ID" => "5", "NAME" => "Bandung", "IMAGE" => "bandung.jpg"],
-      ["CITY_ID" => "6", "NAME" => "Bogor", "IMAGE" => "bogor.jpg"],
-      ["CITY_ID" => "7", "NAME" => "Yogyakarta", "IMAGE" => "yogyakarta.jpg"],
-      ["CITY_ID" => "8", "NAME" => "Manado", "IMAGE" => "manado.jpg"],
+      ["CITY_ID" => "31", "NAME" => "Jakarta", "IMAGE" => "jakarta.jpg"],
+      ["CITY_ID" => "3578", "NAME" => "Surabaya", "IMAGE" => "surabaya.jpg"],
+      ["CITY_ID" => "3573", "NAME" => "Malang", "IMAGE" => "malang.jpg"],
+      ["CITY_ID" => "5171", "NAME" => "Denpasar", "IMAGE" => "bali.jpg"],
+      ["CITY_ID" => "3273", "NAME" => "Bandung", "IMAGE" => "bandung.jpg"],
+      ["CITY_ID" => "3271", "NAME" => "Bogor", "IMAGE" => "bogor.jpg"],
+      ["CITY_ID" => "3471", "NAME" => "Yogyakarta", "IMAGE" => "yogyakarta.jpg"],
+      ["CITY_ID" => "7171", "NAME" => "Manado", "IMAGE" => "manado.jpg"],
     ]; 
     $total_data = $this->modelPromotions->countData();
     // echo $total_data;die;

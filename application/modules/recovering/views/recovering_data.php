@@ -43,7 +43,7 @@
                     <div class="col-md-12">
                         <hr>
                         <nav aria-label="Page navigation example">
-                            <ul class="pagination pagination justify-content-end">
+                            <ul class="pagination pagination justify-content-start">
                                 <?php if($page_active > 1) {?>
                                     <li class="page-item">
                                         <a class="page-link" href="read?city=<?php echo $city?>&page=<?php echo $page_active - 1?>&limit=<?php echo $page_limit?>&sortName=<?php $_GET['sortName']?>" tabindex="-1" aria-disabled="true">&laquo;</a>

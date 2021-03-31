@@ -37,16 +37,32 @@ class Promotions extends MX_Controller
     $data['view_addonjs'] = array('promotioncrud_js');
     $data['read_product'] = $this->db->get('mona_product')->result(); 
     $data['read_city'] = [
-      ["CITY_ID" => "1", "NAME" => "Jakarta"],
-      ["CITY_ID" => "2", "NAME" => "Surabaya"],
-      ["CITY_ID" => "3", "NAME" => "Malang"],
-      ["CITY_ID" => "4", "NAME" => "Bali"],
-      ["CITY_ID" => "5", "NAME" => "Bandung"],
-      ["CITY_ID" => "6", "NAME" => "Bogor"],
-      ["CITY_ID" => "7", "NAME" => "Bogor"],
-      ["CITY_ID" => "8", "NAME" => "Makassar"],
-      ["CITY_ID" => "9", "NAME" => "Manado"],
-    ]; 
+      ["CITY_ID" => "31", "NAME" => "Jakarta", "IMAGE" => "jakarta.jpg"],
+      ["CITY_ID" => "3578", "NAME" => "Surabaya", "IMAGE" => "surabaya.jpg"],
+      ["CITY_ID" => "3573", "NAME" => "Malang", "IMAGE" => "malang.jpg"],
+      ["CITY_ID" => "5171", "NAME" => "Denpasar", "IMAGE" => "bali.jpg"],
+      ["CITY_ID" => "3273", "NAME" => "Bandung", "IMAGE" => "bandung.jpg"],
+      ["CITY_ID" => "3271", "NAME" => "Bogor", "IMAGE" => "bogor.jpg"],
+      ["CITY_ID" => "3471", "NAME" => "Yogyakarta", "IMAGE" => "yogyakarta.jpg"],
+      ["CITY_ID" => "7171", "NAME" => "Manado", "IMAGE" => "manado.jpg"],
+    ];
+    
+    $promotion = $this->db->get('mona_promotions')->row_array(); 
+    
+    $period = new DatePeriod(
+      new DateTime($promotion['START_DATE']),
+      new DateInterval('P1D'),
+      new DateTime($promotion['END_DATE'])
+    );
+
+    $disable_date = [];
+
+    foreach ($period as $key => $val) {
+      array_push($disable_date, $val->format('Y-m-d'));
+    }
+
+    $data['disable_date'] = $disable_date;
+
     $this->templates_->admin($data);
   }
 

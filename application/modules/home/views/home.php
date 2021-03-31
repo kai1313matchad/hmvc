@@ -24,7 +24,7 @@
 					<div class="row">
 					<?php foreach ($read_city as $key => $value) {?>
 						<div class="col-md-3">
-							<a href="<?php echo base_url()?>promotions/read?city=&page=1&limit=12&sortName=">
+							<a href="<?php echo base_url()?>product/read?search=&category=&size=&city=<?php echo $value['CITY_ID'] ?>&page=1&limit=12&sort=">
 								<div class="box-img">
 									<img src="<?php echo base_url()?>assets/frontend/images/city/<?php echo $value['IMAGE'] ?>" alt="" class="img-cover">
 									<div class="title-card"><?php echo $value['NAME']; ?></div>

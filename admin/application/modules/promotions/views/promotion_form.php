@@ -4,6 +4,9 @@
 		<div class="page-title">
 			<div class="title_left">
 				<h3>Manage Promotion</h3>
+				<?php foreach ($disable_date as $key => $value) {?>
+					<input type="hidden" class="disable-date" value="<?php echo $value?>"></input>
+				<?php }?>
 			</div>
 		</div>
 

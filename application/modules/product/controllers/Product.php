@@ -150,4 +150,52 @@ class Product extends MX_Controller
     }
     return $rs;
   }
+
+  // NEW ADDED BY RADIX
+  public function read()
+  {
+    $this->load->model('Product_model', 'modelProduct');
+    $this->load->module('templates_');
+    
+    $limit = $this->input->get('limit');
+    $page = $this->input->get('page');
+    $data['read_city'] = [
+      ["CITY_ID" => "31", "NAME" => "Jakarta", "IMAGE" => "jakarta.jpg"],
+      ["CITY_ID" => "3578", "NAME" => "Surabaya", "IMAGE" => "surabaya.jpg"],
+      ["CITY_ID" => "3573", "NAME" => "Malang", "IMAGE" => "malang.jpg"],
+      ["CITY_ID" => "5171", "NAME" => "Denpasar", "IMAGE" => "bali.jpg"],
+      ["CITY_ID" => "3273", "NAME" => "Bandung", "IMAGE" => "bandung.jpg"],
+      ["CITY_ID" => "3271", "NAME" => "Bogor", "IMAGE" => "bogor.jpg"],
+      ["CITY_ID" => "3471", "NAME" => "Yogyakarta", "IMAGE" => "yogyakarta.jpg"],
+      ["CITY_ID" => "7171", "NAME" => "Manado", "IMAGE" => "manado.jpg"],
+    ]; 
+    
+    $filter['search'] = $this->input->get('search');
+    $filter['category'] = $this->input->get('category');
+    $filter['size'] = $this->input->get('size');
+    $filter['city'] = $this->input->get('city');
+    $filter['sort'] = $this->input->get('sort');
+
+    $total_data = $this->modelProduct->countData($filter);
+    // echo $filter['sortName'];die;
+  	$data['view_module'] = 'product';
+  	$data['view_content'] = 'product_city';
+    $data['view_addoncss'] = array('product_css');
+    $data['view_addonjs'] = array('product_js');
+
+    $page_count = ceil($total_data / $limit);
+    $page_active = (isset($page)) ? $page : 1;
+    $page_first = ($limit * $page_active) - $limit;
+
+    $data['page_count'] = $page_count;
+    $data['page_active'] = $page_active;
+    $data['page_limit'] = $limit;
+    $data['ctg'] = $this->get_categories();
+    $data['lok'] = $this->get_location();
+    $data['size'] = $this->get_size();
+    $data['read_product'] = $this->modelProduct->readData($limit, $page_first, $filter); 
+
+    // echo"<pre>";print_r($data['read_product']);die;
+    $this->templates_->shop($data);
+  }
 }

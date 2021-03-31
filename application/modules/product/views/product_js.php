@@ -74,3 +74,4 @@
 	</script>
 	<!--===============================================================================================-->
 	<script type="text/javascript" src="<?php echo base_url()?>assets/frontend/vendor/numeral/min/numeral.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url()?>assets/frontend/js/product.js"></script>

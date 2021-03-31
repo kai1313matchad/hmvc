@@ -153,8 +153,19 @@ let Promotion = {
 
 $(function() {
     Promotion.read();
+    let disableDate = [];
+    // console.log($('.disable-date').attr('date'));
+    let array_date = $('.disable-date');
+    array_date.each(function() {
+        console.log($(this).val());
+        disableDate.push($(this).val());
+    });
+
+    console.log(disableDate);
+
     $('.inp_startdate').datetimepicker({
-        format: 'YYYY-MM-DD'
+        format: 'YYYY-MM-DD',
+        disabledDates: disableDate
     });
     $('.inp_enddate').datetimepicker({
         format: 'YYYY-MM-DD'
