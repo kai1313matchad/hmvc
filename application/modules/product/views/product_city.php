@@ -25,7 +25,7 @@
 					</div>
 					<div class="col-sm-6 col-xs-6 col-md-2 col-lg-2 rs2-select2 bo4 mr-3">
 						<select class="selection-3" name="categories" onchange="Product.setFilterCategory(this, '<?php echo $_GET['search']?>', '<?php echo $_GET['size']?>', '<?php echo $_GET['city']?>', '<?php echo $_GET['sort']?>')">
-							<option value="">All</option>
+							<option value="">All Categories</option>
 							<?php foreach($ctg as $val) {?>
 								<option value="<?php echo $val['PRT_ID']?>" <?php if($_GET['category'] == $val['PRT_ID']) {?>selected<?php }?>><?php echo $val['PRT_NAME']?></option>
 							<?php }?>
@@ -33,7 +33,7 @@
 					</div>
 					<div class="col-sm-6 col-xs-6 col-md-2 col-lg-2 rs2-select2 bo4 mr-3">
 						<select class="selection-5" name="size" onchange="Product.setFilterSize(this, '<?php echo $_GET['search']?>', '<?php echo $_GET['city']?>', '<?php echo $_GET['category']?>', '<?php echo $_GET['sort']?>')">
-							<option value="">All</option>
+							<option value="">All Size</option>
 							<?php foreach($size as $val) {?>
 								<option value="<?php echo $val['PRSZ_ID']?>" <?php if($_GET['size'] == $val['PRSZ_ID']) {?>selected<?php }?>><?php echo $val['PRSZ_NAME']?></option>
 							<?php }?>
