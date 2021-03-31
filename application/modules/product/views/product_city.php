@@ -35,7 +35,7 @@
 						</li>
 					</ul>
 
-					<h4 class="m-text14 p-b-2">
+					<!-- <h4 class="m-text14 p-b-2">
 						Location
 					</h4>
 					<ul class="p-b-5">
@@ -49,7 +49,7 @@
 								</select>
 							</div>
 						</li>
-					</ul>
+					</ul> -->
 					<h4 class="m-text14 p-b-2">
 						Size
 					</h4>
