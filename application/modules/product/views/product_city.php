@@ -12,108 +12,49 @@
 <section class="bgwhite p-t-55 p-b-65">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-12 col-xs-12 col-md-4 col-lg-3 p-b-50">
-				<div class="leftbar p-r-20 p-r-0-sm">
-					<input type="hidden" name="filter" value="0"></input> 
-					<input type="hidden" name="ctg" value=""></input> 
-					<input type="hidden" name="loc" value=""></input> 
-					<input type="hidden" name="siz" value=""></input> 
-
-					<h4 class="m-text14 p-b-2">
-						Categories
-					</h4>
-					<ul class="p-b-5">
-						<li class="p-t-4">
-							<div class="rs2-select2 bo4 of-hidden">
-								<select class="selection-3" name="categories" onchange="Product.setFilterCategory(this, '<?php echo $_GET['search']?>', '<?php echo $_GET['size']?>', '<?php echo $_GET['city']?>', '<?php echo $_GET['sort']?>')">
-									<option value="">All</option>
-									<?php foreach($ctg as $val) {?>
-										<option value="<?php echo $val['PRT_ID']?>" <?php if($_GET['category'] == $val['PRT_ID']) {?>selected<?php }?>><?php echo $val['PRT_NAME']?></option>
-									<?php }?>
-								</select>
-							</div>
-						</li>
-					</ul>
-
-					<!-- <h4 class="m-text14 p-b-2">
-						Location
-					</h4>
-					<ul class="p-b-5">
-						<li class="p-t-4">
-							<div class="rs2-select2 bo4 of-hidden">
-								<select class="selection-4" name="location" onchange="Product.setFilterCity(this, '<?php echo $_GET['search']?>', '<?php echo $_GET['size']?>', '<?php echo $_GET['category']?>', '<?php echo $_GET['sort']?>')">
-									<option value="">All</option>
-									<?php foreach($read_city as $val) {?>
-										<option value="<?php echo $val['CITY_ID']?>" <?php if($_GET['city'] == $val['CITY_ID']) {?>selected<?php }?>><?php echo $val['NAME']?></option>
-									<?php }?>
-								</select>
-							</div>
-						</li>
-					</ul> -->
-					<h4 class="m-text14 p-b-2">
-						Size
-					</h4>
-					<ul class="p-b-5">
-						<li class="p-t-4">
-							<div class="rs2-select2 bo4 of-hidden">
-								<select class="selection-5" name="size" onchange="Product.setFilterSize(this, '<?php echo $_GET['search']?>', '<?php echo $_GET['city']?>', '<?php echo $_GET['category']?>', '<?php echo $_GET['sort']?>')">
-									<option value="">All</option>
-									<?php foreach($size as $val) {?>
-										<option value="<?php echo $val['PRSZ_ID']?>" <?php if($_GET['size'] == $val['PRSZ_ID']) {?>selected<?php }?>><?php echo $val['PRSZ_NAME']?></option>
-									<?php }?>
-								</select>
-							</div>
-						</li>
-					</ul>
-
-					<div class="search-product pos-relative bo4 of-hidden">
+			<div class="col-sm-12 col-xs-12 col-md-12 col-lg-12 p-b-50">
+				<div class="row mb-3">
+					<div class="col-sm-6 col-xs-6 col-md-3 col-lg-3 rs2-select2 bo4 mr-3 ml-3">
+						<select class="selection-2" name="sorting" id="sorting" onchange="Product.setSort(this, '<?php echo $_GET['search']?>', '<?php echo $_GET['category']?>', '<?php echo $_GET['size']?>', '<?php echo $_GET['city']?>')">
+							<option value="">Default Sorting</option>
+							<option value="sortPriceASC" <?php if($_GET['sort'] == 'sortPriceASC') {?>selected<?php }?>>Price: low to high</option>
+							<option value="sortPriceDESC" <?php if($_GET['sort'] == 'sortPriceDESC') {?>selected<?php }?>>Price: high to low</option>
+							<option value="sortNameASC" <?php if($_GET['sort'] == 'sortNameASC') {?>selected<?php }?>>Product Name: A to Z</option>
+							<option value="sortNameDESC" <?php if($_GET['sort'] == 'sortNameDESC') {?>selected<?php }?>>Product Name: Z to A</option>
+						</select>
+					</div>
+					<div class="col-sm-6 col-xs-6 col-md-2 col-lg-2 rs2-select2 bo4 mr-3">
+						<select class="selection-3" name="categories" onchange="Product.setFilterCategory(this, '<?php echo $_GET['search']?>', '<?php echo $_GET['size']?>', '<?php echo $_GET['city']?>', '<?php echo $_GET['sort']?>')">
+							<option value="">All</option>
+							<?php foreach($ctg as $val) {?>
+								<option value="<?php echo $val['PRT_ID']?>" <?php if($_GET['category'] == $val['PRT_ID']) {?>selected<?php }?>><?php echo $val['PRT_NAME']?></option>
+							<?php }?>
+						</select>
+					</div>
+					<div class="col-sm-6 col-xs-6 col-md-2 col-lg-2 rs2-select2 bo4 mr-3">
+						<select class="selection-5" name="size" onchange="Product.setFilterSize(this, '<?php echo $_GET['search']?>', '<?php echo $_GET['city']?>', '<?php echo $_GET['category']?>', '<?php echo $_GET['sort']?>')">
+							<option value="">All</option>
+							<?php foreach($size as $val) {?>
+								<option value="<?php echo $val['PRSZ_ID']?>" <?php if($_GET['size'] == $val['PRSZ_ID']) {?>selected<?php }?>><?php echo $val['PRSZ_NAME']?></option>
+							<?php }?>
+						</select>
+					</div>
+					<div class="col-sm-6 col-xs-6 col-md-3 col-lg-3 rs2-select2 bo4">
 						<input class="s-text7 size6 p-l-23 p-r-50 inp-search" type="text" name="prod_name" placeholder="Search Products..." value="<?php echo $_GET['search']?>">
 					</div>
-					<br>
-					<div class="pos-relative bo4 of-hidden">
-						<button type="button" onclick="Product.setFilterSearch(this, '<?php echo $_GET['size']?>', '<?php echo $_GET['city']?>', '<?php echo $_GET['category']?>', '<?php echo $_GET['sort']?>')" class="btn btn-primary form-control">
+					<div class="col-sm-6 col-xs-6 col-md-1 col-lg-1">
+						<button type="button" onclick="Product.setFilterSearch(this, '<?php echo $_GET['size']?>', '<?php echo $_GET['city']?>', '<?php echo $_GET['category']?>', '<?php echo $_GET['sort']?>')" class="btn btn-primary form-control" style="height: 60px;">
 							<i class="fs-12 fa fa-search" aria-hidden="true"></i>
 						</button>
 					</div>
 				</div>
-			</div>
 
-			<div class="col-sm-12 col-xs-12 col-md-8 col-lg-9 p-b-50">
-				<div class="flex-sb-m flex-w p-b-35">
-					<div class="flex-w">
-						<div class="col-sm-6 col-xs-6 col-md-6 col-lg-6 rs2-select2 bo4 of-hidden w-size33 m-t-5 m-b-5 m-r-5">
-							<select class="selection-2" name="sorting" id="sorting" onchange="Product.setSort(this, '<?php echo $_GET['search']?>', '<?php echo $_GET['category']?>', '<?php echo $_GET['size']?>', '<?php echo $_GET['city']?>')">
-								<option value="">Default Sorting</option>
-								<option value="sortPriceASC" <?php if($_GET['sort'] == 'sortPriceASC') {?>selected<?php }?>>Price: low to high</option>
-								<option value="sortPriceDESC" <?php if($_GET['sort'] == 'sortPriceDESC') {?>selected<?php }?>>Price: high to low</option>
-								<option value="sortNameASC" <?php if($_GET['sort'] == 'sortNameASC') {?>selected<?php }?>>Product Name: A to Z</option>
-								<option value="sortNameDESC" <?php if($_GET['sort'] == 'sortNameDESC') {?>selected<?php }?>>Product Name: Z to A</option>
-							</select>
-						</div>
-
-						<!-- <div class="col-sm-5 col-xs-5 col-md-5 col-lg-5 rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-5">
-							<select class="selection-2" name="sorting">
-								<option>Price</option>
-								<option>$0.00 - $50.00</option>
-								<option>$50.00 - $100.00</option>
-								<option>$100.00 - $150.00</option>
-								<option>$150.00 - $200.00</option>
-								<option>$200.00+</option>
-							</select>
-						</div> -->
-					</div>
-
-					<!-- <span class="s-text8 p-t-5 p-b-5">
-						Showing 1–12 of 16 results
-					</span> -->
-				</div>
-
-				<div class="row">
+				<div class="row mt-3">
 					<?php if(count($read_product) > 0) {?>
 						<?php foreach($read_product as $k => $val) {?>
 							<div class="col-sm-6 col-xs-6 col-md-6 col-lg-4 p-b-50">
 								<div class="block2">
-									<div class="block2-img wrap-pic-w of-hidden hov-img-zoom pos-relative block2-<?php if($val['PROD_RENTDUE'] < date('Y-m-d')) {?>labelava<?php } else {?>labelsold<?php }?>">
+									<div class="block2-img wrap-pic-w hov-img-zoom pos-relative block2-<?php if($val['PROD_RENTDUE'] < date('Y-m-d')) {?>labelava<?php } else {?>labelsold<?php }?>">
 										<a href="<?php echo base_url();?>product/details/<?php echo $val['PROD_SLUG']?>">
 											<?php if($val['PROD_SPCPRICE'] > 0) {?>
 												<img src="<?= base_url()?>assets/frontend/images/misc/badgeimlek.png" class="notify-badge" alt="">
