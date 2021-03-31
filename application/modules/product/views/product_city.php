@@ -59,7 +59,6 @@
 											<iframe src="<?php echo $val['PROD_VIDLINK']?>" class="video-thumbnail"></iframe>
 										<?php }?>
 										<div class="block2-txt p-t-20">
-											<a href="<?php echo base_url();?>product/details/<?php echo $val['PROD_SLUG']?>" class="block2-name dis-block s-text3 p-b-5"><?php echo $val['PROD_NAME'] ?></a>
 											<?php if ($val['PROD_SPCPRICE'] > 0) {?>
 												<div class="block2-oldprice m-text7 p-r-5">
 													Rp <?php echo number_format($val['PROD_PRICE'])?>
@@ -72,6 +71,7 @@
 													Rp <?php echo number_format($val['PROD_PRICE'])?>
 												</div>
 											<?php }?>
+											<a href="<?php echo base_url();?>product/details/<?php echo $val['PROD_SLUG']?>" class="btn btn-primary mt-3 float-right">Detail</a>
 										</div>
 									</div>
 								</div>
