@@ -10,7 +10,7 @@ class Home extends MX_Controller
     $data['promo'] = $this->getPromo();
     $this->load->module('templates_');
     $data['view_module'] = 'home';
-    $data['view_content'] = 'home';
+    $data['view_content'] = 'home-santa';
     $data['view_addoncss'] = array('home_css');
     $data['view_addonjs'] = array('home_js');
     $data['view_addoncustjs'] = array('home_custjs');
