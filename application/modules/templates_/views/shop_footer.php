@@ -60,13 +60,13 @@
 
 				<ul>
 					<li class="p-b-9">
-						<a href="#" class="s-text7">
+						<a href="<?= base_url();?>aboutus" class="s-text7">
 							About Us
 						</a>
 					</li>
 
 					<li class="p-b-9">
-						<a href="#" class="s-text7">
+						<a href="<?= base_url();?>contactus" class="s-text7">
 							Contact Us
 						</a>
 					</li>
@@ -135,6 +135,10 @@
 			</div>
 		</div>
 	</footer>
+	<!-- whatsapp button -->
+	<a href="https://wa.me/6281331003778?text=Halo%2C%20saya%20ingin%20mendapatkan%20informasi%20mengenai%20produk%20Matchadonline" class="float" target="_blank">
+      <i class="fa fa-whatsapp my-float"></i>
+  </a>
 	<!-- Back to top -->
 	<div class="btn-back-to-top bg0-hov" id="myBtn">
 		<span class="symbol-btn-back-to-top">

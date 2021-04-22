@@ -63,6 +63,10 @@
 							</li>
 
 							<li>
+								<a href="<?php echo base_url()?>recovering/read?page=1&limit=12">Recovering</a>
+							</li>
+
+							<li>
 								<a href="<?php echo base_url('aboutus');?>">About</a>
 							</li>
 
