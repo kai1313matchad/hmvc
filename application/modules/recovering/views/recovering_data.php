@@ -30,7 +30,7 @@
                                             </div>
                                             <h3 class="mb-3 font-weight-bold"><?php echo $val['TITLE']; ?></h3>
                                             <div>
-                                                <?php echo character_limiter($val['DESCRIPTION'], 150); ?>
+                                                <?php echo character_limiter(strip_tags($val['DESCRIPTION']), 150); ?>
                                             </div>
                                         </div>
                                     </div>
