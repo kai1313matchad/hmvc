@@ -10,10 +10,20 @@ class Home extends MX_Controller
     $data['promo'] = $this->getPromo();
     $this->load->module('templates_');
     $data['view_module'] = 'home';
-    $data['view_content'] = 'home-santa';
+    $data['view_content'] = 'home';
     $data['view_addoncss'] = array('home_css');
     $data['view_addonjs'] = array('home_js');
     $data['view_addoncustjs'] = array('home_custjs');
+    $data['read_city'] = [
+      ["CITY_ID" => "31", "NAME" => "Jakarta", "IMAGE" => "jakarta.jpg", "VIDEO" => ""],
+      ["CITY_ID" => "3578", "NAME" => "Surabaya", "IMAGE" => "surabaya.jpg", "VIDEO" => "https://www.youtube.com/embed/OTywvYONm9U"],
+      ["CITY_ID" => "3573", "NAME" => "Malang", "IMAGE" => "malang.jpg", "VIDEO" => "https://www.youtube.com/embed/fTgDcHBjPp0"],
+      // ["CITY_ID" => "5171", "NAME" => "Denpasar", "IMAGE" => "bali.jpg", "VIDEO" => ""],
+      // ["CITY_ID" => "3273", "NAME" => "Bandung", "IMAGE" => "bandung.jpg", "VIDEO" => ""],
+      // ["CITY_ID" => "3271", "NAME" => "Bogor", "IMAGE" => "bogor.jpg", "VIDEO" => ""],
+      // ["CITY_ID" => "3471", "NAME" => "Yogyakarta", "IMAGE" => "yogyakarta.jpg", "VIDEO" => ""],
+      // ["CITY_ID" => "7171", "NAME" => "Manado", "IMAGE" => "manado.jpg", "VIDEO" => ""],
+    ]; 
     $this->templates_->shop($data);
   }
   public function get_mainbanners()

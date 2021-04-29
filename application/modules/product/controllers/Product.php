@@ -92,15 +92,71 @@ class Product extends MX_Controller
     }
   }
 
-  public function get_img($id)
-  {
+  // NEW ADDED BY RADIX
+  public function read() {
+    $this->load->model('Product_model', 'modelProduct');
+    $this->load->module('templates_');
+    
+    $limit = $this->input->get('limit');
+    $page = $this->input->get('page');
+    $data['read_city'] = [
+      ["CITY_ID" => "31", "NAME" => "Jakarta", "IMAGE" => "jakarta.jpg", "VIDEO" => ""],
+      ["CITY_ID" => "3578", "NAME" => "Surabaya", "IMAGE" => "surabaya.jpg", "VIDEO" => "https://www.youtube.com/embed/OTywvYONm9U"],
+      ["CITY_ID" => "3573", "NAME" => "Malang", "IMAGE" => "malang.jpg", "VIDEO" => ""],
+      ["CITY_ID" => "5171", "NAME" => "Denpasar", "IMAGE" => "bali.jpg", "VIDEO" => ""],
+      ["CITY_ID" => "3273", "NAME" => "Bandung", "IMAGE" => "bandung.jpg", "VIDEO" => ""],
+      ["CITY_ID" => "3271", "NAME" => "Bogor", "IMAGE" => "bogor.jpg", "VIDEO" => ""],
+      ["CITY_ID" => "3471", "NAME" => "Yogyakarta", "IMAGE" => "yogyakarta.jpg", "VIDEO" => ""],
+      ["CITY_ID" => "7171", "NAME" => "Manado", "IMAGE" => "manado.jpg", "VIDEO" => ""],
+    ]; 
+    
+    $filter['search'] = $this->input->get('search');
+    $filter['category'] = $this->input->get('category');
+    $filter['size'] = $this->input->get('size');
+    $filter['city'] = $this->input->get('city');
+    $filter['sort'] = $this->input->get('sort');
+
+    $total_data = $this->modelProduct->countData($filter);
+    // echo $filter['sortName'];die;
+    $data['view_module'] = 'product';
+    $data['view_content'] = 'product_city';
+    $data['view_addoncss'] = array('product_css');
+    $data['view_addonjs'] = array('product_js');
+
+    $page_count = ceil($total_data / $limit);
+    $page_active = (isset($page)) ? $page : 1;
+    $page_first = ($limit * $page_active) - $limit;
+
+    $data['page_count'] = $page_count;
+    $data['page_active'] = $page_active;
+    $data['page_limit'] = $limit;
+    $data['ctg'] = $this->get_categories();
+    $data['lok'] = $this->get_location();
+    $data['size'] = $this->get_size();
+    $data['header_video'] = $this->getVideo($data['read_city'], $_GET['city']);
+    $data['read_product'] = $this->modelProduct->readData($limit, $page_first, $filter); 
+
+    // echo"<pre>";print_r($data['header_video']);die;
+    $this->templates_->shop($data);
+  }
+
+  public function getVideo($array, $id) {
+    $data = '';
+    foreach ($array as $key => $value) {
+      if ($value['CITY_ID'] == $id) {
+        $data = $value['VIDEO'];
+      }
+    }
+    return $data;
+  }
+
+  public function get_img($id) {
     $get = $this->db->from('mona_prodpict a')
               ->join('mona_product b','b.prod_id = a.prod_id')
               ->where('a.prod_id',$id)
               ->get()->result();
     $data = array();
-    foreach ($get as $img)
-    {
+    foreach ($get as $img) {
       $data[] = '<div class="item-slick3" data-thumb="'.base_url().'admin'.$img->PRODPIC_PATH.'">
               <div class="wrap-pic-w hov-img-zoom">
                 <img src="'.base_url().'admin'.$img->PRODPIC_PATH.'" alt="IMG-PRODUCT">
@@ -110,13 +166,11 @@ class Product extends MX_Controller
     return $data;
   }  
 
-  public function get_categories()
-  {
+  public function get_categories() {
     $get = $this->db->get_where('mona_prodtype',array('prt_dtsts'=>'1'))->result();
     $rs = array();
     $cnt = 0;
-    foreach ($get as $dt)
-    {
+    foreach ($get as $dt) {
       $cnt++;
       $rs[$cnt]['PRT_ID'] = $dt->PRT_ID;
       $rs[$cnt]['PRT_NAME'] = $dt->PRT_NAME;
@@ -124,26 +178,22 @@ class Product extends MX_Controller
     return $rs;
   }
 
-    public function get_location()
-  {
+  public function get_location() {
     $get = $this->db->get('mona_district')->result();
     $rs = array();
     $cnt=0;
-    foreach ($get as $dt)
-    {
+    foreach ($get as $dt) {
       $cnt++;
       $rs[$cnt]['DIS_ID'] = $dt->DIS_ID;
       $rs[$cnt]['DIS_NAME'] = $dt->DIS_NAME;
     }
     return $rs;
   }
-  public function get_size()
-  {
+  public function get_size() {
     $get = $this->db->get_where('mona_prodsize',array('prsz_dtsts'=>'1'))->result();
     $rs = array();
     $cnt=0;
-    foreach ($get as $dt)
-    {
+    foreach ($get as $dt) {
       $cnt++;
       $rs[$cnt]['PRSZ_ID']= $dt->PRSZ_ID;
       $rs[$cnt]['PRSZ_NAME']= $dt->PRSZ_NAME;
