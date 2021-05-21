@@ -81,9 +81,9 @@
                     <?php foreach($read_recovering_recent as $k => $val) {?>
                         <li>
                             <div class="alignleft">
-                                <a href="">
+                                <a href="<?php echo base_url()?>recovering/detail?id=<?php echo $val['ID']?>">
                                     <div class="cardnail small">
-                                        <a href="">
+                                        <a href="<?php echo base_url()?>recovering/detail?id=<?php echo $val['ID']?>">
                                             <img src="<?php echo base_url()?>/admin/assets/img/recovering/<?php echo $val['IMAGE'] ?>" alt="">
                                         </a>
                                     </div>
@@ -91,7 +91,7 @@
                             </div>
                             <small><?php echo date('d/m/Y', strtotime($val['CREATED_AT']))?></small>
                             <h3>
-                                <a href="" title="">
+                                <a href="<?php echo base_url()?>recovering/detail?id=<?php echo $val['ID']?>" title="">
                                     <?php echo character_limiter($val['TITLE'], 25); ?>
                                 </a>
                             </h3>
