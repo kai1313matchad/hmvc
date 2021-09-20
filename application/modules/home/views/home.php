@@ -3,6 +3,7 @@
 	<section>
 		<div class="wrap-slick1">
 			<div class="slickCust" id="mainbanners">
+				<?= $mainbanners; ?>
 			</div>
 		</div>
 	</section>

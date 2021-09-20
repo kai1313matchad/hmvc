@@ -8,7 +8,8 @@ class Home extends MX_Controller
   public function index()
   {
     $data['promo'] = $this->getPromo();
-    $this->load->module('templates_');
+    $data['mainbanners'] = $this->getBanners();
+    $this->load->module('templates_');    
     $data['view_module'] = 'home';
     $data['view_content'] = 'home';
     $data['view_addoncss'] = array('home_css');
@@ -51,6 +52,16 @@ class Home extends MX_Controller
                   </a>
                   <div class="promo-title"><h5>'.$dt->PROD_NAME.'</h5></div>
                 </div>';
+    }
+    return($html);
+  }
+
+  public function getBanners() {
+    $banners = $this->db->get('mona_mainbanners')->result();
+    $i = 0;
+    $html = '';
+    foreach ($banners as $banner) {
+      $html .= '<div class="item-slick1 item'.($i+1).'-slick1" style="background-image: url('.base_url().'admin/'.$banner->MBANN_IMGPATH.');"><div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170"></div>';
     }
     return($html);
   }

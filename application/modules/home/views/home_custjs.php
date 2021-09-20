@@ -1,6 +1,6 @@
 		<script>
 			$(document).ready(function(){
-    		getmainbanners();
+    		// getmainbanners();
         $('.slick-promo').slick({
           infinite: true,
           slidesToShow: 3,
@@ -34,11 +34,12 @@
             }
           ]
         });
+        slicki()
     	});
 			function getmainbanners()
 			{
 				$.ajax({
-        	url : "<?php echo site_url('home/get_mainbanners')?>",
+        	url : "<?php echo base_url('Home/get_mainbanners')?>",
           type: "GET",
           dataType: "JSON",
           success: function(data)
@@ -77,7 +78,7 @@
 			}
     </script>
     
-    <script>
+    <!-- <script>
       // Array to store our Snowflake objects
       var snowflakes = [];
 
@@ -248,4 +249,4 @@
       function setResetFlag(e) {
         resetPosition = true;
       }
-    </script>
+    </script> -->
