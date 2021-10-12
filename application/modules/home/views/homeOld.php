@@ -15,6 +15,9 @@
 				<?= $promo; ?>
 			</div>
 		</div>
+	</section>
+
+	<section class="page">
 		<div class="container">
 			<h3 class="title-page text-center">Cari Media Promosi <span class="text-primary font-weight-bold">Kota Besar</span> di Indonesia</h3>
 			<div class="row">
@@ -34,10 +37,6 @@
 				</div>
 			</div>
 		</div>
-	</section>
-
-	<section class="page">
-		
 	</section>
 
 	<!-- Container Selection1 -->

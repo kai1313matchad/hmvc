@@ -47,7 +47,7 @@ class Home extends MX_Controller
       $pic = $this->db->select('PRODPIC_PATH')->get_where('mona_prodpict', array('PROD_ID'=>$dt->PROD_ID))->row()->PRODPIC_PATH;
       $html .= '<div class="col-md-4 item-slick-promo">
                   <a href="'.base_url().'product/details/'.$dt->PROD_SLUG.'">
-                    <img src="'.base_url().'assets/frontend/images/misc/.png" class="notify-badge" alt="">
+                    <img src="'.base_url().'assets/frontend/images/misc/badge-lebaran.png" class="notify-badge" alt="">
                     <img src="'.base_url().'admin'.$pic.'" width="100%" class="img-promo" alt="'.$dt->PROD_NAME.'">
                   </a>
                   <div class="promo-title"><h5>'.$dt->PROD_NAME.'</h5></div>
@@ -61,7 +61,7 @@ class Home extends MX_Controller
     $i = 0;
     $html = '';
     foreach ($banners as $banner) {
-      $html .= '<div class="item-slick1 item'.($i+1).'-slick1" style="background-image: url('.base_url().'admin/'.$banner->MBANN_IMGPATH.');"><div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170"></div></div>';
+      $html .= '<div class="item-slick1 item'.($i+1).'-slick1" style="background-image: url('.base_url().'admin/'.$banner->MBANN_IMGPATH.');"><div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170"></div>';
     }
     return($html);
   }
